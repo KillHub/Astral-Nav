@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="免费在线UUID生成器，支持批量生成UUID，可选择大小写格式。提供v4版本随机UUID，支持一键复制功能，适用于开发测试、数据库主键等场景。">
+    <meta name="keywords" content="UUID生成器,GUID生成器,UUID在线生成,批量UUID,唯一标识符,开发工具,测试数据生成">
+    <meta name="author" content="Steven Zhao">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Steven.jpg"/>
+
+    <title>UUID生成器 - 星界导航</title>
+    
+    <!-- 引入Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 引入自定义CSS -->
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/utils_uuid_generation.css">
+    
+    <!-- Umami Analytics -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="09c0a9c3-17ec-49e2-8fd0-7064f75f6978"></script>
+</head>
+
+<body>
+    <!-- 主内容 -->
+    <main class="uuid-generator">
+        <h1>UUID生成器</h1>
+        <form id="uuid-form">
+            <table class="form-table">
+                <tr>
+                    <td>生成数量：</td>
+                    <td>
+                        <input id="uuid_shuliang" type="number" size="4" min="1" max="3000" value="1" maxlength="4" class="all_srk_1">
+                        （1-3000）
+                    </td>
+                </tr>
+                <tr>
+                    <td>大小写：</td>
+                    <td>
+                        <label><input id="uuid_xiaoxie" name="uuid_daxiaoxie" type="radio" value="0" checked="checked">小写</label>
+                        <label><input type="radio" name="uuid_daxiaoxie" value="1">大写</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>分隔符（-）：</td>
+                    <td>
+                        <label><input id="uuid_fengefubaoliu" name="uuid_fengefu" type="radio" value="0" checked="checked">保留</label>
+                        <label><input type="radio" name="uuid_fengefu" value="1">取消</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="button" id="generate-btn" class="all_an_1">生成</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <div id="jie_guo_biao_ti">生成的UUID如下：</div>
+        <a id="jie_guo_nei_rong_copy_btn" href="javascript:void(0);">[复制]</a>
+        <span id="jie_guo_nei_rong_copy_btn_ok">复制成功！</span>
+        <pre id="jie_guo_nei_rong"></pre>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy;<a href="https://github.com/killhub/" target="_blank">GitHub - Stevn Zhao</a></p>
+    </footer>
+
+    <!-- 引入自定义JS -->
+    <script src="/js/utils.js"></script>
+    <script src="/js/utils_uuid_generation.js"></script>
+</body>
+</html> 

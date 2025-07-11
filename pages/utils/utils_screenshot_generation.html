@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="免费在线字幕截图生成器，支持自定义文字、背景、人物形象。可生成仿微博、推特等社交媒体风格的名人语录截图，支持多种模板和一键下载。">
+    <meta name="keywords" content="字幕截图生成器,名人语录生成,截图制作工具,社交媒体截图,微博风格截图,推特风格截图,在线工具,图片生成器">
+    <meta name="author" content="Steven Zhao">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Steven.jpg"/>
+
+    <title>字幕截图生成器 - 星界导航</title>
+
+    <!-- 引入Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 引入自定义CSS -->
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* 页面整体布局 */
+        body {
+            font-family: 'SF Pro Display', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+
+        .theme-switch {
+            display: flex;
+            align-items: center;
+        }
+
+        /* 左右布局 */
+        /* .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 90px auto 10px auto;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+        } */
+        .main-container {
+            max-width: 1600px;
+            margin: 66px auto 0px auto;
+            padding: 20px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 8px;
+            padding: 20px;
+            background-color: #35d1c5;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #333;
+        }
+
+        .header-section p {
+            font-family: "Times New Roman Italic", serif;
+            font-size: 1.2em;
+            color: #585555;
+            margin: 10px 0 0 0;
+        }
+
+        .content-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* 预览区域 */
+        .preview-section {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        #canvas {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* 功能区域 */
+        .controls-section {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        /* 表格样式 */
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .form-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        .form-table td:first-child {
+            background: #F5F5F5;
+            width: 150px;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        /* 输入框、按钮的样式 */
+        .all_srk_1 {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .all_an_1 {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .all_an_1:hover {
+            background: #218838;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        /* 隐藏元素 */
+        .hidden {
+            display: none;
+        }
+
+        /* Loading 样式 */
+        .loading-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            display: none;
+        }
+
+        /* 弹出框覆盖层 */
+        .modal-overlay {
+            display: none;
+            /* 默认隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* 半透明背景 */
+            z-index: 1000;
+            /* 确保在最上层 */
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
+        }
+
+        /* 弹出框内容 */
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            padding: 30px 20px 20px 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 标题样式 */
+        .modal-title {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* 图片样式 */
+        .modal-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+
+        /* 验证部分样式 */
+        .verification-section {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .verification-section label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .verification-section input {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .verification-section button {
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .verification-section button:hover {
+            background-color: #218838;
+        }
+
+        /* 关闭按钮样式 */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: #000;
+        }
+    </style>
+    
+     <!-- Umami Analytics -->
+     <script defer src="https://cloud.umami.is/script.js" data-website-id="09c0a9c3-17ec-49e2-8fd0-7064f75f6978"></script>
+</head>
+
+<body>
+
+    <!-- 主体内容 -->
+    <div class="main-container">
+        <!-- 添加的标题和说明 -->
+        <div class="header-section">
+            <h1>字幕截图生成器</h1>
+            <p>"都有截图了一定是真的"</p>
+        </div>
+        <div class="content-container">
+            <!-- 预览区域 -->
+            <div class="preview-section">
+                <h2>预览</h2>
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <!-- 控制区域 -->
+            <div class="controls-section">
+                <h2>生成设置</h2>
+                <!-- 功能表单 -->
+                <form id="zimu-form">
+                    <table class="form-table">
+                        <tr>
+                            <td>选择英雄：</td>
+                            <td>
+                                <select id="hero-select" class="all_srk_1">
+                                    <option value="/images/utils_screenshot_generation_images/郭德纲.jpg">郭德纲</option>
+                                    <option value="/images/utils_screenshot_generation_images/刘能.jpg">刘能</option>
+                                    <option value="/images/utils_screenshot_generation_images/鲁迅.jpg">鲁迅</option>
+                                    <option value="/images/utils_screenshot_generation_images/罗永浩.jpg">罗永浩</option>
+                                    <option value="/images/utils_screenshot_generation_images/马斯克.jpg">马斯克</option>
+                                    <option value="/images/utils_screenshot_generation_images/马云.jpg">马云</option>
+                                    <option value="/images/utils_screenshot_generation_images/莫言.jpg">莫言</option>
+                                    <option value="/images/utils_screenshot_generation_images/乔布斯.jpg">乔布斯</option>
+                                    <option value="/images/utils_screenshot_generation_images/杨澜.jpg">杨澜</option>
+                                    <option value="/images/utils_screenshot_generation_images/于丹.jpg">于丹</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>上传背景：</td>
+                            <td>
+                                <input type="file" id="bg-upload" accept="image/*" class="all_srk_1">
+                                <br><small>（可替换背景，也可直接使用左侧英雄）</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>字幕文本：</td>
+                            <td>
+                                <textarea id="text-input" rows="4" class="all_srk_1"
+                                    placeholder="输入字幕内容，按 Enter 换行"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label><input type="checkbox" id="double-check"> 双字幕</label></td>
+                            <td>
+                                <textarea id="text2-input" rows="4" class="all_srk_1 hidden"
+                                    placeholder="输入翻译字幕内容，按 Enter 换行"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>字号：</td>
+                            <td>
+                                <input type="range" id="fontsize-slider" min="10" max="50" value="26" class="all_srk_1">
+                                <span id="fontsize-value">26</span> px
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>行距：</td>
+                            <td>
+                                <input type="range" id="lineheight-slider" min="20" max="100" value="50"
+                                    class="all_srk_1">
+                                <span id="lineheight-value">50</span> px
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>字幕下边距：</td>
+                            <td>
+                                <input type="range" id="textbottommargin-slider" min="0" max="100" value="30"
+                                    class="all_srk_1">
+                                <span id="textbottommargin-value">30</span> px
+                            </td>
+                        </tr>
+                        <tr id="text2offset-row" class="hidden">
+                            <td>双字幕偏移：</td>
+                            <td>
+                                <input type="range" id="text2offset-slider" min="0" max="200" value="80"
+                                    class="all_srk_1">
+                                <span id="text2offset-value">80</span> % of 字号
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>水印：</td>
+                            <td>
+                                <label><input type="checkbox" id="watermark-check" checked>
+                                    显示水印</label>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+                <!-- 操作按钮 -->
+                <div style="text-align: center;">
+                    <button type="button" id="save-btn" class="all_an_1">保存图片</button>
+                    <button type="button" id="home-btn" class="all_an_1 btn-secondary">返回首页</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy;<a href="https://github.com/killhub/" target="_blank">GitHub - Stevn Zhao</a></p>
+    </footer>
+
+    <!-- 简易的loading提示 -->
+    <div id="loading-mask" class="loading-mask">
+        正在生成中，请稍候...
+    </div>
+
+    <!-- 弹出验证码输入框 -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class="modal-title">关注公众号获取验证码</h2>
+            <img src="/images/utils_screenshot_generation_images/gongzhonghao.png" alt="步骤图片" class="modal-image">
+            <div class="verification-section">
+                <label for="verification-code">输入验证码：（Steven Zhao）</label>
+                <input type="text" id="verification-code" />
+                <button id="verify-btn">确定</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // 简化版MD5函数
+        function md5(string) {
+            function RotateLeft(lValue, iShiftBits) {
+                return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
+            }
+            function AddUnsigned(lX, lY) {
+                var lX4, lY4, lX8, lY8, lResult;
+                lX8 = (lX & 0x80000000);
+                lY8 = (lY & 0x80000000);
+                lX4 = (lX & 0x40000000);
+                lY4 = (lY & 0x40000000);
+                lResult = (lX & 0x3FFFFFFF) + (lY & 0x3FFFFFFF);
+                if (lX4 & lY4) {
+                    return (lResult ^ 0x80000000 ^ lX8 ^ lY8);
+                }
+                if (lX4 | lY4) {
+                    if (lResult & 0x40000000) {
+                        return (lResult ^ 0xC0000000 ^ lX8 ^ lY8);
+                    } else {
+                        return (lResult ^ 0x40000000 ^ lX8 ^ lY8);
+                    }
+                } else {
+                    return (lResult ^ lX8 ^ lY8);
+                }
+            }
+            function F(x, y, z) { return (x & y) | ((~x) & z); }
+            function G(x, y, z) { return (x & z) | (y & (~z)); }
+            function H(x, y, z) { return (x ^ y ^ z); }
+            function I(x, y, z) { return (y ^ (x | (~z))); }
+            function FF(a, b, c, d, x, s, ac) {
+                a = AddUnsigned(a, AddUnsigned(AddUnsigned(F(b, c, d), x), ac));
+                return AddUnsigned(RotateLeft(a, s), b);
+            };
+            function GG(a, b, c, d, x, s, ac) {
+                a = AddUnsigned(a, AddUnsigned(AddUnsigned(G(b, c, d), x), ac));
+                return AddUnsigned(RotateLeft(a, s), b);
+            };
+            function HH(a, b, c, d, x, s, ac) {
+                a = AddUnsigned(a, AddUnsigned(AddUnsigned(H(b, c, d), x), ac));
+                return AddUnsigned(RotateLeft(a, s), b);
+            };
+            function II(a, b, c, d, x, s, ac) {
+                a = AddUnsigned(a, AddUnsigned(AddUnsigned(I(b, c, d), x), ac));
+                return AddUnsigned(RotateLeft(a, s), b);
+            };
+            function ConvertToWordArray(string) {
+                var lWordCount;
+                var lMessageLength = string.length;
+                var lNumberOfWords_temp1 = lMessageLength + 8;
+                var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
+                var lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
+                var lWordArray = Array(lNumberOfWords - 1);
+                var lBytePosition = 0;
+                var lByteCount = 0;
+                while (lByteCount < lMessageLength) {
+                    lWordCount = (lByteCount - (lByteCount % 4)) / 4;
+                    lBytePosition = (lByteCount % 4) * 8;
+                    lWordArray[lWordCount] = (lWordArray[lWordCount] | (string.charCodeAt(lByteCount) << lBytePosition));
+                    lByteCount++;
+                }
+                lWordCount = (lByteCount - (lByteCount % 4)) / 4;
+                lBytePosition = (lByteCount % 4) * 8;
+                lWordArray[lWordCount] = lWordArray[lWordCount] | (0x80 << lBytePosition);
+                lWordArray[lNumberOfWords - 2] = lMessageLength << 3;
+                lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
+                return lWordArray;
+            };
+            function WordToHex(lValue) {
+                var WordToHexValue = "", WordToHexValue_temp = "", lByte, lCount;
+                for (lCount = 0; lCount <= 3; lCount++) {
+                    lByte = (lValue >>> (lCount * 8)) & 255;
+                    WordToHexValue_temp = "0" + lByte.toString(16);
+                    WordToHexValue = WordToHexValue + WordToHexValue_temp.substr(WordToHexValue_temp.length - 2, 2);
+                }
+                return WordToHexValue;
+            };
+            function Utf8Encode(string) {
+                string = string.replace(/\r\n/g, "\n");
+                var utftext = "";
+                for (var n = 0; n < string.length; n++) {
+                    var c = string.charCodeAt(n);
+                    if (c < 128) {
+                        utftext += String.fromCharCode(c);
+                    }
+                    else if ((c > 127) && (c < 2048)) {
+                        utftext += String.fromCharCode((c >> 6) | 192);
+                        utftext += String.fromCharCode((c & 63) | 128);
+                    }
+                    else {
+                        utftext += String.fromCharCode((c >> 12) | 224);
+                        utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                        utftext += String.fromCharCode((c & 63) | 128);
+                    }
+                }
+                return utftext;
+            };
+            var x = Array();
+            var k, AA, BB, CC, DD, a, b, c, d;
+            var S11 = 7, S12 = 12, S13 = 17, S14 = 22;
+            var S21 = 5, S22 = 9, S23 = 14, S24 = 20;
+            var S31 = 4, S32 = 11, S33 = 16, S34 = 23;
+            var S41 = 6, S42 = 10, S43 = 15, S44 = 21;
+            string = Utf8Encode(string);
+            x = ConvertToWordArray(string);
+            a = 0x67452301;
+            b = 0xEFCDAB89;
+            c = 0x98BADCFE;
+            d = 0x10325476;
+            for (k = 0; k < x.length; k += 16) {
+                AA = a;
+                BB = b;
+                CC = c;
+                DD = d;
+                a = FF(a, b, c, d, x[k + 0], S11, 0xD76AA478);
+                d = FF(d, a, b, c, x[k + 1], S12, 0xE8C7B756);
+                c = FF(c, d, a, b, x[k + 2], S13, 0x242070DB);
+                b = FF(b, c, d, a, x[k + 3], S14, 0xC1BDCEEE);
+                a = FF(a, b, c, d, x[k + 4], S11, 0xF57C0FAF);
+                d = FF(d, a, b, c, x[k + 5], S12, 0x4787C62A);
+                c = FF(c, d, a, b, x[k + 6], S13, 0xA8304613);
+                b = FF(b, c, d, a, x[k + 7], S14, 0xFD469501);
+                a = FF(a, b, c, d, x[k + 8], S11, 0x698098D8);
+                d = FF(d, a, b, c, x[k + 9], S12, 0x8B44F7AF);
+                c = FF(c, d, a, b, x[k + 10], S13, 0xFFFF5BB1);
+                b = FF(b, c, d, a, x[k + 11], S14, 0x895CD7BE);
+                a = FF(a, b, c, d, x[k + 12], S11, 0x6B901122);
+                d = FF(d, a, b, c, x[k + 13], S12, 0xFD987193);
+                c = FF(c, d, a, b, x[k + 14], S13, 0xA679438E);
+                b = FF(b, c, d, a, x[k + 15], S14, 0x49B40821);
+                a = GG(a, b, c, d, x[k + 1], S21, 0xF61E2562);
+                d = GG(d, a, b, c, x[k + 6], S22, 0xC040B340);
+                c = GG(c, d, a, b, x[k + 11], S23, 0x265E5A51);
+                b = GG(b, c, d, a, x[k + 0], S24, 0xE9B6C7AA);
+                a = GG(a, b, c, d, x[k + 5], S21, 0xD62F105D);
+                d = GG(d, a, b, c, x[k + 10], S22, 0x2441453);
+                c = GG(c, d, a, b, x[k + 15], S23, 0xD8A1E681);
+                b = GG(b, c, d, a, x[k + 4], S24, 0xE7D3FBC8);
+                a = GG(a, b, c, d, x[k + 9], S21, 0x21E1CDE6);
+                d = GG(d, a, b, c, x[k + 14], S22, 0xC33707D6);
+                c = GG(c, d, a, b, x[k + 3], S23, 0xF4D50D87);
+                b = GG(b, c, d, a, x[k + 8], S24, 0x455A14ED);
+                a = GG(a, b, c, d, x[k + 13], S21, 0xA9E3E905);
+                d = GG(d, a, b, c, x[k + 2], S22, 0xFCEFA3F8);
+                c = GG(c, d, a, b, x[k + 7], S23, 0x676F02D9);
+                b = GG(b, c, d, a, x[k + 12], S24, 0x8D2A4C8A);
+                a = HH(a, b, c, d, x[k + 5], S31, 0xFFFA3942);
+                d = HH(d, a, b, c, x[k + 8], S32, 0x8771F681);
+                c = HH(c, d, a, b, x[k + 11], S33, 0x6D9D6122);
+                b = HH(b, c, d, a, x[k + 14], S34, 0xFDE5380C);
+                a = HH(a, b, c, d, x[k + 1], S31, 0xA4BEEA44);
+                d = HH(d, a, b, c, x[k + 4], S32, 0x4BDECFA9);
+                c = HH(c, d, a, b, x[k + 7], S33, 0xF6BB4B60);
+                b = HH(b, c, d, a, x[k + 10], S34, 0xBEBFBC70);
+                a = HH(a, b, c, d, x[k + 13], S31, 0x289B7EC6);
+                d = HH(d, a, b, c, x[k + 0], S32, 0xEAA127FA);
+                c = HH(c, d, a, b, x[k + 3], S33, 0xD4EF3085);
+                b = HH(b, c, d, a, x[k + 6], S34, 0x4881D05);
+                a = HH(a, b, c, d, x[k + 9], S31, 0xD9D4D039);
+                d = HH(d, a, b, c, x[k + 12], S32, 0xE6DB99E5);
+                c = HH(c, d, a, b, x[k + 15], S33, 0x1FA27CF8);
+                b = HH(b, c, d, a, x[k + 2], S34, 0xC4AC5665);
+                a = II(a, b, c, d, x[k + 0], S41, 0xF4292244);
+                d = II(d, a, b, c, x[k + 7], S42, 0x432AFF97);
+                c = II(c, d, a, b, x[k + 14], S43, 0xAB9423A7);
+                b = II(b, c, d, a, x[k + 5], S44, 0xFC93A039);
+                a = II(a, b, c, d, x[k + 12], S41, 0x655B59C3);
+                d = II(d, a, b, c, x[k + 3], S42, 0x8F0CCC92);
+                c = II(c, d, a, b, x[k + 10], S43, 0xFFEFF47D);
+                b = II(b, c, d, a, x[k + 1], S44, 0x85845DD1);
+                a = II(a, b, c, d, x[k + 8], S41, 0x6FA87E4F);
+                d = II(d, a, b, c, x[k + 15], S42, 0xFE2CE6E0);
+                c = II(c, d, a, b, x[k + 6], S43, 0xA3014314);
+                b = II(b, c, d, a, x[k + 13], S44, 0x4E0811A1);
+                a = II(a, b, c, d, x[k + 4], S41, 0xF7537E82);
+                d = II(d, a, b, c, x[k + 11], S42, 0xBD3AF235);
+                c = II(c, d, a, b, x[k + 2], S43, 0x2AD7D2BB);
+                b = II(b, c, d, a, x[k + 9], S44, 0xEB86D391);
+                a = AddUnsigned(a, AA);
+                b = AddUnsigned(b, BB);
+                c = AddUnsigned(c, CC);
+                d = AddUnsigned(d, DD);
+            }
+            var temp = WordToHex(a) + WordToHex(b) + WordToHex(c) + WordToHex(d);
+            return temp.toLowerCase();
+        }
+
+        // 预定义的字幕文案
+        const subtitleSets = [
+            [
+                {
+                    cn: "生活就像一盒巧克力，你永远不知道你会得到什么。",
+                    en: "Life is like a box of chocolates, you never know what you're gonna get."
+                },
+                {
+                    cn: "别害怕失败，害怕的是不敢尝试。",
+                    en: "Don't fear failure, fear not trying."
+                },
+                {
+                    cn: "时间是最好的医生，也是最糟的美容师。",
+                    en: "Time is the best healer but the worst beautician."
+                },
+                {
+                    cn: "努力不一定会成功，但放弃一定不会成功。",
+                    en: "Hard work might not guarantee success, but giving up guarantees failure."
+                },
+                {
+                    cn: "每一天都是一个新的开始，不要被过去困扰。",
+                    en: "Every day is a new beginning, don't let the past trouble you."
+                }
+            ],
+            [
+                {
+                    cn: "成功的秘诀在于坚持自己的目标。",
+                    en: "The key to success is persisting in your goals."
+                },
+                {
+                    cn: "机会总是留给有准备的人。",
+                    en: "Opportunity favors the prepared mind."
+                },
+                {
+                    cn: "梦想不会逃跑，逃跑的总是自己。",
+                    en: "Dreams don't run away, we do."
+                },
+                {
+                    cn: "每一次努力都是幸运的伏笔。",
+                    en: "Every effort is a foreshadowing of luck."
+                },
+                {
+                    cn: "不要等待机会，而要创造机会。",
+                    en: "Don't wait for opportunities, create them."
+                }
+            ]
+        ];
+
+        // 随机选择一组字幕
+        function getRandomSubtitles() {
+            const randomSet = subtitleSets[Math.floor(Math.random() * subtitleSets.length)];
+            const shuffled = [...randomSet].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 5);
+        }
+
+        // 初始化字幕输入
+        function initializeSubtitles() {
+            const subtitles = getRandomSubtitles();
+            textInput.value = subtitles.map(item => item.cn).join('\n');
+            text2Input.value = subtitles.map(item => item.en).join('\n');
+            // 自动勾选双字幕选项
+            doubleCheck.checked = true;
+            text2Input.classList.remove('hidden');
+            text2OffsetRow.classList.remove('hidden');
+        }
+
+        // 1. 获取元素
+        const heroSelect = document.getElementById('hero-select');
+        const bgUpload = document.getElementById('bg-upload');
+        const textInput = document.getElementById('text-input');
+        const doubleCheck = document.getElementById('double-check');
+        const text2Input = document.getElementById('text2-input');
+
+        const fontsizeSlider = document.getElementById('fontsize-slider');
+        const fontsizeValue = document.getElementById('fontsize-value');
+        const lineheightSlider = document.getElementById('lineheight-slider');
+        const lineheightValue = document.getElementById('lineheight-value');
+
+        const watermarkCheck = document.getElementById('watermark-check');
+        const canvas = document.getElementById('canvas');
+        const saveBtn = document.getElementById('save-btn');
+        const homeBtn = document.getElementById('home-btn');
+        const loadingMask = document.getElementById('loading-mask');
+
+        const textBottomMarginSlider = document.getElementById('textbottommargin-slider');
+        const textBottomMarginValue = document.getElementById('textbottommargin-value');
+        const text2OffsetSlider = document.getElementById('text2offset-slider');
+        const text2OffsetValue = document.getElementById('text2offset-value');
+        const text2OffsetRow = document.getElementById('text2offset-row');
+
+        // 获取弹出框相关元素
+        const modalOverlay = document.getElementById('modal-overlay');
+        const closeButton = document.querySelector('.close-button');
+        const verifyBtn = document.getElementById('verify-btn');
+        const verificationCodeInput = document.getElementById('verification-code');
+
+        textBottomMarginSlider.addEventListener('input', () => {
+            textBottomMarginValue.textContent = textBottomMarginSlider.value;
+            generateImage();
+        });
+
+        text2OffsetSlider.addEventListener('input', () => {
+            text2OffsetValue.textContent = text2OffsetSlider.value;
+            generateImage();
+        });
+
+        // 2. 初始化变量
+        let bgImage = new Image();  // 背景图
+        bgImage.src = heroSelect.value;
+
+        // 默认显示水印
+        watermarkCheck.checked = true;
+
+        // 当水印复选框状态改变时，重新生成图片
+        watermarkCheck.addEventListener('click', (e) => {
+            if (!watermarkCheck.checked) { // 用户尝试取消勾选
+                // 检查localStorage中的验证状态
+                const watermarkVerified = localStorage.getItem('watermarkVerified');
+                const watermarkExpiry = localStorage.getItem('watermarkExpiry');
+                const now = new Date().getTime();
+
+                if (watermarkVerified && watermarkExpiry && now < parseInt(watermarkExpiry)) {
+                    // 验证通过，允许取消勾选
+                    // 不阻止默认行为，复选框会被取消勾选
+                    generateImage(false);
+                } else {
+                    // 验证未通过，阻止取消勾选并弹出验证码输入框
+                    e.preventDefault();
+                    showModal();
+                }
+            } else { // 用户尝试勾选
+                // 允许勾选，重新生成带水印的图片
+                generateImage();
+            }
+        });
+
+        // 3. 切换是否显示双字幕输入框
+        doubleCheck.addEventListener('change', () => {
+            if (doubleCheck.checked) {
+                text2Input.classList.remove('hidden');
+                text2OffsetRow.classList.remove('hidden');
+            } else {
+                text2Input.classList.add('hidden');
+                text2OffsetRow.classList.add('hidden');
+            }
+            generateImage();
+        });
+
+        // 4. 同步显示字号、行距的数值
+        fontsizeSlider.addEventListener('input', () => {
+            fontsizeValue.textContent = fontsizeSlider.value;
+            generateImage();
+        });
+        lineheightSlider.addEventListener('input', () => {
+            lineheightValue.textContent = lineheightSlider.value;
+            generateImage();
+        });
+
+        // 5. 预加载图片
+        bgImage.onload = function () {
+            generateImage();
+        };
+
+        // 当选择英雄时，自动切换背景
+        heroSelect.addEventListener('change', () => {
+            bgUpload.value = ''; // 清空上传选择
+            bgImage.src = heroSelect.value;
+        });
+
+        // 当上传背景时，优先使用上传文件
+        bgUpload.addEventListener('change', () => {
+            if (bgUpload.files && bgUpload.files[0]) {
+                let file = bgUpload.files[0];
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    bgImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // 6. 字幕输入事件
+        textInput.addEventListener('input', () => {
+            generateImage();
+        });
+
+        text2Input.addEventListener('input', () => {
+            if (doubleCheck.checked) {
+                generateImage();
+            }
+        });
+
+        // 7. 生成图片函数
+        function generateImage() {
+            showLoading();
+
+            // 确保背景图已加载
+            if (!bgImage.complete) {
+                bgImage.onload = () => {
+                    drawToCanvas();
+                    hideLoading();
+                };
+            } else {
+                drawToCanvas();
+                hideLoading();
+            }
+        }
+
+        // 8. 真正的绘图逻辑
+        function drawToCanvas() {
+            let fontSize = parseInt(fontsizeSlider.value, 10);
+            let lineHeight = parseInt(lineheightSlider.value, 12);
+
+            // 从滑动条获取动态参数
+            let textBottomMargin = parseInt(textBottomMarginSlider.value, 10);
+            let text2OffsetPercent = parseInt(text2OffsetSlider.value, 10); // 百分比值
+            let text2Offset = fontSize * (text2OffsetPercent / 100);
+
+            // 准备字幕内容
+            let textLines = textInput.value.split('\n').filter(line => line.trim() !== '');
+            let text2Lines = doubleCheck.checked ? text2Input.value.split('\n').filter(line => line.trim() !== '') : [];
+
+            // 计算总的字幕行数（每组字幕只算作一行）
+            let totalSubtitleLines = textLines.length;
+
+            // 由于第一行字幕在原图上，所以需要额外增加的行数为总行数减一
+            let extraSubtitleLines = Math.max(0, totalSubtitleLines - 1);
+
+            // 计算需要增加的高度
+            let subtitleHeight = extraSubtitleLines * lineHeight + 33; // 额外留白
+
+            // 限制字幕区域不超过原图高度
+            let maxSubtitleHeight = bgImage.height;
+            if (subtitleHeight > maxSubtitleHeight) {
+                subtitleHeight = maxSubtitleHeight;
+                lineHeight = Math.floor((subtitleHeight - 15) / extraSubtitleLines);
+                lineheightSlider.value = lineHeight;
+                lineheightValue.textContent = lineHeight;
+            }
+
+            // 设置 canvas 的大小
+            canvas.width = bgImage.width;
+            canvas.height = bgImage.height + subtitleHeight;
+
+            let ctx = canvas.getContext('2d');
+
+            // 画原图
+            ctx.drawImage(bgImage, 0, 0, bgImage.width, bgImage.height);
+
+            // 为每一行额外的字幕绘制对应的背景部分（从第二行开始）
+            for (let i = 0; i < extraSubtitleLines; i++) {
+                let srcX = 0;
+                let srcWidth = bgImage.width;
+                let srcHeight = Math.min(lineHeight, bgImage.height);
+                let srcY = bgImage.height - srcHeight;
+
+                let destX = 0;
+                let destY = bgImage.height + i * lineHeight;
+                let destWidth = bgImage.width;
+                let destHeight = srcHeight;
+
+                ctx.drawImage(bgImage, srcX, srcY, srcWidth, srcHeight, destX, destY, destWidth, destHeight);
+            }
+
+            // 设置文本样式
+            ctx.font = `${fontSize}px Arial`;
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+
+            let x = canvas.width / 2;
+
+            // 计算主字幕的 Y 坐标
+            function getSubtitleY(index) {
+                if (index === 0) {
+                    // 第一行字幕在原图上
+                    return bgImage.height - textBottomMargin;
+                } else {
+                    // 其他字幕在拼接的部分
+                    let lineIndex = index - 1;
+                    return bgImage.height + lineIndex * lineHeight + lineHeight - textBottomMargin;
+                }
+            }
+
+            // 绘制字幕
+            for (let i = 0; i < textLines.length; i++) {
+                let y = getSubtitleY(i);
+
+                // 绘制主字幕
+                ctx.font = `${fontSize}px Arial`;
+                ctx.strokeText(textLines[i], x, y);
+                ctx.fillText(textLines[i], x, y);
+
+                if (doubleCheck.checked && text2Lines[i]) {
+                    let text2FontSize = Math.floor(fontSize * 0.8);
+                    ctx.font = `${text2FontSize}px Arial`;
+                    ctx.strokeText(text2Lines[i], x, y + text2Offset);
+                    ctx.fillText(text2Lines[i], x, y + text2Offset);
+                }
+            }
+
+            // 绘制水印
+            if (watermarkCheck.checked) {
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'top';
+
+                ctx.font = '20px Arial';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                ctx.fillText('@星界导航-截图生成器', canvas.width - 10, 10);
+
+                ctx.font = '20px Arial';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                //ctx.fillText('网址', canvas.width - 10, 30);
+            }
+
+        }
+
+        // 9. 保存图片
+        saveBtn.addEventListener('click', () => {
+            if (canvas.width === 0 || canvas.height === 0) {
+                alert('图片尚未生成，请先生成图片。');
+                return;
+            }
+            canvas.toBlob(function (blob) {
+                let url = URL.createObjectURL(blob);
+                let link = document.createElement('a');
+                link.download = 'subtitle_image.png';
+                link.href = url;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            }, 'image/png');
+        });
+
+        // 10. 返回首页
+        homeBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        // 11. Loading 提示
+        function showLoading() {
+            loadingMask.style.display = 'flex';
+        }
+        function hideLoading() {
+            loadingMask.style.display = 'none';
+        }
+
+        // 12. 页面初始生成
+        window.onload = function () {
+            // 初始化随机字幕
+            initializeSubtitles();
+
+            // 检查localStorage中的验证标识是否存在且未过期
+            const watermarkVerified = localStorage.getItem('watermarkVerified');
+            const watermarkExpiry = localStorage.getItem('watermarkExpiry');
+            const now = new Date().getTime();
+
+            if (watermarkVerified && watermarkExpiry && now < parseInt(watermarkExpiry)) {
+                // 验证通过，允许下载不含水印
+                watermarkCheck.checked = false;
+            } else {
+                // 验证未通过，默认勾选水印
+                watermarkCheck.checked = true;
+            }
+
+            // 根据当前勾选状态生成图片
+            generateImage(watermarkCheck.checked);
+        };
+
+        // 显示弹出框函数
+        function showModal() {
+            modalOverlay.style.display = 'flex';
+            verificationCodeInput.value = ''; // 清空输入框
+        }
+
+        // 关闭弹出框函数
+        function closeModal() {
+            modalOverlay.style.display = 'none';
+        }
+
+        // 处理验证码验证
+        verifyBtn.addEventListener('click', () => {
+            const userInput = verificationCodeInput.value.trim();
+            if (userInput === '') {
+                alert('请输入验证码。');
+                return;
+            }
+            const hashedInput = md5(userInput);
+            const correctHash = 'cbe43bacdae6310e8455965b6413d328'; 
+
+            if (hashedInput === correctHash) {
+                
+                closeModal();
+                
+                const expiryTime = new Date().getTime() + 7 * 24 * 60 * 60 * 1000; 
+                localStorage.setItem('watermarkVerified', 'true');
+                localStorage.setItem('watermarkExpiry', expiryTime.toString());
+
+                watermarkCheck.checked = false;
+                generateImage(false);
+            } else {
+                // 验证失败
+                alert('验证码错误，请按照上述步骤关注公众号，回复"天才"获取免费验证码。');
+            }
+        });
+
+        // 关闭按钮事件
+        closeButton.addEventListener('click', () => {
+            closeModal();
+        });
+
+        setInterval(() => {
+            const watermarkVerified = localStorage.getItem('watermarkVerified');
+            const watermarkExpiry = localStorage.getItem('watermarkExpiry');
+            const now = new Date().getTime();
+
+            if (watermarkVerified && watermarkExpiry && now >= parseInt(watermarkExpiry)) {
+                localStorage.removeItem('watermarkVerified');
+                localStorage.removeItem('watermarkExpiry');
+            }
+        }, 60 * 60 * 1000); // 每小时检查一次
+    </script>
+</body>
+
+</html>

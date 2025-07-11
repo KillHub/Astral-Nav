@@ -1,0 +1,178 @@
+.json-formatter {
+    padding-top: 60px;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+}
+
+.maximized .json-formatter {
+    padding-top: 0;
+    height: 100vh;
+}
+
+.editor-wrapper {
+    margin: 0 auto;
+    width: 95%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.toolbar {
+    padding: 10px 20px;
+    background-color: inherit;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+
+.toolbar h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.editor-container {
+    flex: 1 1 auto;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    min-height: calc(100vh - 250px);
+}
+
+.editor-pane {
+    flex: 1 0 0%;
+    min-width: 10%;
+    max-width: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#json-input {
+    flex: 1;
+    width: 98%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: monospace;
+    resize: none;
+    min-height: 96%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#json-output {
+    flex: 1;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-height: 96%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.maximized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: inherit;
+    padding: 0;
+}
+
+.maximized .editor-wrapper {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.maximized .toolbar {
+    top: 0;
+}
+
+.maximized .editor-container {
+    height: calc(100vh - 60px);
+}
+
+.maximized .navbar,
+.maximized footer {
+    display: none;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+body.dark-mode .toolbar {
+    border-bottom-color: #444;
+}
+
+body.dark-mode #json-input,
+body.dark-mode #json-output {
+    border-color: #444;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.dragbar {
+    width: 4px;
+    background-color: #ddd;
+    cursor: col-resize;
+    position: relative;
+    z-index: 10;
+    transition: background-color 0.3s;
+    flex: 0 0 4px;
+}
+
+.dragbar:hover {
+    background-color: #007AFF;
+}
+
+body.dark-mode .dragbar:hover {
+    background-color: #0A84FF;
+}
+
+.buttons button {
+    margin: 0 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007AFF;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode .buttons button {
+    background-color: #0A84FF;
+}
+
+body.dark-mode .buttons button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    padding: 15px 0;
+    background-color: inherit;
+    text-align: center;
+    border-top: 1px solid #ddd;
+} 

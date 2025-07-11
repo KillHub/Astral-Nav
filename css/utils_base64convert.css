@@ -1,0 +1,215 @@
+body {
+    font-family: 'SF Pro Display', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    width: 85%;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.content-wrapper {
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.section {
+    flex: 1;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08),
+                0 2px 6px rgba(0, 0, 0, 0.04);
+    min-width: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1),
+                0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 15px;
+    border: 2px solid #edf2f7;
+    border-radius: 12px;
+    resize: vertical;
+    min-height: 120px;
+    max-height: 300px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    outline: none;
+}
+
+button {
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    background: linear-gradient(145deg, #3498db, #2980b9);
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+    background: linear-gradient(145deg, #3498db, #2573a7);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #3498db;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #3498db, transparent);
+}
+
+.option-group {
+    margin-bottom: 25px;
+}
+
+label {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #34495e;
+    font-weight: 500;
+    display: block;
+}
+
+/* 深色模式优化 */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+body.dark-mode .section {
+    background-color: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode textarea {
+    background-color: #363636;
+    border-color: #404040;
+    color: #e0e0e0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+body.dark-mode button {
+    background: linear-gradient(145deg, #3498db, #2573a7);
+}
+
+body.dark-mode button:hover {
+    background: linear-gradient(145deg, #3498db, #2980b9);
+}
+
+body.dark-mode h2 {
+    color: #e0e0e0;
+    border-bottom-color: #3498db;
+}
+
+body.dark-mode label {
+    color: #b0b0b0;
+}
+
+/* 响应式优化 */
+@media (max-width: 1200px) {
+    main {
+        width: 90%;
+    }
+}
+
+@media (max-width: 968px) {
+    main {
+        width: 95%;
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .section {
+        width: 100%;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    textarea {
+        min-height: 100px;
+    }
+
+    .button-group {
+        flex-wrap: wrap;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 15px;
+        flex: 1 1 auto;
+        min-width: 110px;
+    }
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+} 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="免费在线JSON格式化工具，支持格式化、压缩、复制、折叠等功能，提供实时预览和语法高亮。纯前端实现，安全可靠，支持大文件处理。">
+    <meta name="keywords" content="JSON格式化,JSON压缩,JSON美化,JSON校验,JSON编辑器,在线工具,代码格式化,开发者工具">
+    <meta name="author" content="Steven Zhao">
+    <meta name="robots" content="index, follow"><!-- 指导搜索引擎爬虫（如 Googlebot、Bingbot）如何抓取和索引网页 -->
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Steven.jpg"/>
+
+    <title>JSON格式化工具 - 星界导航</title>
+    
+    <!-- 引入Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 引入自定义CSS -->
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/utils_json-formatter.css">
+    <!-- 引入JSON Viewer库 -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.6/jsoneditor.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.6/jsoneditor.min.js"></script> -->
+    <link rel="stylesheet" href="/css/jsoneditor-v9.5.6.min.css">
+    <script src="/js/jsoneditor-v9.5.6.min.js"></script>
+    
+    <!-- Umami Analytics，用于记录访客行为 -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="09c0a9c3-17ec-49e2-8fd0-7064f75f6978"></script>
+</head>
+<body>
+    <!-- 主内容 -->
+    <main class="json-formatter">
+        <div class="editor-wrapper">
+            <div class="toolbar">
+                <h1>JSON格式化工具</h1>
+                <div class="buttons">
+                    <button id="format-btn"><i class="fas fa-indent"></i> 格式化</button>
+                    <button id="minify-btn"><i class="fas fa-compress"></i> 压缩</button>
+                    <button id="copy-btn"><i class="fas fa-copy"></i> 复制</button>
+                    <button id="collapse-btn"><i class="fas fa-compress-arrows-alt"></i> 折叠</button>
+                    <button id="maximize-btn"><i class="fas fa-expand"></i> 最大化</button>
+                    <button id="restore-btn" style="display:none;"><i class="fas fa-compress"></i> 还原</button>
+                    <button id="clear-btn"><i class="fas fa-trash"></i> 清空</button>
+                </div>
+            </div>
+            <div class="editor-container">
+                <div class="editor-pane" id="input-pane">
+                    <textarea id="json-input" placeholder="在此处粘贴您的JSON"></textarea>
+                </div>
+                <div class="dragbar" id="dragbar"></div>
+                <div class="editor-pane" id="output-pane">
+                    <div id="json-output"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy;<a href="https://github.com/killhub/" target="_blank">GitHub - Stevn Zhao</a></p>
+    </footer>
+
+    <!-- 引入自定义JS -->
+    <script src="/js/utils.js"></script>
+    <script src="/js/utils_json-formatter.js"></script>
+</body>
+</html> 
