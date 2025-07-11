@@ -1,0 +1,18 @@
+[
+  {
+    "url": "/pages/utils/utils_json_formatter.html",
+    "title": "JSON格式化工具",
+    "desc": "格式化和校验JSON数据，方便查看和编辑",
+    "icon": "fas fa-code",
+    "category": "格式化",
+    "featured": true
+  },
+  {
+    "url": "/pages/utils/utils_xml_formatter.html",
+    "title": "XML格式化工具",
+    "desc": "格式化和校验XML数据",
+    "icon": "fas fa-file-code",
+    "category": "格式化",
+    "featured": false
+  }
+]

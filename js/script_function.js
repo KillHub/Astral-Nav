@@ -685,6 +685,36 @@ function openSwalBox(url,title){
     });
 }
 
+fetch('/json/utils.json')               // 1. 发起请求
+  .then(response => response.json())    // 2. 解析响应为 JSON
+  .then(data => {                       // 3. 使用解析后的数据
+    console.log(data);                  // 4. 打印数据
+                                        // 5. 打印网页
+    const toolList = document.getElementById('tool-list');
+    toolList.innerHTML = data.map(tool => `
+    <a onclick="openSwalBox('${tool.url}','${tool.title}')" href="javascript:void(0);" class="tool-card visible">
+        <div class="icon-wrapper">
+            <div class="icon-bg"></div>
+            <i class="${tool.icon}"></i>
+        </div>
+        <h3>${tool.title}</h3>
+        <p class="card-description">${tool.desc}</p>
+        <span class="category-tag">${tool.category}</span>
+        ${tool.featured ? '<span class="featured-indicator"><i class="fas fa-star"></i>热门</span>' : ''}
+    </a>
+    `).join('');
+  })
+  .catch(error => {                 // 4. 处理错误
+    console.error('加载 JSON 失败:', error);
+  });
+
+
+
+
+
+//const data = JSON.parse(JSON.stringify(dataJson));//JSON.stringify()的作用是将 JavaScript 对象转换为 JSON 字符串，而JSON.parse()可以将JSON字符串转为一个对象。
+//console.log(data);
+
 
 //控制台输出
 console.clear();
