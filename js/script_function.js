@@ -518,10 +518,10 @@ $(document).ready(function() {
     });
 });
 
-function imgerrorfun(){ 
-    var img=event.srcElement; 
-    img.src="images/browser.svg"; //默认图片
-    img.onerror=null; 
+function imgerrorfun(){  
+    const img = event.srcElement; // 获取触发错误的图片元素
+    img.src = '/images/browser.svg'; // 替换为默认占位图
+    img.onerror = null; // 避免无限循环
 } 
 
 // 获取所有带有 data-bs-toggle="tooltip" 的元素，转换为数组
@@ -685,35 +685,65 @@ function openSwalBox(url,title){
     });
 }
 
-fetch('/json/utils.json')               // 1. 发起请求
-  .then(response => response.json())    // 2. 解析响应为 JSON
-  .then(data => {                       // 3. 使用解析后的数据
-    console.log(data);                  // 4. 打印数据
-                                        // 5. 打印网页
-    const toolList = document.getElementById('tool-list');
-    toolList.innerHTML = data.map(tool => `
-    <a onclick="openSwalBox('${tool.url}','${tool.title}')" href="javascript:void(0);" class="tool-card visible">
-        <div class="icon-wrapper">
-            <div class="icon-bg"></div>
-            <i class="${tool.icon}"></i>
-        </div>
-        <h3>${tool.title}</h3>
-        <p class="card-description">${tool.desc}</p>
-        <span class="category-tag">${tool.category}</span>
-        ${tool.featured ? '<span class="featured-indicator"><i class="fas fa-star"></i>热门</span>' : ''}
-    </a>
-    `).join('');
-  })
-  .catch(error => {                 // 4. 处理错误
-    console.error('加载 JSON 失败:', error);
-  });
+// ! 工具
+fetch('/json/utils_data.json')               // 1. 发起请求
+    .then(response => response.json())    // 2. 解析响应为 JSON
+    .then(data => {                       // 3. 使用解析后的数据
+        console.log(data);                  // 4. 打印数据
+                                            // 5. 打印网页
+        const toolList = document.getElementById('tool-list');
+        toolList.innerHTML = data.map(tool => `
+            <a onclick="openSwalBox('${tool.url}','${tool.title}')" href="javascript:void(0);" class="tool-card visible" data-category="${tool.dataCategory}">
+                <div class="icon-wrapper">
+                    <div class="icon-bg"></div>
+                    <i class="${tool.icon}" style="${tool.iconColor}"></i>
+                </div>
+                <h3>${tool.title}</h3>
+                <p class="card-description">${tool.desc}</p>
+                <span class="category-tag">${tool.category}</span>
+                ${tool.featured ? '<span class="featured-indicator"><i class="fas fa-star"></i>热门</span>' : ''}
+            </a>
+        `).join('');
+    })
+    .catch(error => {                 // 6. 处理错误
+        console.error('工具加载 JSON 失败:', error);
+    });
 
 
+// ! 链接
+fetch('/json/links_data.json')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(section => {
+            const row = document.getElementById('section-' + section.section);
+            if (!row) return;
+            row.innerHTML = section.links.map(link => `
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2w col-xxl-2">
+                    <div class="w-widget box2"
+                        onclick="window.open('${link.url}', '_blank')" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" title="${link.url}">
+                        <div class="w-comment-entry">
+                            <a>
+                                <img data-src="${link.icon}" 
+                                class="lozad img-circle" onerror="imgerrorfun();">
+                            </a>
+                            <div class="w-comment">
+                                <a class="overflowClip_1"><strong>${link.title}</strong></a>
+                                <p class="overflowClip_2">${link.desc}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
 
-
-
-//const data = JSON.parse(JSON.stringify(dataJson));//JSON.stringify()的作用是将 JavaScript 对象转换为 JSON 字符串，而JSON.parse()可以将JSON字符串转为一个对象。
-//console.log(data);
+            // FIXME 图片是动态生成的（如通过 AJAX/Fetch 加载），
+            // FIXME 需要在内容插入 DOM 后，重新初始化懒加载
+            //lozad('.lozad').observe();
+        });
+    })
+    .catch(error => {                 // 6. 处理错误
+        console.error('工具加载 JSON 失败:', error);
+    });
 
 
 //控制台输出
