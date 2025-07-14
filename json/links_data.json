@@ -29,35 +29,6 @@
     ]
   },
   {
-    "section": "社区资讯",
-    "links": [
-      {
-        "title": "GitHub",
-        "desc": "管理软件开发以及发现已有代码的首选方法",
-        "url": "https://github.com/",
-        "icon": "https://github.com/favicon.ico"
-      },
-      {
-        "title": "鸟哥笔记",
-        "desc": "移动互联网第一干货平台",
-        "url": "http://allcc.cc/#term-211",
-        "icon": "https://www.allcc.cc/wp-content/uploads/2022/04/favicon.png"
-      },
-      {
-        "title": "豆瓣",
-        "desc": "影音社区",
-        "url": "https://www.douban.com/",
-        "icon": "https://www.douban.com/favicon.ico"
-      },
-      {
-        "title": "少数派",
-        "desc": "高品质数字消费指南",
-        "url": "https://sspai.com/",
-        "icon": "https://api.xinac.net/icon/?url=sspai.com"
-      }
-    ]
-  },
-  {
     "section": "学无止境",
     "links": [
       {
@@ -89,6 +60,185 @@
         "desc": "永久免费的电子作业与在线考试系统云平台",
         "url": "https://www.examcoo.com/index/ku",
         "icon": "https://www.examcoo.com/favicon.ico"
+      },
+      {
+        "title": "Python - 100天从新手到大师",
+        "desc": "Python自学编程案例",
+        "url": "https://github.com/jackfrued/Python-100-Days",
+        "icon": "https://github.com/favicon.ico"
+      },
+      {
+        "title": "edX",
+        "desc": "由哈佛大学和麻省理工学院创建的非营利性在线学习平台",
+        "url": "https://www.edx.org/",
+        "icon": "https://api.xinac.net/icon/?url=www.edx.org"
+      },
+      {
+        "title": "Khan Academy",
+        "desc": "免费在线学习平台，涵盖数学、科学、计算机等多个领域",
+        "url": "https://www.khanacademy.org/",
+        "icon": "https://api.xinac.net/icon/?url=www.khanacademy.org"
+      },
+      {
+        "title": "Codecademy",
+        "desc": "交互式编程学习平台，适合初学者学习多种编程语言",
+        "url": "https://www.codecademy.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.codecademy.com"
+      },
+      {
+        "title": "慕课网",
+        "desc": "国内领先的IT技能学习平台",
+        "url": "https://www.imooc.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.imooc.com"
+      },
+      {
+        "title": "网易公开课",
+        "desc": "汇集国内外名校公开课和TED演讲",
+        "url": "https://open.163.com/",
+        "icon": "https://api.xinac.net/icon/?url=open.163.com"
+      },
+      {
+        "title": "大学资源网",
+        "desc": "大学资源网致力于为每个希望提升自己能力的人提供学习平台，通过这个平台每个人都有平等提高自己能力的机会，主要学习资源有：大学课程、中学课程、小学课程、管理课程培训等视频教程！",
+        "url": "http://www.dxzy163.com/",
+        "icon": "http://www.dxzy163.com/favicon.ico"
+      },
+      {
+        "title": "学术文章",
+        "desc": "免费获取学术论文",
+        "url": "https://www.oalib.com/",
+        "icon": "https://www.oalib.com/favicon.ico"
+      },
+      {
+        "title": "读典籍",
+        "desc": "文白对照读典籍，免费下载",
+        "url": "https://web.dudianji.com/",
+        "icon": "https://api.xinac.net/icon/?url=web.dudianji.com"
+      },
+      {
+        "title": "WikiHow专业的问题解答",
+        "desc": "wikiHow是一项协作项目，目标是建立世界最大的最高质量的指导手册。无论您想做什么，我们的多语种指导手册都可以为您提供免费的逐步指导。",
+        "url": "https://zh.wikihow.com/",
+        "icon": "https://zh.wikihow.com/favicon.ico"
+      },
+      {
+        "title": "TypeLit.io",
+        "desc": "通过重新输入整本经典文学阅来练习打字。",
+        "url": "https://www.typelit.io/",
+        "icon": "https://www.typelit.io/favicon.ico"
+      },
+      {
+        "title": "type.fun",
+        "desc": "提供打字练习工具",
+        "url": "https://www.type.fun/",
+        "icon": "https://www.type.fun/favicon.ico"
+      },
+      {
+        "title": "打字鸭",
+        "desc": "专业的在线打字练习平台",
+        "url": "https://daziya.com/",
+        "icon": "https://daziya.com/favicon.svg"
+      }
+    ]
+  },
+  {
+    "section": "社区资讯",
+    "links": [
+      {
+        "title": "GitHub",
+        "desc": "管理软件开发以及发现已有代码的首选方法",
+        "url": "https://github.com/",
+        "icon": "https://github.com/favicon.ico"
+      },
+      {
+        "title": "Gitee",
+        "desc": "Gitee 是一个云端软件开发协作平台",
+        "url": "https://gitee.com/",
+        "icon": "https://gitee.com/assets/favicon.ico"
+      },
+      {
+        "title": "GitCode",
+        "desc": "GitCode - 全球开发者的开源社区,开源代码托管平台",
+        "url": "https://gitcode.com/",
+        "icon": "https://api.xinac.net/icon/?url=gitcode.com"
+      },
+      {
+        "title": "吾爱破解",
+        "desc": "致力于软件安全与病毒分析的前沿，丰富的技术版块交相辉映，由无数热衷于软件加密解密及反病毒爱好者共同维护",
+        "url": "https://www.52pojie.cn/",
+        "icon": "https://www.52pojie.cn/favicon.ico"
+      },
+      {
+        "title": "鸟哥笔记",
+        "desc": "移动互联网第一干货平台",
+        "url": "http://allcc.cc/#term-211",
+        "icon": "https://www.allcc.cc/wp-content/uploads/2022/04/favicon.png"
+      },
+      {
+        "title": "豆瓣",
+        "desc": "影音社区",
+        "url": "https://www.douban.com/",
+        "icon": "https://www.douban.com/favicon.ico"
+      },
+      {
+        "title": "少数派",
+        "desc": "高品质数字消费指南",
+        "url": "https://sspai.com/",
+        "icon": "https://api.xinac.net/icon/?url=sspai.com"
+      },
+      {
+        "title": "V2EX",
+        "desc": "创意工作者社区，讨论编程、设计、硬件等话题",
+        "url": "https://www.v2ex.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.v2ex.com"
+      },
+      {
+        "title": "掘金",
+        "desc": "高质量开发者社区，分享技术文章和实战经验",
+        "url": "https://juejin.cn/",
+        "icon": "https://api.xinac.net/icon/?url=juejin.cn"
+      },
+      {
+        "title": "SegmentFault",
+        "desc": "开发者问答社区，解决编程问题",
+        "url": "https://segmentfault.com/",
+        "icon": "https://api.xinac.net/icon/?url=segmentfault.com"
+      },
+      {
+        "title": "知乎",
+        "desc": "中文互联网高质量的问答社区和创作者聚集的原创内容平台",
+        "url": "https://www.zhihu.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.zhihu.com"
+      },
+      {
+        "title": "Product Hunt",
+        "desc": "发现最新科技产品和创业项目",
+        "url": "https://www.producthunt.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.producthunt.com"
+      },
+      {
+        "title": "36kr",
+        "desc": "创业资讯、科技新闻",
+        "url": "http://36kr.com/",
+        "icon": "https://api.xinac.net/icon/?url=36kr.com"
+      },
+      {
+        "title": "IT之家",
+        "desc": "百度指数排名第一的前沿科技门户网站",
+        "url": "https://www.ithome.com/",
+        "icon": "https://www.ithome.com/favicon.ico"
+      },
+      {
+        "title": "人人都是产品经理",
+        "desc": "产品经理、产品爱好者学习交流平台",
+        "url": "http://www.woshipm.com/",
+        "icon": "http://www.woshipm.com/favicon.ico"
+      },
+      {
+        "title": "数英网",
+        "desc": "数字媒体及职业招聘网站",
+        "url": "https://www.digitaling.com/",
+        "icon": "https://www.digitaling.com/favicon.ico"
       }
     ]
   },
@@ -124,12 +274,278 @@
         "desc": "熊猫搜书平台，提供免费电子书下载，mobi、epud、pdf、txt格式，kindle电子书下载",
         "url": "https://xmsoushu.com/",
         "icon": "https://xmsoushu.com/favicon.ico"
+      },
+      {
+        "title": "金屋电子书",
+        "desc": " 免费、高质量的电子书下载网站",
+        "url": "https://pdfs.top/",
+        "icon": "https://pdfs.top/favicon.ico"
+      },
+      {
+        "title": "搬书匠",
+        "desc": "计算机类图书",
+        "url": "http://www.banshujiang.cn/",
+        "icon": "https://api.xinac.net/icon/?url=www.banshujiang.cn"
+      },
+      {
+        "title": "鸠摩搜索",
+        "desc": "图书搜索",
+        "url": "https://www.jiumodiary.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.jiumodiary.com"
+      },
+      {
+        "title": "SaltyLeo的书架",
+        "desc": "藏尽天下好书。电子书下载, EPUB电子书, AZW3电子书, MOBI电子书, KINDLE电子书, PDF电子书",
+        "url": "https://book.tstrs.me/",
+        "icon": "https://book.tstrs.me/96.png"
+      },
+      {
+        "title": "知识库",
+        "desc": "优质mobi,azw3,TXT,PDF,epub格式电子书分享站",
+        "url": "https://www.zhishikoo.com/",
+        "icon": "https://book.zhishikoo.com/wp-content/uploads/2019/09/ico.png"
+      },
+      {
+        "title": "熊猫速读",
+        "desc": "精心推荐视频书，速读、速览一本书，就来熊猫速读",
+        "url": "https://qread.xmsoushu.com/",
+        "icon": "https://qread.xmsoushu.com/content/images/size/w256h256/format/jpeg/2022/11/favicon.jpg"
       }
     ]
   },
   {
     "section": "动漫世界",
     "links": [
+      {
+        "title": "🌸樱之花导航",
+        "desc": "ACG二次元资源网站，提供动漫、漫画、轻小说等多种资源",
+        "url": "http://allcc.cc/#term-211",
+        "icon": "https://www.allcc.cc/wp-content/uploads/2022/04/favicon.png"
+      },
+      {
+        "title": "喵物次元",
+        "desc": "喵物次元，致力于动漫番剧资源收集，是一个二次元观影追番动漫网站",
+        "url": "https://www.mwcy.net/",
+        "icon": "https://www.mwcy.net/upload/site/20241103-1/0e9b2520a7f643e88a7f51412f6b4665.png"
+      },
+      {
+        "title": "Moefun",
+        "desc": "源自纯净的追番小站，提供无广告、高清画质的动漫观看体验",
+        "url": "https://www.moefun.net/",
+        "icon": "https://p.upyun.com/demo/tmp/F1fyqlFS.webp"
+      }
+    ]
+  },
+  {
+    "section": "音乐天堂",
+    "links": [
+      {
+        "title": "QQ音乐",
+        "desc": "QQ音乐平台",
+        "url": "https://y.qq.com/",
+        "icon": "https://y.qq.com/favicon.ico"
+      },
+      {
+        "title": "网易云音乐",
+        "desc": "网易旗下音乐平台",
+        "url": "https://music.163.com/",
+        "icon": "https://music.163.com/favicon.ico"
+      },
+      {
+        "title": "酷狗音乐",
+        "desc": "酷狗音乐官方网站",
+        "url": "https://www.kugou.com/",
+        "icon": "https://www.kugou.com/favicon.ico"
+      },
+      {
+        "title": "LALAL.AI",
+        "desc": "提取音频的人声和音轨",
+        "url": "https://www.lalal.ai/zh-hans/",
+        "icon": "https://www.lalal.ai/favicon.ico"
+      },
+      {
+        "title": "Listen1音乐播放器",
+        "desc": "Listen 1可以搜索和播放来自网易云音乐，虾米，QQ音乐，酷狗音乐，酷我音乐，Bilibili，咪咕音乐网站的歌曲，让你的曲库更全面。",
+        "url": "https://listen1.github.io/listen1/",
+        "icon": "https://api.xinac.net/icon/?url=listen1.github.io"
+      },
+      {
+        "title": "爱给网",
+        "desc": "中国最大的数字娱乐免费素材下载网站,免费提供免费的音效配乐|3D模型|视频|游戏素材资源下载。",
+        "url": "https://www.aigei.com/",
+        "icon": "https://www.aigei.com/favicon.ico"
+      },
+      {
+        "title": "自由钢琴 - AutoPiano",
+        "desc": " 自由钢琴(AutoPiano)是利用HTML5技术开发的在线钢琴应用，致力于为钢琴爱好者、音乐爱好者提供一个优雅、简洁的平台，在学习工作之余可以在线弹钢琴，享受音乐、生活的美好。自由钢琴支持自动演奏和手动演奏，简单易学，快来试试吧~",
+        "url": "https://www.autopiano.cn/",
+        "icon": "https://api.xinac.net/icon/?url=www.autopiano.cn"
+      },
+      {
+        "title": "Pixabay音乐",
+        "desc": "150000多种免版税音乐可供下载 - Pixabay",
+        "url": "https://pixabay.com/zh/music/",
+        "icon": "https://pixabay.com/favicon-32x32.png"
+      },
+      {
+        "title": "Aplayer",
+        "desc": "网站音乐播放器",
+        "url": "https://aplayer.js.org/",
+        "icon": "https://api.xinac.net/icon/?url=aplayer.js.org"
+      }
+    ]
+  },
+  {
+    "section": "直播聚合",
+    "links": [
+      {
+        "title": "斗鱼直播",
+        "desc": "游戏直播平台",
+        "url": "https://www.douyu.com/",
+        "icon": "https://www.douyu.com/favicon.ico"
+      },
+      {
+        "title": "虎牙直播",
+        "desc": "游戏直播平台",
+        "url": "https://www.huya.com/",
+        "icon": "https://www.huya.com/favicon.ico"
+      },
+      {
+        "title": "央视官方直播",
+        "desc": "直播大全_CCTV节目官网_央视网",
+        "url": "https://tv.cctv.com/live/",
+        "icon": "https://api.xinac.net/icon/?url=tv.cctv.com/live"
+      },
+      {
+        "title": "好趣网",
+        "desc": "2000套高清网络电视直播在线观看",
+        "url": "http://tv.haoqu99.com/",
+        "icon": "https://api.xinac.net/icon/?url=tv.haoqu99.com"
+      },
+      {
+        "title": "eja TV",
+        "desc": "全球直播在线观看网站",
+        "url": "https://eja.tv/",
+        "icon": "https://api.xinac.net/icon/?url=eja.tv"
+      }
+    ]
+  },
+  {
+    "section": "在线综合",
+    "links": [
+      {
+        "title": "大师兄影视",
+        "desc": "在线观看,蓝光电影,搞笑视频,美剧,韩剧,超前点播,免费视频",
+        "url": "https://dsxys.com/",
+        "icon": "https://api.xinac.net/icon/?url=dsxys.com"
+      },
+      {
+        "title": "555电影",
+        "desc": "免费VIP资源在线观看，每天专业更新热火电影电视剧",
+        "url": "https://55p8l4.com/",
+        "icon": "https://api.xinac.net/icon/?url=55p8l4.com"
+      },
+      {
+        "title": "低端影视",
+        "desc": "超清在线视频",
+        "url": "https://ddys.site/",
+        "icon": "https://api.xinac.net/icon/?url=ddys.site"
+      },
+      {
+        "title": "NO视频",
+        "desc": "为用户提供及时的海外热门剧集在线观看，友好无广告，致力于最轻松的追剧体验",
+        "url": "https://www.novipnoad.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.novipnoad.com"
+      },
+      {
+        "title": "去看吧",
+        "desc": "看吧动漫,无删减,bl动漫,耽美吧,耽美在线,k8動漫_好看的耽美動漫",
+        "url": "https://www.qkan8.com/",
+        "icon": "https://k8dm.com/template/vfed/asset/img/favicon.png"
+      },
+      {
+        "title": "bangumi",
+        "desc": "アニメ新番組 - 次世代新番站",
+        "url": "https://bangumi.online/",
+        "icon": "https://api.xinac.net/icon/?url=bangumi.online"
+      },
+      {
+        "title": "奈菲影视",
+        "desc": "专为中国用户提供全球流媒体播放网站",
+        "url": "https://www.nfyingshi.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.nfyingshi.com"
+      },
+      {
+        "title": "遇见小馒头",
+        "desc": "免费短视频分享大全 - 大中国",
+        "url": "https://mov.5ixmt.com/",
+        "icon": "https://api.xinac.net/icon/?url=mov.5ixmt.com"
+      }
+    ]
+  },
+  {
+    "section": "影视资源",
+    "links": [
+      {
+        "title": "纪录片仓库",
+        "desc": "全球纪录片大全 - 纪录片下载",
+        "url": "https://jilulib.com/",
+        "icon": "https://docu-1305383679.cos.ap-nanjing.myqcloud.com/static/img/favicon.ico"
+      },
+      {
+        "title": "追影猫",
+        "desc": "追影猫-让追剧随心所欲，随时搜随心看！",
+        "url": "https://zhuiyingmao5.com/",
+        "icon": "https://zhuiyingmao5.com/mxtheme/images/favicon.png"
+      },
+      {
+        "title": "影猫の仓库",
+        "desc": "免费观影第一站 !",
+        "url": "https://ymck.pro/",
+        "icon": "https://ymck.pro/upload/site/20230825-1/5c00fbcfb4ff0737d3c8320d30b2d1de.png"
+      },
+      {
+        "title": "搜片.com",
+        "desc": "搜你想看的影片",
+        "url": "https://soupian.pro/",
+        "icon": "https://soupian.pro/favicon.ico"
+      },
+      {
+        "title": "许搜",
+        "desc": "网盘资源搜索神器",
+        "url": "https://www.xusou.cn/",
+        "icon": "https://www.xusou.cn/uploads/image/20250110/48bd0554b878a6fc168d37f924828b88.png"
+      },
+      {
+        "title": "低端影视",
+        "desc": "低端影视 - 超清在线视频站",
+        "url": "https://ddys.pro/",
+        "icon": "https://ddys.pro/apple-touch-icon.png"
+      },
+      {
+        "title": "茶杯狐",
+        "desc": "影视资源聚合搜索引擎",
+        "url": "https://cupfox.app/",
+        "icon": "https://api.xinac.net/icon/?url=cupfox.app"
+      },
+      {
+        "title": "7080影视搜",
+        "desc": "影视资源聚合搜索引擎",
+        "url": "https://7080.wang/",
+        "icon": "https://api.xinac.net/icon/?url=7080.wang"
+      },
+      {
+        "title": "豌豆PRO",
+        "desc": "实时聚合全网优质影视资源，同时支持在线、下载和字幕。",
+        "url": "https://www.wandou.pro/",
+        "icon": "https://api.xinac.net/icon/?url=www.wandou.pro"
+      },
+      {
+        "title": "人人影视资源站",
+        "desc": "人人影视资源站，免费下载",
+        "url": "https://yyets.click/",
+        "icon": "https://api.xinac.net/icon/?url=yyets.click"
+      },
       {
         "title": "BT之家1LOU站发布页",
         "desc": "影视bt下载站",
@@ -418,6 +834,331 @@
         "desc": "一个免费在线的图片压缩工具",
         "url": "https://compressjpg.io/",
         "icon": "https://tinypng.com/images/compressjpg.io"
+      },
+      {
+        "title": "在线图片放大",
+        "desc": "使用卷积神经网络对动漫风格的图片进行放大操作（支持照片）",
+        "url": "http://waifu2x.udp.jp/",
+        "icon": "https://api.xinac.net/icon/?url=waifu2x.udp.jp"
+      },
+      {
+        "title": "AI人工智能图片放大",
+        "desc": "使用最新人工智能深度学习技术——深度卷积神经网络。它会将噪点和锯齿的部分进行补充，实现图片的无损放大",
+        "url": "https://compressjpg.io/",
+        "icon": "https://bigjpg.com/favicon.ico"
+      },
+      {
+        "title": "改图宝",
+        "desc": "在线修改照片大小,在线修改图片大小,在线修改照片尺寸",
+        "url": "https://www.gaitubao.com/",
+        "icon": "https://www.gaitubao.com/favicon.ico"
+      },
+      {
+        "title": "在线修改图片",
+        "desc": "图片大小修改器在线，在线修改图片大小，图片大小转换器，图片尺寸修改，图片大小修改器",
+        "url": "https://www.sojson.com/image/change.html",
+        "icon": "https://api.xinac.net/icon/?url=www.sojson.com"
+      },
+      {
+        "title": "图片背景消除",
+        "desc": "图片背景消除，100% 全自动且免费",
+        "url": "https://www.remove.bg/zh",
+        "icon": "https://www.remove.bg/favicon.ico"
+      },
+      {
+        "title": "在线抠图换背景",
+        "desc": "国外在线抠图换背景，纯英文界面",
+        "url": "https://www.fococlipping.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.fococlipping.com"
+      },
+      {
+        "title": "在线替换图片背景",
+        "desc": "在线替换图片背景,稿定抠图",
+        "url": "https://koutu.gaoding.com/",
+        "icon": "https://api.xinac.net/icon/?url=koutu.gaoding.com"
+      },
+      {
+        "title": "iLoveIMG | 图像文件在线编辑工具",
+        "desc": "可批量编辑图片",
+        "url": "https://www.iloveimg.com/",
+        "icon": "https://www.iloveimg.com/favicon.ico"
+      },
+      {
+        "title": "在线去除元素",
+        "desc": "在线修改图片指定元素",
+        "url": "https://www.magiceraser.io/",
+        "icon": "https://api.xinac.net/icon/?url=www.magiceraser.io"
+      },
+      {
+        "title": "电子包浆",
+        "desc": "图片做旧工具，赛博包浆虚拟器",
+        "url": "https://magiconch.com/patina/",
+        "icon": "https://api.xinac.net/icon/?url=magiconch.com/patina"
+      }
+    ]
+  },
+    {
+    "section": "以图搜图",
+    "links": [
+      {
+        "title": "Yandex搜图",
+        "desc": "目前最靠谱的以图找图，比Google准",
+        "url": "https://yandex.com/images",
+        "icon": "https://yandex.com/favicon.ico"
+      },
+      {
+        "title": "动漫以图搜图",
+        "desc": "搜索动漫图片，可精确到番剧",
+        "url": "https://trace.moe/",
+        "icon": "https://api.xinac.net/icon/?url=trace.moe"
+      },
+      {
+        "title": "Google搜图",
+        "desc": "以图找图",
+        "url": "https://www.google.com.hk/imghp",
+        "icon": "https://api.xinac.net/icon/?url=www.google.com.hk"
+      }
+    ]
+  },
+  {
+    "section": "格式工具",
+    "links": [
+      {
+        "title": "online ocr",
+        "desc": "在线文字识别，格式转换服务",
+        "url": "https://www.onlineocr.net/",
+        "icon": "https://api.xinac.net/icon/?url=www.onlineocr.net"
+      },
+      {
+        "title": "白描",
+        "desc": "图片转文字在线 - 图片文字提取 - 网页OCR文字识别 - 白描网页版",
+        "url": "https://web.baimiaoapp.com/",
+        "icon": "https://web.baimiaoapp.com/favicon.ico"
+      },
+      {
+        "title": "BSE64",
+        "desc": "Base64 Image Convertor",
+        "url": "https://www.webdesignrankings.com/resources/bse64/",
+        "icon": "https://www.webdesignrankings.com/favicon.ico"
+      },
+      {
+        "title": "语音转文字",
+        "desc": "一键搞定语音识别成文字",
+        "url": "https://app.xunjiepdf.com/voice2text/",
+        "icon": "https://app.xunjiepdf.com/favicon.ico"
+      },
+      {
+        "title": "PDF转Word",
+        "desc": "免费将PDF转换为Word文档",
+        "url": "https://www.hipdf.cn/pdf-to-word",
+        "icon": "https://www.hipdf.cn/favicon.ico"
+      },
+      {
+        "title": "迅捷PDF",
+        "desc": "在线版PDF转换器转换文件仅限于2M以内文件",
+        "url": "https://app.xunjiepdf.com/",
+        "icon": "https://app.xunjiepdf.com/favicon.ico"
+      },
+      {
+        "title": "格式转换",
+        "desc": "在线版PDF转换器转换，其他格式转换",
+        "url": "https://www.alltoall.net/",
+        "icon": "https://www.alltoall.net/qfy-content/uploads/2016/06/fa70f63e4bbcc259632aae74746ce5d6.png"
+      },
+      {
+        "title": "PDF转其他格式",
+        "desc": "From PDF to Easy The Online PDF Converter Made for Everyone",
+        "url": "https://easypdf.com/",
+        "icon": "https://easypdf.com/favicon.ico"
+      },
+      {
+        "title": "格式转换",
+        "desc": "文档音频格式转换",
+        "url": "https://www.aconvert.com/cn/",
+        "icon": "https://api.xinac.net/icon/?url=www.aconvert.com"
+      },
+      {
+        "title": "Convertio",
+        "desc": "视频格式转换",
+        "url": "https://convertio.co/zh/mp4-ogv/",
+        "icon": "https://convertio.co/favicon.ico"
+      },
+      {
+        "title": "视频格式转换",
+        "desc": "视频格式转换",
+        "url": "https://convert-video-online.com/cn/",
+        "icon": "https://convert-video-online.com/static/i/v3/favicon.svg"
+      },
+      {
+        "title": "多功能PDF转换器",
+        "desc": "集成数十种PDF操作， PDF转换/解密/页面处理/内容编辑",
+        "url": "http://www.pdfdo.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.pdfdo.com"
+      },
+      {
+        "title": "TinyWow",
+        "desc": "免费格式转换网站，支持视频、文档、图片等的格式转换。",
+        "url": "https://tinywow.com/",
+        "icon": "https://api.xinac.net/icon/?url=tinywow.com"
+      }
+    ]
+  },
+  {
+    "section": "在线生成",
+    "links": [
+      {
+        "title": "U钙网",
+        "desc": "免费的LOGO在线设计制作工具",
+        "url": "http://www.uugai.com/",
+        "icon": "http://www.uugai.com/favicon.ico"
+      },
+      {
+        "title": "比特虫-ICO",
+        "desc": "在线制作ico图标ico图标转换工具",
+        "url": "https://www.bitbug.net/",
+        "icon": "https://www.bitbug.net/favicon.ico"
+      },
+      {
+        "title": "ICO图标制作",
+        "desc": "在线生成透明ICO图标",
+        "url": "http://www.ico51.cn/",
+        "icon": "http://www.ico51.cn/favicon.ico"
+      },
+      {
+        "title": "在线小米风格ICO",
+        "desc": "在线制作ICO，徽章",
+        "url": "https://mi-logo.lvwzhen.com/",
+        "icon": "https://mi-logo.lvwzhen.com/favicon.png"
+      },
+      {
+        "title": "Notion风格头像",
+        "desc": "在线制作Notion风格头像",
+        "url": "https://notion-avatar.vercel.app/",
+        "icon": "https://api.xinac.net/icon/?url=notion-avatar.vercel.app"
+      },
+      {
+        "title": "城通网盘解析器",
+        "desc": "城通网盘在线解析器，获取直连",
+        "url": "https://ctfile.qinlili.bid/",
+        "icon": "https://ctfile.qinlili.bid/favicon.ico"
+      },
+      {
+        "title": "草料二维码",
+        "desc": "二维码生成器",
+        "url": "https://cli.im/",
+        "icon": "https://cli.im/favicon.ico"
+      },
+      {
+        "title": "智能证件照",
+        "desc": "免费提供证件照一站式服务",
+        "url": "https://id.zhengzhaopai.com/",
+        "icon": "https://api.xinac.net/icon/?url=id.zhengzhaopai.com"
+      },
+      {
+        "title": "Z2H字帖",
+        "desc": "提供字帖生成工具",
+        "url": "https://z2h.cn/",
+        "icon": "https://z2h.cn/favicon.ico"
+      }
+    ]
+  },
+  {
+    "section": "其他在线",
+    "links": [
+      {
+        "title": "微软商店应用提取",
+        "desc": "在线微软商店应用提取",
+        "url": "https://store.rg-adguard.net/",
+        "icon": "https://store.rg-adguard.net/favicon.ico"
+      },
+      {
+        "title": "在线流程图思维导图",
+        "desc": "需注册，专业强大的作图工具，支持多人实时在线协作，可用于原型图、UML、BPMN、网络拓扑图等多种图形绘制",
+        "url": "https://www.processon.com/",
+        "icon": "https://www.processon.com/favicon.ico"
+      },
+      {
+        "title": "ZhiMap",
+        "desc": "在线思维导图、电脑与手机微信里都能作图",
+        "url": "https://zhimap.com/",
+        "icon": "https://zhimap.com/favicon.ico"
+      },
+      {
+        "title": "GitMind在线思维导图",
+        "desc": "免费在线思维导图软件，简化逻辑梳理，集思广益，释放创造力在线脑图、思维导图、流程图、组织架构图、工业设计、工程管理，一图涵千面",
+        "url": "https://gitmind.cn/",
+        "icon": "https://qncdn.aoscdn.com/local/gitmind.cn/img/favicon.png"
+      },
+      {
+        "title": "VirSCAN",
+        "desc": "一个非盈利性的免费病毒检测引擎",
+        "url": "https://www.virscan.org/",
+        "icon": "https://www.virscan.org/favicon.ico"
+      },
+      {
+        "title": "Firefox Monitor",
+        "desc": "看看您的账号是否也在数据外泄事件当中",
+        "url": "https://monitor.firefox.com/",
+        "icon": "https://monitor.firefox.com/favicon.ico"
+      },
+      {
+        "title": "秘塔写作猫",
+        "desc": "写作猫是新一代AI写作伴侣，帮你推敲用语、斟酌文法、改写文风，还能实时同步翻译",
+        "url": "https://xiezuocat.com/",
+        "icon": "https://xiezuocat.com/favicon.ico"
+      },
+      {
+        "title": "稿定设计",
+        "desc": "做图做视频必备_在线设计神器_海量版权素材模板",
+        "url": "https://www.gaoding.com",
+        "icon": "https://www.gaoding.com/favicon.ico"
+      },
+      {
+        "title": "IP查询",
+        "desc": "ip8 - IP查询工具",
+        "url": "https://ip8.com/",
+        "icon": "https://api.xinac.net/icon/?url=ip8.com"
+      },
+      {
+        "title": "IP查询",
+        "desc": "致力于普及 IPv6 ,推进 IPv6 规模部署和应用",
+        "url": "https://ipw.cn/",
+        "icon": "https://api.xinac.net/icon/?url=ipw.cn"
+      },
+      {
+        "title": "IPv6 连接测试",
+        "desc": "IPv6 连接测试",
+        "url": "http://test-ipv6.com/",
+        "icon": "https://api.xinac.net/icon/?url=test-ipv6.com"
+      }
+    ]
+  },
+  {
+    "section": "上传下载",
+    "links": [
+      {
+        "title": "虫洞",
+        "desc": "Wormhole 让你能以端到端加密和自动过期链接的方式分享文件。",
+        "url": "https://wormhole.app/",
+        "icon": "https://api.xinac.net/icon/?url=wormhole.app"
+      },
+      {
+        "title": "文叔叔",
+        "desc": "文叔叔是一款永不限速的网盘（云盘）产品，免费提供网络硬盘空间 40GB。支持：传文件（发文件）、收文件（收集文件）等功能，还支持查看历史记录等高级功能",
+        "url": "https://www.wenshushu.cn/",
+        "icon": "https://www.wenshushu.cn/favicon.ico"
+      },
+      {
+        "title": "APKPure（需翻墙）",
+        "desc": "使用APKPure APK下载器下载官方正版应用.无需绑定账户，海量历史版本应用，已支持解析下载YouTube、等其他视频下载",
+        "url": "https://apkpure.com/",
+        "icon": "https://api.xinac.net/icon/?url=apkpure.com"
+      },
+      {
+        "title": "YouTube高清视频下载",
+        "desc": "已支持解析下载YouTube、等其他视频下载",
+        "url": "https://youtube.iiilab.com/",
+        "icon": "https://api.xinac.net/icon/?url=youtube.iiilab.com"
       }
     ]
   },
@@ -429,6 +1170,12 @@
         "desc": "查找适用于 Google Chrome 浏览器的超酷应用、游戏、扩展程序和主题背景",
         "url": "https://chrome.google.com/webstore/",
         "icon": "https://api.xinac.net/icon/?url=chrome.google.com"
+      },
+      {
+        "title": "极简插件",
+        "desc": "极简插件是一个优质Chrome插件扩展收录下载网站，收录热门好用的Chrome插件扩展，国内最方便的插件下载网站。",
+        "url": "https://chrome.zzzmh.cn/",
+        "icon": "https://chrome.zzzmh.cn/favicon.ico"
       },
       {
         "title": "微软edge扩展商店",
@@ -466,16 +1213,47 @@
         "icon": "https://clearcode.cn/static/wudi/imgs/favicon.ico"
       },
       {
+        "title": "免费接码",
+        "desc": "可接短信",
+        "url": "http://www.shejiinn.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.shejiinn.com"
+      },
+      {
+        "title": "虚拟手机号",
+        "desc": "可接短信",
+        "url": "https://yunduanxin.net/",
+        "icon": "https://api.xinac.net/icon/?url=yunduanxin.net"
+      },
+      {
+        "title": "虚拟手机号",
+        "desc": "可接短信",
+        "url": "https://www.rvso.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.rvso.com"
+      },
+      {
         "title": "虚拟地址生成器",
         "desc": "美日英多国虚拟地址生成",
         "url": "http://www.haoweichi.com/",
         "icon": "https://api.xinac.net/icon/?url=www.haoweichi.com"
       },
       {
+        "title": "虚拟地址生成器",
+        "desc": "台湾美日英多国虚拟地址生成",
+        "url": "https://www.meiguodizhi.com/tw-address",
+        "icon": "https://static11.meiguodizhi.com/favicon.ico"
+      },
+
+      {
         "title": "临时邮箱",
         "desc": "临时邮箱生成器",
         "url": "https://smailpro.com/",
         "icon": "https://smailpro.com/img/smailpro.com/favicon.ico?v=1.2"
+      },
+      {
+        "title": "临时邮箱",
+        "desc": "临时邮箱生成器",
+        "url": "http://24mail.chacuo.net/",
+        "icon": "http://24mail.chacuo.net/favicon.ico"
       },
       {
         "title": "查邮编",
@@ -501,6 +1279,12 @@
         "icon": "https://assets.mixkit.co/build/mixkit-logo--black-a90b84b6ac6ad0fbd410b16466b4cb252d399b5caaf03603f36c52ffc648455c.svg"
       },
       {
+        "title": "効果音源",
+        "desc": " 効果音源，全，但收费",
+        "url": "https://koukaongen.com/",
+        "icon": "https://koukaongen.com/favicon.ico"
+      },
+      {
         "title": "免费音效",
         "desc": "小森平的免费下载音效",
         "url": "https://taira-komori.jpn.org/freesoundcn.html",
@@ -511,6 +1295,12 @@
   {
     "section": "壁纸下载",
     "links": [
+      {
+        "title": "哲风壁纸",
+        "desc": "免费4K高清壁纸-电脑背景图片-Mac壁纸网站「哲风壁纸」",
+        "url": "https://haowallpaper.com/",
+        "icon": "https://haowallpaper.com/favicon.ico"
+      },
       {
         "title": "Awesome Wallpapers（需翻墙）",
         "desc": "高清壁纸站，访问慢的话上加速器",
@@ -524,9 +1314,15 @@
         "icon": "https://wallspic.com/static/images/favicon/favicon.ico"
       },
       {
+        "title": "wallpapers",
+        "desc": "免费的桌面壁纸",
+        "url": "https://wallspic.com/cn",
+        "icon": "https://wallpapercrafter.com/templates/dark/images/favicon.png"
+      },
+      {
         "title": "P站——非P站",
         "desc": "提供插画等作品的投稿、阅览服务的「插画交流网站」",
-        "url": "https://www.pixiv.net/",
+        "url": "https://wallpapercrafter.com/",
         "icon": "https://api.xinac.net/icon/?url=www.pixiv.net"
       },
       {
@@ -590,52 +1386,6 @@
     ]
   },
   {
-    "section": "系统相关",
-    "links": [
-      {
-        "title": "MSDN我告诉你",
-        "desc": "原版Windows系统镜像下载",
-        "url": "https://msdn.itellyou.cn/",
-        "icon": "https://api.xinac.net/icon/?url=msdn.itellyou.cn"
-      },
-      {
-        "title": "Next.itellyou",
-        "desc": "Windows系统镜像下载",
-        "url": "https://next.itellyou.cn/",
-        "icon": "https://api.xinac.net/icon/?url=next.itellyou.cn"
-      },
-      {
-        "title": "Windows系统下载",
-        "desc": "微软官方Windows系统下载",
-        "url": "https://www.microsoft.com/zh-cn/software-download",
-        "icon": "https://api.xinac.net/icon/?url=www.microsoft.com"
-      }
-    ]
-  },
-  {
-    "section": "开发生产",
-    "links": [
-      {
-        "title": "腾讯云",
-        "desc": "腾讯云 - 产业智变 云启未来",
-        "url": "https://cloud.tencent.com/",
-        "icon": "https://cloud.tencent.com/favicon.ico"
-      },
-      {
-        "title": "阿里云",
-        "desc": "阿里云-上云就上阿里云",
-        "url": "https://www.aliyun.com/",
-        "icon": "https://api.xinac.net/icon/?url=www.aliyun.com"
-      },
-      {
-        "title": "又拍云",
-        "desc": "静态文件存储与CDN加速",
-        "url": "https://www.upyun.com/",
-        "icon": "https://api.xinac.net/icon/?url=www.upyun.com"
-      }
-    ]
-  },
-  {
     "section": "云端服务",
     "links": [
       {
@@ -695,80 +1445,6 @@
     ]
   },
   {
-    "section": "音乐天堂",
-    "links": [
-      {
-        "title": "QQ音乐",
-        "desc": "QQ音乐平台",
-        "url": "https://y.qq.com/",
-        "icon": "https://y.qq.com/favicon.ico"
-      },
-      {
-        "title": "网易云音乐",
-        "desc": "网易旗下音乐平台",
-        "url": "https://music.163.com/",
-        "icon": "https://music.163.com/favicon.ico"
-      },
-      {
-        "title": "酷狗音乐",
-        "desc": "酷狗音乐官方网站",
-        "url": "https://www.kugou.com/",
-        "icon": "https://www.kugou.com/favicon.ico"
-      }
-    ]
-  },
-  {
-    "section": "直播聚合",
-    "links": [
-      {
-        "title": "斗鱼直播",
-        "desc": "游戏直播平台",
-        "url": "https://www.douyu.com/",
-        "icon": "https://www.douyu.com/favicon.ico"
-      },
-      {
-        "title": "虎牙直播",
-        "desc": "游戏直播平台",
-        "url": "https://www.huya.com/",
-        "icon": "https://www.huya.com/favicon.ico"
-      }
-    ]
-  },
-  {
-    "section": "影视聚合",
-    "links": [
-      {
-        "title": "爱奇艺",
-        "desc": "在线视频网站",
-        "url": "https://www.iqiyi.com/",
-        "icon": "https://www.iqiyi.com/favicon.ico"
-      },
-      {
-        "title": "腾讯视频",
-        "desc": "在线视频网站",
-        "url": "https://v.qq.com/",
-        "icon": "https://v.qq.com/favicon.ico"
-      }
-    ]
-  },
-  {
-    "section": "格式工具",
-    "links": [
-      {
-        "title": "在线格式转换",
-        "desc": "多种文件格式在线转换",
-        "url": "https://convertio.co/zh/",
-        "icon": "https://convertio.co/favicon.ico"
-      },
-      {
-        "title": "PDF转换器",
-        "desc": "PDF与Word/Excel/PPT等格式互转",
-        "url": "https://smallpdf.com/cn",
-        "icon": "https://smallpdf.com/favicon.ico"
-      }
-    ]
-  },
-  {
     "section": "开发文档",
     "links": [
       {
@@ -778,10 +1454,192 @@
         "icon": "https://api.xinac.net/icon/?url=valine.js.org"
       },
       {
-        "title": "访问统计",
-        "desc": "网站访问统计工具",
+        "title": "Moe-counter",
+        "desc": "多种风格可选的萌萌计数器",
         "url": "https://count.getloli.com/",
         "icon": "https://api.xinac.net/icon/?url=count.getloli.com"
+      },
+      {
+        "title": "HUGO",
+        "desc": "Hugo主题模板",
+        "url": "https://themes.gohugo.io/",
+        "icon": "https://themes.gohugo.io/favicon.ico"
+      },
+      {
+        "title": "SweetAlert2",
+        "desc": "SweetAlert2是一款功能强大的纯Js模态消息对话框插件。",
+        "url": "https://sweetalert2.github.io/",
+        "icon": "https://api.xinac.net/icon/?url=sweetalert2.github.io"
+      },
+      {
+        "title": "Fontawesome中文网",
+        "desc": "Fontawesome中文版webfont,是一款基于css框架的网页字体图标库，它完全免费。",
+        "url": "https://fontawesome.com.cn/v5/icons/",
+        "icon": "https://fontawesome.com.cn/favicon.ico"
+      }
+    ]
+  },
+  {
+    "section": "API资源",
+    "links": [
+      {
+        "title": "和风天气API",
+        "desc": "和风天气 全球气象数据开发服务",
+        "url": "https://dev.qweather.com/",
+        "icon": "https://api.xinac.net/icon/?url=dev.qweather.com"
+      },
+      {
+        "title": "ROLL API",
+        "desc": "ROLL免费API",
+        "url": "https://www.mxnzp.com/doc/list",
+        "icon": "https://api.xinac.net/icon/?url=www.mxnzp.com"
+      },
+      {
+        "title": "二次元壁纸 API",
+        "desc": "随机二次元图片api",
+        "url": "https://docs.loliapi.com/api-shi-yong-wen-dang/sui-ji-er-ci-yuan-tu-pian",
+        "icon": "https://docs.loliapi.com/~gitbook/image?url=https%3A%2F%2F1368586475-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FlvoKTSqbYo5LRhpVcKnD%252Ficon%252FC4jL1eWRYY5fzWjwBWeg%252Flibwm.jpg%3Falt%3Dmedia%26token%3D9a30753c-ee2e-4efd-b5c1-71c5928b0199&width=32&dpr=2&quality=100&sign=b4e5ecad&sv=2"
+      },
+      {
+        "title": "图样跑酷",
+        "desc": "bing图片 API",
+        "url": "https://bing.img.run/api.html",
+        "icon": "https://api.xinac.net/icon/?url=bing.img.run"
+      },
+      {
+        "title": "新逸Cary API",
+        "desc": "免费提供API接口服务",
+        "url": "https://api.xinac.net/",
+        "icon": "https://api.xinac.net/icon/?url=api.xinac.net"
+      },
+      {
+        "title": "今日诗词API",
+        "desc": "今日诗词API 每次返回一句诗词",
+        "url": "https://www.jinrishici.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.jinrishici.com"
+      },
+      {
+        "title": "Uomg API",
+        "desc": "稳定、快速、免费的 API 接口服务",
+        "url": "https://api.uomg.com/",
+        "icon": "https://api.xinac.net/icon/?url=api.uomg.com"
+      },
+      {
+        "title": "Hitokoto 一言",
+        "desc": "一言API",
+        "url": "https://hitokoto.cn/",
+        "icon": "https://api.xinac.net/icon/?url=hitokoto.cn"
+      },
+      {
+        "title": "姬长信API",
+        "desc": "一个基于多种编程语言开源免费不限制提供生活常用,出行服务,开发工具,金融服务,通讯服务和公益大数据的平台",
+        "url": "https://api.isoyu.com/",
+        "icon": "https://api.xinac.net/icon/?url=api.isoyu.com"
+      },
+      {
+        "title": "nuoxian's API",
+        "desc": "免费为用户提供网络数据接口调用的服务平台",
+        "url": "https://api.nxvav.cn/",
+        "icon": "https://api.xinac.net/icon/?url=api.nxvav.cn"
+      },
+      {
+        "title": "樱花随机二次元图片 API",
+        "desc": "图片均为https，采用新浪图片，高速访问",
+        "url": "https://www.dmoe.cc/",
+        "icon": "https://api.xinac.net/icon/?url=www.dmoe.cc"
+      },
+      {
+        "title": "韩小韩 WebAPI 接口站",
+        "desc": "免费Web API数据接口调用服务平台",
+        "url": "https://api.vvhan.com/",
+        "icon": "https://api.xinac.net/icon/?url=api.vvhan.com"
+      },
+      {
+        "title": "与末API",
+        "desc": "高清互联网壁纸聚合地",
+        "url": "https://img-api.ymz.icu/",
+        "icon": "https://api.xinac.net/icon/?url=img-api.ymz"
+      }
+    ]
+  },
+  {
+    "section": "系统下载",
+    "links": [
+      {
+        "title": "我告诉你msdn",
+        "desc": "系统下载",
+        "url": "https://msdn.itellyou.cn/",
+        "icon": "https://msdn.itellyou.cn/favicon.ico"
+      },
+      {
+        "title": "MSDN - 山己几子木",
+        "desc": "系统下载",
+        "url": "https://msdn.sjjzm.com/",
+        "icon": "https://msdn.sjjzm.com/favicon.ico"
+      },
+      {
+        "title": "吻妻纯净系统",
+        "desc": "专注于win7,吻妻,win7,windows7,win7系统,win7纯净版,Win7纯净版下载,专注于win8,专注于win10",
+        "url": "https://www.newxitong.com/",
+        "icon": "https://www.newxitong.com/favicon.ico"
+      },
+      {
+        "title": "装个机",
+        "desc": "不求人，自己装",
+        "url": "https://zhuangit.ababtools.com/",
+        "icon": "https://api.xinac.net/icon/?url=zhuangit.ababtools.com"
+      }
+    ]
+  },
+  {
+    "section": "系统美化",
+    "links": [
+      {
+        "title": "致美化",
+        "desc": "致美化是国内最专业的桌面美化研究平台",
+        "url": "https://zhutix.com/",
+        "icon": "https://zhutix.com/favicon.ico"
+      },
+      {
+        "title": "Fliqlo",
+        "desc": "桌面时钟屏保",
+        "url": "https://fliqlo.com/",
+        "icon": "https://api.xinac.net/icon/?url=fliqlo.com"
+      },
+      {
+        "title": "主题之家",
+        "desc": "主题美化下载",
+        "url": "https://zhuti.ithome.com/",
+        "icon": "https://zhuti.ithome.com/favicon.ico"
+      },
+      {
+        "title": "系统启动器美化",
+        "desc": "各种启动器美化主题",
+        "url": "https://www.gnome-look.org/browse/cat/",
+        "icon": "https://api.xinac.net/icon/?url=www.gnome-look.org"
+      }
+    ]
+  },
+  {
+    "section": "系统工具",
+    "links": [
+      {
+        "title": "桌面显卡性能天梯图",
+        "desc": "桌面显卡性能天梯图",
+        "url": "https://www.mydrivers.com/zhuanti/tianti/gpu/",
+        "icon": "https://www.mydrivers.com/favicon.ico"
+      },
+      {
+        "title": "桌面CPU性能天梯图",
+        "desc": "桌面CPU性能天梯图",
+        "url": "https://www.mydrivers.com/zhuanti/tianti/cpu/",
+        "icon": "https://www.mydrivers.com/favicon.ico"
+      },
+      {
+        "title": "IT天空",
+        "desc": "以系统封装技术与驱动技术为主的综合性IT站点，提供完善的系统批量部署解决方案、易用的离线万能驱动和适合装机技术员的U盘PE。",
+        "url": "https://www.itsk.com/",
+        "icon": "https://www.itsk.com/favicon.ico"
       }
     ]
   }
