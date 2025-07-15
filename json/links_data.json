@@ -1437,6 +1437,12 @@
         "icon": "https://www.weiyun.com/favicon.ico"
       },
       {
+        "title": "路过图床",
+        "desc": "路过图床 - 免费图片上传, 专业图片外链, 免费公共图床",
+        "url": "https://imgse.com/",
+        "icon": "https://imgse.com/content/images/system/favicon_1587118523486_91617a.png"
+      },
+      {
         "title": "SM.MS",
         "desc": "SM.MS图床",
         "url": "https://sm.ms/",
@@ -1476,6 +1482,18 @@
         "desc": "Fontawesome中文版webfont,是一款基于css框架的网页字体图标库，它完全免费。",
         "url": "https://fontawesome.com.cn/v5/icons/",
         "icon": "https://fontawesome.com.cn/favicon.ico"
+      },
+      {
+        "title": "socialify 项目卡片生成",
+        "desc": "GitHub 项目卡片生成工具",
+        "url": "https://socialify.git.ci/",
+        "icon": "https://socialify.git.ci/favicon.ico"
+      },
+      {
+        "title": "Shields.io 徽章生成器",
+        "desc": "GitHub 的 Shields.io 动态生成的徽章（Badges），用于在 README 或项目文档中直观展示项目信息（如版本、许可证等）。",
+        "url": "https://shields.io/",
+        "icon": "https://shields.io/img/favicon.ico"
       }
     ]
   },

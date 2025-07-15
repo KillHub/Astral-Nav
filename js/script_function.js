@@ -738,7 +738,7 @@ fetch('/json/links_data.json')
 
             // FIXME 图片是动态生成的（如通过 AJAX/Fetch 加载），
             // FIXME 需要在内容插入 DOM 后，重新初始化懒加载
-            //lozad('.lozad').observe();
+            lozad('.lozad').observe();
         });
     })
     .catch(error => {                 // 6. 处理错误
@@ -765,8 +765,8 @@ let title2 = `
 
 `
 let content = `
-版 本 号：v1.0.0
-更新日期：2025-07-24
+版 本 号：v1.3.0
+更新日期：2025-07-15
 
 Github:  https://github.com/killhub/
 `
