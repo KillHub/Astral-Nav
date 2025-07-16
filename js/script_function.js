@@ -550,7 +550,7 @@ function resizable(breakpoint) {
     switch (breakpoint) {
         case 'largescreen':
             // 可放大屏专用逻辑
-			public_vars.$sidebarMenu.removeClass('collapsed');
+            public_vars.$sidebarMenu.removeClass('collapsed');
             break;
         case 'tabletscreen':
             // 平板屏幕时折叠菜单
@@ -717,11 +717,13 @@ fetch('/json/links_data.json')
         data.forEach(section => {
             const row = document.getElementById('section-' + section.section);
             if (!row) return;
-            row.innerHTML = section.links.map(link => `
+            row.innerHTML = section.links.map(link => {
+                const linkId = encodeURIComponent(link.url);// 使用链接的 url 作为唯一 id，避免重复，用于数字角标功能
+                return `
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2w col-xxl-2">
                     <div class="w-widget box2"
                         onclick="window.open('${link.url}', '_blank')" data-bs-toggle="tooltip"
-                        data-bs-placement="bottom" title="${link.url}" rel="noopener noreferrer">
+                        data-bs-placement="bottom" title="${link.url}" rel="noopener noreferrer" data-link-id="${linkId}">
                         <div class="w-comment-entry">
                             <a>
                                 <img data-src="${link.icon}" 
@@ -734,7 +736,8 @@ fetch('/json/links_data.json')
                         </div>
                     </div>
                 </div>
-            `).join('');
+                `;
+            }).join('');
 
             // FIXME 图片是动态生成的（如通过 AJAX/Fetch 加载），
             // FIXME 需要在内容插入 DOM 后，重新初始化懒加载

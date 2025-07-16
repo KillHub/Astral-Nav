@@ -744,6 +744,62 @@
     <canvas id="starfield"></canvas>
     <!-- 页面js -->
     <script src="/js/script_function.js"></script>
+    <!-- 功能：链接卡片点击次数统计与角标显示 -->
+    <style>
+        .link-badge {
+            display: inline-block;
+            min-width: 22px;
+            height: 22px;
+            line-height: 22px;
+            background: #ff0000;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 50%;
+            text-align: center;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            pointer-events: none;
+        }
+        .w-widget.box2 { position: relative; }
+    </style>
+    <script>
+        // 功能：链接卡片点击次数统计与角标显示
+        function getLinkClickCount(linkId) {
+            var map = JSON.parse(localStorage.getItem('linkClickMap')||'{}');
+            return map[linkId]||0;
+        }
+        function setLinkClickCount(linkId) {
+            var map = JSON.parse(localStorage.getItem('linkClickMap')||'{}');
+            map[linkId] = (map[linkId]||0) + 1;
+            localStorage.setItem('linkClickMap', JSON.stringify(map));
+        }
+        function updateAllLinkBadges() {
+            $(".w-widget.box2[data-link-id]").each(function(){
+            var linkId = $(this).attr('data-link-id');
+            var count = getLinkClickCount(linkId);
+            var $badge = $(this).find('.link-badge');
+            // 先移除所有角标，避免重复或脏数据
+            $badge.remove();
+            // count>0时才显示角标
+            if(count > 0){
+                $(this).append('<span class="link-badge">'+count+'</span>');
+            }
+            });
+        }
+        $(document).on('click', '.w-widget.box2[data-link-id]', function(){
+            var linkId = $(this).attr('data-link-id');
+            setLinkClickCount(linkId);
+            updateAllLinkBadges();
+        });
+        $(function(){
+            // 延迟执行，确保所有链接卡片已渲染到 DOM
+            setTimeout(updateAllLinkBadges, 200);
+        });
+    </script>
     <!-- 功能：悬浮搜索按钮，快速定位相关链接 -->
     <script>
         $(function(){
