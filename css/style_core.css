@@ -793,6 +793,7 @@ footer.main-footer.fixed {
   min-height: 50px !important;
 }
 .tag {
+  margin-top: 25px;
   color: #197dff;
   animation: mycolor 5s linear infinite;
 }
