@@ -550,7 +550,7 @@ function resizable(breakpoint) {
     switch (breakpoint) {
         case 'largescreen':
             // 可放大屏专用逻辑
-            public_vars.$sidebarMenu.removeClass('collapsed');
+			public_vars.$sidebarMenu.removeClass('collapsed');
             break;
         case 'tabletscreen':
             // 平板屏幕时折叠菜单
@@ -609,18 +609,35 @@ function trigger_resizable() {
 jQuery(window).on('resize orientationchange', trigger_resizable);
 
 //获取天气
-fetch('https://api.vvhan.com/api/weather')
-    .then(response => response.json())
+// fetch('https://api.nxvav.cn/api/weather/?city=')
+//     .then(response => response.json())
+//     .then(data => {
+//         $('#wea_text').html(data.data.type)
+//         $('#city_text').html(data.city)
+//         $('#tem_low').html(data.data.low)
+//         $('#tem_high').html(data.data.high)
+//         $('#win_text').html(data.data.fengxiang)
+//         $('#win_speed').html(data.data.fengli)
+//     })
+//     .catch(console.error)
+// 获取城市名，IP-API 提供免费版（每分钟 45 次请求）
+fetch('https://ipapi.co/json/')
+    .then(res => res.json())
     .then(data => {
-        $('#wea_text').html(data.data.type)
-        $('#city_text').html(data.city)
-        $('#tem_low').html(data.data.low)
-        $('#tem_high').html(data.data.high)
-        $('#win_text').html(data.data.fengxiang)
-        $('#win_speed').html(data.data.fengli)
-    })
-    .catch(console.error)
-
+        const city = data.city; // 城市名
+        console.log('当前城市:', city);
+        // 用城市名查天气
+        fetch(`https://api.nxvav.cn/api/weather/?city=${encodeURIComponent(city)}`)
+            .then(res => res.json())
+            .then(weather => {
+                $('#wea_text').html(weather.now.text)
+                $('#city_text').html(weather.location.name)
+                $('#tem_low').html(weather.now.temperature)
+                //$('#tem_high').html(weather.data.high)
+                //$('#win_text').html(weather.data.fengxiang)
+                //$('#win_speed').html(weather.data.fengli)
+            });
+    });
 //获取时间
 let t = null;
 t = setTimeout(times, 1000);
@@ -717,13 +734,11 @@ fetch('/json/links_data.json')
         data.forEach(section => {
             const row = document.getElementById('section-' + section.section);
             if (!row) return;
-            row.innerHTML = section.links.map(link => {
-                const linkId = encodeURIComponent(link.url);// 使用链接的 url 作为唯一 id，避免重复，用于数字角标功能
-                return `
+            row.innerHTML = section.links.map(link => `
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2w col-xxl-2">
                     <div class="w-widget box2"
                         onclick="window.open('${link.url}', '_blank')" data-bs-toggle="tooltip"
-                        data-bs-placement="bottom" title="${link.url}" rel="noopener noreferrer" data-link-id="${linkId}">
+                        data-bs-placement="bottom" title="${link.url}">
                         <div class="w-comment-entry">
                             <a>
                                 <img data-src="${link.icon}" 
@@ -736,8 +751,7 @@ fetch('/json/links_data.json')
                         </div>
                     </div>
                 </div>
-                `;
-            }).join('');
+            `).join('');
 
             // FIXME 图片是动态生成的（如通过 AJAX/Fetch 加载），
             // FIXME 需要在内容插入 DOM 后，重新初始化懒加载
@@ -768,8 +782,8 @@ let title2 = `
 
 `
 let content = `
-版 本 号：v1.3.0
-更新日期：2025-07-15
+版 本 号：v1.0.0
+更新日期：2025-07-24
 
 Github:  https://github.com/killhub/
 `

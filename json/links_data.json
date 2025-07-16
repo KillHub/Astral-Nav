@@ -41,7 +41,7 @@
         "title": "Udacity",
         "desc": "专注于计算机科学和数据科学的在线学习平台。",
         "url": "https://www.udacity.com/",
-        "icon": "https://www.udacity.com/favicon.ico"
+        "icon": "https://www.udacity.com/favicon/favicon.ico"
       },
       {
         "title": "廖雪峰的官方网站",
@@ -376,6 +376,18 @@
         "icon": "https://www.bilibili.com/favicon.ico"
       },
       {
+        "title": "Twitch",
+        "desc": "全球最大的游戏直播平台",
+        "url": "https://www.twitch.tv/",
+        "icon": "https://www.twitch.tv/favicon.ico"
+      },
+      {
+        "title": "YouTube直播",
+        "desc": "全球最大的视频平台的直播功能",
+        "url": "https://www.youtube.com/live",
+        "icon": "https://www.youtube.com/favicon.ico"
+      },
+      {
         "title": "快手直播",
         "desc": "短视频平台衍生的直播业务",
         "url": "https://live.kuaishou.com/",
@@ -394,52 +406,10 @@
         "icon": "https://cc.163.com/favicon.ico"
       },
       {
-        "title": "西瓜视频直播",
-        "desc": "字节跳动旗下的直播平台",
-        "url": "https://live.ixigua.com/",
-        "icon": "https://www.ixigua.com/favicon.ico"
-      },
-      {
-        "title": "映克直播",
-        "desc": "秀场直播平台",
-        "url": "https://www.yinke.tv/",
-        "icon": "https://www.yinke.tv/favicon.ico"
-      },
-      {
-        "title": "花椒直播",
-        "desc": "老牌秀场直播平台",
-        "url": "https://www.huajiao.com/",
-        "icon": "https://www.huajiao.com/favicon.ico"
-      },
-      {
-        "title": "Twitch",
-        "desc": "全球最大的游戏直播平台",
-        "url": "https://www.twitch.tv/",
-        "icon": "https://www.twitch.tv/favicon.ico"
-      },
-      {
-        "title": "YouTube直播",
-        "desc": "全球最大的视频平台的直播功能",
-        "url": "https://www.youtube.com/live",
-        "icon": "https://www.youtube.com/favicon.ico"
-      },
-      {
         "title": "央视官方直播",
         "desc": "直播大全_CCTV节目官网_央视网",
         "url": "https://tv.cctv.com/live/",
         "icon": "https://api.xinac.net/icon/?url=tv.cctv.com/live"
-      },
-      {
-        "title": "好趣网",
-        "desc": "2000套高清网络电视直播在线观看",
-        "url": "http://tv.haoqu99.com/",
-        "icon": "https://api.xinac.net/icon/?url=tv.haoqu99.com"
-      },
-      {
-        "title": "eja TV",
-        "desc": "全球直播在线观看网站",
-        "url": "https://eja.tv/",
-        "icon": "https://api.xinac.net/icon/?url=eja.tv"
       }
     ]
   },
