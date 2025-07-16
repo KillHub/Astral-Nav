@@ -718,7 +718,7 @@
                 <!-- 悬浮搜索弹窗 -->
                 <div id="floating-search-box" style="display:none;position:fixed;right:32px;bottom:190px;width:300px;background:rgba(255,255,255,0.95);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.12);padding:20px;z-index:9999;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);">
                     <input type="text" id="floating-search-input" placeholder="🔍 输入关键词快速定位" style="width:100%;padding:12px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.1);font-size:16px;outline:none;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.05);margin-bottom:12px;background:rgba(255,255,255,0.8);">
-                    <button id="close-search-box" style="width:100%;background:linear-gradient(135deg,#6e8efb 0%,#a777e3 100%);color:#fff;border:none;border-radius:12px;padding:10px 0;font-size:16px;cursor:pointer;box-shadow:0 4px 12px rgba(110,142,251,0.2);font-weight:500;transition:all 0.3s ease;">关闭搜索</button>
+                    <button id="close-search-box" style="width:100%;background:linear-gradient(135deg,#6e8efb 0%,#a777e3 100%);color:#fff;border:none;border-radius:12px;padding:10px 0;font-size:16px;cursor:pointer;box-shadow:0 4px 12px rgba(110,142,251,0.2);font-weight:500;transition:all 0.3s ease;">按下<font style="color: red;"> Ctrl+F </font>打开，<font style="color: red;"> ESC </font>关闭</button>
                 </div>
             </div>
             
@@ -747,6 +747,23 @@
     <!-- 功能：悬浮搜索按钮，快速定位相关链接 -->
     <script>
         $(function(){
+            // 键盘快捷键：Ctrl+F 打开悬浮搜索，ESC关闭并清空
+            $(document).on('keydown', function(e){
+                // Ctrl+F 打开搜索
+                if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f'){
+                    e.preventDefault();
+                    $('#floating-search-box').fadeIn(180);
+                    $('#floating-search-input').focus();
+                }
+                // ESC 关闭搜索
+                if(e.key === 'Escape'){
+                    if($('#floating-search-box').is(':visible')){
+                        $('#floating-search-box').fadeOut(120);
+                        $('#floating-search-input').val('');
+                        filterLinks('');
+                    }
+                }
+            });
             // 悬浮搜索按钮弹窗
             $('#search-suspension-btn').on('click',function(){
                 $('#floating-search-box').fadeIn(180);
@@ -764,35 +781,39 @@
             });
             // 筛选函数
             function filterLinks(keyword){
-                var firstVisible = null;
-                var kwLower = keyword.toLowerCase();
-                $("div.row[id^='section-']").each(function(){
-                    var $row = $(this);
-                    var hasVisible = false;
-                    $row.children().each(function(){
-                        var $item = $(this);
-                        var text = $item.text() || '';
-                        // 模糊+大小写不敏感
-                        if(!keyword || text.toLowerCase().indexOf(kwLower) !== -1){
-                            $item.show();
-                            hasVisible = true;
+                try {
+                    var firstVisible = null;
+                    var kwLower = keyword.toLowerCase();
+                    $("div.row[id^='section-']").each(function(){
+                        var $row = $(this);
+                        var hasVisible = false;
+                        $row.children().each(function(){
+                            var $item = $(this);
+                            var text = $item.text() || '';
+                            // 模糊+大小写不敏感
+                            if(!keyword || text.toLowerCase().indexOf(kwLower) !== -1){
+                                $item.show();
+                                hasVisible = true;
+                            }else{
+                                $item.hide();
+                            }
+                        });
+                        // 同步控制对应<h6 class="tag”>，隐藏用display:none
+                        var $tag = $row.prevAll('h6.tag').first();
+                        if(hasVisible){
+                            $row.show();
+                            $tag.css('display','');
+                            if(!firstVisible) firstVisible = $tag.length ? $tag : $row;
                         }else{
-                            $item.hide();
+                            $row.hide();
+                            $tag.css('display','none');
                         }
                     });
-                    // 同步控制对应 <h6 class="tag">，隐藏用display:none
-                    var $tag = $row.prevAll('h6.tag').first();
-                    if(hasVisible){
-                        $row.show();
-                        $tag.css('display','');
-                        if(!firstVisible) firstVisible = $tag.length ? $tag : $row;
-                    }else{
-                        $row.hide();
-                        $tag.css('display','none');
-                    }
-                });
-                // 执行滚动
-                scrollToSearchResult(keyword, firstVisible);
+                    // 执行滚动到内容第一个位置
+                    scrollToSearchResult(keyword, firstVisible);
+                } catch(e) {
+                    console.error('筛选异常:', e);
+                }
             }
 
             // 平滑滚动到第一个匹配的搜索结果区块
@@ -801,6 +822,18 @@
                     $('html,body').animate({scrollTop: firstVisible.offset().top - 60}, 350);
                 }
             }
+            // 夜间模式弹窗背景
+            function updateSearchBoxBg(){
+                if($('body').hasClass('night')){
+                    $('#floating-search-box').css('background','rgba(30,32,40,0.98)');
+                }else{
+                    $('#floating-search-box').css('background','rgba(255,255,255,0.95)');
+                }
+            }
+            updateSearchBoxBg();
+            // 监听夜间模式切换
+            const observer = new MutationObserver(updateSearchBoxBg);
+            observer.observe(document.body, {attributes:true,attributeFilter:['class']});
         });
     </script>
 </body>
