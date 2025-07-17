@@ -6,8 +6,7 @@
     "icon": "fas fa-code",
     "category": "格式化",
     "featured": true,
-    "dataCategory": "format",
-    "style": "--card-index: 0; --mouse-x: 10px; --mouse-y: 217.875px; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);"
+    "dataCategory": "format"
   },
   {
     "url": "/pages/utils/utils_base64convert.html",
@@ -17,8 +16,7 @@
     "iconColor": "color: #FF69B4;",
     "category": "转换",
     "featured": false,
-    "dataCategory": "converter",
-    "style": "--card-index: 5; --mouse-x: 2px; --mouse-y: 195.875px; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);"
+    "dataCategory": "converter"
   },
   {
     "url": "/pages/utils/utils_timestamp_converter.html",
@@ -28,8 +26,7 @@
     "iconColor": "color: #0084ff;",
     "category": "转换",
     "featured": false,
-    "dataCategory": "converter",
-    "style": "--card-index: 11; --mouse-x: 3px; --mouse-y: 206.875px; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);"
+    "dataCategory": "converter"
   },
   {
     "url": "/pages/utils/utils_password_generation.html",
@@ -38,8 +35,7 @@
     "icon": "fas fa-key",
     "category": "安全",
     "featured": false,
-    "dataCategory": "security",
-    "style": "--card-index: 2; --mouse-x: 8px; --mouse-y: 53.875px; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);"
+    "dataCategory": "security"
   },
   {
     "url": "/pages/utils/utils_uuid_generation.html",
@@ -48,8 +44,7 @@
     "icon": "fas fa-fingerprint",
     "category": "生成器",
     "featured": false,
-    "dataCategory": "generator",
-    "style": "--card-index: 3; --mouse-x: 44px; --mouse-y: 98.875px; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);"
+    "dataCategory": "generator"
   },
   {
     "url": "/pages/utils/utils_nine_grid.html",
@@ -58,8 +53,7 @@
     "icon": "fas fa-th-large",
     "category": "图像",
     "featured": true,
-    "dataCategory": "grid",
-    "style": "--card-index: 4; --mouse-x: 210px; --mouse-y: 239.875px; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);"
+    "dataCategory": "grid"
   },
   {
     "url": "/pages/utils/utils_emoji_picker.html",
@@ -68,8 +62,7 @@
     "icon": "fas fa-face-smile",
     "category": "工具",
     "featured": true,
-    "dataCategory": "emoji",
-    "style": "--card-index: 6; --mouse-x: 33px; --mouse-y: 80.875px; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);"
+    "dataCategory": "emoji"
   },
   {
     "url": "/pages/utils/utils_cover_creator.html",
@@ -78,8 +71,7 @@
     "icon": "fas fa-photo-video",
     "category": "图像",
     "featured": true,
-    "dataCategory": "image",
-    "style": "--card-index: 8"
+    "dataCategory": "image"
   },
   {
     "url": "/pages/utils/utils_screenshot_generation.html",
@@ -88,8 +80,7 @@
     "icon": "fas fa-closed-captioning",
     "category": "图像",
     "featured": true,
-    "dataCategory": "subtitle",
-    "style": "--card-index: 9"
+    "dataCategory": "subtitle"
   },
   {
     "url": "/pages/utils/utils_color_picker.html",
@@ -98,7 +89,15 @@
     "icon": "fas fa-palette",
     "category": "转换",
     "featured": true,
-    "dataCategory": "converter",
-    "style": "--card-index: 10; --mouse-x: 27px; --mouse-y: 101.875px; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);"
+    "dataCategory": "converter"
+  },
+  {
+    "url": "/pages/utils/utils_phone_numbers.html",
+    "title": "全国常用电话号码列表",
+    "desc": "收集和分类全国各地的常用电话和紧急联系方式，方便查询和记忆",
+    "icon": "fas fa-tty",
+    "category": "电话",
+    "featured": true,
+    "dataCategory": "phone"
   }
 ]

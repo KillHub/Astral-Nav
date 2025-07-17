@@ -35,9 +35,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- APlayer CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
     <!-- APlayer JS -->
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
     <!-- Live2D 看板娘js - 官方版本 -->
     <script src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>  
     <script>
@@ -193,12 +193,12 @@
                     </li>
                 </ul>
                 <div class="weather pull-right">
-                    <span id="city_text">天气</span>&nbsp;<!-- 城市 -->
-                    <span id="wea_text">加载失败</span>&nbsp;<!-- 天气 -->
-                    <span id="tem_low"></span>℃<!-- 气温 -->
-                    <span id="tem_high"></span>&nbsp;
-                    <span id="win_text"></span><!-- 风向 -->
-                    <span id="win_speed"></span><!-- 风力 -->
+                    <span id="text_city"></span>&nbsp;            <!-- 城市 -->
+                    <span id="text_weather"></span>&nbsp;         <!-- 天气 -->
+                    <span id="text_low"></span>~            <!-- 最低气温 -->
+                    <span id="text_high"></span>&nbsp;            <!-- 最高气温 -->
+                    <span id="text_wind"></span>&nbsp;            <!-- 风向 -->
+                    <span id="text_rh"></span>              <!-- 相对湿度 -->
                 </div>
             </nav>
             <!-- 实用搜索 -->
@@ -906,13 +906,14 @@
             autoplay: true, // 自动播放（可能被浏览器阻止）
             loop: 'all', // 循环播放（'all' | 'one' | 'none'）
             volume: 0.7, // 默认音量
+            lrcType: 3, // 关键！3 表示加载外部 LRC 文件
             audio: [
                 {
                     name: '豪杰春香 - 미안해요 하는 게', // 歌曲名称
                     artist: '原唱', // 歌手
-                    url: '/music/豪杰春香 미안해야 하는거니.mp3', // 音频路径
-                    cover: '/images/豪杰春香 미안해야 하는거니.png', // 可选：封面图
-                    lrc: '/music/豪杰春香 미안해야 하는거니.lrc', // 可选：歌词文件（LRC格式）
+                    url: '/music/豪杰春香.mp3', // 音频路径
+                    cover: '/images/豪杰春香.png', // 可选：封面图
+                    lrc: '/music/豪杰春香.lrc', // 可选：歌词文件（LRC格式）
                 },
                 // 可以添加更多歌曲
             ]

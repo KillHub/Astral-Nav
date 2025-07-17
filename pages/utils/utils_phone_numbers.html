@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>全国常用电话号码列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap-v5.3.7.min.css">
+    <style>
+        body { background: #f7f7fa; font-family: 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Arial', sans-serif; font-size: 15px; }
+        .container { max-width: 1600px; margin: 32px auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); padding: 24px 12px; }
+        h2 { text-align: center; margin-bottom: 24px; color: #3a3a3a; font-weight: 700; font-size: 22px; letter-spacing: 1px; }
+        table { width: 100%; border-collapse: collapse; background: #fff; }
+        th, td { padding: 7px 6px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background: linear-gradient(90deg,#6e8efb 0%,#a777e3 100%); color: #fff; font-size: 14px; font-weight: 600; }
+        tr:hover { background: #f2f6ff; }
+        .phone { font-weight: bold; color: #2a7ae2; font-size: 14px; }
+        .card-title { font-size: 16px; font-weight: 600; color: #6e8efb; margin-bottom: 8px; text-align: center; letter-spacing: 0.5px; }
+        .phone-card { background:#fff; border-radius:10px; box-shadow:0 2px 12px rgba(0,0,0,0.07); margin-bottom:18px; padding:12px 8px; min-width:260px; max-width:340px; transition:box-shadow .2s; }
+        .phone-card:hover { box-shadow:0 4px 18px rgba(110,142,251,0.13); }
+        @media (max-width: 600px) {
+            .container { padding: 8px 2px; }
+            th, td { font-size: 12px; }
+            h2 { font-size: 16px; }
+            .card-title { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>全国常用电话号码列表</h2>
+        <div id="phone-group-list" class="row" style="gap:24px;display:flex;flex-wrap:wrap;justify-content:left;"></div>
+    </div>
+    <script src="/js/jquery-v3.7.1.min.js"></script>
+    <script>
+    // 加载 phone_data_flat.json 并分组渲染卡片
+    fetch('/json/phone_data.json')
+        .then(res => res.json())
+        .then(data => {
+            // 按 desc 分组
+            const groupMap = {};
+            data.forEach(item => {
+                const group = item.desc || '其他';
+                if(!groupMap[group]) groupMap[group] = [];
+                groupMap[group].push(item);
+            });
+            // 渲染每个分组为一个卡片
+            let html = '';
+            Object.keys(groupMap).forEach(group => {
+                html += `<div class="phone-card">
+                    <div class="card-title">${group}</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>号码</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${groupMap[group].map(item => `
+                                <tr>
+                                    <td>${item.name}</td>
+                                    <td class="phone">${item.phone}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>`;
+            });
+            $('#phone-group-list').html(html);
+        })
+        .catch(err => {
+            $('#phone-group-list').html('<div style="color:red;text-align:center;width:100%;">电话号码数据加载失败</div>');
+        });
+    </script>
+</body>
+</html>
