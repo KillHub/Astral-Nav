@@ -8,6 +8,7 @@
     <title>星界导航｜穿越星河的坐标 - Astral Nav</title>
     <meta name="keywords" content="网址导航,网站导航,星界导航,星界，Astral，Navigation"/>
     <meta name="description" content="Astral Nav - 纯静态导航网站，优质书签，无广告。">
+    <base href="/Astral-Nav/"><!-- ! 动态调整路径（适用于子目录部署）GitHub Pages -->
     <link rel="shortcut icon" type="image/x-icon" href="/images/Steven.jpg"/>
     <link rel="stylesheet" href="/css/style_core.css">
     <link rel="stylesheet" href="/css/style_dark.css"><!-- 黑暗模式 -->
@@ -192,14 +193,8 @@
                         <div id="aplayer"></div>
                     </li>
                 </ul>
-                <div class="weather pull-right">
-                    <span id="text_city"></span>&nbsp;            <!-- 城市 -->
-                    <span id="text_weather"></span>&nbsp;         <!-- 天气 -->
-                    <span id="text_low"></span>~            <!-- 最低气温 -->
-                    <span id="text_high"></span>&nbsp;            <!-- 最高气温 -->
-                    <span id="text_wind"></span>&nbsp;            <!-- 风向 -->
-                    <span id="text_rh"></span>              <!-- 相对湿度 -->
-                </div>
+                <!-- 右上角天气 API -->
+                <div class="weather pull-right" id="weather-container"></div>
             </nav>
             <!-- 实用搜索 -->
             <div id="search" class="s-search" style="font: 15px Arial;font-weight: bolder;">
@@ -619,7 +614,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-12 myinfo">
-                                    <p>优质书签，没有广告</p>
+                                    <p>站长精选，嘿嘿</p>
                                     <p>如书签给您造成困扰，请联系站长商讨</p>
                                     <p>如本站对您有所帮助，请随意打赏，谢谢~</p>
                                     <div class="post-reward">
