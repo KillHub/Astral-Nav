@@ -57,17 +57,18 @@
 
 
 ### ✨ 功能特性  
-✅ 丰富资源     
+✅ 丰富资源链接     
 ✅ 随机二次元背景   
 ✅ 实时天气   
 ✅ 快速定位搜索        
 ✅ 今日诗词           
-✅ JSON易维护
-✅ Live 2D 看板娘
+✅ JSON易维护   
+✅ Live 2D 看板娘   
+✅ 在线工具 
 
 ### 💡 快速开始 
 
-**🚀 安装**
+**🚀 安装使用**
 
 ```git
 git clone https://github.com/KillHub/Astral-Nav
@@ -84,6 +85,7 @@ git clone https://github.com/KillHub/Astral-Nav
 - [新逸Cary API](https://api.xinac.net/)
 - [今日诗词 API](https://www.jinrishici.com/)
 - [韩小韩 WebAPI 接口站](https://api.vvhan.com/)
+
 
 
 **📄 许可证**
