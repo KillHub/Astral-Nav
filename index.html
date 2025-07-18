@@ -5,6 +5,8 @@
     <!-- TODO 搜索：href=" → 替换为：href=" -->
     <!-- TODO 搜索：src=" → 替换为：src=" -->
     <!-- TODO 搜索：url('/' → 替换为：url('（针对 CSS 文件） -->
+    <!-- TODO 搜索：'images → 替换为：'images -->
+    <!-- TODO 搜索：'music → 替换为：'music -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -696,7 +698,7 @@
             <div class="suspension">
                 <ul>
                     <!--悬浮搜索按钮-->
-                    <li class="suspension_box suspension_ax" id="search-suspension-btn" style="background: url(/images/search.png) no-repeat center center rgb(0 0 0 / 25%);background-size: 50% 50%;">
+                    <li class="suspension_box suspension_ax" id="search-suspension-btn" style="background: url('images/search.png') no-repeat center center rgb(0 0 0 / 25%);background-size: 50% 50%;">
                         <div class="suspension_ax_cont" id="fk-span">
                             <span class="suspension_triangle" id="fk-span-right"></span>
                             <span>🔍快速定位</span>
@@ -909,9 +911,9 @@
                 {
                     name: '豪杰春香 - 미안해요 하는 게', // 歌曲名称
                     artist: '原唱', // 歌手
-                    url: '/music/豪杰春香.mp3', // 音频路径
-                    cover: '/images/豪杰春香.png', // 可选：封面图
-                    lrc: '/music/豪杰春香.lrc', // 可选：歌词文件（LRC格式）
+                    url: 'music/豪杰春香.mp3', // 音频路径
+                    cover: 'images/豪杰春香.png', // 可选：封面图
+                    lrc: 'music/豪杰春香.lrc', // 可选：歌词文件（LRC格式）
                 },
                 // 可以添加更多歌曲
             ]

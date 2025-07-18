@@ -520,7 +520,7 @@ $(document).ready(function() {
 
 function imgerrorfun(){  
     const img = event.srcElement; // 获取触发错误的图片元素
-    img.src = '/images/browser.svg'; // 替换为默认占位图
+    img.src = 'images/browser.svg'; // 替换为默认占位图
     img.onerror = null; // 避免无限循环
 } 
 
