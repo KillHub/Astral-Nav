@@ -33,7 +33,7 @@
 - 音乐播放器增加歌词显示
 
 ##### V1.3.6 - 2025.7.17
-- 动态调整路径（适用于子目录部署）GitHub Pages（[预览](https://killhub.github.io/Astral-Nav/)）
+- 动态调整路径（适用于子目录部署）GitHub Pages（[🌈页面预览🌈](https://killhub.github.io/Astral-Nav/)）
 
 ##### V1.3.7 - 2025.7.18
 - 增加功能：外链导航点击检测，无法访问自动跳转404页面
@@ -41,12 +41,12 @@
 ---
 
 ## 👋 你好，我是 Steven Zhao
-**_`编程玩家，游戏菜鸟，影视迷，囤书客，徒步爱好者。`_**
+**_`编程玩家，游戏菜鸟，影视迷，囤书客，徒步爱好者，围棋小白。`_**
 
-**🌱 技能标签**： Java / 前端开发 / Python / 
+**🌱 技能标签**： Java / 前端开发 / Python 等等~
 
 **📊 近期项目**：  
-- [Astral-Nav 星界导航](https://github.com/KillHub/Astral-Nav)：用前端知识构建的静态网站，记录学习到的前端框架  
+- [Astral-Nav 星界导航，可预览](https://github.com/KillHub/Astral-Nav)：为了记录学习到的前端知识构建的静态网站
 
 **📫 联系方式**：  
 - 邮箱：01loveslife@gmail.com
@@ -96,11 +96,17 @@ git clone https://github.com/KillHub/Astral-Nav
     <!-- TODO 搜索："/pages → 替换为："pages -->
 ```
 
-**❤️ 特别鸣谢**
+**❤️ 特别鸣谢（不分先后）**
+- [Astral-Nav](https://github.com/KillHub/Astral-Nav)
+- [Aplayer](https://github.com/MoePlayer/APlayer)
+- [Live2D 看板娘](https://github.com/xiazeyu/live2d-widget)
 - [WebStackPage](https://github.com/WebStackPage/WebStackPage.github.io)
 - [新逸Cary API](https://api.xinac.net/)
 - [今日诗词 API](https://www.jinrishici.com/)
 - [韩小韩 WebAPI 接口站](https://api.vvhan.com/)
+- [Wayne-Nav-master](https://github.com/Waynenet/Wayne-Nav)
+- [蔚蓝工具箱](https://github.com/core666666/Blue-IT-Too)
+- [小渡API](https://api.dwo.cc/)
 
 
 

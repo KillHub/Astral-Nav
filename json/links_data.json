@@ -1442,6 +1442,12 @@
         "desc": "免费API - 提供免费接口调用平台",
         "url": "https://api.aa1.cn/",
         "icon": "https://api.aa1.cn/assets/img/favicon.png"
+      },
+      {
+        "title": "小渡API",
+        "desc": "小渡API | Free API for Everyone",
+        "url": "https://api.dwo.cc/",
+        "icon": "https://api.aa1.cn/assets/img/favicon.png"
       }
     ]
   },

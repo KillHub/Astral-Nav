@@ -608,20 +608,9 @@ function trigger_resizable() {
 // 添加窗口尺寸变化监听
 jQuery(window).on('resize orientationchange', trigger_resizable);
 
-// 动态创建天气HTML结构
-function createWeatherElements() {
-    const container = document.getElementById('weather-container');
-    container.innerHTML = `
-        <span id="text_city"></span>&nbsp;
-        <span id="text_weather"></span>&nbsp;
-        <span id="text_low"></span>
-        <span id="text_high"></span>&nbsp;
-        <span id="text_wind"></span>&nbsp;
-        <span id="text_rh"></span>
-    `;
-}
 
-// 1. 通过 IP 获取城市信息
+/* 
+// FIXME 1. 通过 IP 获取城市信息
 function fetchWeatherData() {
     fetch('http://ipwho.is/?output=json&lang=zh-CN')
         .then(response => {
@@ -654,8 +643,46 @@ function fetchWeatherData() {
                         });
         })
         .catch(error => {
-            console.error('错误:', error);
             $('#weather-container').html('<span class="error">定位或天气数据加载失败</span>');
+        });
+}
+*/
+
+// 动态创建天气HTML结构
+function createWeatherElements() {
+    const container = document.getElementById('weather-container');
+    container.innerHTML = `
+        <span id="text_city"></span>&nbsp;
+        <span id="text_weather"></span>&nbsp;
+        <span id="text_low"></span>~
+        <span id="text_high"></span>&nbsp;
+        <span id="text_wind"></span>&nbsp;
+        <span id="text_rh"></span>
+    `;
+}
+
+function fetchWeatherData() {
+    fetch('http://ipwho.is/?output=json&lang=zh-CN')
+        .then(response => response.json())
+        .then(ipData => {
+            const IP = ipData.ip;
+            // 2. 调用天气 API
+            return fetch(`https://api.vvhan.com/api/weather?ip=${encodeURIComponent(IP)}`)
+                        .then(weatherResponse => weatherResponse.json())
+                        .then(weatherData => {
+                            // 创建页面
+                            createWeatherElements();
+                            // 3. 更新页面天气信息
+                            $('#text_city').text(weatherData.city || '未知城市');//城市
+                            $('#text_weather').text(weatherData.data?.type || '');//天气
+                            $('#text_low').text(weatherData.data?.low || '');//最低气温
+                            $('#text_high').text(weatherData.data?.high || '');//最高气温
+                            $('#text_wind').text(weatherData.data?.fengxiang || '');//风向
+                            $('#text_rh').text(weatherData.data?.fengli || '');//风力
+                        });
+        })
+        .catch(error => {
+            $('#weather-container').html('<span class="error">定位 或 天气数据加载失败</span>');
         });
 }
 
