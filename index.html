@@ -41,6 +41,38 @@
     <!-- Live2D 看板娘js - 官方版本 -->
     <script src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>  
     <script>
+        // 功能：全局拦截 window.open，检测外链可访问性，无法访问则跳转404页面
+        (function(){
+            var rawOpen = window.open;
+            window.open = function(url, target, features) {
+                // 只处理 http/https 外链
+                if (typeof url === 'string' && /^https?:\/\//.test(url)) {
+                    var match = url.match(/^(https?:\/\/[^\/]+)/);
+                    var domain = match ? match[1] : null;
+                    if (!domain) {
+                        return rawOpen.apply(window, arguments);
+                    }
+                    var img = new Image();
+                    var timer;
+                    img.onload = function() {
+                        clearTimeout(timer);
+                        rawOpen.call(window, url, target || '_blank', features);
+                    };
+                    img.onerror = function() {
+                        clearTimeout(timer);
+                        window.location.href = '/pages/404.html';
+                    };
+                    timer = setTimeout(function(){
+                        window.location.href = '/pages/404.html';
+                    }, 2000);
+                    img.src = domain + '/favicon.ico';
+                } else {
+                    return rawOpen.apply(window, arguments);
+                }
+            };
+        })();
+    </script>
+    <script>
         L2Dwidget.init({
             "model": {
                 jsonPath: "https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/seifuku/seifuku.model.json", // 模型路径
@@ -745,6 +777,48 @@
     <canvas id="starfield"></canvas>
     <!-- 页面js -->
     <script src="/js/script_function.js"></script>
+
+    <!-- 功能：外链导航点击检测，无法访问自动跳转404页面 -->
+    <script>
+        /*
+         * 功能：外链导航点击检测，无法访问自动跳转404页面
+         * 实现原理：
+         * 1. 拦截所有 a[target="_blank"] 的点击事件。
+         * 2. 获取链接地址，排除锚点和 js 链接。
+         * 3. 提取目标网站域名，尝试加载其 favicon.ico。
+         * 4. 如果图片加载成功，说明网站可访问，正常 window.open 跳转。
+         * 5. 如果图片加载失败或超时（如被墙、断网），则跳转到 404.html。
+         * 这样可兼容绝大多数外链检测场景。
+         */
+        $(document).on('click', 'a[target="_blank"]', function(e) {
+            var url = $(this).attr('href');
+            if (!url || url.startsWith('#') || url.startsWith('javascript:')) return;
+            e.preventDefault();
+            // 提取域名
+            var match = url.match(/^(https?:\/\/[^\/]+)/);
+            var domain = match ? match[1] : null;
+            if (!domain) {
+                window.open(url, '_blank');
+                return;
+            }
+            var img = new Image();
+            var timer;
+            img.onload = function() {
+                clearTimeout(timer);
+                window.open(url, '_blank');
+            };
+            img.onerror = function() {
+                clearTimeout(timer);
+                window.location.href = '/pages/404.html';
+            };
+            // 超时处理（如被墙、无响应）
+            timer = setTimeout(function(){
+                window.location.href = '/pages/404.html';
+            }, 2000);
+            img.src = domain + '/favicon.ico';
+        });
+    </script>
+
     <!-- 功能：链接卡片点击次数统计与角标显示 -->
     <style>
         .link-badge {
