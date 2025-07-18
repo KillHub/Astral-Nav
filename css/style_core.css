@@ -36,7 +36,7 @@ html {
   background: transparent; /* 清除 html 的背景 */
 }
 body {
-  /*background-image: url(https://www.loliapi.com/acg/);   /* 随机二次元图片API */
+  background-image: url(https://www.loliapi.com/acg/);   /* 随机二次元图片API */
   background-repeat: no-repeat !important;
   /*background-attachment: scroll !important; !* 默认值，背景随内容滚动 *!*/
   background-attachment: fixed !important;; /* 背景固定 */

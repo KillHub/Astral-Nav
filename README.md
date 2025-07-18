@@ -33,7 +33,7 @@
 - 音乐播放器增加歌词显示
 
 ##### V1.3.6 - 2025.7.17
-- 动态调整路径（适用于子目录部署）GitHub Pages（[预览](https://killhub.github.io/Astral-Nav/)）
+- 动态调整路径（适用于子目录部署）GitHub Pages（[预览](https://killhub.github.io/Astral-Nav/){:target="_blank"}）
 
 ---
 
