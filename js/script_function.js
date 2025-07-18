@@ -730,7 +730,7 @@ function openSwalBox(url,title){
 }
 
 // ! 工具
-fetch('/json/utils_data.json')               // 1. 发起请求
+fetch('json/utils_data.json')               // 1. 发起请求
     .then(response => response.json())    // 2. 解析响应为 JSON
     .then(data => {                       // 3. 使用解析后的数据
         console.log(data);                  // 4. 打印数据
@@ -755,7 +755,7 @@ fetch('/json/utils_data.json')               // 1. 发起请求
 
 
 // ! 链接
-fetch('/json/links_data.json')
+fetch('json/links_data.json')
     .then(response => response.json())
     .then(data => {
         data.forEach(section => {
