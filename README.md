@@ -69,6 +69,8 @@
 ✅ JSON易维护
 ✅ Live 2D 看板娘   
 ✅ 在线工具 
+✅ 音乐播放器    
+✅ 数字角标计数 
 
 ### 💡 快速开始 
 
@@ -78,11 +80,25 @@
 git clone https://github.com/KillHub/Astral-Nav
 ```
 
+**🌞 GitHub Pages 部署**
+
+```javascript
+    // 要改这些路径，使其适用于子目录部署。不然会找不到静态资源。
+    <!-- TODO 搜索：href="/ → 替换为：href=" -->
+    <!-- TODO 搜索：src="/ → 替换为：src=" -->
+    <!-- TODO 搜索：url('/' → 替换为：url('（针对 CSS 文件） -->
+    <!-- TODO 搜索：'/images → 替换为：'images -->
+    <!-- TODO 搜索：'/music → 替换为：'music -->
+    <!-- TODO 搜索：fetch('/json → 替换为：fetch('json -->
+    <!-- TODO 搜索："/pages → 替换为："pages -->
+```
+
 **❤️ 特别鸣谢**
 - [WebStackPage](https://github.com/WebStackPage/WebStackPage.github.io)
 - [新逸Cary API](https://api.xinac.net/)
 - [今日诗词 API](https://www.jinrishici.com/)
 - [韩小韩 WebAPI 接口站](https://api.vvhan.com/)
+
 
 
 **📄 许可证**
