@@ -38,6 +38,9 @@
 ##### V1.3.7 - 2025.7.18
 - 增加功能：外链导航点击检测，无法访问自动跳转404页面
 
+##### V1.3.8 - 2025.7.21
+- 增加功能：底部增加动漫语录，励志英语，樱花效果、梅花效果、春节灯笼等API
+
 ---
 
 ## 👋 你好，我是 Steven Zhao
@@ -117,7 +120,9 @@ git clone https://github.com/KillHub/Astral-Nav
 - [蔚蓝工具箱](https://github.com/core666666/Blue-IT-Too)
 - [小渡API](https://api.dwo.cc/)
 
+**😂 Star History**
 
+[![Star History Chart](https://api.star-history.com/svg?repos=KillHub/Astral-Nav&type=Date)](https://www.star-history.com/#KillHub/Astral-Nav&Date)
 
 **📄 许可证**
 > 本项目采用 MIT License，详情见 [LICENSE](https://opensource.org/license/MIT) 文件。

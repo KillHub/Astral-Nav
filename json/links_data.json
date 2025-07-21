@@ -25,6 +25,12 @@
         "desc": "全球最大的视频分享平台",
         "url": "https://www.youtube.com/",
         "icon": "https://api.xinac.net/icon/?url=www.youtube.com"
+      },
+      {
+        "title": "国际新闻-什么值得看",
+        "desc": "每天半小时-发现当下正在发生的有趣事",
+        "url": "https://smzdk.top/",
+        "icon": "https://smzdk.top/ico/favicon.png"
       }
     ]
   },
@@ -1319,13 +1325,19 @@
         "icon": "https://fontawesome.com.cn/favicon.ico"
       },
       {
-        "title": "socialify 项目卡片生成",
+        "title": "GitHub-socialify 项目卡片生成",
         "desc": "GitHub 项目卡片生成工具",
         "url": "https://socialify.git.ci/",
         "icon": "https://socialify.git.ci/favicon.ico"
       },
       {
-        "title": "Shields.io 徽章生成器",
+        "title": "GitHub-Star History",
+        "desc": "为 GitHub 仓库提供星标历史图表展示的开源项目",
+        "url": "https://www.star-history.com/",
+        "icon": "https://www.star-history.com/assets/favicon.ico"
+      },
+      {
+        "title": "GitHub-Shields.io 徽章生成器",
         "desc": "GitHub 的 Shields.io 动态生成的徽章（Badges），用于在 README 或项目文档中直观展示项目信息（如版本、许可证等）。",
         "url": "https://shields.io/",
         "icon": "https://shields.io/img/favicon.ico"
@@ -1447,7 +1459,7 @@
         "title": "小渡API",
         "desc": "小渡API | Free API for Everyone",
         "url": "https://api.dwo.cc/",
-        "icon": "https://api.aa1.cn/assets/img/favicon.png"
+        "icon": "https://api.dwo.cc/Public/Uploads/Images/de9a96878ccd24038301a3451b480053.png"
       }
     ]
   },

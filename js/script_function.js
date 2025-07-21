@@ -550,7 +550,7 @@ function resizable(breakpoint) {
     switch (breakpoint) {
         case 'largescreen':
             // 可放大屏专用逻辑
-			public_vars.$sidebarMenu.removeClass('collapsed');
+            public_vars.$sidebarMenu.removeClass('collapsed');
             break;
         case 'tabletscreen':
             // 平板屏幕时折叠菜单
@@ -663,6 +663,7 @@ function createWeatherElements() {
 
 function fetchWeatherData() {
     fetch('http://ipwho.is/?output=json&lang=zh-CN')
+    //fetch('https://api.vvhan.com/api/ipInfo')     //备用API-获取IP信息
         .then(response => response.json())
         .then(ipData => {
             const IP = ipData.ip;
@@ -686,17 +687,70 @@ function fetchWeatherData() {
         });
 }
 
-// 初始化天气组件
+// 初始化
 document.addEventListener('DOMContentLoaded', () => {
-    fetchWeatherData();
+    setTimeout(times, 1000);//获取时间
+    fetchWeatherData();// 初始化天气组件
+    fetchDongManData();// 获取动漫经典语录数据
+    fetchEnglishData();// 获取励志英语数据
 });
 
 
-//获取时间
-let t = null;
-t = setTimeout(times, 1000);
+function fetchDongManData() {
+    fetch('https://api.vvhan.com/api/ian/dongman?type=json')
+        .then(response => {
+            // 检查响应内容类型
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                return response.json(); // 如果是 JSON，正常解析
+            } else {
+                return response.text(); // 否则按文本处理
+            }
+        })
+        .then(data => {
+            console.log("dongman_content:", data.data.content);
+            console.log("dongman_from:", data.data.form);
+            var anime_text = data.data.content + " ——《 " + data.data.form + " 》";
+            // 显示到 <p id="anime_text"></p> 并美化样式
+            var textP = document.getElementById('anime_text');
+            if (textP) {
+                textP.innerHTML = anime_text;
+                textP.style.fontSize = '18px';
+                textP.style.fontWeight = 'bold';
+                textP.style.textAlign = 'center';
+                textP.style.margin = '10px 0 10px 0';
+                textP.style.lineHeight = '1.6';
+                textP.style.fontFamily = 'AlimamaDongFangDaKai, "微软雅黑", "Arial", sans-serif';
+                textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
+            }
+        });
+}
+
+
+function fetchEnglishData() {
+    fetch('https://api.vvhan.com/api/dailyEnglish?type=sj')
+        .then(response => response.json())
+        .then(data => {
+            console.log("english_zh:", data.data.zh);
+            console.log("english_en:", data.data.en);
+            var english_text = data.data.en + " ——" + data.data.zh;
+            console.log("english_text:", english_text);
+            var textP = document.getElementById('english_text');
+            if (textP) {
+                textP.innerHTML = english_text;
+                textP.style.fontSize = '18px';
+                textP.style.fontWeight = 'bold';
+                textP.style.textAlign = 'center';
+                textP.style.margin = '10px 0 10px 0';
+                textP.style.lineHeight = '1.6';
+                textP.style.fontFamily = 'AlimamaDongFangDaKai, "微软雅黑", "Arial", sans-serif';
+                textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
+            }
+        });
+}
 
 function times() {
+    let t = null;
     clearTimeout(t);
     dt = new Date();
     let y = dt.getYear() + 1900;
