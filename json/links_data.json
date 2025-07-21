@@ -1200,6 +1200,12 @@
         "icon": "https://imgse.com/content/images/system/favicon_1587118523486_91617a.png"
       },
       {
+        "title": "16图床",
+        "desc": "16图床，永久免费，无需登录的图床",
+        "url": "https://111666.best/",
+        "icon": "https://111666.best/logo.png"
+      },
+      {
         "title": "SM.MS",
         "desc": "SM.MS图床",
         "url": "https://sm.ms/",
@@ -1365,6 +1371,12 @@
         "desc": "免费、快速、开放的 CDN 服务",
         "url": "https://www.staticfile.org/",
         "icon": "https://www.staticfile.org/images/favicon.ico"
+      },
+      {
+        "title": "Python Package Index（PyPI）",
+        "desc": "存储了大量由 Python 社区开发和共享的第三方库",
+        "url": "https://pypi.org/",
+        "icon": "https://pypi.org/static/images/logo-small.8998e9d1.svg"
       }
     ]
   },
