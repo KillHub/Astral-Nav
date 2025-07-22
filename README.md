@@ -46,7 +46,7 @@
 
 ---
 
-## 👋 你好，我是 Steven Zhao
+## 👋 你好，我是 Steven Zhao 
 
 **👤 人设标签：**   
 💻 代码炼金师 | 🎮 游戏探险家 | 🎬 光影捕手 
@@ -75,7 +75,7 @@
 **🧙 作者**：Steven Zhao
 
 **📸 截图**：  
-[![pV1tShj.jpg](https://s21.ax1x.com/2025/07/15/pV1tShj.jpg)](https://imgse.com/i/pV1tShj)
+[![pV8hemV.png](https://s21.ax1x.com/2025/07/21/pV8hemV.png)](https://imgse.com/i/pV8hemV)
 
 
 ### ✨ 功能特性  
