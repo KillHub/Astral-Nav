@@ -786,6 +786,12 @@
         "icon": "https://www.processon.com/favicon.ico"
       },
       {
+        "title": "代码对比/归并",
+        "desc": "OSCHINA.NET在线工具-代码对比/归并工具",
+        "url": "https://tool.oschina.net/diff/",
+        "icon": "https://tool.oschina.net/img/favicon.ico"
+      },
+      {
         "title": "开发工具箱",
         "desc": "在线工具,开发人员工具,代码格式化、压缩、加密、解密,下载链接转换,sql工具,正则测试工具,favicon在线制作,字帖工具,中文简繁体转换,迅雷下载链接转换,进制转换,二维码",
         "url": "https://tool.lu/",
