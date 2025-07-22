@@ -127,11 +127,11 @@ body.night #starfield{
 }
 /*悬浮窗*/
 .night .suspension_ax {
-    background: url(../images/sun.svg) no-repeat center center #464646a6;
+    background: url(../images/sun-dark.png) no-repeat center center #464646a6;
     background-size: 60% 60%;
 }
 .night .suspension_ax:hover {
-    background: url(../images/sun.svg) no-repeat center center #313233a6;
+    background: url(../images/sun-dark.png) no-repeat center center #313233a6;
     background-size: 60% 60%;
 }
 .night .suspension_upward {

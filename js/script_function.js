@@ -648,18 +648,6 @@ function fetchWeatherData() {
 }
 */
 
-// 动态创建天气HTML结构
-function createWeatherElements() {
-    const container = document.getElementById('weather-container');
-    container.innerHTML = `
-        <span id="text_city"></span>&nbsp;
-        <span id="text_weather"></span>&nbsp;
-        <span id="text_low"></span>~
-        <span id="text_high"></span>&nbsp;
-        <span id="text_wind"></span>&nbsp;
-        <span id="text_rh"></span>
-    `;
-}
 
 function fetchWeatherData() {
     fetch('http://ipwho.is/?output=json&lang=zh-CN')
@@ -671,8 +659,16 @@ function fetchWeatherData() {
             return fetch(`https://api.vvhan.com/api/weather?ip=${encodeURIComponent(IP)}`)
                         .then(weatherResponse => weatherResponse.json())
                         .then(weatherData => {
-                            // 创建页面
-                            createWeatherElements();
+                            // 动态创建天气HTML结构
+                            const container = document.getElementById('weather-container');
+                            container.innerHTML = `
+                                <span id="text_city"></span>&nbsp;
+                                <span id="text_weather"></span>&nbsp;
+                                <span id="text_low"></span>~
+                                <span id="text_high"></span>&nbsp;
+                                <span id="text_wind"></span>&nbsp;
+                                <span id="text_rh"></span>
+                            `;
                             // 3. 更新页面天气信息
                             $('#text_city').text(weatherData.city || '未知城市');//城市
                             $('#text_weather').text(weatherData.data?.type || '');//天气
@@ -720,7 +716,7 @@ function fetchDongManData() {
                 textP.style.textAlign = 'center';
                 textP.style.margin = '10px 0 10px 0';
                 textP.style.lineHeight = '1.6';
-                textP.style.fontFamily = 'AlimamaDongFangDaKai, "微软雅黑", "Arial", sans-serif';
+                textP.style.fontFamily = 'LXGW ZhenKai, "微软雅黑", "Arial", sans-serif';
                 textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
             }
         });
