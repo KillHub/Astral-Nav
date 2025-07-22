@@ -102,14 +102,50 @@ git clone https://github.com/KillHub/Astral-Nav
 
 ```javascript
     // 更改这些路径，使其适用于项目名部署。不然会找不到静态资源。
-    <!-- TODO 搜索：href="/ → 替换为：href=" -->
-    <!-- TODO 搜索：src="/ → 替换为：src=" -->
-    <!-- TODO 搜索：url('/' → 替换为：url('（针对 CSS 文件） -->
-    <!-- TODO 搜索：'/images → 替换为：'images -->
-    <!-- TODO 搜索：'/music → 替换为：'music -->
-    <!-- TODO 搜索：fetch('/json → 替换为：fetch('json -->
-    <!-- TODO 搜索："/pages → 替换为："pages -->
+    <!-- TAG: 搜索：href="/ → 替换为：href=" -->
+    <!-- TAG: 搜索：src="/ → 替换为：src=" -->
+    <!-- TAG: 搜索：url('/' → 替换为：url('（针对 CSS 文件） -->
+    <!-- TAG: 搜索：'/images → 替换为：'images -->
+    <!-- TAG: 搜索：'/music → 替换为：'music -->
+    <!-- TAG: 搜索：fetch('/json → 替换为：fetch('json -->
+    <!-- TAG: 搜索："/pages → 替换为："pages -->
 ```
+
+```
+  // 📕注释标记说明
+  TODO
+  示例：// TODO: 实现用户登录页
+  用途：标记『待办事项』待办事项或待实现的功能。
+  FIXME
+  示例：// FIXME: 修复空指针异常
+  用途：标记『需要修复』的代码问题或错误。
+  NOTE
+  示例：// NOTE: 此方法仅用于测试环境
+  用途：添加『说明性注释』或重要信息。
+  TAG
+  示例：// TAG: 性能优化
+  用途：『自定义标签』，用于分类或标记特定代码段。
+  INFO
+  示例：// INFO: 2025-07-22 更新缓存机制
+  用途：标记信息性注释（如『版本更新、作者』等）。
+  BUG
+  示例：// BUG: 数据计算结果不正确
+  用途：标记已知的『代码缺陷』或问题。
+  HACK
+  示例：// HACK: 临时绕过权限检查
+  用途：标记『临时解决』方案或需要优化的代码。
+  XXX
+  示例：// XXX: 代码可读性差，需重构
+  用途：标记『需要改进或重构』的代码。
+  UPDATE
+  示例：// UPDATE: 升级到最新 API 版本
+  用途：标记『需要更新』的代码或依赖。
+  FEAT
+  示例：// FEAT: 支持多语言切换
+  用途：标记『新增功能』或需求（常见于敏捷开发）。
+```
+
+
 
 **❤️ 特别鸣谢（不分先后）**
 - [Astral-Nav](https://github.com/KillHub/Astral-Nav)

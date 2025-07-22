@@ -609,54 +609,31 @@ function trigger_resizable() {
 jQuery(window).on('resize orientationchange', trigger_resizable);
 
 
-/* 
-// FIXME 1. 通过 IP 获取城市信息
-function fetchWeatherData() {
-    fetch('http://ipwho.is/?output=json&lang=zh-CN')
-        .then(response => {
-            if (!response.ok) throw new Error('IP定位失败');
-            return response.json();
-        })
-        .then(ipData => {
-            const data = JSON.parse(JSON.stringify(ipData));
-            const city = data.city;
-            if(city!=undefined && city!=null && city!=''){
-                city += '市';
-            }
-            console.log('定位城市:', city);
-            // 2. 调用天气 API
-            return fetch(`https://api.dwo.cc/api/tianqi?districtId=${encodeURIComponent(city)}`)
-                        .then(weatherResponse => {
-                            if (!weatherResponse.ok) throw new Error('天气数据获取失败');
-                            return weatherResponse.json();
-                        })
-                        //.then(weatherResponse => weatherResponse.json())
-                        .then(weatherData => {
-                            createWeatherElements();
-                            // 3. 更新页面天气信息
-                            $('#text_city').text(city || '未知城市');//城市
-                            $('#text_weather').text(weatherData.data?.weather || '');//天气
-                            $('#text_low').text(weatherData.data?.lowTemp || '');//最低气温
-                            $('#text_high').text(weatherData.data?.highTemp || '');//最高气温
-                            $('#text_wind').text(weatherData.data?.wind || '');//风向
-                            $('#text_rh').text(weatherData.data?.rh || '');//相对湿度
-                        });
-        })
-        .catch(error => {
-            $('#weather-container').html('<span class="error">定位或天气数据加载失败</span>');
-        });
-}
-*/
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(times, 1000);        // 获取当前时间并显示
+    fetchWeatherData();             // 通过 IP 获取城市信息和天气数据
+    fetchDongManData();             // 获取动漫经典语录数据
+    fetchEnglishData();             // 获取励志英语数据
+});
 
 
+// NOTE: 通过 IP 获取城市信息和天气数据
 function fetchWeatherData() {
     fetch('http://ipwho.is/?output=json&lang=zh-CN')
     //fetch('https://api.vvhan.com/api/ipInfo')     //备用API-获取IP信息
         .then(response => response.json())
         .then(ipData => {
+            // const data = JSON.parse(JSON.stringify(ipData));
+            // const city = data.city;
+            // if(city!=undefined && city!=null && city!=''){
+            //     city += '市';
+            // }
+            // console.log('定位城市:', city);
             const IP = ipData.ip;
             // 2. 调用天气 API
             return fetch(`https://api.vvhan.com/api/weather?ip=${encodeURIComponent(IP)}`)
+            //return fetch(`https://api.dwo.cc/api/tianqi?districtId=${encodeURIComponent(city)}`)   //备用API-获取天气信息
                         .then(weatherResponse => weatherResponse.json())
                         .then(weatherData => {
                             // 动态创建天气HTML结构
@@ -683,15 +660,7 @@ function fetchWeatherData() {
         });
 }
 
-// 初始化
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(times, 1000);//获取时间
-    fetchWeatherData();// 初始化天气组件
-    fetchDongManData();// 获取动漫经典语录数据
-    fetchEnglishData();// 获取励志英语数据
-});
-
-
+// NOTE: 获取动漫经典语录数据
 function fetchDongManData() {
     fetch('https://api.vvhan.com/api/ian/dongman?type=json')
         .then(response => {
@@ -722,7 +691,7 @@ function fetchDongManData() {
         });
 }
 
-
+// NOTE: 获取励志英语数据
 function fetchEnglishData() {
     fetch('https://api.vvhan.com/api/dailyEnglish?type=sj')
         .then(response => response.json())
@@ -745,6 +714,7 @@ function fetchEnglishData() {
         });
 }
 
+// NOTE: 获取当前时间并显示
 function times() {
     let t = null;
     clearTimeout(t);
@@ -770,27 +740,8 @@ function times() {
     t = setTimeout(times, 1000);
 }
 
-//脚注
-$(document).ready(function () {
-    var t1 = performance.now();
-    if (typeof t1 != "undefined") { document.getElementById("time").innerHTML = " 页面加载耗时 " + Math.round(t1) + " 毫秒 "; }
-    $.get("/cdn-cgi/trace", function (data) {
-        sip = data.match(/(ip=?)(\S*)/)[2];
-        str = data.match(/(colo=?)(\S*)/)[2];
-        loc = data.match(/(loc=?)(\S*)/)[2];
-        sts = data.match(/(http==?)(\S*)/)[2];
-        tls = data.match(/(tls==?)(\S*)/)[2];
-        $("#result").append("节点:" + str);
-        $("#result").append("\n访客:" + loc);
-        $("#result").append("\n" + sts);
-        $("#result").append("\n加密:" + tls);
-        $("#result").append("\nIP:" + sip);
-    });
-});
 
-
-
-//弹出层控制
+// NOTE: 弹出层控制
 function openSwalBox(url,title){
     console.log("url:", url);
     Swal.fire({
@@ -806,7 +757,7 @@ function openSwalBox(url,title){
     });
 }
 
-// ! 工具
+// XXX: 工具
 fetch('/json/utils_data.json')               // 1. 发起请求
     .then(response => response.json())    // 2. 解析响应为 JSON
     .then(data => {                       // 3. 使用解析后的数据
@@ -831,7 +782,7 @@ fetch('/json/utils_data.json')               // 1. 发起请求
     });
 
 
-// ! 链接
+// XXX: 链接
 fetch('/json/links_data.json')
     .then(response => response.json())
     .then(data => {
@@ -860,8 +811,7 @@ fetch('/json/links_data.json')
                 `;
             }).join('');
 
-            // FIXME 图片是动态生成的（如通过 AJAX/Fetch 加载），
-            // FIXME 需要在内容插入 DOM 后，重新初始化懒加载
+            // 图片是动态生成的（如通过 AJAX/Fetch 加载），需要在内容插入 DOM 后，重新初始化懒加载
             lozad('.lozad').observe();
         });
     })
@@ -870,12 +820,31 @@ fetch('/json/links_data.json')
     });
 
 
-//控制台输出
+// NOTE: 脚注
+$(document).ready(function () {
+    var t1 = performance.now();
+    if (typeof t1 != "undefined") { document.getElementById("time").innerHTML = " 页面加载耗时 " + Math.round(t1) + " 毫秒 "; }
+    $.get("/cdn-cgi/trace", function (data) {
+        sip = data.match(/(ip=?)(\S*)/)[2];
+        str = data.match(/(colo=?)(\S*)/)[2];
+        loc = data.match(/(loc=?)(\S*)/)[2];
+        sts = data.match(/(http==?)(\S*)/)[2];
+        tls = data.match(/(tls==?)(\S*)/)[2];
+        $("#result").append("节点:" + str);
+        $("#result").append("\n访客:" + loc);
+        $("#result").append("\n" + sts);
+        $("#result").append("\n加密:" + tls);
+        $("#result").append("\nIP:" + sip);
+    });
+});
+
+
+// INFO: 控制台输出
 console.clear();
 let styleTitle1 = `
 font-size: 20px;
 font-weight: 600;
-color: rgb(244,167,89);
+color: rgba(89, 244, 102, 1);
 `
 let styleTitle2 = `
 font-size: 16px;
@@ -889,7 +858,7 @@ let title2 = `
 
 `
 let content = `
-版 本 号：v1.0.0
+版 本 号：v1.3.9
 更新日期：2025-07-24
 
 Github:  https://github.com/killhub/

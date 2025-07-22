@@ -7,72 +7,105 @@
     <meta name="author" content="Steven Zhao">
     <title>星界导航｜穿越星河的坐标 - Astral Nav</title>
     <meta name="keywords" content="网址导航,网站导航,星界导航,星界，Astral，Navigation"/>
-    <meta name="description" content="Astral Nav - 纯静态导航网站，优质书签，无广告。">
+    <meta name="description" content="Astral Nav - 让我们一起回母星">
     <link rel="shortcut icon" type="image/x-icon" href="/images/Steven.jpg"/>
     <link rel="stylesheet" href="/css/style_core.css">
     <link rel="stylesheet" href="/css/style_dark.css"><!-- 黑暗模式 -->
     <link rel="stylesheet" href="/css/style_benzhangongju.css"><!-- 本站工具 -->
 
-    <!-- Lozad.js (懒加载) - 官方最新版 -->
+    <!-- ! Lozad.js (懒加载) - 官方最新版 -->
      <script src="/js/lozad-v1.16.0.min.js"></script>
-    <!-- Bootstrap - 官方版本 -->
+    <!-- ! Bootstrap - 官方版本 -->
      <link rel="stylesheet" href="/css/bootstrap-v5.3.7.min.css">
      <script src="/js/bootstrap.bundle-v5.3.7.min.js"></script>
-    <!-- jQuery - 官方稳定版 -->
+    <!-- ! jQuery - 官方稳定版 -->
      <script src="/js/jquery-v3.7.1.min.js"></script>
-    <!-- Tabler Icons (SVG 图标集合) - 官方版本 (固定版本号) -->
+    <!-- ! Tabler Icons (SVG 图标集合) - 官方版本 (固定版本号) -->
     <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tabler-icons/1.35.0/iconfont/tabler-icons.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.42.0/tabler-icons.min.css">-->
-    <!-- iziToast (通知插件) - 官方版本 -->
+    <!-- ! iziToast (通知插件) - 官方版本 -->
     <link rel="stylesheet" href="/css/iziToast-v1.4.0.min.css">
     <script src="/js/iziToast-v1.4.0.min.js"></script>
-    <!-- GSAP (基础动画) - 官方版本 -->
+    <!-- ! GSAP (基础动画) - 官方版本 -->
     <script src="/js/gsap-v3.12.7.min.js"></script>
-    <!-- 弹出层插件 -->
+    <!-- ! 弹出层插件 -->
     <link href="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.16.1/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.16.1/sweetalert2.all.min.js"></script>
-    <!-- 引入 Font Awesome 图标库 -->
+    <!-- ! 引入 Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- APlayer CSS -->
+    <!-- ! APlayer CSS -->
     <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
-    <!-- APlayer JS -->
+    <!-- ! APlayer JS -->
     <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
-    <!-- Live2D 看板娘js - 官方版本 -->
+    <!-- ! Live2D 看板娘js - 官方版本 -->
     <script src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>  
     <script>
-        // 功能：全局拦截 window.open，检测外链可访问性，无法访问则跳转404页面
+        // NOTE: 功能：全局拦截 window.open，检测外链可访问性，无法访问则跳转404页面
         (function(){
+            // 保存原生 window.open 方法
             var rawOpen = window.open;
+            // 重写 window.open 方法
             window.open = function(url, target, features) {
                 // 只处理 http/https 外链
-                if (typeof url === 'string' && /^https?:\/\//.test(url)) {
+                if (typeof url === 'string' && /^https?:\/+/.test(url)) {
+                    // 提取主域名（如 https://example.com）
                     var match = url.match(/^(https?:\/\/[^\/]+)/);
                     var domain = match ? match[1] : null;
                     if (!domain) {
+                        // 无法提取域名，直接调用原生 open
                         return rawOpen.apply(window, arguments);
                     }
-                    var img = new Image();
+                    // 检查状态标记，防止多次触发
+                    var checked = false;
                     var timer;
-                    img.onload = function() {
+                    var waiting = false;
+                    // 成功检测到可访问时立即打开外链
+                    function openNow() {
+                        if (checked) return;
+                        checked = true;
                         clearTimeout(timer);
                         rawOpen.call(window, url, target || '_blank', features);
-                    };
-                    img.onerror = function() {
+                    }
+                    // 检测失败时跳转 404 页面
+                    function failNow() {
+                        if (checked) return;
+                        checked = true;
                         clearTimeout(timer);
                         window.location.href = '/pages/404.html';
+                    }
+                    // favicon 检查：尝试加载目标站点 favicon.ico
+                    var img = new Image();
+                    // favicon 加载成功，说明站点可访问
+                    img.onload = openNow;
+                    // favicon 加载失败时，需等待 fetch 检查结果
+                    img.onerror = function() {
+                        faviconFail = true;
+                        if (fetchFail) failNow(); // 若 fetch 也失败则判定为不可访问
                     };
+                    // fetch 检查：尝试 HEAD 请求主站，进一步判断可访问性
+                    var faviconFail = false, fetchFail = false;
+                    fetch(domain, {method: 'HEAD', mode: 'no-cors'})
+                        .then(openNow) // fetch 成功，直接放行
+                        .catch(function() {
+                            fetchFail = true;
+                            if (faviconFail) failNow(); // 若 favicon 也失败则跳 404
+                        });
+                    // 超时保护，3秒（防止长时间无响应）
                     timer = setTimeout(function(){
-                        window.location.href = '/pages/404.html';
-                    }, 2000);
+                        failNow();
+                    }, 3000);
+                    // 触发 favicon 检查
                     img.src = domain + '/favicon.ico';
                 } else {
+                    // 非 http/https 外链，直接调用原生 open
                     return rawOpen.apply(window, arguments);
                 }
             };
         })();
     </script>
     <script>
+        //  NOTE: 功能：Live2D 看板娘初始化配置
         L2Dwidget.init({
             "model": {
                 jsonPath: "https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/seifuku/seifuku.model.json", // 模型路径
@@ -124,7 +157,7 @@
 <body class="page-body">
     <div id="pointer"></div>
     <div class="page-container">
-        <!--A.菜单-->
+        <!-- TAG: A.菜单-->
         <div class="sidebar-menu toggle-others fixed">
             <div class="sidebar-menu-inner">
                 <header class="logo-env">
@@ -144,8 +177,7 @@
                     </div>
                 </header>
 
-
-                <!--左侧菜单-->
+                <!-- 左侧菜单-->
                 <ul id="main-menu" class="main-menu">
                     <li><a href="#search" class="smooth"><img src="/images/Pokémon GO/svg/迷你龙.svg" class="main-menu-icon"> <span class="title">实用搜索</span></a></li>
                     <li><a href="#热搜新闻" class="smooth"><img src="/images/Pokémon GO/svg/小火龙.svg" class="main-menu-icon"> <span class="title">热搜新闻</span></a></li>
@@ -199,7 +231,7 @@
                 </div>
             </div>
         </div>
-        <!--B.右侧导航内容-->
+        <!-- TAG: B.右侧导航内容-->
         <div class="main-content">
             <nav class="navbar user-info-navbar" role="navigation">
                 <ul class="user-info-menu list-inline list-unstyled">
@@ -219,14 +251,15 @@
                         </a>
                     </li>
                     <li>
-                        <!-- 音乐播放器，APlayer.js -->
+                        <!-- NOTE: 音乐播放器，APlayer.js -->
                         <div id="aplayer"></div>
                     </li>
                 </ul>
-                <!-- 右上角天气 API -->
+                <!-- NOTE: 右上角天气 API -->
                 <div class="weather pull-right" id="weather-container" style="position:relative; top:-38px;"></div>
             </nav>
-            <!-- 实用搜索 -->
+
+            <!-- TAG: 实用搜索 -->
             <div id="search" class="s-search" style="font: 15px Arial;font-weight: bolder;">
                 <div id="search-list" class="hide-type-list">
                     <div class="s-type">
@@ -437,7 +470,7 @@
                 <i class="main-content-tag" id="热搜新闻"></i>热搜新闻
             </h6>
             <div class="row" id="section-热搜新闻">
-                <!-- TODO 热搜新闻json -->
+                <!-- TAG: 热搜新闻json -->
             </div>
             <!-- END 热搜新闻 --> 
 
@@ -446,7 +479,7 @@
                 <i class="main-content-tag" id="学无止境"></i>学无止境
             </h6>
             <div class="row" id="section-学无止境">
-                <!-- TODO 学无止境json -->
+                <!-- TAG: 学无止境json -->
             </div>
             <!-- END 学无止境 -->
 
@@ -455,7 +488,7 @@
                 <i class="main-content-tag" id="社区资讯"></i>社区资讯
             </h6>
             <div class="row" id="section-社区资讯">
-                <!-- TODO 社区资讯json -->
+                <!-- TAG: 社区资讯json -->
             </div>
             <!--END 社区资讯 -->
 
@@ -464,7 +497,7 @@
                 <i class="main-content-tag" id="云端服务"></i>云端服务
             </h6>
             <div class="row" id="section-云端服务">
-                <!-- TODO 云端服务json -->
+                <!-- TAG: 云端服务json -->
             </div>
             <!-- END 云端服务 -->
 
@@ -473,7 +506,7 @@
                 <i class="main-content-tag" id="开发文档"></i>开发文档
             </h6>
             <div class="row" id="section-开发文档">
-                <!-- TODO 开发文档json -->
+                <!-- TAG: 开发文档json -->
             </div>
             <!-- END 开发文档 -->
 
@@ -482,7 +515,7 @@
                 <i class="main-content-tag" id="API资源"></i>API资源
             </h6>
             <div class="row" id="section-API资源">
-                <!-- TODO API资源json -->
+                <!-- TAG: API资源json -->
             </div>
             <!-- END API资源 -->
 
@@ -491,7 +524,7 @@
                 <i class="main-content-tag" id="人工智能"></i>人工智能
             </h6>
             <div class="row" id="section-人工智能">
-                 <!-- TODO 人工智能json -->
+                 <!-- TAG: 人工智能json -->
             </div>
             <!-- END 人工智能 -->
 
@@ -500,7 +533,7 @@
             <i class="main-content-tag" id="在线工具"></i>在线工具
             </h6>
             <div class="row" id="section-在线工具">
-                 <!-- TODO 在线工具json -->
+                 <!-- TAG: 在线工具json -->
             </div>
             <!--END 在线工具 -->
 
@@ -509,7 +542,7 @@
                 <i class="main-content-tag" id="浏览器插件"></i>浏览器插件
             </h6>
             <div class="row" id="section-浏览器插件">
-                <!-- TODO 浏览器插件json -->
+                <!-- TAG: 浏览器插件json -->
             </div>
             <!--END 浏览器插件 -->
 
@@ -518,7 +551,7 @@
                 <i class="main-content-tag" id="虚拟信息"></i>虚拟信息
             </h6>
             <div class="row" id="section-虚拟信息">
-                <!-- TODO 虚拟信息json -->
+                <!-- TAG: 虚拟信息json -->
             </div>
             <!--END 虚拟信息 -->
 
@@ -527,7 +560,7 @@
                 <i class="main-content-tag" id="文艺至死"></i>文艺至死
             </h6>
             <div class="row" id="section-文艺至死">
-                 <!-- TODO 文艺至死json -->
+                 <!-- TAG: 文艺至死json -->
             </div>
             <!--END 文艺至死-->
 
@@ -536,7 +569,7 @@
                 <i class="main-content-tag" id="动漫世界"></i>动漫世界
             </h6>
             <div class="row" id="section-动漫世界">
-                <!-- TODO 动漫世界json -->
+                <!-- TAG: 动漫世界json -->
             </div>
             <!--END 动漫世界 -->
 
@@ -545,7 +578,7 @@
                 <i class="main-content-tag" id="直播聚合"></i>直播聚合
             </h6>
             <div class="row" id="section-直播聚合">
-                <!-- TODO 直播聚合json -->
+                <!-- TAG: 直播聚合json -->
             </div>
             <!--END 直播聚合 -->
 
@@ -554,7 +587,7 @@
                 <i class="main-content-tag" id="影视资源"></i>影视资源
             </h6>
             <div class="row" id="section-影视资源">
-               <!-- TODO 影视资源json -->
+               <!-- TAG: 影视资源json -->
             </div>
             <!-- END 影视资源 -->
 
@@ -563,7 +596,7 @@
                 <i class="main-content-tag" id="休闲游戏"></i>休闲游戏
             </h6>
             <div class="row" id="section-休闲游戏">
-                <!-- TODO 休闲游戏json -->
+                <!-- TAG: 休闲游戏json -->
             </div>
             <!-- END 休闲游戏 -->
 
@@ -572,7 +605,7 @@
                 <i class="main-content-tag" id="音乐天堂"></i>音乐天堂
             </h6>
             <div class="row" id="section-音乐天堂">
-                <!-- TODO 音乐天堂json -->
+                <!-- TAG: 音乐天堂json -->
             </div>
             <!--END 音乐天堂 -->
 
@@ -581,7 +614,7 @@
                 <i class="main-content-tag" id="视频音频"></i>视频音频
             </h6>
             <div class="row" id="section-视频音频">
-                <!-- TODO 视频音频json -->
+                <!-- TAG: 视频音频json -->
             </div>
             <!--END 视频音频 -->
 
@@ -590,7 +623,7 @@
                 <i class="main-content-tag" id="壁纸下载"></i>壁纸下载
             </h6>
             <div class="row" id="section-壁纸下载">
-                <!-- TODO 壁纸下载json -->
+                <!-- TAG: 壁纸下载json -->
             </div>
             <!--END 壁纸下载 -->
 
@@ -599,7 +632,7 @@
                 <i class="main-content-tag" id="字体资源"></i>字体资源
             </h6>
             <div class="row" id="section-字体资源">
-                <!-- TODO 字体资源json -->
+                <!-- TAG: 字体资源json -->
             </div>
             <!--END 字体资源 -->
 
@@ -608,7 +641,7 @@
                 <i class="main-content-tag" id="设计灵感"></i>设计灵感
             </h6>
             <div class="row" id="section-设计灵感">
-               <!-- TODO 设计灵感json -->
+               <!-- TAG: 设计灵感json -->
             </div>
             <!-- END 设计灵感 -->
 
@@ -617,7 +650,7 @@
                 <i class="main-content-tag" id="系统下载"></i>系统下载
             </h6>
             <div class="row" id="section-系统下载">
-                <!-- TODO 系统下载json -->
+                <!-- TAG: 系统下载json -->
             </div>
             <!-- END 系统下载 -->
 
@@ -626,7 +659,7 @@
                 <i class="main-content-tag" id="系统工具"></i>系统工具
             </h6>
             <div class="row" id="section-系统工具">
-                <!-- TODO 系统工具json -->
+                <!-- TAG: 系统工具json -->
             </div>
             <!-- END 系统工具 -->
 
@@ -641,7 +674,7 @@
             </div>
             <!--END 本站工具Utils --> 
 
-
+            <!-- TAG: C.底部 -->
             <h6 class="tag">
                 <i id="about"></i>
             </h6>
@@ -683,9 +716,9 @@
                                 </div>
                             </div>
 
-                            <!-- 动漫语录API -->
+                            <!-- NOTE: 动漫语录API -->
                             <p id="anime_text"></p>
-                            <!-- 励志英语API -->
+                            <!-- NOTE: 励志英语API -->
                             <p id="english_text"></p>
 
                             <!-- 关于站长 -->
@@ -715,7 +748,7 @@
                                 <div class="col-sm-8">
                                     <div class="poem">
                                         <p>
-                                            <!--使用今日诗词（jinrishici.com）免费 API，可以直接调用-->
+                                            <!--NOTE: 功能：今日诗词（jinrishici.com）免费 API，可以直接调用-->
                                             <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
                                             <div id="poem_sentence" style="display:inline-block;"></div>
                                             <div id="poem_info" style="display:inline-block;"></div>
@@ -743,21 +776,21 @@
             </div>
             <div class="suspension">
                 <ul>
-                    <!--悬浮搜索按钮-->
+                    <!-- TAG: 悬浮搜索按钮-->
                     <li class="suspension_box suspension_ax" id="search-suspension-btn" style="background: url(/images/search.png) no-repeat center center rgb(0 0 0 / 25%);background-size: 50% 50%;">
                         <div class="suspension_ax_cont" id="fk-span">
                             <span class="suspension_triangle" id="fk-span-right"></span>
                             <span>🔍快速定位</span>
                         </div>
                     </li>
-                    <!--切换夜间模式-->
+                    <!-- TAG: 切换夜间模式-->
                     <li class="suspension_box suspension_ax" onclick="switchNightMode()">
                         <div class="suspension_ax_cont" id="fk-span"> 
                             <span class="suspension_triangle" id="fk-span-right"></span>
                             <span id="suspension_text">切换夜间模式</span>
                         </div>
                     </li>
-                    <!--返回顶部按钮-->
+                    <!-- TAG: 返回顶部按钮-->
                     <a rel="go-top">
                         <li class="suspension_box suspension_upward" id="topup" style="display: none;">
                             <div class="suspension_upward_cont" id="fk-span"> 
@@ -768,7 +801,7 @@
                     </a>
                 </ul>
 
-                <!-- 悬浮搜索弹窗 -->
+                <!-- TAG: 悬浮搜索弹窗，快速定位相关链接 -->
                 <div id="floating-search-box" style="display:none;position:fixed;right:32px;bottom:190px;width:300px;background:rgba(255,255,255,0.95);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.12);padding:20px;z-index:9999;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);">
                     <input type="text" id="floating-search-input" placeholder="🔍 输入关键词快速定位" style="width:100%;padding:12px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.1);font-size:16px;outline:none;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.05);margin-bottom:12px;background:rgba(255,255,255,0.8);">
                     <button id="close-search-box" style="width:100%;background:linear-gradient(135deg,#6e8efb 0%,#a777e3 100%);color:#fff;border:none;border-radius:12px;padding:10px 0;font-size:16px;cursor:pointer;box-shadow:0 4px 12px rgba(110,142,251,0.2);font-weight:500;transition:all 0.3s ease;">按下<font style="color: red;"> Ctrl+F </font>打开，<font style="color: red;"> ESC </font>关闭</button>
@@ -785,7 +818,7 @@
                             <strong>WebStack</strong>
                         </a>
                     </div>
-                    <!--页面加载时间-->
+                    <!-- NOTE: 页面加载时间-->
                     <div id="time"></div>
                     <div id="result"></div>
                 </div>
@@ -793,12 +826,12 @@
             
         </div>
     </div>
-    <!-- 星空背景动画 -->
+    <!-- NOTE: 星空背景动画 -->
     <canvas id="starfield"></canvas>
-    <!-- 页面js -->
+    <!-- ! 页面js -->
     <script src="/js/script_function.js"></script>
 
-    <!-- 功能：外链导航点击检测，无法访问自动跳转404页面 -->
+    <!-- NOTE: 功能：外链导航点击检测，无法访问自动跳转404页面 -->
     <script>
         /*
          * 功能：外链导航点击检测，无法访问自动跳转404页面
@@ -839,7 +872,7 @@
         });
     </script>
 
-    <!-- 功能：链接卡片点击次数统计与角标显示 -->
+    <!-- NOTE: 功能：链接卡片点击次数统计与角标显示 -->
     <style>
         .link-badge {
             display: inline-block;
@@ -861,8 +894,9 @@
         }
         .w-widget.box2 { position: relative; }
     </style>
+
+    <!-- NOTE: 功能：链接卡片点击次数统计与角标显示 -->
     <script>
-        // 功能：链接卡片点击次数统计与角标显示
         function getLinkClickCount(linkId) {
             var map = JSON.parse(localStorage.getItem('linkClickMap')||'{}');
             return map[linkId]||0;
@@ -895,7 +929,8 @@
             setTimeout(updateAllLinkBadges, 200);
         });
     </script>
-    <!-- 功能：悬浮搜索按钮，快速定位相关链接 -->
+
+    <!-- NOTE: 功能：悬浮搜索按钮，快速定位相关链接 -->
     <script>
         $(function(){
             // 键盘快捷键：Ctrl+F 打开悬浮搜索，ESC关闭并清空
@@ -987,8 +1022,9 @@
             observer.observe(document.body, {attributes:true,attributeFilter:['class']});
         });
     </script>
+
+    <!-- NOTE: 音乐播放器，APlayer.js -->
     <script>
-        // 音乐播放器，APlayer.js
         const ap = new APlayer({
             container: document.getElementById('aplayer'), // 绑定容器
             autoplay: true, // 自动播放（可能被浏览器阻止）
@@ -1007,11 +1043,11 @@
             ]
         });
     </script>
-    <!-- 春节灯笼API接口 -->
+    <!-- NOTE: 春节灯笼API接口 -->
     <!-- <script src="https://api.vvhan.com/api/script/denglong"></script> -->
-    <!-- 梅花效果API接口 -->
+    <!-- NOTE: 梅花效果API接口 -->
     <!-- <script src="https://api.vvhan.com/api/script/meihua"></script> -->
-    <!-- 樱花效果API接口 -->
+    <!-- NOTE: 樱花效果API接口 -->
     <!-- <script src="https://api.vvhan.com/api/script/yinghua"></script> -->
 </body>
 </html>
