@@ -38,6 +38,12 @@
     "section": "学无止境",
     "links": [
       {
+        "title": "全历史",
+        "desc": "全历史(Allhistory）以AI知识图谱为核心引擎，通过高度时空化、关联化数据的方式构造及展现数字人文内容，尤其是历史知识。让用户沉浸在纵横开阔、左图右史的（历史、人文、社科等）知识海洋中。",
+        "url": "https://www.allhistory.com/",
+        "icon": "https://static.allhistory.com/online/common/img/logo-ah.5721.png"
+      },
+      {
         "title": "Coursera",
         "desc": "全球知名的在线学习平台，由美国斯坦福大学两名计算机科学教授于 2012 年创办，旨在与世界顶尖大学和机构合作，提供高质量的在线课程。",
         "url": "https://www.coursera.org/",
@@ -172,7 +178,7 @@
         "title": "博客园",
         "desc": "博客园 - 开发者的网上家园",
         "url": "https://www.cnblogs.com/",
-        "icon": "https://assets.cnblogs.com/favicon.ico"
+        "icon": "https://assets.cnblogs.com/favicon_v3_2.ico"
       },
       {
         "title": "鸟哥笔记",
@@ -251,12 +257,53 @@
         "desc": "国内最大的开源技术社区，提供开源项目托管和技术交流",
         "url": "https://www.oschina.net/",
         "icon": "https://www.oschina.net/favicon.ico"
+      }
+    ]
+  },
+    {
+    "section": "剁手吃土",
+    "links": [
+      {
+        "title": "什么值得买",
+        "desc": "千万用户热爱的科学消费指南",
+        "url": "https://www.smzdm.com/",
+        "icon": "https://www.smzdm.com/favicon.ico"
+      },  
+      {
+        "title": "京东",
+        "desc": "京东JD.COM-专业的综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。",
+        "url": "https://www.jd.com/",
+        "icon": "https://www.jd.com/favicon.ico"
+      },  
+      {
+        "title": "淘宝",
+        "desc": "亚洲较大的网上交易平台",
+        "url": "https://www.taobao.com/",
+        "icon": "https://www.taobao.com/favicon.ico"
       },
       {
-        "title": "吾爱破解",
-        "desc": "致力于软件安全与病毒分析的前沿，丰富的技术版块交相辉映，由无数热衷于软件加密解密及反病毒爱好者共同维护",
-        "url": "https://www.52pojie.cn/",
-        "icon": "https://www.52pojie.cn/favicon.ico"
+        "title": "闲鱼",
+        "desc": "闲鱼是阿里巴巴旗下的二手交易平台，提供个人闲置物品的买卖服务",
+        "url": "https://2.taobao.com/",
+        "icon": "https://gw.alicdn.com/tfs/TB19WObTNv1gK0jSZFFXXb0sXXa-144-144.png"
+      },
+      {
+        "title": "日本楽天市場",
+        "desc": "日本最大的网上购物平台",
+        "url": "https://www.rakuten.co.jp/",
+        "icon": "https://r.r10s.jp/com/img/home/logo/touch.png"
+      },
+      {
+        "title": "ebay",
+        "desc": "全球最大的在线拍卖和购物网站",
+        "url": "https://www.ebay.com/b/Haitao-H-G/bn_7115221216",
+        "icon": "https://www.ebay.com/favicon.ico"
+      },  
+      {
+        "title": "亚马逊",
+        "desc": "全球最大的在线零售商",
+        "url": "https://www.amazon.cn/",
+        "icon": "https://api.xinac.net/icon/?url=amazon.com"
       }
     ]
   },
@@ -335,6 +382,18 @@
     "section": "动漫世界",
     "links": [
       {
+        "title": "动画巡礼",
+        "desc": "anitabi - 圣地巡礼 - 聖地巡礼 - せいちじゅんれい - 神奇海螺试验场",
+        "url": "https://anitabi.cn/map",
+        "icon": "https://anitabi.cn/favicon.ico"
+      },
+      {
+        "title": "东京街景地图",
+        "desc": "实景地图-东京(日本)全景地图",
+        "url": "https://www.earthol.org/city-3.html",
+        "icon": "https://www.earthol.org/favicon.ico"
+      },
+      {
         "title": "🌸樱之花导航",
         "desc": "ACG二次元资源网站，提供动漫、漫画、轻小说等多种资源",
         "url": "http://allcc.cc/#term-211",
@@ -351,6 +410,12 @@
         "desc": "源自纯净的追番小站，提供无广告、高清画质的动漫观看体验",
         "url": "https://www.moefun.net/",
         "icon": "https://p.upyun.com/demo/tmp/F1fyqlFS.webp"
+      },
+      {
+        "title": "去看吧",
+        "desc": "看吧动漫,无删减,bl动漫,耽美吧,耽美在线,k8動漫_好看的耽美動漫",
+        "url": "https://www.qkan8.com/",
+        "icon": "https://k8dm.com/template/vfed/asset/img/favicon.png"
       },
       {
         "title": "bangumi",
@@ -423,6 +488,18 @@
     "section": "影视资源",
     "links": [
       {
+        "title": "7080影视搜",
+        "desc": "影视资源聚合搜索引擎",
+        "url": "https://7080.wang/",
+        "icon": "https://api.xinac.net/icon/?url=7080.wang"
+      },
+      {
+        "title": "M1907",
+        "desc": "☁️云播放",
+        "url": "https://am1907.top/",
+        "icon": "https://m1-z2.cloud.nnpp.vip:2223/qiq/favicon.ico"
+      },
+      {
         "title": "纪录片仓库",
         "desc": "全球纪录片大全 - 纪录片下载",
         "url": "https://jilulib.com/",
@@ -441,40 +518,16 @@
         "icon": "https://ymck.pro/upload/site/20230825-1/5c00fbcfb4ff0737d3c8320d30b2d1de.png"
       },
       {
-        "title": "搜片.com",
-        "desc": "搜你想看的影片",
-        "url": "https://soupian.pro/",
-        "icon": "https://soupian.pro/favicon.ico"
-      },
-      {
         "title": "许搜",
         "desc": "网盘资源搜索神器",
         "url": "https://www.xusou.cn/",
         "icon": "https://www.xusou.cn/uploads/image/20250110/48bd0554b878a6fc168d37f924828b88.png"
       },
       {
-        "title": "低端影视",
-        "desc": "低端影视 - 超清在线视频站",
-        "url": "https://ddys.pro/",
-        "icon": "https://ddys.pro/apple-touch-icon.png"
-      },
-      {
         "title": "茶杯狐",
         "desc": "影视资源聚合搜索引擎",
         "url": "https://cupfox.app/",
         "icon": "https://api.xinac.net/icon/?url=cupfox.app"
-      },
-      {
-        "title": "7080影视搜",
-        "desc": "影视资源聚合搜索引擎",
-        "url": "https://7080.wang/",
-        "icon": "https://api.xinac.net/icon/?url=7080.wang"
-      },
-      {
-        "title": "豌豆PRO",
-        "desc": "实时聚合全网优质影视资源，同时支持在线、下载和字幕。",
-        "url": "https://www.wandou.pro/",
-        "icon": "https://api.xinac.net/icon/?url=www.wandou.pro"
       },
       {
         "title": "人人影视资源站",
@@ -489,53 +542,10 @@
         "icon": "https://api.xinac.net/icon/?url=btbtt15.com"
       },
       {
-        "title": "蜜柑计划",
-        "desc": "新一代的动漫下载站",
-        "url": "https://mikanani.me/",
-        "icon": "https://api.xinac.net/icon/?url=mikanani.me"
-      },
-      {
-        "title": "大师兄影视",
-        "desc": "在线观看,蓝光电影,搞笑视频,美剧,韩剧,超前点播,免费视频",
-        "url": "https://dsxys.com/",
-        "icon": "https://api.xinac.net/icon/?url=dsxys.com"
-      },
-      {
-        "title": "555电影",
-        "desc": "免费VIP资源在线观看，每天专业更新热火电影电视剧",
-        "url": "https://55p8l4.com/",
-        "icon": "https://api.xinac.net/icon/?url=55p8l4.com"
-      },
-      {
-        "title": "低端影视",
-        "desc": "超清在线视频",
-        "url": "https://ddys.site/",
-        "icon": "https://api.xinac.net/icon/?url=ddys.site"
-      },
-      {
-        "title": "NO视频",
-        "desc": "为用户提供及时的海外热门剧集在线观看，友好无广告，致力于最轻松的追剧体验",
-        "url": "https://www.novipnoad.com/",
-        "icon": "https://api.xinac.net/icon/?url=www.novipnoad.com"
-      },
-      {
-        "title": "去看吧",
-        "desc": "看吧动漫,无删减,bl动漫,耽美吧,耽美在线,k8動漫_好看的耽美動漫",
-        "url": "https://www.qkan8.com/",
-        "icon": "https://k8dm.com/template/vfed/asset/img/favicon.png"
-      },
-
-      {
         "title": "奈菲影视",
         "desc": "专为中国用户提供全球流媒体播放网站",
         "url": "https://www.nfyingshi.com/",
         "icon": "https://api.xinac.net/icon/?url=www.nfyingshi.com"
-      },
-      {
-        "title": "遇见小馒头",
-        "desc": "免费短视频分享大全 - 大中国",
-        "url": "https://mov.5ixmt.com/",
-        "icon": "https://api.xinac.net/icon/?url=mov.5ixmt.com"
       },
       {
         "title": "字幕库",
@@ -639,12 +649,6 @@
         "icon": "https://api.xinac.net/icon/?url=lines.frvr.com"
       },
       {
-        "title": "COLOR消消",
-        "desc": "在线COLOR消消游戏",
-        "url": "https://hex.frvr.com/",
-        "icon": "https://api.xinac.net/icon/?url=hex.frvr.com"
-      },
-      {
         "title": "人声模拟器",
         "desc": "人声模拟器",
         "url": "https://dood.al/pinktrombone/",
@@ -704,10 +708,10 @@
         "icon": "https://api.xinac.net/icon/?url=listen1.github.io"
       },
       {
-        "title": "爱给网",
-        "desc": "中国最大的数字娱乐免费素材下载网站,免费提供免费的音效配乐|3D模型|视频|游戏素材资源下载。",
-        "url": "https://www.aigei.com/",
-        "icon": "https://www.aigei.com/favicon.ico"
+        "title": "音微网",
+        "desc": "精选推荐，畅听无阻！",
+        "url": "https://www.yinwe.com/",
+        "icon": "https://www.yinwe.com/favicon.ico"
       },
       {
         "title": "Pixabay音乐",
@@ -802,6 +806,12 @@
         "desc": "针对md5等哈希算法进行在线解密，可上传文件在线批量破解，最多可支持数万个密码，一般的查询是免费的",
         "url": "http://www.ttmd5.com/",
         "icon": "http://www.ttmd5.com/img/favicon.png"
+      },
+      {
+        "title": "商品历史价格查询",
+        "desc": "各大电商网页端和手机端商品真假降价、虚假促销",
+        "url": "https://www.hisprice.com/",
+        "icon": "https://www.hisprice.com/favicon.ico"
       },
       {
         "title": "帮小忙",
@@ -958,6 +968,18 @@
         "desc": "提供字帖生成工具",
         "url": "https://z2h.cn/",
         "icon": "https://z2h.cn/favicon.ico"
+      },
+      {
+        "title": "地图搜好房",
+        "desc": "在线地图强力驱动,帮助你迅速找到合适房源。",
+        "url": "https://house2048.cn/app/house-map/#/",
+        "icon": "https://house2048.cn/app/house-map/favicon.ico"
+      },
+      {
+        "title": "默沙东诊疗手册",
+        "desc": "涵盖了医学所有领域成千上万主题的广泛医学信息来源。作为免费的公众服务提供给医疗专业人士和普罗大众。",
+        "url": "https://www.msdmanuals.cn/",
+        "icon": "https://www.msdmanuals.cn/_next/static/media/favicon.f7343459.ico"
       }
     ]
   },
@@ -1181,6 +1203,12 @@
         "desc": "提供各种中国的传统颜色的名称，CMYK值，RGB值，16进制表示。AI制作中国色图片和视频",
         "url": "https://www.zhongguose.com/",
         "icon": "https://api.xinac.net/icon/?url=www.zhongguose.com"
+      },
+      {
+        "title": "粋屋-日本の伝統",
+        "desc": "日本の伝統文様と伝統色",
+        "url": "http://www.ikiya.jp/",
+        "icon": "http://www.ikiya.jp/crest/img/pattern_sample/plant/ichimatsu_ume_sakura/ichimatu_ume_sakura02.gif"
       }
     ]
   },
