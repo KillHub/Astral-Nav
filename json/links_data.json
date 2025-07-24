@@ -558,6 +558,18 @@
         "desc": "Sub HD为影视爱好者们提供交流字幕的平台，你可以在这里找到并下载字幕，对字幕打分和评论，也可以上传字幕与大家分享",
         "url": "https://subhd.tv/",
         "icon": "https://api.xinac.net/icon/?url=subhd.tv"
+      },
+      {
+        "title": "大圣盘",
+        "desc": "支持百度云搜索，可快速搜索网盘资源中的有效连接",
+        "url": "https://www.dashengpan.com/",
+        "icon": "https://www.dashengpan.com/logo.png"
+      },
+      {
+        "title": "橘子盘搜",
+        "desc": "在线搜索百度云盘资源的程序，包含百度网盘，迅雷BT，阿里云盘资源，115资源。",
+        "url": "https://www.nmme.one/",
+        "icon": "https://www.nmme.one/asset/favicon.png"
       }
     ]
   },
@@ -726,7 +738,7 @@
     "links": [
       {
         "title": "ChatGPT",
-        "desc": "ChatGPT 是由 OpenAI 开发的一种人工智能语言模型，能够根据上下文和过去的对话生成类似人类的文本。",
+        "desc": "OpenAI 开发的一种人工智能语言模型，能够根据上下文和过去的对话生成类似人类的文本。",
         "url": "https://chatgpt.com/",
         "icon": "https://api.xinac.net/icon/?url=chatgpt.com"
       },
@@ -738,7 +750,7 @@
       },
       {
         "title": "Gemini",
-        "desc": "Gemini Pro是谷歌最新推出的高性能AI模型，专为编程和复杂任务处理优化。它具备强大的代码生成能力，能够处理复杂指令，并支持最高200万Token的上下文窗口。此外，Gemini Pro可调用Google搜索和代码执行，以增强推理能力和信息获取能力。",
+        "desc": "谷歌推出的高性能AI模型，专为编程和复杂任务处理优化。它具备强大的代码生成能力，能够处理复杂指令，并支持最高200万Token的上下文窗口。此外，Gemini Pro可调用Google搜索和代码执行，以增强推理能力和信息获取能力。",
         "url": "https://gemini.google.com/",
         "icon": "https://api.xinac.net/icon/?url=gemini.google.com"
       },
@@ -750,31 +762,43 @@
       },
       {
         "title": "文心一言",
-        "desc": "文心一言是百度研发的知识增强大语言模型，它采用了深度学习算法和大规模语料库训练，具备强大的语义理解和生成能力。文心一言能够与用户进行流畅的对话交流，理解用户的意图和需求，并提供精准、有价值的回答和建议。",
+        "desc": "百度研发的知识增强大语言模型，它采用了深度学习算法和大规模语料库训练，具备强大的语义理解和生成能力。文心一言能够与用户进行流畅的对话交流，理解用户的意图和需求，并提供精准、有价值的回答和建议。",
         "url": "https://yiyan.baidu.com/",
         "icon": "https://api.xinac.net/icon/?url=yiyan.baidu.com"
       },
       {
         "title": "通义千问",
-        "desc": "通义千问是阿里巴巴推出的一个AI预训练模型，它主要基于阿里巴巴达摩院在自然语言处理领域的先进技术，采用深度学习和大规模语言模型的方法。通义千问旨在为用户提供高效、准确的信息检索和问题解答服务，同时支持多种自然语言处理任务，如语音识别、机器翻译等。",
-        "url": "https://www.tongyi.com/",
-        "icon": "https://api.xinac.net/icon/?url=www.tongyi.com"
+        "desc": "阿里巴巴推出的一个AI预训练模型，它主要基于阿里巴巴达摩院在自然语言处理领域的先进技术，采用深度学习和大规模语言模型的方法。通义千问旨在为用户提供高效、准确的信息检索和问题解答服务，同时支持多种自然语言处理任务，如语音识别、机器翻译等。",
+        "url": "https://chat.qwen.ai/",
+        "icon": "https://assets.alicdn.com/g/qwenweb/qwen-webui-fe/0.0.159/favicon.png"
       },
       {
         "title": "智谱清言",
-        "desc": "智谱清言是由北京智谱华章科技有限公司开发的生成式AI聊天助手，基于智谱AI自主研发的中英双语对话模型ChatGLM2。它具有千亿级别的参数和一系列强大的功能，旨在提供高效、精准的语音交互体验。",
+        "desc": "北京智谱华章科技有限公司开发的生成式AI聊天助手，基于智谱AI自主研发的中英双语对话模型ChatGLM2。它具有千亿级别的参数和一系列强大的功能，旨在提供高效、精准的语音交互体验。",
         "url": "https://chatglm.cn/",
         "icon": "https://api.xinac.net/icon/?url=chatglm.cn"
       },
       {
         "title": "豆包",
-        "desc": "豆包，一款由字节跳动精心打造的AI助手，它不仅是你的私人问答专家，更是写作、翻译、情感陪伴、编程等多面手。无论是Web端还是iOS/安卓，一键登录（手机号、抖音号、Apple ID任选），即刻开启智能生活新篇章！",
+        "desc": "字节跳动精心打造的AI助手，它不仅是你的私人问答专家，更是写作、翻译、情感陪伴、编程等多面手。无论是Web端还是iOS/安卓，一键登录（手机号、抖音号、Apple ID任选），即刻开启智能生活新篇章！",
         "url": "https://www.doubao.com/chat/",
         "icon": "https://api.xinac.net/icon/?url=www.doubao.com"
       },
       {
         "title": "天工AI",
-        "desc": "天工是一款支持搜索、写作、对话、文档分析、画画、做PPT的全能型AI助手。你可以借助AI技术，检索信息、多语言翻译、写论文、写代码、写方案、写汇报、做PPT、归纳总结文档和音频视频，还可以智能编辑彩页和宝典，让AI生成高质量彩页内容，收获点赞关注。",
+        "desc": "支持搜索、写作、对话、文档分析、画画、做PPT的全能型AI助手。你可以借助AI技术，检索信息、多语言翻译、写论文、写代码、写方案、写汇报、做PPT、归纳总结文档和音频视频，还可以智能编辑彩页和宝典，让AI生成高质量彩页内容，收获点赞关注。",
+        "url": "https://www.tiangong.cn/",
+        "icon": "https://api.xinac.net/icon/?url=www.tiangong.cn"
+      },
+      {
+        "title": "纳米AI",
+        "desc": "自主规划复杂任务，分解步骤使用工具执行，交付专家级结果，每个人都可以成为超级个体",
+        "url": "https://bot.n.cn/",
+        "icon": "https://p1.ssl.qhimg.com/t11098f6bcdb3c1c166a74ad70c.png"
+      },
+      {
+        "title": "秘塔AI",
+        "desc": "没有广告，直达结果，生成结果海报",
         "url": "https://www.tiangong.cn/",
         "icon": "https://api.xinac.net/icon/?url=www.tiangong.cn"
       }
@@ -796,6 +820,12 @@
         "icon": "https://tool.oschina.net/img/favicon.ico"
       },
       {
+        "title": "菜鸟工具箱",
+        "desc": "不止于工具",
+        "url": "https://www.jyshare.com/",
+        "icon": "https://static.jyshare.com/images/c-runoob-logo.ico"
+      },
+      {
         "title": "开发工具箱",
         "desc": "在线工具,开发人员工具,代码格式化、压缩、加密、解密,下载链接转换,sql工具,正则测试工具,favicon在线制作,字帖工具,中文简繁体转换,迅雷下载链接转换,进制转换,二维码",
         "url": "https://tool.lu/",
@@ -814,6 +844,12 @@
         "icon": "https://www.hisprice.com/favicon.ico"
       },
       {
+        "title": "寰宇世界卫星地图",
+        "desc": "谷歌中国高清地图",
+        "url": "https://huawei.com.tw/earth/",
+        "icon": "https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://huawei.com.tw"
+      },
+      {
         "title": "帮小忙",
         "desc": "腾讯QQ浏览器在线工具箱平台",
         "url": "https://tool.browser.qq.com/",
@@ -824,18 +860,6 @@
         "desc": "站长工具是站长的必备工具。经常上站长工具可以了解SEO数据变化。还可以检测网站死链接、蜘蛛访问、HTML格式检测、网站速度测试、友情链接检查、网站域名IP查询、PR、权重查询、alexa、whois查询等等。",
         "url": "https://tool.chinaz.com/",
         "icon": "https://tool.chinaz.com/favicon.ico"
-      },
-      {
-        "title": "ITDOG",
-        "desc": "在线ping_在线tcping_网站测速_HTTP测速_API测速_路由追踪_在线MTR_DNS查询_ITDOG-云邦畅想",
-        "url": "https://www.itdog.cn/",
-        "icon": "https://api.xinac.net/icon/?url=www.itdog.cn"
-      },
-      {
-        "title": "贝贝工具站",
-        "desc": "贝贝工具站，免费，高效，免登录，无限制",
-        "url": "https://xbeibeix.com/",
-        "icon": "https://api.xinac.net/icon/?url=xbeibeix.com"
       },
       {
         "title": "Yandex搜图",
@@ -898,18 +922,6 @@
         "icon": "https://www.remove.bg/favicon.ico"
       },
       {
-        "title": "在线去除元素",
-        "desc": "在线修改图片指定元素",
-        "url": "https://www.magiceraser.io/",
-        "icon": "https://api.xinac.net/icon/?url=www.magiceraser.io"
-      },
-      {
-        "title": "电子包浆",
-        "desc": "图片做旧工具，赛博包浆虚拟器",
-        "url": "https://magiconch.com/patina/",
-        "icon": "https://api.xinac.net/icon/?url=magiconch.com/patina"
-      },
-      {
         "title": "查邮编",
         "desc": "邮政编码、长途电话区号专业在线查询",
         "url": "https://www.ip138.com/post/",
@@ -920,24 +932,6 @@
         "desc": "免费的LOGO在线设计制作工具",
         "url": "http://www.uugai.com/",
         "icon": "http://www.uugai.com/favicon.ico"
-      },
-      {
-        "title": "比特虫-ICO",
-        "desc": "在线制作ico图标ico图标转换工具",
-        "url": "https://www.bitbug.net/",
-        "icon": "https://www.bitbug.net/favicon.ico"
-      },
-      {
-        "title": "ICO图标制作",
-        "desc": "在线生成透明ICO图标",
-        "url": "http://www.ico51.cn/",
-        "icon": "http://www.ico51.cn/favicon.ico"
-      },
-      {
-        "title": "在线小米风格ICO",
-        "desc": "在线制作ICO，徽章",
-        "url": "https://mi-logo.lvwzhen.com/",
-        "icon": "https://mi-logo.lvwzhen.com/favicon.png"
       },
       {
         "title": "Notion风格头像",
@@ -999,6 +993,12 @@
         "icon": "https://chrome.zzzmh.cn/favicon.ico"
       },
       {
+        "title": "插件小屋",
+        "desc": "浏览器插件下载网站",
+        "url": "https://www.chajianxw.com/",
+        "icon": "https://www.chajianxw.com/static/favicon.ico"
+      },
+      {
         "title": "微软edge扩展商店",
         "desc": "使用可帮助你个性化定制浏览器和提高工作效率的扩展和主题来定制 Microsoft Edge",
         "url": "https://microsoftedge.microsoft.com/",
@@ -1014,7 +1014,13 @@
         "title": "Greasy Fork",
         "desc": "油猴脚本常用脚本站",
         "url": "https://greasyfork.org/",
-        "icon": "https://api.xinac.net/icon/?url=greasyfork.org"
+        "icon": "https://greasyfork.org/vite/assets/blacklogo16-DftkYuVe.png"
+      },
+      {
+        "title": "Greasy Fork镜像",
+        "desc": "油猴脚本中文镜像站",
+        "url": "https://gf.qytechs.cn/zh-CN",
+        "icon": "https://greasyfork.org/vite/assets/blacklogo16-DftkYuVe.png"
       },
       {
         "title": "OpenUserJS",
@@ -1264,10 +1270,10 @@
         "icon": "https://www.jianguoyun.com/favicon.ico"
       },
       {
-        "title": "360云盘",
-        "desc": "360云盘是360公司推出的一款云存储服务，提供文件备份、同步和分享功能",
-        "url": "https://yunpan.360.cn/",
-        "icon": "https://yunpan.360.cn/favicon.ico"
+        "title": "115网盘",
+        "desc": "115网盘是115公司推出的一款云存储服务，提供文件备份、同步和分享功能（https://115.ilxdh.com/）",
+        "url": "https://115.com/",
+        "icon": "https://115.com/favicon.ico"
       },
       {
         "title": "阿里云盘",
@@ -1280,6 +1286,12 @@
         "desc": "小文件云存储",
         "url": "https://www.lanzou.com/",
         "icon": "https://www.lanzou.com/favicon.ico"
+      },
+      {
+        "title": "360云盘",
+        "desc": "360云盘是360公司推出的一款云存储服务，提供文件备份、同步和分享功能",
+        "url": "https://yunpan.360.cn/",
+        "icon": "https://yunpan.360.cn/favicon.ico"
       },
       {
         "title": "OneDrive",
@@ -1334,6 +1346,18 @@
   {
     "section": "开发文档",
     "links": [
+      {
+        "title": "Linux命令大全(手册)",
+        "desc": "专注于Linux命令大全与详解的在线命令查询网站",
+        "url": "https://www.linuxcool.com/",
+        "icon": "https://www.linuxcool.com/wp-content/uploads/2019/03/cropped-redhat-32x32.png"
+      },
+      {
+        "title": "菜鸟教程",
+        "desc": "学的不仅是技术，更是梦想！",
+        "url": "https://www.runoob.com/",
+        "icon": "https://static.jyshare.com/images/favicon.ico"
+      },
       {
         "title": "Valine",
         "desc": "一款快速、简洁且高效的无后端评论系统",
