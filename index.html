@@ -14,14 +14,6 @@
     <link rel="stylesheet" href="css/style_dark.css"><!-- 黑暗模式 -->
     <link rel="stylesheet" href="css/style_benzhangongju.css"><!-- 本站工具 -->
 
-    <!-- Lozad.js (懒加载) - 官方最新版 -->
-     <script src="js/lozad-v1.16.0.min.js"></script>
-    <!-- Bootstrap - 官方版本 -->
-     <link rel="stylesheet" href="css/bootstrap-v5.3.7.min.css">
-     <script src="js/bootstrap.bundle-v5.3.7.min.js"></script>
-    <!-- jQuery - 官方稳定版 -->
-     <script src="js/jquery-v3.7.1.min.js"></script>
-    <!-- Tabler Icons (SVG 图标集合) - 官方版本 (固定版本号) -->
     <!-- ! Lozad.js (懒加载) - 官方最新版 -->
      <script src="js/lozad-v1.16.0.min.js"></script>
     <!-- ! Bootstrap - 官方版本 -->
@@ -799,7 +791,7 @@
             <div class="suspension">
                 <ul>
                     <!-- TAG: 悬浮搜索按钮-->
-                    <li class="suspension_box suspension_ax" id="search-suspension-btn" style="background: url(/images/search.png) no-repeat center center rgb(0 0 0 / 25%);background-size: 50% 50%;">
+                    <li class="suspension_box suspension_ax" id="search-suspension-btn" style="background: url(images/search.png) no-repeat center center rgb(0 0 0 / 25%);background-size: 50% 50%;">
                         <div class="suspension_ax_cont" id="fk-span">
                             <span class="suspension_triangle" id="fk-span-right"></span>
                             <span>🔍快速定位</span>
@@ -853,6 +845,46 @@
     <!-- ! 页面js -->
     <script src="js/script_function.js"></script>
 
+    <!-- NOTE: 功能：外链导航点击检测，无法访问自动跳转404页面 -->
+    <script>
+        /*
+         * 功能：外链导航点击检测，无法访问自动跳转404页面
+         * 实现原理：
+         * 1. 拦截所有 a[target="_blank"] 的点击事件。
+         * 2. 获取链接地址，排除锚点和 js 链接。
+         * 3. 提取目标网站域名，尝试加载其 favicon.ico。
+         * 4. 如果图片加载成功，说明网站可访问，正常 window.open 跳转。
+         * 5. 如果图片加载失败或超时（如被墙、断网），则跳转到 404.html。
+         * 这样可兼容绝大多数外链检测场景。
+         */
+        $(document).on('click', 'a[target="_blank"]', function(e) {
+            var url = $(this).attr('href');
+            if (!url || url.startsWith('#') || url.startsWith('javascript:')) return;
+            e.preventDefault();
+            // 提取域名
+            var match = url.match(/^(https?:\/\/[^\/]+)/);
+            var domain = match ? match[1] : null;
+            if (!domain) {
+                window.open(url, '_blank');
+                return;
+            }
+            var img = new Image();
+            var timer;
+            img.onload = function() {
+                clearTimeout(timer);
+                window.open(url, '_blank');
+            };
+            img.onerror = function() {
+                clearTimeout(timer);
+                window.location.href = '/pages/404.html';
+            };
+            // 超时处理（如被墙、无响应）
+            timer = setTimeout(function(){
+                window.location.href = '/pages/404.html';
+            }, 2000);
+            img.src = domain + '/favicon.ico';
+        });
+    </script>
 
     <!-- NOTE: 功能：链接卡片点击次数统计与角标显示 -->
     <style>
