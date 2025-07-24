@@ -62,10 +62,52 @@
         "icon": "https://api.xinac.net/icon/?url=www.liaoxuefeng.com"
       },
       {
+        "title": "Hello 算法",
+        "desc": "动画图解、一键运行的数据结构与算法教程",
+        "url": "https://www.hello-algo.com/chapter_hello_algo/",
+        "icon": "https://www.github.com/favicon.ico"
+      },
+      {
+        "title": "GitHub中文书籍📚",
+        "desc": "免费的编程中文书籍索引",
+        "url": "https://github.com/justjavac/free-programming-books-zh_CN?tab=readme-ov-file",
+        "icon": "https://www.github.com/favicon.ico"
+      },
+      {
+        "title": "英语-语法俱乐部",
+        "desc": "《语法俱乐部》- 旋元佑",
+        "url": "https://llwslc.github.io/grammar-club/",
+        "icon": "https://llwslc.github.io/grammar-club/cover.png"
+      },
+      {
+        "title": "多邻国",
+        "desc": "学习外语，寓教于乐",
+        "url": "https://www.duolingo.cn/",
+        "icon": "https://d35aaqx5ub95lt.cloudfront.net/images/pwa-icon-circle-192.png"
+      },
+      {
         "title": "LingoHut",
         "desc": "免费、45语种覆盖的在线外语学习平台",
         "url": "https://www.lingohut.com/zh",
         "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPUlEQVQ4T2NkYGD4z4AAjEhsMHOO+ga4fMrNALA8shhIYNQAeoYBegyB+CTFwsAbMEISEnpAM5KamehvAADbA2sxh3BI8QAAAABJRU5ErkJggg=="
+      },
+      {
+        "title": "英语-单词森林",
+        "desc": "（Word Forest）单词学习网站，旨在打造一个简洁舒适的英语学习环境",
+        "url": "https://wordforest.cn/",
+        "icon": "https://wordforest.cn/static/images/logo.ico"
+      },
+      {
+        "title": "英语-Enpuz",
+        "desc": "在线英语句子语法分析",
+        "url": "https://enpuz.com/",
+        "icon": "https://enpuz.com/favicon.ico"
+      },
+      {
+        "title": "英语-听力特快",
+        "desc": "掌握英语从听开始,免费英语听力下载网",
+        "url": "https://www.listeningexpress.com/",
+        "icon": "https://www.listeningexpress.com/images/lelogo.gif"
       },
       {
         "title": "考试酷",
@@ -122,12 +164,6 @@
         "icon": "https://www.oalib.com/favicon.ico"
       },
       {
-        "title": "读典籍",
-        "desc": "文白对照读典籍，免费下载",
-        "url": "https://web.dudianji.com/",
-        "icon": "https://api.xinac.net/icon/?url=web.dudianji.com"
-      },
-      {
         "title": "WikiHow专业的问题解答",
         "desc": "wikiHow是一项协作项目，目标是建立世界最大的最高质量的指导手册。无论您想做什么，我们的多语种指导手册都可以为您提供免费的逐步指导。",
         "url": "https://zh.wikihow.com/",
@@ -173,6 +209,12 @@
         "desc": "GitCode - 全球开发者的开源社区,开源代码托管平台",
         "url": "https://gitcode.com/",
         "icon": "https://api.xinac.net/icon/?url=gitcode.com"
+      },
+      {
+        "title": "Stack Overflow",
+        "desc": "程序员的问答网站",
+        "url": "https://stackoverflow.com/questions",
+        "icon": "https://cdn.sstatic.net/Sites/stackoverflow/Img/icon-48.png?v=b7e36f88ff92"
       },
       {
         "title": "博客园",
@@ -321,6 +363,12 @@
         "desc": "为用户提供海量诗词类资料，以及强大的诗词辅助创作工具。",
         "url": "https://sou-yun.cn/",
         "icon": "https://sou-yun.cn/favicon.ico"
+      },
+      {
+        "title": "读典籍",
+        "desc": "文白对照读典籍，免费下载",
+        "url": "https://web.dudianji.com/",
+        "icon": "https://api.xinac.net/icon/?url=web.dudianji.com"
       },
       {
         "title": "豆瓣读书",
@@ -655,12 +703,6 @@
         "icon": "https://api.xinac.net/icon/?url=diep.io"
       },
       {
-        "title": "COLOR连线消消乐",
-        "desc": "在线COLOR消消游戏",
-        "url": "https://lines.frvr.com/",
-        "icon": "https://api.xinac.net/icon/?url=lines.frvr.com"
-      },
-      {
         "title": "人声模拟器",
         "desc": "人声模拟器",
         "url": "https://dood.al/pinktrombone/",
@@ -668,7 +710,7 @@
       },
       {
         "title": "回归大自然",
-        "desc": "回归大自然",
+        "desc": "大自然的声音",
         "url": "https://rainyscope.com/",
         "icon": "https://api.xinac.net/icon/?url=rainyscope.com"
       },
@@ -812,6 +854,12 @@
         "desc": "需注册，专业强大的作图工具，支持多人实时在线协作，可用于原型图、UML、BPMN、网络拓扑图等多种图形绘制",
         "url": "https://www.processon.com/",
         "icon": "https://www.processon.com/favicon.ico"
+      },
+      {
+        "title": "文本对比",
+        "desc": "轻松对比 & 合并两个文本文件的差异",
+        "url": "https://diffsuite.com/zh/",
+        "icon": "https://diffsuite.com/favicon.png"
       },
       {
         "title": "代码对比/归并",
@@ -1085,7 +1133,7 @@
     ]
   },
   {
-    "section": "视频音频",
+    "section": "视频音频字体",
     "links": [
       {
         "title": "YouTube高清视频下载",
@@ -1116,6 +1164,18 @@
         "desc": "小森平的免费下载音效",
         "url": "https://taira-komori.jpn.org/freesoundcn.html",
         "icon": "https://taira-komori.jpn.org/favicon.ico"
+      },
+      {
+        "title": "ZSFT",
+        "desc": "释放字体自由 - ZeoSeven Fonts(ZSFT)",
+        "url": "https://fonts.zeoseven.com/",
+        "icon": "https://fonts.zeoseven.com/favicon.ico"
+      },
+      {
+        "title": "中文网字计划",
+        "desc": "字体 带来网络 中文的爱与和谐",
+        "url": "https://chinese-font.netlify.app/zh-cn/",
+        "icon": "https://chinese-font.netlify.app/favicon.ico"
       }
     ]
   },
@@ -1169,23 +1229,6 @@
         "desc": "免费正版高清图片素材库",
         "url": "https://pixabay.com/zh/",
         "icon": "https://pixabay.com/favicon.ico"
-      }
-    ]
-  },
-  {
-    "section": "字体资源",
-    "links": [
-      {
-        "title": "ZSFT",
-        "desc": "释放字体自由 - ZeoSeven Fonts(ZSFT)",
-        "url": "https://fonts.zeoseven.com/",
-        "icon": "https://fonts.zeoseven.com/favicon.ico"
-      },
-      {
-        "title": "中文网字计划",
-        "desc": "中文网字计划 带来网络 中文的爱与和谐",
-        "url": "https://chinese-font.netlify.app/zh-cn/",
-        "icon": "https://chinese-font.netlify.app/favicon.ico"
       }
     ]
   },
@@ -1356,31 +1399,13 @@
         "title": "菜鸟教程",
         "desc": "学的不仅是技术，更是梦想！",
         "url": "https://www.runoob.com/",
-        "icon": "https://static.jyshare.com/images/favicon.ico"
+        "icon": "https://www.runoob.com/favicon.ico"
       },
       {
-        "title": "Valine",
-        "desc": "一款快速、简洁且高效的无后端评论系统",
-        "url": "https://valine.js.org/",
-        "icon": "https://api.xinac.net/icon/?url=valine.js.org"
-      },
-      {
-        "title": "Moe-counter",
-        "desc": "多种风格可选的萌萌计数器",
-        "url": "https://count.getloli.com/",
-        "icon": "https://api.xinac.net/icon/?url=count.getloli.com"
-      },
-      {
-        "title": "HUGO",
-        "desc": "Hugo主题模板",
-        "url": "https://themes.gohugo.io/",
-        "icon": "https://themes.gohugo.io/favicon.ico"
-      },
-      {
-        "title": "SweetAlert2",
-        "desc": "SweetAlert2是一款功能强大的纯Js模态消息对话框插件。",
-        "url": "https://sweetalert2.github.io/",
-        "icon": "https://api.xinac.net/icon/?url=sweetalert2.github.io"
+        "title": "书栈网",
+        "desc": "各种语言手册、API、文档等",
+        "url": "https://www.bookstack.cn/explore",
+        "icon": "https://www.zj-idc.com/images/favicon.ico"
       },
       {
         "title": "Fontawesome中文网",
@@ -1435,6 +1460,30 @@
         "desc": "存储了大量由 Python 社区开发和共享的第三方库",
         "url": "https://pypi.org/",
         "icon": "https://pypi.org/static/images/logo-small.8998e9d1.svg"
+      },
+      {
+        "title": "Valine",
+        "desc": "一款快速、简洁且高效的无后端评论系统",
+        "url": "https://valine.js.org/",
+        "icon": "https://api.xinac.net/icon/?url=valine.js.org"
+      },
+      {
+        "title": "Moe-counter",
+        "desc": "多种风格可选的萌萌计数器",
+        "url": "https://count.getloli.com/",
+        "icon": "https://api.xinac.net/icon/?url=count.getloli.com"
+      },
+      {
+        "title": "HUGO",
+        "desc": "Hugo主题模板",
+        "url": "https://themes.gohugo.io/",
+        "icon": "https://themes.gohugo.io/favicon.ico"
+      },
+      {
+        "title": "SweetAlert2",
+        "desc": "SweetAlert2是一款功能强大的纯Js模态消息对话框插件。",
+        "url": "https://sweetalert2.github.io/",
+        "icon": "https://api.xinac.net/icon/?url=sweetalert2.github.io"
       }
     ]
   },
