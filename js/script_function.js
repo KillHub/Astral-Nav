@@ -550,7 +550,7 @@ function resizable(breakpoint) {
     switch (breakpoint) {
         case 'largescreen':
             // 可放大屏专用逻辑
-			public_vars.$sidebarMenu.removeClass('collapsed');
+            public_vars.$sidebarMenu.removeClass('collapsed');
             break;
         case 'tabletscreen':
             // 平板屏幕时折叠菜单
@@ -608,43 +608,44 @@ function trigger_resizable() {
 // 添加窗口尺寸变化监听
 jQuery(window).on('resize orientationchange', trigger_resizable);
 
-// 动态创建天气HTML结构
-function createWeatherElements() {
-    const container = document.getElementById('weather-container');
-    container.innerHTML = `
-        <span id="text_city"></span>&nbsp;
-        <span id="text_weather"></span>&nbsp;
-        <span id="text_low"></span>
-        <span id="text_high"></span>&nbsp;
-        <span id="text_wind"></span>&nbsp;
-        <span id="text_rh"></span>
-    `;
-}
 
-// 动态创建天气HTML结构
-function createWeatherElements() {
-    const container = document.getElementById('weather-container');
-    container.innerHTML = `
-        <span id="text_city"></span>&nbsp;
-        <span id="text_weather"></span>&nbsp;
-        <span id="text_low"></span>~
-        <span id="text_high"></span>&nbsp;
-        <span id="text_wind"></span>&nbsp;
-        <span id="text_rh"></span>
-    `;
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(times, 1000);        // 获取当前时间并显示
+    fetchWeatherData();             // 通过 IP 获取城市信息和天气数据
+    fetchDongManData();             // 获取动漫经典语录数据
+    fetchEnglishData();             // 获取励志英语数据
+});
 
+
+// NOTE: 通过 IP 获取城市信息和天气数据
 function fetchWeatherData() {
     fetch('http://ipwho.is/?output=json&lang=zh-CN')
+    //fetch('https://api.vvhan.com/api/ipInfo')     //备用API-获取IP信息
         .then(response => response.json())
         .then(ipData => {
+            // const data = JSON.parse(JSON.stringify(ipData));
+            // const city = data.city;
+            // if(city!=undefined && city!=null && city!=''){
+            //     city += '市';
+            // }
+            // console.log('定位城市:', city);
             const IP = ipData.ip;
             // 2. 调用天气 API
             return fetch(`https://api.vvhan.com/api/weather?ip=${encodeURIComponent(IP)}`)
+            //return fetch(`https://api.dwo.cc/api/tianqi?districtId=${encodeURIComponent(city)}`)   //备用API-获取天气信息
                         .then(weatherResponse => weatherResponse.json())
                         .then(weatherData => {
-                            // 创建页面
-                            createWeatherElements();
+                            // 动态创建天气HTML结构
+                            const container = document.getElementById('weather-container');
+                            container.innerHTML = `
+                                <span id="text_city"></span>&nbsp;
+                                <span id="text_weather"></span>&nbsp;
+                                <span id="text_low"></span>~
+                                <span id="text_high"></span>&nbsp;
+                                <span id="text_wind"></span>&nbsp;
+                                <span id="text_rh"></span>
+                            `;
                             // 3. 更新页面天气信息
                             $('#text_city').text(weatherData.city || '未知城市');//城市
                             $('#text_weather').text(weatherData.data?.type || '');//天气
@@ -659,17 +660,63 @@ function fetchWeatherData() {
         });
 }
 
-// 初始化天气组件
-document.addEventListener('DOMContentLoaded', () => {
-    fetchWeatherData();
-});
+// NOTE: 获取动漫经典语录数据
+function fetchDongManData() {
+    fetch('https://api.vvhan.com/api/ian/dongman?type=json')
+        .then(response => {
+            // 检查响应内容类型
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                return response.json(); // 如果是 JSON，正常解析
+            } else {
+                return response.text(); // 否则按文本处理
+            }
+        })
+        .then(data => {
+            console.log("dongman_content:", data.data.content);
+            console.log("dongman_from:", data.data.form);
+            var anime_text = data.data.content + " ——《 " + data.data.form + " 》";
+            // 显示到 <p id="anime_text"></p> 并美化样式
+            var textP = document.getElementById('anime_text');
+            if (textP) {
+                textP.innerHTML = anime_text;
+                textP.style.fontSize = '18px';
+                textP.style.fontWeight = 'bold';
+                textP.style.textAlign = 'center';
+                textP.style.margin = '10px 0 10px 0';
+                textP.style.lineHeight = '1.6';
+                textP.style.fontFamily = 'LXGW ZhenKai, "微软雅黑", "Arial", sans-serif';
+                textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
+            }
+        });
+}
 
+// NOTE: 获取励志英语数据
+function fetchEnglishData() {
+    fetch('https://api.vvhan.com/api/dailyEnglish?type=sj')
+        .then(response => response.json())
+        .then(data => {
+            console.log("english_zh:", data.data.zh);
+            console.log("english_en:", data.data.en);
+            var english_text = data.data.en + " ——" + data.data.zh;
+            console.log("english_text:", english_text);
+            var textP = document.getElementById('english_text');
+            if (textP) {
+                textP.innerHTML = english_text;
+                textP.style.fontSize = '18px';
+                textP.style.fontWeight = 'bold';
+                textP.style.textAlign = 'center';
+                textP.style.margin = '10px 0 10px 0';
+                textP.style.lineHeight = '1.6';
+                textP.style.fontFamily = 'AlimamaDongFangDaKai, "微软雅黑", "Arial", sans-serif';
+                textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
+            }
+        });
+}
 
-//获取时间
-let t = null;
-t = setTimeout(times, 1000);
-
+// NOTE: 获取当前时间并显示
 function times() {
+    let t = null;
     clearTimeout(t);
     dt = new Date();
     let y = dt.getYear() + 1900;
@@ -693,27 +740,8 @@ function times() {
     t = setTimeout(times, 1000);
 }
 
-//脚注
-$(document).ready(function () {
-    var t1 = performance.now();
-    if (typeof t1 != "undefined") { document.getElementById("time").innerHTML = " 页面加载耗时 " + Math.round(t1) + " 毫秒 "; }
-    $.get("/cdn-cgi/trace", function (data) {
-        sip = data.match(/(ip=?)(\S*)/)[2];
-        str = data.match(/(colo=?)(\S*)/)[2];
-        loc = data.match(/(loc=?)(\S*)/)[2];
-        sts = data.match(/(http==?)(\S*)/)[2];
-        tls = data.match(/(tls==?)(\S*)/)[2];
-        $("#result").append("节点:" + str);
-        $("#result").append("\n访客:" + loc);
-        $("#result").append("\n" + sts);
-        $("#result").append("\n加密:" + tls);
-        $("#result").append("\nIP:" + sip);
-    });
-});
 
-
-
-//弹出层控制
+// NOTE: 弹出层控制
 function openSwalBox(url,title){
     console.log("url:", url);
     Swal.fire({
@@ -729,7 +757,8 @@ function openSwalBox(url,title){
     });
 }
 
-// ! 工具
+
+// XXX: 工具
 fetch('json/utils_data.json')               // 1. 发起请求
     .then(response => response.json())    // 2. 解析响应为 JSON
     .then(data => {                       // 3. 使用解析后的数据
@@ -754,7 +783,8 @@ fetch('json/utils_data.json')               // 1. 发起请求
     });
 
 
-// ! 链接
+
+// XXX: 链接
 fetch('json/links_data.json')
     .then(response => response.json())
     .then(data => {
@@ -783,8 +813,7 @@ fetch('json/links_data.json')
                 `;
             }).join('');
 
-            // FIXME 图片是动态生成的（如通过 AJAX/Fetch 加载），
-            // FIXME 需要在内容插入 DOM 后，重新初始化懒加载
+            // 图片是动态生成的（如通过 AJAX/Fetch 加载），需要在内容插入 DOM 后，重新初始化懒加载
             lozad('.lozad').observe();
         });
     })
@@ -793,12 +822,31 @@ fetch('json/links_data.json')
     });
 
 
-//控制台输出
+// NOTE: 脚注
+$(document).ready(function () {
+    var t1 = performance.now();
+    if (typeof t1 != "undefined") { document.getElementById("time").innerHTML = " 页面加载耗时 " + Math.round(t1) + " 毫秒 "; }
+    $.get("/cdn-cgi/trace", function (data) {
+        sip = data.match(/(ip=?)(\S*)/)[2];
+        str = data.match(/(colo=?)(\S*)/)[2];
+        loc = data.match(/(loc=?)(\S*)/)[2];
+        sts = data.match(/(http==?)(\S*)/)[2];
+        tls = data.match(/(tls==?)(\S*)/)[2];
+        $("#result").append("节点:" + str);
+        $("#result").append("\n访客:" + loc);
+        $("#result").append("\n" + sts);
+        $("#result").append("\n加密:" + tls);
+        $("#result").append("\nIP:" + sip);
+    });
+});
+
+
+// INFO: 控制台输出
 console.clear();
 let styleTitle1 = `
 font-size: 20px;
 font-weight: 600;
-color: rgb(244,167,89);
+color: rgba(89, 244, 102, 1);
 `
 let styleTitle2 = `
 font-size: 16px;
@@ -812,7 +860,7 @@ let title2 = `
 
 `
 let content = `
-版 本 号：v1.0.0
+版 本 号：v1.3.9
 更新日期：2025-07-24
 
 Github:  https://github.com/killhub/

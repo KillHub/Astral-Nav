@@ -1,18 +1,28 @@
 @import url("https://fontsapi.zeoseven.com/130/main/result.css"); /*Rampart One*/
 @import url("https://fontsapi.zeoseven.com/69/main/result.css"); /*Noto Sans CJK 思源黑体*/
-@import url("https://fontsapi.zeoseven.com/488/main/result.css"); /*STDongGuanTi 上图东观体*/
+@import url("https://fontsapi.zeoseven.com/431/main/result.css"); /*GuanKiapTsingKhai-T 原俠正楷*/
+@import url("https://fontsapi.zeoseven.com/2/main/result.css"); /*LXGW ZhenKai 霞鹜臻楷*/
 
 /* 字体 */
 /* 文楷字体（LXGW WenKai） - 推荐使用官方或社区维护的源 */
 @font-face {
   font-family: "LXGWWenKai-Regular";
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-display: swap; /* 关键优化：避免阻塞渲染 */
   src:
           url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style/LXGWWenKai-Regular.woff2') format('woff2'), /* 优先使用现代格式 */
-          url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style/LXGWWenKai-Regular.woff') format('woff'),
+          url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style/LXGWWenKai-Regular.woff') format('woff'),   /* 可选备用格式 */
           url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style/LXGWWenKai-Regular.ttf') format('truetype');
+}
+
+/* 阿里妈妈东方大楷 */
+@font-face {
+  font-family: 'AlimamaDongFangDaKai';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap; /* 关键优化：避免阻塞渲染 */
+  src: url('/webfonts/AlimamaDongFangDaKai-Regular.woff2') format('woff2');
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px)  {
@@ -21,16 +31,19 @@
     width: 20% !important;
   }
 }
+/* 鼠标光标设置 */
 * {
-  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' /></svg>") 4 4, auto !important;
+  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='18px' height='18px'><circle cx='4' cy='4' r='4' fill='LawnGreen' /></svg>") 4 4, auto !important; 
 }
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   border: none;
-  font-family: "Noto Sans CJK" !important;
+  font-family: "Noto Sans CJK" !important;          /* 网站主题字体 */
+  font-feature-settings: "hwid";                    /* 启用等宽变化字形 */
 }
 html {
   background: transparent; /* 清除 html 的背景 */
@@ -69,16 +82,16 @@ a:active {
 ul {
   font-size: 0.9rem;
 }
-/* 鼠标样式 */
+/* 鼠标光标样式 */
 #pointer {
   position: fixed;
   top: -18px;
   left: -18px;
-  width: 18px;
-  height: 18px;
+  width: 32px;
+  height: 32px;
   transition: 0.05s linear;
   pointer-events: none;
-  background: #ffffff40;
+  /* background: #aaeebb; */
   border-radius: 50%;
   z-index: 9999999;
 }
@@ -1393,4 +1406,23 @@ input::-webkit-input-placeholder {
   .main-content > .panel + .panel {
     margin-top: 30px;
   }
+}
+
+/* 左侧-主菜单图标样式 */
+.main-menu-icon {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* 右侧-导航内容图标样式 */
+.main-content-tag {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 4px;
+  display: inline-block;
+  background: url('/images/Pokémon GO/svg/星-1.svg') no-repeat center center;
+  background-size: contain;
 }
