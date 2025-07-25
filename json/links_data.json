@@ -80,6 +80,18 @@
         "icon": "https://llwslc.github.io/grammar-club/cover.png"
       },
       {
+        "title": "Qwerty Learner 背单词",
+        "desc": "为键盘工作者设计的单词与肌肉记忆锻炼软件",
+        "url": "https://qwerty.kaiyi.cool/gallery",
+        "icon": "https://qwerty.kaiyi.cool/android-chrome-192x192.png"
+      },
+      {
+        "title": "Typing Word 背单词",
+        "desc": "打字背单词",
+        "url": "https://2study.top/#/practice",
+        "icon": "https://2study.top/logo.jpg"
+      },
+      {
         "title": "多邻国",
         "desc": "学习外语，寓教于乐",
         "url": "https://www.duolingo.cn/",
@@ -862,6 +874,12 @@
         "icon": "https://diffsuite.com/favicon.png"
       },
       {
+        "title": "Json工具-Json中文网",
+        "desc": "提供相关的Json解析、验证、格式化、压缩、编辑器以及Json与XML相互转换等服务",
+        "url": "https://www.json.cn/",
+        "icon": "https://static.json.cn/r/img/favicon/favicon.ico"
+      },
+      {
         "title": "代码对比/归并",
         "desc": "OSCHINA.NET在线工具-代码对比/归并工具",
         "url": "https://tool.oschina.net/diff/",
@@ -964,16 +982,16 @@
         "icon": "https://api.xinac.net/icon/?url=waifu2x.udp.jp"
       },
       {
-        "title": "图片背景消除",
+        "title": "Remove.bg",
         "desc": "图片背景消除，100% 全自动且免费",
         "url": "https://www.remove.bg/zh",
         "icon": "https://www.remove.bg/favicon.ico"
       },
       {
-        "title": "查邮编",
-        "desc": "邮政编码、长途电话区号专业在线查询",
-        "url": "https://www.ip138.com/post/",
-        "icon": "https://www.ip138.com/favicon.ico"
+        "title": "BgSub",
+        "desc": "图片背景消除，完全自动化，免费，保护隐私",
+        "url": "https://zh.bgsub.com/",
+        "icon": "https://zh.bgsub.com/favicon.ico"
       },
       {
         "title": "U钙网",
@@ -1030,7 +1048,7 @@
     "links": [
       {
         "title": "Chrome 网上应用店 - 扩展程序",
-        "desc": "查找适用于 Google Chrome 浏览器的超酷应用、游戏、扩展程序和主题背景",
+        "desc": "查找适用于 Google Chrome 浏览器的超酷应用、游戏、扩展程序和主题",
         "url": "https://chrome.google.com/webstore/",
         "icon": "https://api.xinac.net/icon/?url=chrome.google.com"
       },
@@ -1133,8 +1151,14 @@
     ]
   },
   {
-    "section": "视频音频字体",
+    "section": "音视频字体",
     "links": [
+      {
+        "title": "TTS Omni",
+        "desc": "文本转语音工具，支持多种语言和语音风格",
+        "url": "https://www.ttsomni.com/zh-hk",
+        "icon": "https://www.ttsomni.com/favicon.ico"
+      },
       {
         "title": "YouTube高清视频下载",
         "desc": "已支持解析下载YouTube、等其他视频下载",
@@ -1154,8 +1178,14 @@
         "icon": "https://assets.mixkit.co/build/favicons/favicon-96x96-b47a57aea9303a5f92e644e78aa343575b21f12b38d469be00fdc5acd983684d.png"
       },
       {
+        "title": "Earth.fm",
+        "desc": "全球自然声景的非营利性数字平台，旨在通过沉浸式声音体验帮助用户放松身心、提升专注力，并促进自然保护意识",
+        "url": "https://earth.fm/",
+        "icon": "https://earth.fm/favicon-32x32.png?v=298b03e55d06c3b9cdb2b557b8559339"
+      },
+      {
         "title": "効果音源",
-        "desc": " 効果音源，全，但收费",
+        "desc": "効果音源，全，但收费",
         "url": "https://koukaongen.com/",
         "icon": "https://koukaongen.com/favicon.ico"
       },
@@ -1184,7 +1214,7 @@
     "links": [
       {
         "title": "哲风壁纸",
-        "desc": "免费4K高清壁纸-电脑背景图片-Mac壁纸网站「哲风壁纸」",
+        "desc": "免费4K高清壁纸-电脑图片-Mac壁纸网站「哲风壁纸」",
         "url": "https://haowallpaper.com/",
         "icon": "https://haowallpaper.com/favicon.ico"
       },
@@ -1196,7 +1226,7 @@
       },
       {
         "title": "Wallspic",
-        "desc": "免费的桌面壁纸，图片和高清背景图片| Wallspic",
+        "desc": "免费的桌面壁纸，图片和高清图片| Wallspic",
         "url": "https://wallspic.com/cn",
         "icon": "https://wallspic.com/static/images/favicon/favicon.ico"
       },
@@ -1262,131 +1292,6 @@
     ]
   },
   {
-    "section": "云端服务",
-    "links": [
-      {
-        "title": "百度网盘",
-        "desc": "百度网盘为您提供文件的网络备份、同步和分享服务",
-        "url": "https://pan.baidu.com/",
-        "icon": "https://nd-static.bdstatic.com/m-static/infocenter/static/images/favicon.ico"
-      },
-      {
-        "title": "夸克网盘",
-        "desc": "夸克网盘是夸克推出的一款云服务产品，功能包括云存储、高清看剧、文件在线解压、PDF一键转换等",
-        "url": "https://pan.quark.cn/",
-        "icon": "https://pan.quark.cn/favicon.ico"
-      },
-      {
-        "title": "路过图床",
-        "desc": "路过图床 - 免费图片上传, 专业图片外链, 免费公共图床",
-        "url": "https://imgse.com/",
-        "icon": "https://imgse.com/content/images/system/favicon_1587118523486_91617a.png"
-      },
-      {
-        "title": "16图床",
-        "desc": "16图床，永久免费，无需登录的图床",
-        "url": "https://111666.best/",
-        "icon": "https://111666.best/logo.png"
-      },
-      {
-        "title": "SM.MS",
-        "desc": "SM.MS图床",
-        "url": "https://sm.ms/",
-        "icon": "https://sm.ms/favicon.ico"
-      },
-      {
-        "title": "虫洞",
-        "desc": "Wormhole 让你能以端到端加密和自动过期链接的方式分享文件。",
-        "url": "https://wormhole.app/",
-        "icon": "https://api.xinac.net/icon/?url=wormhole.app"
-      },
-      {
-        "title": "文叔叔",
-        "desc": "文叔叔是一款永不限速的网盘（云盘）产品，免费提供网络硬盘空间 40GB。支持：传文件（发文件）、收文件（收集文件）等功能，还支持查看历史记录等高级功能",
-        "url": "https://www.wenshushu.cn/",
-        "icon": "https://www.wenshushu.cn/favicon.ico"
-      },
-      {
-        "title": "坚果云",
-        "desc": "坚果云是一个跨平台的文件同步和备份服务，提供文件的网络备份、同步和分享功能",
-        "url": "https://www.jianguoyun.com/",
-        "icon": "https://www.jianguoyun.com/favicon.ico"
-      },
-      {
-        "title": "115网盘",
-        "desc": "115网盘是115公司推出的一款云存储服务，提供文件备份、同步和分享功能（https://115.ilxdh.com/）",
-        "url": "https://115.com/",
-        "icon": "https://115.com/favicon.ico"
-      },
-      {
-        "title": "阿里云盘",
-        "desc": "阿里云盘是一款速度快、不打扰、够安全、易于分享的个人网盘",
-        "url": "https://www.aliyundrive.com/",
-        "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01aj9rdD1GS0E8io11t_!!6000000000620-73-tps-16-16.ico"
-      },
-      {
-        "title": "蓝奏云",
-        "desc": "小文件云存储",
-        "url": "https://www.lanzou.com/",
-        "icon": "https://www.lanzou.com/favicon.ico"
-      },
-      {
-        "title": "360云盘",
-        "desc": "360云盘是360公司推出的一款云存储服务，提供文件备份、同步和分享功能",
-        "url": "https://yunpan.360.cn/",
-        "icon": "https://yunpan.360.cn/favicon.ico"
-      },
-      {
-        "title": "OneDrive",
-        "desc": "OneDrive是微软推出的云存储服务，提供文件备份、同步和分享功能",
-        "url": "https://onedrive.live.com/",
-        "icon": "https://api.xinac.net/icon/?url=onedrive.live.com"
-      },
-      {
-        "title": "Google Drive",
-        "desc": "Google Drive是谷歌推出的云存储服务，提供文件备份、同步和分享功能",
-        "url": "https://drive.google.com/",
-        "icon": "https://api.xinac.net/icon/?url=drive.google.com"
-      },
-      {
-        "title": "Dropbox",
-        "desc": "Dropbox是一个文件存储和共享服务，提供文件备份、同步和分享功能",
-        "url": "https://www.dropbox.com/",
-        "icon": "https://www.dropbox.com/favicon.ico"
-      },
-      {
-        "title": "京东云",
-        "desc": "京东云 - 让科技更有温度",
-        "url": "https://www.jdcloud.com/",
-        "icon": "https://img1.jcloudcs.com/portal/favicon.ico"
-      },
-      {
-        "title": "腾讯云",
-        "desc": "腾讯云 - 产业智变 云启未来",
-        "url": "https://cloud.tencent.com/",
-        "icon": "https://cloud.tencent.com/favicon.ico"
-      },
-      {
-        "title": "阿里云",
-        "desc": "阿里云-上云就上阿里云",
-        "url": "https://www.aliyun.com/",
-        "icon": "https://api.xinac.net/icon/?url=www.aliyun.com"
-      },
-      {
-        "title": "又拍云",
-        "desc": "静态文件存储与CDN加速",
-        "url": "https://www.upyun.com/",
-        "icon": "https://www.upyun.com/static/favicon-32x32.png"
-      },
-      {
-        "title": "腾讯微云",
-        "desc": "微云是腾讯公司为用户精心打造的一项智能云服务, 您可以通过微云方便地在手机和电脑之间同步文件、推送照片和传输数据",
-        "url": "https://www.weiyun.com/",
-        "icon": "https://www.weiyun.com/favicon.ico"
-      }
-    ]
-  },
-  {
     "section": "开发文档",
     "links": [
       {
@@ -1394,6 +1299,12 @@
         "desc": "专注于Linux命令大全与详解的在线命令查询网站",
         "url": "https://www.linuxcool.com/",
         "icon": "https://www.linuxcool.com/wp-content/uploads/2019/03/cropped-redhat-32x32.png"
+      },
+      {
+        "title": "Learn Git Branching",
+        "desc": "可视化学习 Git 分支",
+        "url": "https://learngitbranching.js.org/?locale=zh_CN",
+        "icon": "https://learngitbranching.js.org/assets/favicon.ico"
       },
       {
         "title": "菜鸟教程",
@@ -1582,18 +1493,197 @@
       }
     ]
   },
-  {
-    "section": "系统下载",
+    {
+    "section": "云端服务",
     "links": [
       {
-        "title": "我告诉你msdn",
-        "desc": "系统下载",
-        "url": "https://msdn.itellyou.cn/",
+        "title": "百度网盘",
+        "desc": "百度网盘为您提供文件的网络备份、同步和分享服务",
+        "url": "https://pan.baidu.com/",
+        "icon": "https://nd-static.bdstatic.com/m-static/infocenter/static/images/favicon.ico"
+      },
+      {
+        "title": "夸克网盘",
+        "desc": "夸克网盘是夸克推出的一款云服务产品，功能包括云存储、高清看剧、文件在线解压、PDF一键转换等",
+        "url": "https://pan.quark.cn/",
+        "icon": "https://pan.quark.cn/favicon.ico"
+      },
+      {
+        "title": "路过图床",
+        "desc": "路过图床 - 免费图片上传, 专业图片外链, 免费公共图床",
+        "url": "https://imgse.com/",
+        "icon": "https://imgse.com/content/images/system/favicon_1587118523486_91617a.png"
+      },
+      {
+        "title": "16图床",
+        "desc": "16图床，永久免费，无需登录的图床",
+        "url": "https://111666.best/",
+        "icon": "https://111666.best/logo.png"
+      },
+      {
+        "title": "SM.MS",
+        "desc": "SM.MS图床",
+        "url": "https://sm.ms/",
+        "icon": "https://sm.ms/favicon.ico"
+      },
+      {
+        "title": "虫洞",
+        "desc": "Wormhole 让你能以端到端加密和自动过期链接的方式分享文件。",
+        "url": "https://wormhole.app/",
+        "icon": "https://api.xinac.net/icon/?url=wormhole.app"
+      },
+      {
+        "title": "文叔叔",
+        "desc": "文叔叔是一款永不限速的网盘（云盘）产品，免费提供网络硬盘空间 40GB。支持：传文件（发文件）、收文件（收集文件）等功能，还支持查看历史记录等高级功能",
+        "url": "https://www.wenshushu.cn/",
+        "icon": "https://www.wenshushu.cn/favicon.ico"
+      },
+      {
+        "title": "坚果云",
+        "desc": "坚果云是一个跨平台的文件同步和备份服务，提供文件的网络备份、同步和分享功能",
+        "url": "https://www.jianguoyun.com/",
+        "icon": "https://www.jianguoyun.com/favicon.ico"
+      },
+      {
+        "title": "115网盘",
+        "desc": "115网盘是115公司推出的一款云存储服务，提供文件备份、同步和分享功能（https://115.ilxdh.com/）",
+        "url": "https://115.com/",
+        "icon": "https://115.com/favicon.ico"
+      },
+      {
+        "title": "阿里云盘",
+        "desc": "阿里云盘是一款速度快、不打扰、够安全、易于分享的个人网盘",
+        "url": "https://www.aliyundrive.com/",
+        "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01aj9rdD1GS0E8io11t_!!6000000000620-73-tps-16-16.ico"
+      },
+      {
+        "title": "蓝奏云",
+        "desc": "小文件云存储",
+        "url": "https://www.lanzou.com/",
+        "icon": "https://www.lanzou.com/favicon.ico"
+      },
+      {
+        "title": "360云盘",
+        "desc": "360云盘是360公司推出的一款云存储服务，提供文件备份、同步和分享功能",
+        "url": "https://yunpan.360.cn/",
+        "icon": "https://yunpan.360.cn/favicon.ico"
+      },
+      {
+        "title": "OneDrive",
+        "desc": "OneDrive是微软推出的云存储服务，提供文件备份、同步和分享功能",
+        "url": "https://onedrive.live.com/",
+        "icon": "https://api.xinac.net/icon/?url=onedrive.live.com"
+      },
+      {
+        "title": "Google Drive",
+        "desc": "Google Drive是谷歌推出的云存储服务，提供文件备份、同步和分享功能",
+        "url": "https://drive.google.com/",
+        "icon": "https://api.xinac.net/icon/?url=drive.google.com"
+      },
+      {
+        "title": "Dropbox",
+        "desc": "Dropbox是一个文件存储和共享服务，提供文件备份、同步和分享功能",
+        "url": "https://www.dropbox.com/",
+        "icon": "https://www.dropbox.com/favicon.ico"
+      },
+      {
+        "title": "京东云",
+        "desc": "京东云 - 让科技更有温度",
+        "url": "https://www.jdcloud.com/",
+        "icon": "https://img1.jcloudcs.com/portal/favicon.ico"
+      },
+      {
+        "title": "腾讯云",
+        "desc": "腾讯云 - 产业智变 云启未来",
+        "url": "https://cloud.tencent.com/",
+        "icon": "https://cloud.tencent.com/favicon.ico"
+      },
+      {
+        "title": "阿里云",
+        "desc": "阿里云-上云就上阿里云",
+        "url": "https://www.aliyun.com/",
+        "icon": "https://api.xinac.net/icon/?url=www.aliyun.com"
+      },
+      {
+        "title": "又拍云",
+        "desc": "静态文件存储与CDN加速",
+        "url": "https://www.upyun.com/",
+        "icon": "https://www.upyun.com/static/favicon-32x32.png"
+      },
+      {
+        "title": "腾讯微云",
+        "desc": "微云是腾讯公司为用户精心打造的一项智能云服务, 您可以通过微云方便地在手机和电脑之间同步文件、推送照片和传输数据",
+        "url": "https://www.weiyun.com/",
+        "icon": "https://www.weiyun.com/favicon.ico"
+      }
+    ]
+  },
+  {
+    "section": "系统驱动",
+    "links": [
+      {
+        "title": "Dism++",
+        "desc": "优秀的Windows工具箱。集合了映像工具、系统清理、驱动管理、更新管理等功能，还集合了一些常用的个人习惯相关的系统设置。",
+        "url": "https://github.com/Chuyu-Team/Dism-Multi-language/releases/",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/dismxx.webp"
+      },
+      {
+        "title": "Rufus",
+        "desc": "最好用的镜像写入工具之一。跨时代的PE工具箱，装机维护得力的助手，最后的救命稻草。化繁为简，小材大用，一键安装，极速启动。",
+        "url": "https://rufus.ie/zh/",
+        "icon": "https://rufus.ie/favicon.ico"
+      },
+      {
+        "title": "微PE工具箱",
+        "desc": "跨时代的PE工具箱，装机维护得力的助手，最后的救命稻草。化繁为简，小材大用，一键安装，极速启动。",
+        "url": "https://www.wepe.com.cn/",
+        "icon": "https://www.wepe.com.cn/favicon.ico"
+      },
+      {
+        "title": "FirPE",
+        "desc": "适合年轻人使用的第三方WinPE",
+        "url": "https://www.firpe.cn/",
+        "icon": "https://www.firpe.cn/favicon.ico"
+      },
+      {
+        "title": "HotPE",
+        "desc": "纯净、强大、优雅的PE工具箱",
+        "url": "https://www.hotpe.top/",
+        "icon": "https://www.hotpe.top/favicon.ico"
+      },
+      {
+        "title": "VC运行库打包",
+        "desc": "VC运行库打包，解决Windows中大多数缺少运行库（丢失DLL）的情况。",
+        "url": "https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/",
+        "icon": "https://tpucdn.com/download/images/123_icon-v1753121442364.png"
+      },
+      {
+        "title": "Windbg",
+        "desc": "常用于用于蓝屏分析，简单调试只需要找到引起蓝屏的软件/驱动即可。",
+        "url": "https://learn.microsoft.com/zh-cn/windows-hardware/drivers/debugger/debugger-download-tools",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/windbg.webp"
+      },
+      {
+        "title": "Geek Uninstaller",
+        "desc": "轻量级的软件卸载、卸载残留删除工具。",
+        "url": "https://geekuninstaller.com/",
+        "icon": "https://geekuninstaller.com/favicon.ico"
+      },
+      {
+        "title": "我告诉你msdn（旧站）",
+        "desc": "提供可靠的原版软件",
+        "url": "原版软件镜像提供网站",
+        "icon": "https://msdn.itellyou.cn/favicon.ico"
+      },
+      {
+        "title": "ITELLYOU（新站）",
+        "desc": "提供可靠的原版软件",
+        "url": "https://next.itellyou.cn/",
         "icon": "https://msdn.itellyou.cn/favicon.ico"
       },
       {
         "title": "MSDN - 山己几子木",
-        "desc": "系统下载",
+        "desc": "本站提供 Windows 11、Windows 10、Windows 8.1、Windows 8、Windows 7、Windows XP 的 MSDN 镜像资源展示。",
         "url": "https://msdn.sjjzm.com/",
         "icon": "https://msdn.sjjzm.com/favicon.ico"
       },
@@ -1608,23 +1698,431 @@
         "desc": "不求人，自己装",
         "url": "https://zhuangit.ababtools.com/",
         "icon": "https://api.xinac.net/icon/?url=zhuangit.ababtools.com"
+      },
+      {
+        "title": "intel官方驱动",
+        "desc": "下载英特尔® 驱动程序和软件",
+        "url": "https://www.intel.cn/content/www/cn/zh/download-center/home.html",
+        "icon": "https://www.intel.cn/etc.clientlibs/settings/wcm/designs/intel/default/resources/favicon.ico"
+      },
+      {
+        "title": "AMD官方驱动",
+        "desc": "AMD处理器和显卡驱动程序及支持",
+        "url": "https://www.amd.com/zh-cn/support/download/drivers.html",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/drv-amd.webp"
+      },
+      {
+        "title": "NVIDIA 官方驱动",
+        "desc": "GeForce等系列显卡驱动程序及支持",
+        "url": "https://www.nvidia.cn/drivers/lookup/",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/drv-nvidia-old.webp"
+      },
+      {
+        "title": "ASUS 华硕官方驱动",
+        "desc": "华硕驱动程序及支持",
+        "url": "https://www.asus.com.cn/support/download-center/",
+        "icon": "https://www.asus.com.cn/favicon.ico"
+      },
+      {
+        "title": "MIS 微星官方驱动",
+        "desc": "微星驱动程序及支持",
+        "url": "https://www.msi.com/support/download",
+        "icon": "https://www.msi.com/favicon-16x16.png"
+      },
+      {
+        "title": "铭瑄 官方驱动",
+        "desc": "铭瑄驱动程序及支持",
+        "url": "https://www.maxsun.com.cn/down/mb/intel/",
+        "icon": "https://www.maxsun.com.cn/favicon.ico"
+      },
+      {
+        "title": "七彩虹 官方驱动",
+        "desc": "七彩虹驱动程序及支持",
+        "url": "https://www.colorful.cn/home/download",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/drv-colorful.webp"
+      },
+      {
+        "title": "技嘉 官方驱动",
+        "desc": "技嘉驱动程序及支持",
+        "url": "https://www.gigabyte.cn/Support",
+        "icon": "https://www.gigabyte.cn/favicon.ico"
+      },
+      {
+        "title": "映泰 官方驱动",
+        "desc": "映泰驱动程序及支持",
+        "url": "https://www.biostar.com.tw/app/tw/support/download.php",
+        "icon": "https://www.biostar.com.tw/app/tw/assets/img/favicon.ico"
+      },
+      {
+        "title": "影驰 官方驱动",
+        "desc": "影驰驱动程序及支持",
+        "url": "https://www.szgalaxy.com/service/driversystem",
+        "icon": "https://file.szgalaxy.com/Files/GalaxySiteIco.ico"
+      },
+      {
+        "title": "梅捷 官方驱动",
+        "desc": "梅捷驱动程序及支持",
+        "url": "https://www.soyocn.net/down/zbdrv/INTEL/",
+        "icon": "https://www.soyocn.net/favicon.ico"
+      },
+      {
+        "title": "圣旗 官方驱动",
+        "desc": "圣旗驱动程序及支持",
+        "url": "https://www.shengqipc.cn/d0.html",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/drv-shengqi.webp"
+      },
+      {
+        "title": "ONDA昂达 官方驱动",
+        "desc": "昂达驱动程序及支持",
+        "url": "http://www.onda.cn/Services.aspx",
+        "icon": "http://www.onda.cn/favicon.ico"
       }
     ]
   },
   {
-    "section": "系统工具",
+    "section": "配置检测",
     "links": [
       {
-        "title": "桌面显卡性能天梯图",
+        "title": "图吧工具箱",
+        "desc": "DIY爱好者的必备硬件工具合集",
+        "url": "https://www.tbtool.cn/",
+        "icon": "https://www.tbtool.cn/resource/icon.ico"
+      },
+      {
+        "title": "AIDA64",
+        "desc": "收费软件，30天试用期。综合系统检测工具。以其全面的软硬件检测以及CPU烤机经常出现在各种测评以及排障中。",
+        "url": "https://www.aida64.com/",
+        "icon": "https://www.aida64.com/favicon.ico"
+      },
+      {
+        "title": "HWiNFO",
+        "desc": "个人免费。综合硬件检测工具。基于全面收集系统传感器上报的信息，其使用门槛比AIDA64更高。",
+        "url": "https://www.hwinfo.com/",
+        "icon": "https://www.hwinfo.com/favicon.ico"
+      },
+      {
+        "title": "Speccy",
+        "desc": "收费软件，30天试用期。轻量级的硬件检测工具。",
+        "url": "https://www.ccleaner.com/zh-cn/speccy",
+        "icon": "https://cdn-production.ccleaner.com/site/5o3jzf24/cc_48.png"
+      },
+      {
+        "title": "HWMonitor",
+        "desc": "简洁方便的硬件温度监控工具。",
+        "url": "https://www.cpuid.com/softwares/hwmonitor.html",
+        "icon": "https://www.cpuid.com/medias/images/softwares/hwmonitor-pro.svg"
+      },
+      {
+        "title": "CoreTemp",
+        "desc": "在任务栏托盘监控硬件温度的小工具。",
+        "url": "https://www.alcpu.com/CoreTemp/",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/coretemp.webp"
+      },
+      {
+        "title": "TrafficMonitor",
+        "desc": "在任务栏托盘监控网速、硬件温度的小工具，支持多种皮肤。",
+        "url": "https://github.com/zhongyang219/TrafficMonitor/",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/traffic-monitor.webp"
+      }
+    ]
+  },
+  {
+    "section": "CPU 工具",
+    "links": [
+      {
+        "title": "CPU-Z",
+        "desc": "最常用的CPU检测工具。除了显示CPU和平台参数信息之外，还内置了单核/多核跑分测试。",
+        "url": "https://www.cpuid.com/softwares/cpu-z.html",
+        "icon": "https://www.cpuid.com/medias/images/softwares/cpu-z.svg"
+      },
+      {
+        "title": "Fritz Chess Benchmark",
+        "desc": "基于国际象棋步法预测对CPU进行性能测试的软件。常用于CPU性能与稳定性测试。",
+        "url": "https://www.jens-hartmann.at/Fritzmarks/",
+        "icon": "https://www.jens-hartmann.at/favicon.ico"
+      },
+      {
+        "title": "SuperPi",
+        "desc": "基于计算圆周率的CPU单线程基准测试。常用于CPU性能与稳定性测试。官网已不存在。",
+        "url": "https://www.techpowerup.com/download/super-pi/",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/superpi.webp"
+      },
+      {
+        "title": "Geekbench",
+        "desc": "CPU、GPU基准测试工具。支持macOS和移动设备等多种平台。",
+        "url": "https://www.geekbench.com/",
+        "icon": "https://www.geekbench.com/img/favicons/favicon.png"
+      },
+      {
+        "title": "Vray Benchmark",
+        "desc": "基于Vray渲染器的测试软件，包含CPU、混合、RTX测试。在测试速度和易用性有优势。",
+        "url": "https://www.chaos.com/cn/vray/benchmark",
+        "icon": "https://www.chaos.com/favicon-32x32.png"
+      },
+      {
+        "title": "Intel XTU",
+        "desc": "Intel处理器官方超频调整工具。本站教程集合中有收录本工具相关的教程。",
+        "url": "https://www.intel.com/content/www/us/en/download/17881/intel-extreme-tuning-utility-intel-xtu.html",
+        "icon": "https://www.intel.com/etc.clientlibs/settings/wcm/designs/intel/default/resources/favicon.ico"
+      },
+      {
+        "title": "AMD Ryzen Master",
+        "desc": "AMD处理器官方超频调整工具。本站教程集合中有收录本工具相关的教程。",
+        "url": "https://www.amd.com/zh-cn.html",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/amd-ryzen-master.webp"
+      }
+    ]
+  },
+  {
+    "section": "内存工具",
+    "links": [
+      {
+        "title": "MemTest86",
+        "desc": "业界权威的内存测试工具，支持通过U盘启动进行深度检测，能精准定位内存硬件故障（如坏道、兼容性问题）。",
+        "url": "https://www.memtest86.com/",
+        "icon": "https://www.memtest86.com/favicon.ico"
+      },
+      {
+        "title": "TestMemory5",
+        "desc": "更为高级的内存稳定性测试工具，依靠不同的配置文件达到不同的测试效果，小白请先看教程后使用。",
+        "url": "https://testmem.tz.ru/",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/tm5.webp"
+      },
+      {
+        "title": "Zentimings",
+        "desc": "AMD平台独占，提供内存时序等的实时监测，内存超频便利性工具。",
+        "url": "https://zentimings.com/",
+        "icon": "https://zentimings.com/assets/img/logo.png"
+      },
+      {
+        "title": "ThaiPhoon+",
+        "desc": "常用内存SPD检测/编辑工具，可查看颗粒型号。",
+        "url": "https://www.memtest86plus.org/",
+        "icon": "https://www.memtest86plus.org/favicon.ico"
+      }
+    ]
+  },
+  {
+    "section": "显卡工具",
+    "links": [
+      {
+        "title": "GPU-Z",
+        "desc": "GPU-Z是一款由TechPowerUp开发的免费系统工具，专为检测和显示显卡详细信息而设计",
+        "url": "https://www.techpowerup.com/download/techpowerup-gpu-z/",
+        "icon": "https://tpucdn.com/favicon-v1753121442364.ico"
+      },
+      {
+        "title": "Geeks3D FurMark",
+        "desc": "免费专业的显卡烤机(压力测试)的工具，主要用于测试显卡的稳定性和性能",
+        "url": "https://geeks3d.com/furmark/",
+        "icon": "https://geeks3d.com/public/jegx/2016q3/furmark-logo.jpg"
+      },
+      {
+        "title": "Display Driver Uninstaller",
+        "desc": "显卡驱动强力卸载工具。更换显卡及排除故障时使用，可避免因驱动残留导致的系统问题。",
+        "url": "https://www.wagnardsoft.com/",
+        "icon": "https://www.wagnardsoft.com/sites/default/files/untitled.ico"
+      },
+      {
+        "title": "MSI Afterburner（小飞机）",
+        "desc": "微星开发的显卡超频工具。简单实用，覆盖监测功能，在测评中常见。",
+        "url": "https://www.msi.com/Landing/afterburner/graphics-cards",
+        "icon": "https://www.msi.com/favicon.ico"
+      },
+      {
+        "title": "GPU Caps Viewer",
+        "desc": "显卡检测工具。还可以进行简单的压力测试。",
+        "url": "https://ozone3d.net/gpu_caps_viewer/",
+        "icon": "https://ozone3d.net/gpu_caps_viewer/images/gpu_caps_viewer_logo_w200_v2.jpg"
+      },
+      {
+        "title": "Geeks3D",
+        "desc": "聚焦3D技术、图形编程与硬件评测的科技网站，提供开发者必备的实用工具",
+        "url": "https://www.geeks3d.com/dlz/",
+        "icon": "https://geeks3d.com/favicon.ico"
+      },
+      {
+        "title": "Guru3D 官方工具",
+        "desc": "Guru3D 提供了多个实用工具的下载，包括 GPU-Z、RTSS Rivatuner Statistics Server、Driver Sweeper 等",
+        "url": "https://www.guru3d.com/files/index.html",
+        "icon": "https://www.guru3d.com/data/themes/frontend/Guru3D/images/favicon_32x32.png"
+      }
+    ]
+  },
+  {
+    "section": "硬盘工具",
+    "links": [
+      {
+        "title": "DiskGenius",
+        "desc": "老牌硬盘管理与分区操作软件，简单易用。软件的基础功能免费，可能含有收费的附加功能。",
+        "url": "https://www.diskgenius.cn/",
+        "icon": "https://www.diskgenius.cn/favicon.ico"
+      },
+      {
+        "title": "AS SSD Benchmark",
+        "desc": "常见的“SSD跑分三件套”1号。可较为直观的测试固态性能。",
+        "url": "https://www.guru3d.com/download/as-ssd-benchmark",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/asssd.webp"
+      },
+      {
+        "title": "CrystalDiskMark",
+        "desc": "常见的“SSD跑分三件套”2号。测试结果不是非常直观。",
+        "url": "https://crystalmark.info/en/software/crystaldiskmark/",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/cdm.webp"
+      },
+      {
+        "title": "AttoDiskMark",
+        "desc": "常见的“SSD跑分三件套”3号。可测试固态缓外性能。",
+        "url": "https://www.atto.com/products/software/",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/atto.webp"
+      },
+      {
+        "title": "CrystalDiskInfo",
+        "desc": "硬盘信息检测软件。",
+        "url": "https://crystalmark.info/en/software/crystaldiskinfo/",
+        "icon": "https://crystalmark.info/favicon.ico"
+      },
+      {
+        "title": "HDTune",
+        "desc": "老牌硬盘检测工具。混合写入测试中常用。",
+        "url": "https://www.hdtune.com/",
+        "icon": "https://www.hdtune.com/favicon.ico"
+      },
+      {
+        "title": "分区助手",
+        "desc": "国产免费无广告的优秀分区软件。收费服务为技术支持，自用免费。官方下载的版本需关注公众号才能使用。",
+        "url": "https://www.disktool.cn/",
+        "icon": "https://www.disktool.cn/favicon.ico"
+      },
+      {
+        "title": "SSD-Z",
+        "desc": "“过气的”硬盘检测工具。",
+        "url": "http://aezay.dk/aezay/ssdz/",
+        "icon": "http://aezay.dk/favicon.ico"
+      },
+      {
+        "title": "Victoria",
+        "desc": "硬盘扫描，坏道坏块检测软件。",
+        "url": "https://hdd.by/victoria/",
+        "icon": "https://hdd.by/favicon.png"
+      },
+      {
+        "title": "磁盘哨兵",
+        "desc": "收费软件，30天试用期。知名硬盘寿命监测软件。",
+        "url": "https://www.hdsentinel.com/",
+        "icon": "https://www.hdsentinel.com/favicon.ico"
+      },
+      {
+        "title": "R-Studio",
+        "desc": "免费的演示版有恢复文件大小限制。强大的专业数据恢复软件。",
+        "url": "https://www.r-studio.com/zhcn/data-recovery-software/",
+        "icon": "https://www.r-studio.com/images/R-Studio.png"
+      },
+      {
+        "title": "Recuva",
+        "desc": "数据恢复软件。免费版即有基本的恢复功能。",
+        "url": "https://www.ccleaner.com/zh-cn/recuva",
+        "icon": "https://cdn-production.ccleaner.com/site/kvzjhr1b/rc_128.png"
+      },
+      {
+        "title": "SSD Fresh",
+        "desc": "固态硬盘优化工具。",
+        "url": "https://www.abelssoft.de/en/windows/system-utilities/ssd-fresh",
+        "icon": "https://www.abelssoft.de/favicon.ico"
+      }
+    ]
+  },
+    {
+    "section": "外设工具",
+    "links": [
+      {
+        "title": "CRU",
+        "desc": "不依赖显卡驱动的高级自定义分辨率工具。",
+        "url": "https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/cru.webp"
+      },
+      {
+        "title": "UFO Test",
+        "desc": "刷新率测试。可以同时测试屏幕刷新率真实性和拖影。",
+        "url": "https://www.testufo.com/",
+        "icon": "https://www.testufo.com/favicon.ico"
+      },
+      {
+        "title": "显示器检测",
+        "desc": "通过各种测试图像测试显示器的网页工具。",
+        "url": "http://www.lagom.nl/lcd-test/zhs_index.php",
+        "icon": "http://www.lagom.nl/favicon.ico"
+      },
+      {
+        "title": "PassMark KeyboardTest",
+        "desc": "PassMark出品的键盘测试工具，功能全面，支持自定义布局。",
+        "url": "https://www.passmark.com/products/keytest/index.php",
+        "icon": "https://www.passmark.com/source/images/favicon.png"
+      },
+      {
+        "title": "Fan Control",
+        "desc": "强大且具有易用界面的风扇控制工具。",
+        "url": "https://github.com/Rem0o/FanControl.Releases",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/fancontrol.webp"
+      }
+    ]
+  },
+  {
+    "section": "软件工具",
+    "links": [
+      {
+        "title": "Everything",
+        "desc": "知名文件搜索工具。利用文件系统索引搜索文件，比Windows自带搜索速度快很多。",
+        "url": "https://www.voidtools.com/zh-cn/",
+        "icon": "https://www.voidtools.com/searchicon.png"
+      },
+      {
+        "title": "WinDirStat",
+        "desc": "目录大小可视化工具。常用于整理文件。",
+        "url": "https://windirstat.net/",
+        "icon": "https://windirstat.net/favicon.ico"
+      },
+      {
+        "title": "PowerToys",
+        "desc": "微软官方推出的Windows实用工具集。包含窗口置顶、批量重命名、键盘管理等实用功能。",
+        "url": "https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=zh-CN&gl=CN",
+        "icon": "https://s0.ldt.pc.wiki/image/icon-tool/powertoys.webp"
+      },
+      {
+        "title": "7-Zip",
+        "desc": "简洁、强大、多用途的压缩软件。除常规压缩解压外还适用于校验及各种打包格式解析。",
+        "url": "https://7-zip.org/",
+        "icon": "https://7-zip.org/favicon.ico"
+      },
+      {
+        "title": "FreeFileSync",
+        "desc": "文件夹对比和同步工具，操作简单。",
+        "url": "https://freefilesync.org/",
+        "icon": "https://freefilesync.org/images/FreeFileSync.png"
+      },
+      {
+        "title": "超能网-天梯图",
+        "desc": "显卡、CPU、电源性能天梯图",
+        "url": "https://topic.expreview.com/GPU/",
+        "icon": "https://topic.expreview.com/favicon.ico"
+      },
+      {
+        "title": "快科技-显卡性能天梯图",
         "desc": "桌面显卡性能天梯图",
         "url": "https://www.mydrivers.com/zhuanti/tianti/gpu/",
         "icon": "https://www.mydrivers.com/favicon.ico"
       },
       {
-        "title": "桌面CPU性能天梯图",
+        "title": "快科技-CPU性能天梯图",
         "desc": "桌面CPU性能天梯图",
         "url": "https://www.mydrivers.com/zhuanti/tianti/cpu/",
         "icon": "https://www.mydrivers.com/favicon.ico"
+      },
+      {
+        "title": "极客湾天梯图（手机SoC）",
+        "desc": "SOCPK - 极客湾移动芯片排行",
+        "url": "https://www.socpk.com/",
+        "icon": "https://www.socpk.com/MAINPIC/favicon.ico"
       },
       {
         "title": "致美化",
