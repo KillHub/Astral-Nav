@@ -1416,6 +1416,37 @@ input::-webkit-input-placeholder {
   margin-right: 4px;
 }
 
+/* 让侧边栏二级目录更明显 */
+#main-menu ul {
+    margin-left: 10px;
+    padding-left: 12px;
+    border-left: 3px solid #a7bfff;
+    background: rgba(167,191,255,0.10);
+    border-radius: 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+#main-menu ul li > a {
+    font-weight: bold;
+    color: #3a5ad7;
+    font-size: 12px;
+}
+#main-menu ul li > a .title {
+    letter-spacing: 1px;
+}
+#main-menu ul li {
+    margin-bottom: 2px;
+}
+/* 二级目录图标 */
+.submenu-icon {
+    width: 18px;
+    height: 18px;
+    background: url('/images/Pokémon GO/svg/糖果.svg') no-repeat center;
+    background-size: contain;
+    font-size:1em;
+    vertical-align:-0.1em;
+}
+
 /* 右侧-导航内容图标样式 */
 .main-content-tag {
   width: 25px;
