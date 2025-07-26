@@ -393,8 +393,9 @@ footer.main-footer .footer-inner:after {
   -o-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
 }
+/* 二级目录图标左侧内边距 */
 .sidebar-menu .main-menu ul li a {
-  padding-left: 35px;
+  padding-left: 15px;
 }
 .sidebar-menu .main-menu ul li ul li a {
   padding-left: 60px;
@@ -1419,7 +1420,7 @@ input::-webkit-input-placeholder {
 /* 让侧边栏二级目录更明显 */
 #main-menu ul {
     margin-left: 10px;
-    padding-left: 12px;
+    padding-left: 1px;
     border-left: 3px solid #a7bfff;
     background: rgba(167,191,255,0.10);
     border-radius: 8px;
@@ -1431,17 +1432,11 @@ input::-webkit-input-placeholder {
     color: #3a5ad7;
     font-size: 12px;
 }
-#main-menu ul li > a .title {
-    letter-spacing: 1px;
-}
-#main-menu ul li {
-    margin-bottom: 2px;
-}
 /* 二级目录图标 */
 .submenu-icon {
     width: 18px;
     height: 18px;
-    background: url('/images/Pokémon GO/svg/糖果.svg') no-repeat center;
+    background: url('/images/Pokémon GO/svg/精灵球-1.svg') no-repeat center;
     background-size: contain;
     font-size:1em;
     vertical-align:-0.1em;
