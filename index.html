@@ -821,6 +821,27 @@
                     <div id="time"></div>
                     <div id="result"></div>
                 </div>
+                <!-- 站点统计（umami，可替换为matomo等） -->
+                <!--
+                umami部署参考：https://umami.is/docs/
+                替换data-website-id和src为你自己的umami服务地址
+                -->
+                <script async defer data-website-id="YOUR-UMAMI-WEBSITE-ID" src="https://umami.example.com/script.js"></script>
+                <!--
+                Matomo示例：
+                <script>
+                  var _paq = window._paq = window._paq || [];
+                  _paq.push(['trackPageView']);
+                  _paq.push(['enableLinkTracking']);
+                  (function() {
+                    var u="//matomo.example.com/";
+                    _paq.push(['setTrackerUrl', u+'matomo.php']);
+                    _paq.push(['setSiteId', 'YOUR_SITE_ID']);
+                    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+                  })();
+                </script>
+                -->
             </footer>
             
         </div>
