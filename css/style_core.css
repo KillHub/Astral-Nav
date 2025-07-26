@@ -1052,7 +1052,6 @@ footer.main-footer.fixed {
   color: transparent;
 }
 .type-text:after {
-  content: '\ea61';
   font-family: tabler-icons;
   margin: 0 0 0 8px;
 }
