@@ -43,11 +43,16 @@
                     <button id="maximize-btn"><i class="fas fa-expand"></i> 最大化</button>
                     <button id="restore-btn" style="display:none;"><i class="fas fa-compress"></i> 还原</button>
                     <button id="clear-btn"><i class="fas fa-trash"></i> 清空</button>
+                    <button id="import-btn"><i class="fas fa-file-import"></i> 导入</button>
+                    <button id="export-btn"><i class="fas fa-file-export"></i> 导出</button>
+                    <button id="history-btn"><i class="fas fa-history"></i> 历史</button>
+                    <input type="file" id="import-file" accept=".json" style="display:none;">
                 </div>
             </div>
             <div class="editor-container">
                 <div class="editor-pane" id="input-pane">
                     <textarea id="json-input" placeholder="在此处粘贴您的JSON"></textarea>
+                    <div id="json-error" style="color:red;margin-top:4px;"></div>
                 </div>
                 <div class="dragbar" id="dragbar"></div>
                 <div class="editor-pane" id="output-pane">
@@ -65,5 +70,13 @@
     <!-- 引入自定义JS -->
     <script src="/js/utils.js"></script>
     <script src="/js/utils_json-formatter.js"></script>
+    <!-- 历史记录弹窗 -->
+    <div id="history-modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.3);">
+      <div style="background:#fff;max-width:500px;margin:60px auto;padding:20px;border-radius:8px;box-shadow:0 4px 24px #0002;position:relative;">
+        <h3 style="margin-top:0;">历史记录 <button id="close-history" style="float:right;">关闭</button></h3>
+        <ul id="history-list" style="max-height:300px;overflow:auto;padding-left:0;"></ul>
+        <button id="clear-history" style="margin-top:10px;">清空历史</button>
+      </div>
+    </div>
 </body>
 </html> 
