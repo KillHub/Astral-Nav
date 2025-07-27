@@ -314,7 +314,7 @@
       }
     ]
   },
-    {
+  {
     "section": "剁手吃土",
     "links": [
       {
@@ -2141,6 +2141,59 @@
         "desc": "各种启动器美化主题",
         "url": "https://www.gnome-look.org/browse/cat/",
         "icon": "https://api.xinac.net/icon/?url=www.gnome-look.org"
+      }
+    ]
+  },
+  {
+    "section": "MAC资源",
+    "links": [
+      {
+        "title": "Homebrew",
+        "desc": "macOS（或 Linux）缺失的软件包的管理器",
+        "url": "https://brew.sh/zh-cn/",
+        "icon": "https://brew.sh/assets/img/homebrew.svg"
+      },
+      {
+        "title": "Mac App Store",
+        "desc": "苹果官方应用商店，提供各种macOS应用程序的下载和更新",
+        "url": "https://apps.apple.com/cn/",
+        "icon": "https://www.apple.com/favicon.ico"
+      },
+      {
+        "title": "Awesome Mac",
+        "desc": "收集各种类别非常好用的 Mac 应用程序、软件以及工具。",
+        "url": "https://wangchujiang.com/awesome-mac/README-zh.html",
+        "icon": "https://wangchujiang.com/awesome-mac/logo.svg"
+      },
+      {
+        "title": "MacWk",
+        "desc": "精品MAC应用分享精品mac软件下载",
+        "url": "https://www.macwk.com/",
+        "icon": "https://www.macwk.com/favicon-32x32.ico"
+      },
+      {
+        "title": "Xclient",
+        "desc": "破解-精品MAC应用分享",
+        "url": "https://xclient.info/",
+        "icon": "https://img.xclient.info/icon/favicon.ico"
+      },
+      {
+        "title": "MacVK",
+        "desc": "破解-苹果mac电脑软件资源免费分享网站",
+        "url": "https://macvk.com/",
+        "icon": "https://macvk.com/wp-content/uploads/2025/04/cropped-1745863017-logo-32x32.png"
+      },  
+      {
+        "title": "马可菠萝",
+        "desc": "破解-享你喜欢的MAC应用",
+        "url": "https://www.macbl.com/",
+        "icon": "https://static.skqandroid.com/images/favicon.ico"
+      },
+      {
+        "title": "知您网",
+        "desc": "破解-专业Mac软件&游戏破解下载免费",
+        "url": "https://www.zhiniw.com/",
+        "icon": "https://www.zhiniw.com/favicon.ico"
       }
     ]
   }

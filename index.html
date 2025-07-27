@@ -3,11 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5">
     <meta name="author" content="Steven Zhao">
     <title>星界导航｜穿越星河的坐标 - Astral Nav</title>
-    <meta name="keywords" content="网址导航,网站导航,星界导航,星界，Astral，Navigation"/>
-    <meta name="description" content="Astral Nav - 让我们一起回母星">
+    <meta name="keywords" content="网址导航,网站导航,资源聚合,开发工具,学习资源,星界导航,Astral Nav"/>
+    <meta name="description" content="Astral Nav 是一个专业的网址导航平台，聚合了开发工具、学习资源、生活服务和娱乐内容，帮助用户高效获取网络资源。">
+    <meta name="theme-color" content="#4a6bdf">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="星界导航｜专业网址导航与资源聚合平台">
+    <meta property="og:description" content="高效获取网络资源的专业导航平台">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://astral-nav.example.com">
+    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:site_name" content="Astral Nav">
+
     <link rel="shortcut icon" type="image/x-icon" href="/images/Steven.jpg"/>
     <link rel="stylesheet" href="/css/style_core.css">
     <link rel="stylesheet" href="/css/style_dark.css"><!-- 黑暗模式 -->
@@ -117,11 +126,11 @@
                 </header>
 
                 <!-- 左侧菜单-->
-                <ul id="main-menu" class="main-menu">
-                    <li><a href="#search" class="smooth"><img src="/images/Pokémon GO/svg/迷你龙.svg" class="main-menu-icon"> <span class="title">实用搜索</span></a></li>
-                    <li><a href="#热搜新闻" class="smooth"><img src="/images/Pokémon GO/svg/小火龙.svg" class="main-menu-icon"> <span class="title">热搜新闻</span></a></li>
-                    <li><a href="#学无止境" class="smooth"><img src="/images/Pokémon GO/svg/皮卡丘-2.svg" class="main-menu-icon"> <span class="title">学无止境</span></a></li>
-                    <li><a href="#社区资讯" class="smooth"><img src="/images/Pokémon GO/svg/伊布.svg" class="main-menu-icon"> <span class="title">社区资讯</span></a></li>
+                <ul id="main-menu" class="main-menu" role="menubar" aria-label="主导航菜单">
+                    <li role="none"><a href="#search" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/迷你龙.svg" class="main-menu-icon" alt="搜索图标"> <span class="title">实用搜索</span></a></li>
+                    <li role="none"><a href="#热搜新闻" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/小火龙.svg" class="main-menu-icon" alt="新闻图标"> <span class="title">热搜新闻</span></a></li>
+                    <li role="none"><a href="#学无止境" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/皮卡丘-2.svg" class="main-menu-icon" alt="学习图标"> <span class="title">学无止境</span></a></li>
+                    <li role="none"><a href="#社区资讯" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/伊布.svg" class="main-menu-icon" alt="社区图标"> <span class="title">社区资讯</span></a></li>
                     <li><a><img src="/images/Pokémon GO/svg/可达鸭.svg" class="main-menu-icon"> <span class="title">开发生产</span></a>
                         <ul>
                             <li><a href="#开发文档" class="smooth"><i class="submenu-icon"></i><span class="title">开发文档</span></a></li>
@@ -155,7 +164,12 @@
                             <li><a href="#设计灵感" class="smooth"><i class="submenu-icon"></i><span class="title">设计灵感</span></a></li>
                         </ul>
                     </li>
-                    <li><a><img src="/images/Pokémon GO/svg/喇叭芽.svg" class="main-menu-icon"> <span class="title">系统相关</span></a>
+                    <li><a><img src="/images/Pokémon GO/svg/喇叭芽.svg" class="main-menu-icon"> <span class="title">MAC 系统</span></a>
+                        <ul>
+                            <li><a href="#MAC资源" class="smooth"><i class="submenu-icon"></i><span class="title">MAC资源</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a><img src="/images/Pokémon GO/svg/绿毛虫.svg" class="main-menu-icon"> <span class="title">系统相关</span></a>
                         <ul>
                             <li><a href="#系统驱动" class="smooth"><i class="submenu-icon"></i><span class="title">系统驱动</span></a></li>
                             <li><a href="#配置检测" class="smooth"><i class="submenu-icon"></i><span class="title">配置检测</span></a></li>
@@ -220,7 +234,8 @@
                         <span class="type-text">常用</span>
                         <ul class="search-type">
                             <li><input checked hidden type="radio" name="type" id="type-baidu" 
-                                value="https://www.baidu.com/s?wd=" data-placeholder="百度一下，你就知道">
+                                value="https://www.baidu.com/s?wd=" data-placeholder="百度一下，你就知道" 
+                                aria-label="百度搜索">
                                 <label for="type-baidu">
                                     <span style="color:#0a99f8" >百度</span>
                                 </label>
@@ -400,9 +415,13 @@
                         </ul>
                     </div>
                 </div>
-                <form action="?s=" method="get" target="_blank" id="super-search-fm">
-                    <input type="text" id="search-text" placeholder="输入关键字搜索" style="color: white" autocomplete="off">
-                    <button type="submit"><i class="ti ti-search"></i></button>
+                <form action="?s=" method="get" target="_blank" id="super-search-fm" role="search" aria-label="网站搜索">
+                    <input type="text" id="search-text" placeholder="输入关键字搜索" style="color: white" autocomplete="off" 
+                           aria-label="搜索关键词" aria-required="true">
+                    <button type="submit" aria-label="执行搜索">
+                        <i class="ti ti-search" aria-hidden="true"></i>
+                        <span class="sr-only">搜索</span>
+                    </button>
                 </form>
                 <div class="set-check d-sm-block">
                     <input type="checkbox" id="set-search-blank" autocomplete="off">
@@ -589,6 +608,15 @@
                <!-- TAG: 设计灵感json -->
             </div>
             <!-- END 设计灵感 -->
+
+            <!-- MAC资源 -->
+            <h6 class="tag">
+                <i class="main-content-tag" id="MAC资源"></i>MAC资源
+            </h6>
+            <div class="row" id="section-MAC资源">
+               <!-- TAG: MAC资源json -->
+            </div>
+            <!-- END MAC资源 -->
 
             <!-- 系统驱动 -->
             <h6 class="tag">
@@ -810,10 +838,10 @@
             <footer class="main-footer">
                 <div class="footer-inner">
                     <div class="footer-text">COPYRIGHT © 2025-<script>document.write( new Date().getFullYear() );</script>
-                        <a href="https://github.com/killhub/" target="_blank">
+                        <a href="https://github.com/killhub/" target="_blank" style="color: #4a6bdf">
                             <strong>Steven Zhao</strong>
                         </a> 丨 POWERED BY 
-                        <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">
+                        <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank" style="color: #4a6bdf">
                             <strong>WebStack</strong>
                         </a>
                     </div>
