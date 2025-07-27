@@ -1344,25 +1344,25 @@
       },
       {
         "title": "jsDelivr",
-        "desc": "全球-支持GitHub文件直接引用、自动压缩",
+        "desc": "全球-支持GitHub文件直接引用、自动压缩(CDN)",
         "url": "https://www.jsdelivr.com/",
         "icon": "https://www.jsdelivr.com/favicon.ico"
       },
       {
         "title": "BootCDN",
-        "desc": "国内-同步Bootstrap中文网资源，中文支持强",
+        "desc": "国内-同步Bootstrap中文网资源，中文支持强(CDN)",
         "url": "https://www.bootcdn.cn/",
         "icon": "https://www.bootcdn.cn/assets/ico/favicon.ico"
       },
       {
         "title": "字节跳动静态资源公共库",
-        "desc": "字节跳动静态资源公共库",
+        "desc": "字节跳动静态资源公共库(CDN)",
         "url": "https://cdn.bytedance.com/",
         "icon": "https://cdn.bytedance.com/src/res/favicon.png"
       },
       {
         "title": "七牛云 Staticfile",
-        "desc": "免费、快速、开放的 CDN 服务",
+        "desc": "免费、快速、开放的 CDN 服务(CDN)",
         "url": "https://www.staticfile.org/",
         "icon": "https://www.staticfile.org/images/favicon.ico"
       },
