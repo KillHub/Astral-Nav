@@ -146,7 +146,7 @@ footer.main-footer .footer-inner:after {
 .sidebar-menu {
   display: table-cell;
   position: relative;
-  width: 160px;
+  width: 185px;
   background: rgb(0 0 0 / 25%);
   z-index: 1;
 }
@@ -1450,4 +1450,10 @@ input::-webkit-input-placeholder {
   display: inline-block;
   background: url('/images/Pokémon GO/svg/星-1.svg') no-repeat center center;
   background-size: contain;
+}
+
+/* 左侧-切换英文时目录字体设置 */
+.i18nData{
+  font-size: 12px;
+  font-weight: normal;
 }
