@@ -1427,9 +1427,9 @@ input::-webkit-input-placeholder {
     margin-bottom: 6px;
 }
 #main-menu ul li > a {
-    font-weight: bold;
-    color: #3a5ad7;
-    font-size: 12px;
+    font-weight: normal;
+    color: #58f344 !important;
+    font-size: 12px;    /* 二级目录字体大小 */
 }
 /* 二级目录图标 */
 .submenu-icon {
@@ -1454,6 +1454,7 @@ input::-webkit-input-placeholder {
 
 /* 左侧-切换英文时目录字体设置 */
 .i18nData{
-  font-size: 12px;
   font-weight: normal;
+  color: #58f344 !important;
+  font-size: 12px;
 }

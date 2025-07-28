@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "软件工具": "软件工具",
             "本站工具": "本站工具",
             "关于本站": "关于本站",
+            "关于站长": "关于站长",
             
             // 搜索分类
             "常用": "常用",
@@ -109,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "软件工具": "Software Tools",
             "本站工具": "Site Tools",
             "关于本站": "About",
+            "关于站长": "About Master",
 
             // Search Categories
             "常用": "Common",
@@ -148,6 +150,13 @@ i18next
             return;
         }
         console.log('i18next初始化成功');
+                // 根据当前语言状态为导航菜单添加初始class
+                if (i18next.language === 'en') {
+                    const navMenu = document.querySelector('#main-menu');
+                    const subMenus = document.querySelectorAll('#main-menu ul');
+                    if (navMenu) navMenu.classList.add('i18nData');
+                    subMenus.forEach(menu => menu.classList.add('i18nData'));
+                }
         // 初始化完成后更新页面内容
         updateContent();
     });
@@ -187,6 +196,19 @@ i18next
                 
                 // 保存语言偏好到本地存储
                 localStorage.setItem('i18nextLng', newLang);
+                
+                // 切换英文时为导航菜单增加class i18nData，切换中文时删除
+                const navMenu = document.querySelector('#main-menu');
+                const subMenus = document.querySelectorAll('#main-menu ul');
+                if (navMenu) {
+                    if (newLang === 'en') {
+                        navMenu.classList.add('i18nData');
+                        subMenus.forEach(menu => menu.classList.add('i18nData'));
+                    } else {
+                        navMenu.classList.remove('i18nData');
+                        subMenus.forEach(menu => menu.classList.remove('i18nData'));
+                    }
+                }
                 
                 // 显示切换成功提示
                 showLanguageChangeNotification('success', newLang);

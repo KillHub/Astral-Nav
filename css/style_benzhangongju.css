@@ -172,7 +172,7 @@ body.dark-mode .page-header p {
 .tool-card {
   background: rgb(0 0 0 / 25%);
   border-radius: 18px;
-  width: 185px;
+  width: 180px;   /* ! 工具卡片宽度 */
   height: 185px;
   display: flex;
   flex-direction: column;
