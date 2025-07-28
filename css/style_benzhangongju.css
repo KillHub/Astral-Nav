@@ -287,7 +287,7 @@ body.dark-mode .tool-card {
 
 .tool-card h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-light);
   transition: all 0.3s;
@@ -848,10 +848,6 @@ body.dark-mode .stats-label {
 
   .tool-card i {
     font-size: 24px;
-  }
-
-  .tool-card h3 {
-    font-size: 15px;
   }
 
   .tool-card .card-description {
