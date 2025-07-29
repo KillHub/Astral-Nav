@@ -612,7 +612,7 @@ jQuery(window).on('resize orientationchange', trigger_resizable);
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(times, 1000);        // 获取当前时间并显示
-    fetchWeatherData();             // 通过 IP 获取城市信息和天气数据
+    //fetchWeatherData();             // 通过 IP 获取城市信息和天气数据，现在用 qweather.js 获取
     fetchDongManData();             // 获取动漫经典语录数据
     fetchEnglishData();             // 获取励志英语数据
 });
