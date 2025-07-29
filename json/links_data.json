@@ -1209,9 +1209,15 @@
       },
       {
         "title": "中文网字计划",
-        "desc": "字体 带来网络 中文的爱与和谐",
+        "desc": "带来网络 中文的爱与和谐 字体Fonts",
         "url": "https://chinese-font.netlify.app/zh-cn/",
         "icon": "https://chinese-font.netlify.app/favicon.ico"
+      },
+      {
+        "title": "JetBrains Mono",
+        "desc": "最好用的编程字体",
+        "url": "https://www.jetbrains.com/lp/mono/",
+        "icon": "https://www.jetbrains.com/lp/mono/favicon-32x32.png"
       }
     ]
   },
