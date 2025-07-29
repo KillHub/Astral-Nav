@@ -41,7 +41,7 @@ class QWeather {
 // 天气显示功能
 $(document).ready(function() {
     // 和风天气API密钥
-    const API_KEY = 'your_api_key';
+    const API_KEY = '';
     
     // 创建和风天气实例
     const qweather = new QWeather(API_KEY);
@@ -93,6 +93,7 @@ $(document).ready(function() {
             const container = document.getElementById('weather-container');
             container.innerHTML = `
                 <span id="text_city">${cityName}</span>&nbsp;
+                <span id="text_icon" class="qi-${weatherData.now.icon} weather-icon"></span> 
                 <span id="text_weather">${weatherData.now.text}</span>&nbsp;
                 <span id="text_temp">${weatherData.now.temp}°C</span>&nbsp;
                 <span id="text_wind">${weatherData.now.windDir}</span>&nbsp;
