@@ -2,6 +2,8 @@
 @import url("https://fontsapi.zeoseven.com/69/main/result.css"); /*Noto Sans CJK 思源黑体*/
 @import url("https://fontsapi.zeoseven.com/431/main/result.css"); /*GuanKiapTsingKhai-T 原俠正楷*/
 @import url("https://fontsapi.zeoseven.com/2/main/result.css"); /*LXGW ZhenKai 霞鹜臻楷*/
+@import url("https://fontsapi.zeoseven.com/292/main/result.css"); /*LXGW WenKai 霞鹜文楷*/
+
 
 /* 字体 */
 /* 文楷字体（LXGW WenKai） - 推荐使用官方或社区维护的源 */
@@ -16,13 +18,13 @@
           url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style/LXGWWenKai-Regular.ttf') format('truetype');
 }
 
-/* 阿里妈妈东方大楷 */
+/* 抖音美好体 */
 @font-face {
-  font-family: 'AlimamaDongFangDaKai';
+  font-family: 'DouyinSansBold';
   font-style: normal;
   font-weight: normal;
   font-display: swap; /* 关键优化：避免阻塞渲染 */
-  src: url('/webfonts/AlimamaDongFangDaKai-Regular.woff2') format('woff2');
+  src: url('/webfonts/DouyinSansBold.ttf') format('woff2');
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px)  {
@@ -805,13 +807,19 @@ footer.main-footer.fixed {
   position: relative !important;
   min-height: 50px !important;
 }
+
 .tag {
   margin-top: 25px;
-  color: #197dff;
-  animation: mycolor 5s linear infinite;
+  color: #197dff; /* 初始颜色（可选，动画会覆盖） */
+  animation: mycolor 5s linear infinite;  /* 应用名为"mycolor"的动画，持续5秒，匀速播放，无限循环 */
+  -webkit-animation: mycolor 5s linear infinite;  /* 兼容WebKit内核浏览器（如Chrome/Safari）的动画前缀 */
 }
+/* 优化：颜色变化更明显 */
 @keyframes mycolor {
-  to {
+  50% {
+    filter: hue-rotate(180deg) saturate(2);
+  }
+  100% {
     filter: hue-rotate(360deg);
   }
 }

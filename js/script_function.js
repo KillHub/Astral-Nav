@@ -685,7 +685,7 @@ function fetchDongManData() {
                 textP.style.textAlign = 'center';
                 textP.style.margin = '10px 0 10px 0';
                 textP.style.lineHeight = '1.6';
-                textP.style.fontFamily = 'LXGW ZhenKai, "微软雅黑", "Arial", sans-serif';
+                textP.style.fontFamily = 'LXGW WenKai, "微软雅黑", "Arial", sans-serif';
                 textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
             }
         });
@@ -708,7 +708,7 @@ function fetchEnglishData() {
                 textP.style.textAlign = 'center';
                 textP.style.margin = '10px 0 10px 0';
                 textP.style.lineHeight = '1.6';
-                textP.style.fontFamily = 'AlimamaDongFangDaKai, "微软雅黑", "Arial", sans-serif';
+                textP.style.fontFamily = 'LXGW ZhenKai, "微软雅黑", "Arial", sans-serif';
                 textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
             }
         });
