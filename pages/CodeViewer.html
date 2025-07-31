@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码查看器 - Astral Nav</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+    <style>
+        :root {
+            --toolbar-bg: #2c2c2e;
+            --editor-bg: #1e1e1e;
+            --editor-text: #ffffff;
+            --border-color: #3c3c3c;
+            --accent-color: #007acc;
+            --hover-color: #37373d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #1e1e1e;
+            color: var(--editor-text);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* 顶部工具栏 */
+        .toolbar {
+            background-color: var(--toolbar-bg);
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .toolbar-title {
+            font-size: 14px;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .toolbar-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .toolbar-btn {
+            background: none;
+            border: none;
+            color: #ccc;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .toolbar-btn:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* 主内容区 */
+        .main-content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* 编辑器区域 */
+        .editor-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* 选项卡 */
+        .tabs {
+            display: flex;
+            background-color: var(--toolbar-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 10px;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            font-size: 13px;
+            cursor: pointer;
+            position: relative;
+            color: #ccc;
+        }
+
+        .tab.active {
+            color: white;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        /* 代码编辑器 */
+        .code-editor {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        pre {
+            margin: 0;
+            height: 100%;
+            overflow: auto;
+        }
+
+        code {
+            height: 100%;
+            min-height: 100%;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 状态栏 */
+        .status-bar {
+            background-color: var(--toolbar-bg);
+            padding: 4px 16px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 语言选择器 */
+        .language-selector {
+            background-color: var(--toolbar-bg);
+            border: 1px solid var(--border-color);
+            color: var(--editor-text);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            max-width: 200px;
+        }
+
+        /* 文件选择器 */
+        .file-selector {
+            background-color: var(--toolbar-bg);
+            border: 1px solid var(--border-color);
+            color: var(--editor-text);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 10px;
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部工具栏 -->
+        <div class="toolbar">
+            <div class="toolbar-title">Astral Code Viewer</div>
+            <div class="toolbar-buttons">
+                <select class="file-selector" id="file-selector">
+                    <option value="pages_520.html" selected>pages_520.html</option>
+                    <option value="pages_404_Dinosaur.html">pages_404_Dinosaur.html</option>
+                    <option value="pages_Game_of_Memory.html">pages_Game_of_Memory.html</option>
+                </select>
+                <select class="language-selector" id="language-selector">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                    <option value="csharp">C#</option>
+                    <option value="go">Go</option>
+                    <option value="rust">Rust</option>
+                    <option value="sql">SQL</option>
+                    <option value="bash">Bash</option>
+                    <option value="php">PHP</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="swift">Swift</option>
+                    <option value="kotlin">Kotlin</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="json">JSON</option>
+                    <option value="yaml">YAML</option>
+                    <option value="xml">XML</option>
+                    <option value="``">``</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <!-- 编辑器区域 -->
+            <div class="editor-container">
+                <!-- 选项卡 -->
+                <div class="tabs">
+                    <div class="tab active" id="tab-name">
+                        pages_520.html
+                    </div>
+                </div>
+
+                <!-- 代码编辑器 -->
+                <div class="code-editor">
+                    <pre><code class="hljs" id="code-content">加载中...</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span>代码查看器</span>
+            </div>
+            <div class="status-item">
+                <span id="language-display">HTML</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <!-- 引入更多语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/rust.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/ruby.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/markdown.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeContent = document.getElementById('code-content');
+            const languageSelector = document.getElementById('language-selector');
+            const languageDisplay = document.getElementById('language-display');
+            const tabName = document.getElementById('tab-name');
+            const fileSelector = document.getElementById('file-selector');
+            
+            // 默认加载 pages_520.html
+            loadFile('pages_520.html');
+            
+            // 监听语言选择
+            languageSelector.addEventListener('change', function() {
+                updateHighlight();
+                languageDisplay.textContent = languageSelector.options[languageSelector.selectedIndex].text;
+            });
+            
+            // 监听文件选择
+            fileSelector.addEventListener('change', function() {
+                if (fileSelector.value) {
+                    loadFile(fileSelector.value);
+                    tabName.textContent = fileSelector.value;
+                }
+            });
+            
+            // 加载文件内容
+            function loadFile(filename) {
+                fetch(filename)
+                    .then(response => response.text())
+                    .then(data => {
+                        codeContent.textContent = data;
+                        updateHighlight();
+                    })
+                    .catch(error => {
+                        console.error('加载文件出错:', error);
+                        codeContent.textContent = '无法加载文件: ' + filename;
+                        updateHighlight();
+                    });
+            }
+            
+            // 更新代码高亮
+            function updateHighlight() {
+                // 清除之前的高亮
+                codeContent.className = 'hljs';
+                // 添加新语言的高亮
+                codeContent.classList.add('language-' + languageSelector.value);
+                // 重新高亮
+                hljs.highlightElement(codeContent);
+            }
+        });
+    </script>
+</body>
+</html>
