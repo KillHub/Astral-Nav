@@ -32,7 +32,7 @@
     </div>
     <script src="/js/jquery-v3.7.1.min.js"></script>
     <script>
-    // 加载 phone_data_flat.json 并分组渲染卡片
+    // XXX: 加载 phone_data.json 并分组渲染卡片
     fetch('/json/phone_data.json')
         .then(res => res.json())
         .then(data => {
@@ -69,7 +69,7 @@
             $('#phone-group-list').html(html);
         })
         .catch(err => {
-            $('#phone-group-list').html('<div style="color:red;text-align:center;width:100%;">电话号码数据加载失败</div>');
+            $('#phone-group-list').html('<div style="color:red;text-align:center;width:100%;">phone_data.json 电话号码数据加载失败</div>');
         });
     </script>
 </body>

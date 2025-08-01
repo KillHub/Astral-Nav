@@ -230,9 +230,11 @@
                     <i class="fas fa-copy"></i> 复制
                 </button>
                 <select class="file-selector" id="file-selector">
-                    <option value="pages_520.html" selected>pages_520.html</option>
+                    <!-- ! codes_data.json 方式导入 -->
+                    <!-- <option value="pages_520.html" selected>pages_520.html</option>
                     <option value="pages_404_Dinosaur.html">pages_404_Dinosaur.html</option>
                     <option value="pages_Game_of_Memory.html">pages_Game_of_Memory.html</option>
+                    <option value="/assets/Markdown语法帮助.md">Markdown语法帮助.md</option> -->
                 </select>
                 <select class="language-selector" id="language-selector">
                     <option value="html">HTML</option>
@@ -285,7 +287,7 @@
         <!-- 状态栏 -->
         <div class="status-bar">
             <div class="status-item">
-                <span>代码查看器</span>
+                <span>🧙‍♂️代码孵化器🧙‍♂️</span>
             </div>
             <div class="status-item">
                 <span id="language-display">HTML</span>
@@ -317,6 +319,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/markdown.min.js"></script>
 
     <script>
+        // XXX: 文件选择器的初始值设置
+        fetch('/json/codes_data.json')               // 1. 发起请求
+            .then(response => response.json())    // 2. 解析响应为 JSON
+            .then(data => {                       // 3. 使用解析后的数据
+                console.log("data：",data);         // 4. 打印数据
+                                                    // 5. 打印网页
+                const toolList = document.getElementById('file-selector');
+                toolList.innerHTML = data.map(code => `
+                    <option value="${code.path}" selected>${code.title}</option>
+                `).join('');
+            })
+            .catch(error => {                 // 6. 处理错误
+                console.error('codes_data.json 加载 JSON 失败:', error);
+            });
+    </script>
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             const codeContent = document.getElementById('code-content');
             const languageSelector = document.getElementById('language-selector');
@@ -327,6 +345,32 @@
             const codeContentWrapper = document.getElementById('code-content-wrapper');
             const copyBtn = document.getElementById('copy-btn');
             const previewBtn = document.getElementById('preview-btn');
+
+            // 文件扩展名与语言的映射关系
+            const fileExtensionMap = {
+                'html': 'html',
+                'htm': 'html',
+                'css': 'css',
+                'js': 'javascript',
+                'json': 'json',
+                'md': 'markdown',
+                'py': 'python',
+                'java': 'java',
+                'cpp': 'cpp',
+                'cs': 'csharp',
+                'go': 'go',
+                'rs': 'rust',
+                'sql': 'sql',
+                'sh': 'bash',
+                'php': 'php',
+                'rb': 'ruby',
+                'swift': 'swift',
+                'kt': 'kotlin',
+                'ts': 'typescript',
+                'yml': 'yaml',
+                'yaml': 'yaml',
+                'xml': 'xml'
+            };
 
             // 默认加载 pages_520.html
             loadFile('pages_520.html');
@@ -341,6 +385,8 @@
             // 监听文件选择
             fileSelector.addEventListener('change', function () {
                 if (fileSelector.value) {
+                    // 根据文件扩展名自动切换语言
+                    autoSelectLanguage(fileSelector.value);
                     loadFile(fileSelector.value);
                     tabName.textContent = fileSelector.value;
                 }
@@ -360,6 +406,28 @@
             previewBtn.addEventListener('click', function () {
                 previewHTML();
             });
+
+            // 根据文件扩展名自动选择语言
+            function autoSelectLanguage(filename) {
+                // 获取文件扩展名
+                const lastDotIndex = filename.lastIndexOf('.');
+                if (lastDotIndex === -1) {
+                    // 没有扩展名，默认选择 HTML
+                    languageSelector.value = 'html';
+                } else {
+                    const extension = filename.substring(lastDotIndex + 1).toLowerCase();
+                    // 根据扩展名映射选择语言
+                    if (fileExtensionMap.hasOwnProperty(extension)) {
+                        languageSelector.value = fileExtensionMap[extension];
+                    } else {
+                        // 没有匹配的扩展名，默认选择 HTML
+                        languageSelector.value = 'html';
+                    }
+                }
+                // 更新语言显示和高亮
+                languageDisplay.textContent = languageSelector.options[languageSelector.selectedIndex].text;
+                updateHighlight();
+            }
 
             // 加载文件内容
             function loadFile(filename) {
@@ -458,6 +526,7 @@
                 previewWindow.document.close();
                 previewWindow.focus();
             }
+
         });
     </script>
 </body>

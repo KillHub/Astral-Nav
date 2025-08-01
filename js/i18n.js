@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'zh': {
             translation: {
                 // 导航菜单
-                "language": "切换语言",
+            "language": "切换语言",
+            "codeViewer": "代码孵化",
             "实用搜索": "实用搜索",
             "热搜新闻": "热搜新闻",
             "学无止境": "学无止境",
@@ -72,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         translation: {
             // Navigation Menu
             "language": "Sw Lang",
+            "codeViewer": "Code Viewer",
             "实用搜索": "Useful Search",
             "热搜新闻": "Trending News",
             "学无止境": "Learn Forever",

@@ -761,7 +761,7 @@ function openSwalBox(url,title){
 fetch('/json/utils_data.json')               // 1. 发起请求
     .then(response => response.json())    // 2. 解析响应为 JSON
     .then(data => {                       // 3. 使用解析后的数据
-        console.log(data);                  // 4. 打印数据
+        //console.log(data);                  // 4. 打印数据
                                             // 5. 打印网页
         const toolList = document.getElementById('tool-list');
         toolList.innerHTML = data.map(tool => `
@@ -778,7 +778,7 @@ fetch('/json/utils_data.json')               // 1. 发起请求
         `).join('');
     })
     .catch(error => {                 // 6. 处理错误
-        console.error('工具加载 JSON 失败:', error);
+        console.error('utils_data.json 加载 JSON 失败:', error);
     });
 
 
@@ -816,7 +816,7 @@ fetch('/json/links_data.json')
         });
     })
     .catch(error => {                 // 6. 处理错误
-        console.error('工具加载 JSON 失败:', error);
+        console.error('links_data.json 加载 JSON 失败:', error);
     });
 
 
