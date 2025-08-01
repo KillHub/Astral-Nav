@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -132,24 +133,30 @@
         }
 
         .line-numbers {
-            padding: 0 10px;
+            padding: 0 12px;
             text-align: right;
             background-color: var(--line-number-bg);
             color: var(--line-number-color);
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
             font-size: 14px;
+            /* 与代码字体大小一致 */
             line-height: 1.5;
+            /* 与代码行距一致 */
             user-select: none;
             border-right: 1px solid var(--border-color);
             overflow: hidden;
             white-space: pre;
-            min-width: 40px;
+            min-width: 50px;
+            padding-top: 15px;
+            /* 与代码区域顶部对齐 */
         }
 
         .code-content {
             flex: 1;
             overflow: auto;
             height: 100%;
+            padding-top: 0px;
+            /* 与行号区域顶部对齐 */
         }
 
         pre {
@@ -161,9 +168,12 @@
             height: 100%;
             min-height: 100%;
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-            font-size: 14px;
+            font-size: 14;
+            /* 统一字体大小 */
             line-height: 1.5;
+            /* 统一行距 */
             display: block;
+            padding-left: 10px;
         }
 
         /* 状态栏 */
@@ -206,12 +216,19 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- 顶部工具栏 -->
         <div class="toolbar">
             <div class="toolbar-title">Astral Code Viewer</div>
             <div class="toolbar-buttons">
+                <button class="toolbar-btn" id="preview-btn" title="预览 HTML">
+                    <i class="fas fa-eye"></i> 预览
+                </button>
+                <button class="toolbar-btn" id="copy-btn" title="复制代码">
+                    <i class="fas fa-copy"></i> 复制
+                </button>
                 <select class="file-selector" id="file-selector">
                     <option value="pages_520.html" selected>pages_520.html</option>
                     <option value="pages_404_Dinosaur.html">pages_404_Dinosaur.html</option>
@@ -237,7 +254,7 @@
                     <option value="json">JSON</option>
                     <option value="yaml">YAML</option>
                     <option value="xml">XML</option>
-                    <option value="``">``</option>
+                    <option value="markdown">Markdown</option>
                 </select>
             </div>
         </div>
@@ -298,9 +315,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/yaml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/markdown.min.js"></script>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const codeContent = document.getElementById('code-content');
             const languageSelector = document.getElementById('language-selector');
             const languageDisplay = document.getElementById('language-display');
@@ -308,36 +325,60 @@
             const fileSelector = document.getElementById('file-selector');
             const lineNumbers = document.getElementById('line-numbers');
             const codeContentWrapper = document.getElementById('code-content-wrapper');
-            
+            const copyBtn = document.getElementById('copy-btn');
+            const previewBtn = document.getElementById('preview-btn');
+
             // 默认加载 pages_520.html
             loadFile('pages_520.html');
-            
+
             // 监听语言选择
-            languageSelector.addEventListener('change', function() {
+            languageSelector.addEventListener('change', function () {
                 updateHighlight();
-                languageDisplay.textContent = languageSelector.options[languageSelector.selectedIndex].text;
+                languageDisplay.textContent = languageSelector.options[languageSelector.selectedIndex]
+                    .text;
             });
-            
+
             // 监听文件选择
-            fileSelector.addEventListener('change', function() {
+            fileSelector.addEventListener('change', function () {
                 if (fileSelector.value) {
                     loadFile(fileSelector.value);
                     tabName.textContent = fileSelector.value;
                 }
             });
-            
+
             // 监听代码区域滚动事件，同步行号
-            codeContentWrapper.addEventListener('scroll', function() {
+            codeContentWrapper.addEventListener('scroll', function () {
                 lineNumbers.scrollTop = codeContentWrapper.scrollTop;
             });
-            
+
+            // 复制按钮事件监听
+            copyBtn.addEventListener('click', function () {
+                copyCode();
+            });
+
+            // 预览按钮事件监听
+            previewBtn.addEventListener('click', function () {
+                previewHTML();
+            });
+
             // 加载文件内容
             function loadFile(filename) {
                 fetch(filename)
                     .then(response => response.text())
                     .then(data => {
-                        codeContent.textContent = data;
-                        updateLineNumbers(data);
+                        // 过滤掉Live Server注入的代码
+                        let cleanedData = data;
+                        // 移除Live Server注入的注释标记
+                        cleanedData = cleanedData.replace("<!-- Code injected by live-server -->", "");
+                        // 移除Live Server注入的脚本块（包括WebSocket相关代码）
+                        cleanedData = cleanedData.replace(
+                            /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*console\.log\('Live reload enabled\.'\)[\s\S]*?<\/script>/gi,
+                            "");
+                        // 移除任何剩余的WebSocket相关代码块
+                        cleanedData = cleanedData.replace(
+                            /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*WebSocket[\s\S]*?<\/script>/gi, "");
+                        codeContent.textContent = cleanedData;
+                        updateLineNumbers(cleanedData);
                         updateHighlight();
                         // 重置滚动位置
                         codeContentWrapper.scrollTop = 0;
@@ -350,7 +391,7 @@
                         updateHighlight();
                     });
             }
-            
+
             // 更新行号
             function updateLineNumbers(content) {
                 const lines = content.split('\n');
@@ -360,7 +401,7 @@
                 }
                 lineNumbers.textContent = lineNumbersHtml;
             }
-            
+
             // 更新代码高亮
             function updateHighlight() {
                 // 清除之前的高亮
@@ -370,7 +411,55 @@
                 // 重新高亮
                 hljs.highlightElement(codeContent);
             }
+
+            // 复制代码功能
+            function copyCode() {
+                const codeText = codeContent.textContent;
+                
+                // 使用 Clipboard API 复制代码
+                navigator.clipboard.writeText(codeText).then(function() {
+                    // 复制成功提示
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> 已复制';
+                    setTimeout(function() {
+                        copyBtn.innerHTML = originalText;
+                    }, 2000);
+                }).catch(function(err) {
+                    // 复制失败提示
+                    console.error('复制失败:', err);
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-times"></i> 复制失败';
+                    setTimeout(function() {
+                        copyBtn.innerHTML = originalText;
+                    }, 2000);
+                });
+            }
+
+            // 预览 HTML 功能
+            function previewHTML() {
+                // 只有当文件是 HTML 类型时才启用预览功能
+                const currentFile = fileSelector.value;
+                if (!currentFile || !currentFile.endsWith('.html')) {
+                    // 显示提示信息
+                    const originalText = previewBtn.innerHTML;
+                    previewBtn.innerHTML = '<i class="fas fa-exclamation-circle"></i> 仅支持HTML';
+                    setTimeout(function() {
+                        previewBtn.innerHTML = originalText;
+                    }, 2000);
+                    return;
+                }
+
+                // 获取当前代码内容
+                const codeText = codeContent.textContent;
+                
+                // 创建新窗口并写入 HTML 内容
+                const previewWindow = window.open('', '_blank');
+                previewWindow.document.write(codeText);
+                previewWindow.document.close();
+                previewWindow.focus();
+            }
         });
     </script>
 </body>
+
 </html>
