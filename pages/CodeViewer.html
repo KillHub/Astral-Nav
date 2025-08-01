@@ -14,6 +14,8 @@
             --border-color: #3c3c3c;
             --accent-color: #007acc;
             --hover-color: #37373d;
+            --line-number-bg: #2c2c2e;
+            --line-number-color: #858585;
         }
 
         * {
@@ -123,10 +125,36 @@
             overflow: hidden;
         }
 
+        .editor-wrapper {
+            display: flex;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .line-numbers {
+            padding: 0 10px;
+            text-align: right;
+            background-color: var(--line-number-bg);
+            color: var(--line-number-color);
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            user-select: none;
+            border-right: 1px solid var(--border-color);
+            overflow: hidden;
+            white-space: pre;
+            min-width: 40px;
+        }
+
+        .code-content {
+            flex: 1;
+            overflow: auto;
+            height: 100%;
+        }
+
         pre {
             margin: 0;
-            height: 100%;
-            overflow: auto;
+            height: fit-content;
         }
 
         code {
@@ -135,6 +163,7 @@
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
             font-size: 14px;
             line-height: 1.5;
+            display: block;
         }
 
         /* 状态栏 */
@@ -226,7 +255,12 @@
 
                 <!-- 代码编辑器 -->
                 <div class="code-editor">
-                    <pre><code class="hljs" id="code-content">加载中...</code></pre>
+                    <div class="editor-wrapper">
+                        <div class="line-numbers" id="line-numbers">1</div>
+                        <div class="code-content" id="code-content-wrapper">
+                            <pre><code class="hljs" id="code-content">加载中...</code></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -272,6 +306,8 @@
             const languageDisplay = document.getElementById('language-display');
             const tabName = document.getElementById('tab-name');
             const fileSelector = document.getElementById('file-selector');
+            const lineNumbers = document.getElementById('line-numbers');
+            const codeContentWrapper = document.getElementById('code-content-wrapper');
             
             // 默认加载 pages_520.html
             loadFile('pages_520.html');
@@ -290,19 +326,39 @@
                 }
             });
             
+            // 监听代码区域滚动事件，同步行号
+            codeContentWrapper.addEventListener('scroll', function() {
+                lineNumbers.scrollTop = codeContentWrapper.scrollTop;
+            });
+            
             // 加载文件内容
             function loadFile(filename) {
                 fetch(filename)
                     .then(response => response.text())
                     .then(data => {
                         codeContent.textContent = data;
+                        updateLineNumbers(data);
                         updateHighlight();
+                        // 重置滚动位置
+                        codeContentWrapper.scrollTop = 0;
+                        lineNumbers.scrollTop = 0;
                     })
                     .catch(error => {
                         console.error('加载文件出错:', error);
                         codeContent.textContent = '无法加载文件: ' + filename;
+                        updateLineNumbers('无法加载文件: ' + filename);
                         updateHighlight();
                     });
+            }
+            
+            // 更新行号
+            function updateLineNumbers(content) {
+                const lines = content.split('\n');
+                let lineNumbersHtml = '';
+                for (let i = 1; i <= lines.length; i++) {
+                    lineNumbersHtml += i + '\n';
+                }
+                lineNumbers.textContent = lineNumbersHtml;
             }
             
             // 更新代码高亮
