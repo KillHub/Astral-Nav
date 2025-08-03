@@ -41,7 +41,8 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.16.1/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.16.1/sweetalert2.all.min.js"></script>
     <!-- ! 引入 Font Awesome 图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
 
     <!-- ! APlayer CSS -->
     <link href="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
@@ -129,17 +130,17 @@
                 <header class="logo-env">
                     <!-- 左上角logo -->
                     <div class="logo">
-                        <a href="#" class="logo-expanded">
+                        <a href="#" class="logo-expanded" data-toggle="sidebar">
                             <img src="/images/Doraemon.gif" width="130px" height="70px" alt="" />
                         </a>
-                        <a href="#" class="logo-collapsed">
-                            <img src="/images/Steven.jpg" width="40" alt="" />
+                        <a href="#" class="logo-collapsed" data-toggle="sidebar">
+                            <img src="/images/Steven.jpg" width="40px" alt="" />
                         </a>
                     </div>
                     <div class="mobile-menu-toggle d-md-none">
-                        <a onclick="switchNightMode()"><i class="ti ti-yin-yang-filled"></i></a>
-                        <a href="#" data-toggle="user-info-menu"><i class="ti ti-settings"></i></a>
-                        <a href="#" data-toggle="mobile-menu"><i class="ti ti-menu-2"></i></a>
+                        <a onclick="switchNightMode()"><i class="fa fa-adjust" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="user-info-menu"><i class="fa fa-tint" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="mobile-menu"><i class="fa fa-list" aria-hidden="true"></i></a>
                     </div>
                 </header>
 
@@ -212,11 +213,6 @@
         <div class="main-content">
             <nav class="navbar user-info-navbar" role="navigation">
                 <ul class="user-info-menu list-inline list-unstyled">
-                    <li class="d-none d-lg-block">
-                        <a href="#" data-toggle="sidebar">
-                            <i class="ti ti-menu-2"></i>
-                        </a>
-                    </li>
                     
                     <!-- NOTE: 音乐播放器，APlayer.js -->
                     <li>
@@ -225,13 +221,13 @@
                     <!-- NOTE: 语言切换按钮 -->
                     <li>
                         <a href="javascript:;" id="lang-switch-btn">
-                            <i class="ti ti-language"></i> <span data-i18n="language">切换语言</span>
+                             <i class="fa fa-language" aria-hidden="true"></i> <span data-i18n="language">切换语言</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="/pages/CodeViewer.html" target="_blank" id="code-viewer-btn">
-                            <img src="/images/Pokémon GO/svg/孵化器-1.svg" class="main-menu-icon"> <span data-i18n="codeViewer">代码孵化</span>
+                            <i class="fa fa-file-code-o" aria-hidden="true"></i> <span data-i18n="codeViewer">代码孵化</span>
                         </a>
                     </li>
                 </ul>
@@ -440,7 +436,7 @@
                     <input type="text" id="search-text" placeholder="输入关键字搜索" style="color: white" autocomplete="off" 
                            aria-label="搜索关键词" aria-required="true">
                     <button type="submit" aria-label="执行搜索">
-                        <i class="ti ti-search" aria-hidden="true"></i>
+                        <i class="fa fa-search" aria-hidden="true"></i>
                         <span class="sr-only">搜索</span>
                     </button>
                 </form>
@@ -742,7 +738,7 @@
                                     <p data-i18n="donate">如本站对您有所帮助，请随意打赏，谢谢~</p>
                                     <div class="post-reward">
                                         <div class="reward-button">
-                                            <i class="ti ti-qrcode"></i> <span data-i18n="reward">打赏</span>
+                                            <i class="fa fa-qrcode" aria-hidden="true"></i> <span data-i18n="reward">打赏</span>
                                         </div>
                                         <div class="reward-main">
                                             <ul class="reward-all">
@@ -788,6 +784,7 @@
                                 <img src="/images/Pokémon GO/svg/梦幻.svg" class="main-menu-icon"><span data-i18n="关于站长">关于站长</span>
                             </h6>
                             <div class="row">
+                                <!-- 个人标签🏷 -->
                                 <div class="col-sm-4">
                                     <div class="stationmaster box2" 
                                          onclick="window.open('https://github.com/killhub/', '_blank')"
@@ -806,32 +803,35 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- END 个人标签🏷 -->
                                 <br />
+                                <!-- 个人主页推荐 -->
                                 <div class="col-sm-8">
-                                    <div class="poem">
-                                        
-                                        <p> 
-                                            <img src="/images/github.png" class="main-menu-icon">本站项目地址
+                                    <div class="myPages">
+                                        <span> 
+                                            <img src="/images/github.png" class="main-menu-icon">
                                             <a href="https://github.com/killhub/Astral-Nav" target="_blank">
-                                                <span class="label label-info" data-bs-toggle="tooltip"><i class="ti ti-brand-github-filled"></i>Astral Nav</span>
+                                                <i class=""></i> 项目地址 Astral Nav ｜
                                             </a>
-                                        </p>
-                                    </div>
-
-                                    <ul class="user-info-menu list-inline list-unstyled">
-                                        <li>
-                                            <a href="https://github.com/killhub/" target="_blank">
-                                                <i class="ti ti-home"></i> Steven's Home
-                                            </a>
-                                        </li>
-                                        <li>
+                                        </span>
+                                        <span>
                                             <a href="https://killhub.github.io/Astral-Nav/" target="_black">
-                                                <i class="ti ti-brand-blogger"></i> Steven's Blog
+                                                <i class="fa fa-heartbeat" aria-hidden="true"></i> Steven's Blog ｜
                                             </a>
-                                        </li>
-                                    </ul>
-
+                                        </span>
+                                        <span>
+                                            <a href="https://github.com/killhub/" target="_blank">
+                                                <i class="fa fa-github" aria-hidden="true"></i> GitHub ｜
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="https://x.com/01loveslife" target="_blank">
+                                                <i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter
+                                            </a>
+                                        </span>
+                                    </div>
                                 </div>
+                                <!-- END 个人主页推荐 -->
                             </div>
                         </div>
                     </div>

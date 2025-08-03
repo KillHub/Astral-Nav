@@ -3,7 +3,7 @@
     "url": "/pages/utils/utils_json_formatter.html",
     "title": "JSON格式化工具",
     "desc": "格式化和校验JSON数据，方便查看和编辑",
-    "icon": "fas fa-code",
+    "icon": "fa fa-code",
     "category": "格式化",
     "featured": true,
     "dataCategory": "format"
@@ -12,7 +12,7 @@
     "url": "/pages/utils/utils_base64convert.html",
     "title": "Base64转换工具",
     "desc": "在文本和Base64编码之间相互转换",
-    "icon": "fas fa-exchange-alt fa-pulse",
+    "icon": "fa fa-exchange fa-pulse",
     "iconColor": "color: #FF69B4;",
     "category": "转换",
     "featured": false,
@@ -22,7 +22,7 @@
     "url": "/pages/utils/utils_timestamp_converter.html",
     "title": "时间戳转换工具",
     "desc": "Unix时间戳与日期时间互相转换，方便开发者进行时间处理",
-    "icon": "fas fa-clock fa-spin",
+    "icon": "fa fa-clock-o fa-spin",
     "iconColor": "color: #0084ff;",
     "category": "转换",
     "featured": false,
@@ -32,7 +32,7 @@
     "url": "/pages/utils/utils_password_generation.html",
     "title": "密码生成工具",
     "desc": "生成安全、强壮的随机密码",
-    "icon": "fas fa-key",
+    "icon": "fa fa-key",
     "category": "安全",
     "featured": false,
     "dataCategory": "security"
@@ -41,7 +41,7 @@
     "url": "/pages/utils/utils_uuid_generation.html",
     "title": "UUID生成工具",
     "desc": "快速生成UUID/GUID标识符",
-    "icon": "fas fa-fingerprint",
+    "icon": "fa fa-sort-numeric-asc",
     "category": "生成器",
     "featured": false,
     "dataCategory": "generator"
@@ -50,7 +50,7 @@
     "url": "/pages/utils/utils_nine_grid.html",
     "title": "九宫格制作工具",
     "desc": "将图片切割成九宫格，适合社交媒体发布",
-    "icon": "fas fa-th-large",
+    "icon": "fa fa-th-large",
     "category": "图像",
     "featured": true,
     "dataCategory": "grid"
@@ -59,7 +59,7 @@
     "url": "/pages/utils/utils_emoji_picker.html",
     "title": "Emoji选择器",
     "desc": "浏览和复制表情符号，支持搜索",
-    "icon": "fas fa-face-smile",
+    "icon": "fa fa-smile-o",
     "category": "工具",
     "featured": true,
     "dataCategory": "emoji"
@@ -68,7 +68,7 @@
     "url": "/pages/utils/utils_cover_creator.html",
     "title": "封面图制作工具",
     "desc": "设计精美的文章封面和社交媒体图片",
-    "icon": "fas fa-photo-video",
+    "icon": "fa fa-file-image-o",
     "category": "图像",
     "featured": true,
     "dataCategory": "image"
@@ -77,7 +77,7 @@
     "url": "/pages/utils/utils_screenshot_generation.html",
     "title": "字幕截图生成器",
     "desc": "为图片添加字幕，轻松制作表情包",
-    "icon": "fas fa-closed-captioning",
+    "icon": "fa fa-cc",
     "category": "图像",
     "featured": true,
     "dataCategory": "subtitle"
@@ -86,7 +86,7 @@
     "url": "/pages/utils/utils_color_picker.html",
     "title": "颜色选择与转换工具",
     "desc": "选择颜色，在各种格式之间转换，生成配色方案和渐变",
-    "icon": "fas fa-palette",
+    "icon": "fa fa-delicious",
     "category": "转换",
     "featured": true,
     "dataCategory": "converter"
@@ -95,7 +95,7 @@
     "url": "/pages/utils/utils_phone_numbers.html",
     "title": "常用电话号码列表",
     "desc": "收集和分类全国各地的常用电话和紧急联系方式，方便查询和记忆",
-    "icon": "fas fa-tty",
+    "icon": "fa fa-tty",
     "category": "电话",
     "featured": true,
     "dataCategory": "phone"

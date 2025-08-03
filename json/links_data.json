@@ -31,7 +31,13 @@
         "desc": "每天半小时-发现当下正在发生的有趣事",
         "url": "https://smzdk.top/",
         "icon": "https://smzdk.top/ico/favicon.png"
-      }
+      },
+      {
+        "title": "Wikipedia（维基百科）",
+        "desc": "基于互联网的多语言、自由内容百科全书，由全球志愿者协作编写和维护，允许任何人编辑和更新内容。",
+        "url": "https://www.wikipedia.org/",
+        "icon": "https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2@2x.png"
+      } 
     ]
   },
   {
@@ -239,6 +245,24 @@
         "desc": "推特（现更名 X）是一个全球知名的社交媒体平台",
         "url": "https://x.com/",
         "icon": "https://abs.twimg.com/favicons/twitter.3.ico"
+      },
+      {
+        "title": "UrleBird",
+        "desc": "第三方 TikTok 在线浏览与数据分析平台",
+        "url": "https://urlebird.com/user/yua_mikami/",
+        "icon": "https://urlebird.com/tml/images/icons/72x72.webp"
+      },
+      {
+        "title": "Coub",
+        "desc": "短视频循环播放（GIF） 为核心特色的社交媒体平台",
+        "url": "https://coub.com/random",
+        "icon": "https://coub.com/favicon.ico"
+      },
+      {
+        "title": "Instagram",
+        "desc": "以图片和视频分享为核心的社交媒体平台，拥有超过 20 亿月活跃用户",
+        "url": "https://www.instagram.com/",
+        "icon": "hhttps://static.cdninstagram.com/rsrc.php/v4/yB/r/-7Z_RkdLJUX.png"
       },
       {
         "title": "博客园",
@@ -1344,8 +1368,14 @@
       },
       {
         "title": "Fontawesome中文网",
-        "desc": "Fontawesome中文版webfont,是一款基于css框架的网页字体图标库，它完全免费。",
+        "desc": "V5 版本，中文版webfont,是一款基于css框架的网页字体图标库，它完全免费。",
         "url": "https://fontawesome.com.cn/v5/icons/",
+        "icon": "https://fontawesome.com.cn/favicon.ico"
+      },
+      {
+        "title": "Fontawesome中文网",
+        "desc": "V4 版本，中文版webfont,是一款基于css框架的网页字体图标库，它完全免费。",
+        "url": "https://fontawesome.com.cn/v4/icons/",
         "icon": "https://fontawesome.com.cn/favicon.ico"
       },
       {
