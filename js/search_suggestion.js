@@ -81,14 +81,46 @@ $(document).ready(function() {
         const selectedType = $('.search-type input:checked').val();
         const searchQuery = searchInput.val();
         
-        // 如果是百度搜索，直接修改表单的action和添加wd参数
-        if (selectedType && selectedType.includes('baidu.com')) {
-            $(this).attr('action', selectedType);
-            // 确保表单中有wd参数
-            if ($(this).find('input[name="wd"]').length === 0) {
+        // 修改表单的action
+        $(this).attr('action', selectedType);
+        
+        // 根据不同的搜索类型添加正确的参数名
+        if (selectedType) {
+            // 清除所有可能的参数
+            $(this).find('input[type="hidden"]').remove();
+            
+            if (selectedType.includes('baidu.com')) {
                 $(this).append('<input type="hidden" name="wd" value="' + searchQuery + '">');
-            } else {
-                $(this).find('input[name="wd"]').val(searchQuery);
+            } 
+            else if (selectedType.includes('google.com')) {
+                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
+            }
+            else if (selectedType.includes('github.com')) {
+                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
+            }
+            else if (selectedType.includes('bilibili.com')) {
+                $(this).append('<input type="hidden" name="keyword" value="' + searchQuery + '">');
+            }
+            else if (selectedType.includes('taobao.com')) {
+                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
+            }
+            else if (selectedType.includes('jd.com')) {
+                $(this).append('<input type="hidden" name="keyword" value="' + searchQuery + '">');
+            }
+            else if (selectedType.includes('zhihu.com')) {
+                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
+            }
+            else if (selectedType.includes('douban.com')) {
+                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
+            }
+            else if (selectedType.includes('zhaopin.com') || selectedType.includes('51job.com') || 
+                     selectedType.includes('lagou.com') || selectedType.includes('liepin.com') ||
+                     selectedType.includes('zhipin.com')) {
+                $(this).append('<input type="hidden" name="keyword" value="' + searchQuery + '">');
+            }
+            else {
+                // 默认使用q参数
+                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
             }
         }
     });
