@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>代码查看器 - Astral Nav</title>
+    <title>🧙‍♂️代码孵化器🧙‍♂️ - Astral Nav</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
     <style>
@@ -268,7 +268,7 @@
                 <!-- 选项卡 -->
                 <div class="tabs">
                     <div class="tab active" id="tab-name">
-                        pages_520.html
+                        <!-- 文件名 -->
                     </div>
                 </div>
 
@@ -319,23 +319,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/markdown.min.js"></script>
 
     <script>
-        // XXX: 文件选择器的初始值设置
-        fetch('/json/codes_data.json')               // 1. 发起请求
-            .then(response => response.json())    // 2. 解析响应为 JSON
-            .then(data => {                       // 3. 使用解析后的数据
-                console.log("data：",data);         // 4. 打印数据
-                                                    // 5. 打印网页
-                const toolList = document.getElementById('file-selector');
-                toolList.innerHTML = data.map(code => `
-                    <option value="${code.path}" selected>${code.title}</option>
-                `).join('');
-            })
-            .catch(error => {                 // 6. 处理错误
-                console.error('codes_data.json 加载 JSON 失败:', error);
-            });
-    </script>
-    <script>
         document.addEventListener('DOMContentLoaded', function () {
+
+            // XXX: 文件选择器的初始值设置
+            fetch('/json/codes_data.json')               // 1. 发起请求
+                .then(response => response.json())    // 2. 解析响应为 JSON
+                .then(data => {                       // 3. 使用解析后的数据
+                    //console.log("data：",data);         // 4. 打印数据
+                                                        // 5. 打印网页
+                    document.getElementById('file-selector').innerHTML = data.map(code => `
+                        <option value="${code.path}" ${code.isSelected ? 'selected' : ''}>${code.title}</option>
+                    `).join('');
+
+                    document.getElementById('tab-name').innerHTML = data.map(code => `
+                        ${code.isSelected ? code.title : ''}
+                    `).join('');
+                })
+                .catch(error => {                 // 6. 处理错误
+                    console.error('codes_data.json 加载 JSON 失败:', error);
+                });
+
             const codeContent = document.getElementById('code-content');
             const languageSelector = document.getElementById('language-selector');
             const languageDisplay = document.getElementById('language-display');
@@ -378,8 +381,7 @@
             // 监听语言选择
             languageSelector.addEventListener('change', function () {
                 updateHighlight();
-                languageDisplay.textContent = languageSelector.options[languageSelector.selectedIndex]
-                    .text;
+                languageDisplay.textContent = languageSelector.options[languageSelector.selectedIndex].text;
             });
 
             // 监听文件选择
