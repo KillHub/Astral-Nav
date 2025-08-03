@@ -217,16 +217,7 @@
                             <i class="ti ti-menu-2"></i>
                         </a>
                     </li>
-                    <li>
-                        <a href="https://github.com/killhub/" target="_blank">
-                            <i class="ti ti-home"></i> Steven's Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://killhub.github.io/Astral-Nav/" target="_black">
-                            <i class="ti ti-brand-blogger"></i> Steven's Blog
-                        </a>
-                    </li>
+                    
                     <!-- NOTE: 音乐播放器，APlayer.js -->
                     <li>
                         <div id="aplayer"></div>
@@ -777,6 +768,20 @@
                             <p id="anime_text"></p>
                             <!-- NOTE: 励志英语API -->
                             <p id="english_text"></p>
+                            <!--NOTE: 功能：今日诗词（jinrishici.com）免费 API，可以直接调用-->
+                            <div class="jinrishici">
+                                <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+                                <div id="poem_sentence" style="display:inline-block;"></div>
+                                <div id="poem_info" style="display:inline-block;"></div>
+                                <script type="text/javascript">
+                                    jinrishici.load(function(result) {
+                                        var sentence = document.querySelector("#poem_sentence")
+                                        var info = document.querySelector("#poem_info")
+                                        sentence.innerHTML = result.data.content
+                                        info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+                                    });
+                                </script>
+                            </div>
 
                             <!-- 关于站长 -->
                             <h6 class="tag">
@@ -804,20 +809,7 @@
                                 <br />
                                 <div class="col-sm-8">
                                     <div class="poem">
-                                        <p>
-                                            <!--NOTE: 功能：今日诗词（jinrishici.com）免费 API，可以直接调用-->
-                                            <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-                                            <div id="poem_sentence" style="display:inline-block;"></div>
-                                            <div id="poem_info" style="display:inline-block;"></div>
-                                            <script type="text/javascript">
-                                                jinrishici.load(function(result) {
-                                                    var sentence = document.querySelector("#poem_sentence")
-                                                    var info = document.querySelector("#poem_info")
-                                                    sentence.innerHTML = result.data.content
-                                                    info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
-                                                });
-                                            </script>
-                                        </p>
+                                        
                                         <p> 
                                             <img src="/images/github.png" class="main-menu-icon">本站项目地址
                                             <a href="https://github.com/killhub/Astral-Nav" target="_blank">
@@ -825,6 +817,20 @@
                                             </a>
                                         </p>
                                     </div>
+
+                                    <ul class="user-info-menu list-inline list-unstyled">
+                                        <li>
+                                            <a href="https://github.com/killhub/" target="_blank">
+                                                <i class="ti ti-home"></i> Steven's Home
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://killhub.github.io/Astral-Nav/" target="_black">
+                                                <i class="ti ti-brand-blogger"></i> Steven's Blog
+                                            </a>
+                                        </li>
+                                    </ul>
+
                                 </div>
                             </div>
                         </div>

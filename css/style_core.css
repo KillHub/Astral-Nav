@@ -927,6 +927,12 @@ footer.main-footer.fixed {
 .poem p {
   color: #d8d8d8 !important;
 }
+/* 今日诗词 */
+.jinrishici {
+  text-align: center !important;
+  font-size: 1rem !important;
+  color: #f659b2 !important;
+}
 /*搜索框*/
 #search {
   max-width: 700px;
