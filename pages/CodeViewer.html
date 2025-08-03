@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>代码查看器 - Astral Nav</title>
+    <title>🧙‍♂️代码孵化器🧙‍♂️ - Astral Nav</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
     <style>
@@ -268,7 +268,7 @@
                 <!-- 选项卡 -->
                 <div class="tabs">
                     <div class="tab active" id="tab-name">
-                        
+                        <!-- 文件名 -->
                     </div>
                 </div>
 
@@ -330,7 +330,7 @@
                     document.getElementById('file-selector').innerHTML = data.map(code => `
                         <option value="${code.path}" ${code.isSelected ? 'selected' : ''}>${code.title}</option>
                     `).join('');
-                    
+
                     document.getElementById('tab-name').innerHTML = data.map(code => `
                         ${code.isSelected ? code.title : ''}
                     `).join('');
