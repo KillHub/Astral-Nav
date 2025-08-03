@@ -956,6 +956,7 @@ footer.main-footer.fixed {
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
   animation: rainbow-text 3s linear infinite;
+  margin-top: 40px;
 }
 /*搜索框*/
 #search {
