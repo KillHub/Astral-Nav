@@ -253,16 +253,16 @@
         "icon": "https://urlebird.com/tml/images/icons/72x72.webp"
       },
       {
+        "title": "Instagram",
+        "desc": "以图片和视频分享为核心的社交媒体平台，拥有超过 20 亿月活跃用户",
+        "url": "https://www.instagram.com/",
+        "icon": "https://static.cdninstagram.com/rsrc.php/v4/yR/r/lam-fZmwmvn.png"
+      },
+      {
         "title": "Coub",
         "desc": "短视频循环播放（GIF） 为核心特色的社交媒体平台",
         "url": "https://coub.com/random",
         "icon": "https://coub.com/favicon.ico"
-      },
-      {
-        "title": "Instagram",
-        "desc": "以图片和视频分享为核心的社交媒体平台，拥有超过 20 亿月活跃用户",
-        "url": "https://www.instagram.com/",
-        "icon": "hhttps://static.cdninstagram.com/rsrc.php/v4/yB/r/-7Z_RkdLJUX.png"
       },
       {
         "title": "博客园",
