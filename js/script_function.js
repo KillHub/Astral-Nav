@@ -795,7 +795,7 @@ fetch('/json/links_data.json')
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2w col-xxl-2">
                     <div class="w-widget box2"
                         onclick="window.open('${link.url}', '_blank')" data-bs-toggle="tooltip"
-                        data-bs-placement="bottom" title="${link.url}" rel="noopener noreferrer" data-link-id="${linkId}">
+                        data-bs-placement="bottom" title="${link.desc}" rel="noopener noreferrer" data-link-id="${linkId}">
                         <div class="w-comment-entry">
                             <a>
                                 <img data-src="${link.icon}" 

@@ -229,6 +229,18 @@
         "icon": "https://cdn.sstatic.net/Sites/stackoverflow/Img/icon-48.png?v=b7e36f88ff92"
       },
       {
+        "title": "Reddit",
+        "desc": "Reddit 是一个全球知名的社交新闻聚合与讨论平台，被誉为“互联网的前沿”和“美国版贴吧”",
+        "url": "https://www.reddit.com/",
+        "icon": "https://www.redditstatic.com/shreddit/assets/favicon/128x128.png"
+      },
+      {
+        "title": "Twitter",
+        "desc": "推特（现更名 X）是一个全球知名的社交媒体平台",
+        "url": "https://x.com/",
+        "icon": "https://abs.twimg.com/favicons/twitter.3.ico"
+      },
+      {
         "title": "博客园",
         "desc": "博客园 - 开发者的网上家园",
         "url": "https://www.cnblogs.com/",
