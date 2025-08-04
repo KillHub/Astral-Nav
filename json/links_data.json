@@ -946,6 +946,12 @@
         "icon": "http://www.ttmd5.com/img/favicon.png"
       },
       {
+        "title": "大盘云图-缅A股",
+        "desc": "将所有股票按所属行业进行板块划分，用红色和绿色的深浅代表涨跌幅度，实现直观的展现大盘的全景图，适合股票爱好者盯盘使用。",
+        "url": "https://52etf.site/",
+        "icon": "https://52etf.site/favicon.ico"
+      },
+      {
         "title": "商品历史价格查询",
         "desc": "各大电商网页端和手机端商品真假降价、虚假促销",
         "url": "https://www.hisprice.com/",
