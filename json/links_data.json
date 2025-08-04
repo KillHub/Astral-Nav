@@ -1373,6 +1373,12 @@
         "icon": "https://www.zj-idc.com/images/favicon.ico"
       },
       {
+        "title": "JDK 17 API 文档",
+        "desc": "Oracle官方 Java API 文档",
+        "url": "https://docs.oracle.com/en/java/javase/17/docs/api/index.html",
+        "icon": "https://docs.oracle.com/en/styles/images/favicon.ico"
+      },
+      {
         "title": "Fontawesome中文网",
         "desc": "V5 版本，中文版webfont,是一款基于css框架的网页字体图标库，它完全免费。",
         "url": "https://fontawesome.com.cn/v5/icons/",
