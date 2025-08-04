@@ -934,8 +934,8 @@ footer.main-footer.fixed {
   font-size: 1rem;
   color: #f659b2 !important;
   background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; /* 背景剪裁到文字 */
+  -webkit-text-fill-color: transparent; /* 文字透明，显示背景渐变 */
   background-size: 200% auto;
   animation: rainbow-text 3s linear infinite;
 }
@@ -953,7 +953,6 @@ footer.main-footer.fixed {
   text-align: center;
   font-size: 1rem;
   background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
-  -webkit-text-fill-color: transparent;
   background-size: 200% auto;
   animation: rainbow-text 3s linear infinite;
   margin-top: 40px;
