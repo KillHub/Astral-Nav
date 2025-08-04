@@ -55,71 +55,69 @@ $(document).ready(function() {
             // 首先尝试通过IP获取用户位置
             let cityId = DEFAULT_CITY_ID;
             let cityName = '北京市';
-            // ! 另一种实现方式：通过经纬度获取城市信息
-            // try {
-            //     // 获取访问者IP和地理位置经纬度
-            //     const response = await fetch('http://ip-api.com/json/');
-            //     const ipData = await response.json();
-                
-            //     console.log('IP定位成功:', ipData);
-            //     if (ipData && ipData.lat && ipData.lon) {
-            //         // 通过经纬度获取城市信息
-            //         const cityData = await qweather.getCityByCoordinates(
-            //             ipData.lon.toFixed(2), 
-            //             ipData.lat.toFixed(2)
-            //         );
-            //         console.log('城市信息:', cityData);
-            //         if (cityData.code === '200' && cityData.location && cityData.location.length > 0) {
-            //             cityId = cityData.location[0].id;
-            //             cityName = cityData.location[0].name;
-            //             console.log('定位城市:', cityName);
-            //             console.log('定位城市ID:', cityId);
-            //         }
-            //     }
-            // } catch (ipError) {
-            //     console.warn('无法通过IP获取位置信息，使用默认城市');
-            //     console.error('IP定位错误详情:', ipError);
-            // }
 
             try {
-                // 尝试使用备用API获取IP和城市信息
+                // ! 方式A：尝试使用API获取IP和城市信息
                 const ipResponse = await fetch('https://api.vvhan.com/api/ipInfo');
                 if (!ipResponse.ok) throw new Error('IP API请求失败');
                 
                 const ipData = await ipResponse.json();
-                console.log('备用IP定位成功:', ipData);
+                console.log('方式A：IP定位成功:', ipData);
                 
                 if (ipData.success && ipData.info.city) {
                     // 使用城市名称获取城市ID
                     const cityData = await qweather.getCityIdByName(ipData.info.city);
-                    console.log('城市信息:', cityData);
+                    console.log('方式A：城市信息:', cityData);
                     
                     if (cityData.code === '200' && cityData.location && cityData.location.length > 0) {
                         cityId = cityData.location[0].id;
                         cityName = cityData.location[0].name;
                     }
                 }
-            } catch (ipError) {
-                console.warn('备用IP API获取位置失败:', ipError);
-                
-                // 备选方案：使用浏览器内置的Geolocation API
-                if (navigator.geolocation) {
-                    try {
-                        const position = await new Promise((resolve, reject) => {
-                            navigator.geolocation.getCurrentPosition(resolve, reject);
-                        });
-                        
+            } catch (ipError_A) {
+                console.warn('方式A：IP API获取位置失败，尝试方式B', ipError_A);
+
+                // ! 方式B：通过经纬度获取城市信息
+                try {
+                    // 获取访问者IP和地理位置经纬度
+                    const response = await fetch('http://ip-api.com/json/');
+                    const ipData = await response.json();
+                    
+                    console.log('IP定位成功:', ipData);
+                    if (ipData && ipData.lat && ipData.lon) {
+                        // 通过经纬度获取城市信息
                         const cityData = await qweather.getCityByCoordinates(
-                            position.coords.longitude.toFixed(2),
-                            position.coords.latitude.toFixed(2)
+                            ipData.lon.toFixed(2), 
+                            ipData.lat.toFixed(2)
                         );
-                        
                         if (cityData.code === '200' && cityData.location && cityData.location.length > 0) {
                             cityId = cityData.location[0].id;
                             cityName = cityData.location[0].name;
+                            console.log('方式B：城市信息:', cityData);
                         }
-                    } catch (geoError) {
-                        console.warn('Geolocation API获取位置失败:', geoError);
+                    }
+                } catch (ipError_B) {
+                    console.warn('方式B：无法通过IP获取位置信息，尝试方式C', ipError_B);
+
+                    // ! 方式C：使用浏览器内置的Geolocation API
+                    if (navigator.geolocation) {
+                        try {
+                            const position = await new Promise((resolve, reject) => {
+                                navigator.geolocation.getCurrentPosition(resolve, reject);
+                            });
+                            
+                            const cityData = await qweather.getCityByCoordinates(
+                                position.coords.longitude.toFixed(2),
+                                position.coords.latitude.toFixed(2)
+                            );
+                            if (cityData.code === '200' && cityData.location && cityData.location.length > 0) {
+                                cityId = cityData.location[0].id;
+                                cityName = cityData.location[0].name;
+                                console.log('方式C：城市信息:', cityData);
+                            }
+                        } catch (geoError_C) {
+                            console.warn('方式C：Geolocation API获取位置失败，使用默认城市:', geoError_C);
+                        }
                     }
                 }
             }
