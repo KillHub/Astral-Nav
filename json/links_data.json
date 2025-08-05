@@ -1373,6 +1373,12 @@
         "icon": "https://www.zj-idc.com/images/favicon.ico"
       },
       {
+        "title": "Apache ECharts",
+        "desc": "开源可视化图表库，基于 JavaScript",
+        "url": "https://echarts.apache.org/zh/index.html",
+        "icon": "https://echarts.apache.org/zh/images/favicon.png"
+      },
+      {
         "title": "JDK 17 API 文档",
         "desc": "Oracle官方 Java API 文档",
         "url": "https://docs.oracle.com/en/java/javase/17/docs/api/index.html",
