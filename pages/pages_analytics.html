@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站数据分析</title>
+    <link href="../css/bootstrap-v5.3.7.min.css" rel="stylesheet">
+    <script src="../js/jquery-v3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+    <style>
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            background: white;
+            padding: 15px;
+        }
+        .dashboard-header {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="dashboard-header">
+            <h1>网站数据分析</h1>
+            <div class="d-flex align-items-center">
+                <p class="text-muted mb-0 me-3">最后更新时间: <span id="update-time"></span></p>
+                <button id="refresh-btn" class="btn btn-sm btn-outline-primary">
+                    <span id="refresh-icon" class="spinner-border spinner-border-sm d-none"></span>
+                    <span id="refresh-text">刷新数据</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="source-chart" class="chart-container"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="category-chart" class="chart-container"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="wordcloud-chart" class="chart-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+            // 初始化所有图表
+            $(document).ready(function() {
+                // 设置更新时间
+                $('#update-time').text(new Date().toLocaleString());
+                
+                // 初始化图表实例
+                const sourceChart = echarts.init(document.getElementById('source-chart'));
+                const categoryChart = echarts.init(document.getElementById('category-chart'));
+                const wordcloudChart = echarts.init(document.getElementById('wordcloud-chart'));
+
+                // 窗口大小变化时重绘图表
+                window.addEventListener('resize', function() {
+                    sourceChart.resize();
+                    categoryChart.resize();
+                    wordcloudChart.resize();
+                });
+
+            // 获取数据函数
+            function fetchData(callback) {
+                // 显示加载状态
+                $('#refresh-icon').removeClass('d-none');
+                $('#refresh-text').text('加载中...');
+                $('#refresh-btn').prop('disabled', true);
+                
+                // 实际API请求
+                $.get('../json/links_data.json', function(rawData) {
+                    // 处理数据
+                    const categories = rawData.map(section => section.section);
+                    const linkCounts = rawData.map(section => section.links.length);
+                    
+                    const chartData = {
+                        categories: categories,
+                        linkCounts: linkCounts,
+                        sections: rawData.map(section => ({
+                            name: section.section,
+                            value: section.links.length
+                        }))
+                    };
+                    
+                    callback(chartData);
+                    
+                    // 恢复按钮状态
+                    $('#refresh-icon').addClass('d-none');
+                    $('#refresh-text').text('刷新数据');
+                    $('#refresh-btn').prop('disabled', false);
+                });
+            }
+
+            // 初始化加载数据
+            fetchData(drawCharts);
+
+            // 刷新按钮点击事件
+            $('#refresh-btn').click(function() {
+                fetchData(drawCharts);
+            });
+
+            // 绘制图表函数
+            function drawCharts(data) {
+                // 更新页面时间
+                $('#update-time').text(new Date().toLocaleString());
+                
+                // 绘制分类柱状图
+                categoryChart.setOption({
+                    title: { text: '链接分类统计' },
+                    tooltip: { trigger: 'axis' },
+                    legend: {
+                        data: ['链接数量']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: data.categories,
+                        axisLabel: {
+                            rotate: 45,
+                            interval: 0
+                        }
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: '链接数量',
+                        type: 'bar',
+                        data: data.linkCounts,
+                        itemStyle: {
+                            color: function(params) {
+                                // 使用不同颜色区分不同分类
+                                const colorList = [
+                                    '#c23531','#2f4554','#61a0a8','#d48265',
+                                    '#91c7ae','#749f83','#ca8622','#bda29a',
+                                    '#6e7074','#546570','#c4ccd3'
+                                ];
+                                return colorList[params.dataIndex % colorList.length];
+                            }
+                        },
+                        label: {
+                            show: true,
+                            position: 'top'
+                        }
+                    }]
+                });
+
+                // 绘制分类占比饼图
+                sourceChart.setOption({
+                    title: { text: '分类占比' },
+                    tooltip: { trigger: 'item' },
+                    series: [{
+                        name: '分类占比',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: true,
+                            formatter: '{b}: {c} ({d}%)'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '18',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        data: data.sections
+                    }]
+                });
+
+
+                // 绘制词云（从链接标题中提取关键词）
+                const colorPalette = [
+                    '#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae',
+                    '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570',
+                    '#c4ccd3', '#dd6b66', '#759aa0', '#e69d87', '#8dc1a9',
+                    '#ea7e53', '#eedd78', '#73a373', '#73b9bc', '#7289ab',
+                    '#91ca8c', '#f49f42'
+                ];
+                
+                const words = data.categories.map((category, index) => ({
+                    name: category,
+                    value: data.linkCounts[index] * 10,
+                    textStyle: {
+                        color: colorPalette[index % colorPalette.length]
+                    }
+                }));
+                
+                // 确保加载了词云扩展
+                if (typeof echarts.registerMap === 'function') {
+                    wordcloudChart.setOption({
+                        title: { 
+                            text: '分类词云',
+                            left: 'center'
+                        },
+                        tooltip: {},
+                        series: [{
+                            type: 'wordCloud',
+                            shape: 'circle',
+                            left: 'center',
+                            top: 'center',
+                            width: '100%',
+                            height: '100%',
+                            sizeRange: [12, 60],
+                            rotationRange: [-45, 45],
+                            rotationStep: 15,
+                            gridSize: 10,
+                            drawOutOfBound: true,
+                            textStyle: {
+                                fontFamily: 'sans-serif',
+                                fontWeight: 'bold',
+                                color: function () {
+                                    return colorPalette[
+                                        Math.floor(Math.random() * colorPalette.length)
+                                    ];
+                                }
+                            },
+                            emphasis: {
+                                textStyle: {
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            data: words
+                        }]
+                    });
+                } else {
+                    console.error('WordCloud extension not loaded');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
