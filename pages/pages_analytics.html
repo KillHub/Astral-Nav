@@ -11,7 +11,7 @@
     <style>
         .chart-container {
             width: 100%;
-            height: 400px;
+            height: 600px;
             margin-bottom: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.1);
@@ -65,6 +65,16 @@
         <div class="row">
             
         </div>
+        <div class="row">
+            <!-- ! 仪表盘 -->
+            <div class="col-md-6">
+                <div id="gauge-chart" class="chart-container"></div>
+            </div>
+            <!-- ! 数量漏斗图 -->
+            <div class="col-md-6">
+                <div id="funnel-chart" class="chart-container"></div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -79,6 +89,8 @@
                 const wordcloudChart = echarts.init(document.getElementById('wordcloud-chart'));
                 const trendChart = echarts.init(document.getElementById('trend-chart'));
                 const radarChart = echarts.init(document.getElementById('radar-chart'));
+                const gaugeChart = echarts.init(document.getElementById('gauge-chart'));
+                const funnelChart = echarts.init(document.getElementById('funnel-chart'));
 
                 // 窗口大小变化时重绘图表
                 window.addEventListener('resize', function() {
@@ -87,6 +99,8 @@
                     wordcloudChart.resize();
                     trendChart.resize();
                     radarChart.resize();
+                    gaugeChart.resize();
+                    funnelChart.resize();
                 });
 
             // 获取数据函数
@@ -110,6 +124,20 @@
                         trend: Array.from({length: 7}, () => Math.floor(Math.random() * count * 0.5) + count * 0.75)
                     }));
 
+                    // 计算总链接数
+                    const totalLinks = linkCounts.reduce((sum, count) => sum + count, 0);
+                    
+                    // 找到最大和最小分类
+                    const maxCategory = {
+                        name: categories[linkCounts.indexOf(Math.max(...linkCounts))],
+                        count: Math.max(...linkCounts)
+                    };
+                    
+                    const minCategory = {
+                        name: categories[linkCounts.indexOf(Math.min(...linkCounts))],
+                        count: Math.min(...linkCounts)
+                    };
+
                     const chartData = {
                         categories: categories,
                         linkCounts: linkCounts,
@@ -117,7 +145,10 @@
                             name: section.section,
                             value: section.links.length
                         })),
-                        trendData: trendData
+                        trendData: trendData,
+                        totalLinks: totalLinks,
+                        maxCategory: maxCategory,
+                        minCategory: minCategory
                     };
                     
                     callback(chartData);
@@ -144,14 +175,20 @@
                 
                 // FIXME: 柱状图
                 categoryChart.setOption({
-                    title: { text: '链接分类统计' },
+                    title: { 
+                        text: '链接分类统计',
+                        left: 'center',
+                        top: 10
+                    },
                     tooltip: { trigger: 'axis' },
                     legend: {
-                        data: ['链接数量']
+                        data: ['链接数量'],
+                        top: 40
                     },
                     grid: {
                         left: '3%',
                         right: '4%',
+                        top: 80,
                         bottom: '3%',
                         containLabel: true
                     },
@@ -190,7 +227,11 @@
 
                 // FIXME: 饼图
                 sourceChart.setOption({
-                    title: { text: '分类占比' },
+                    title: { 
+                        text: '分类占比',
+                        left: 'center',
+                        top: 10
+                    },
                     tooltip: { trigger: 'item' },
                     series: [{
                         name: '分类占比',
@@ -218,28 +259,39 @@
                 });
 
                 // FIXME: 趋势折线图
-                const days = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+                const days = ['点1', '点2', '点3', '点4', '点5', '点6', '点7'];
                 const trendSeries = data.trendData.map(item => ({
                     name: item.category,
                     type: 'line',
                     data: item.trend,
                     smooth: true
                 }));
+
                 trendChart.setOption({
-                    title: { text: '各分类链接数量趋势（模拟）' },
+                    title: { 
+                        text: '各分类链接数量变化趋势（模拟）',
+                        left: 'center',
+                        top: 10
+                    },
                     tooltip: { trigger: 'axis' },
                     legend: {
-                        data: data.categories
+                        data: data.categories,
+                        top: 40
                     },
                     grid: {
                         left: '3%',
                         right: '4%',
+                        top: 80,
                         bottom: '3%',
                         containLabel: true
                     },
                     xAxis: {
                         type: 'category',
-                        data: days
+                        data: days,
+                        axisLabel: {
+                            interval: 0,
+                            rotate: 0
+                        }
                     },
                     yAxis: {
                         type: 'value',
@@ -255,7 +307,11 @@
                 }));
 
                 radarChart.setOption({
-                    title: { text: '各分类链接数量雷达图' },
+                    title: { 
+                        text: '各分类链接数量雷达图',
+                        left: 'center',
+                        top: 10
+                    },
                     tooltip: {},
                     radar: {
                         indicator: indicator
@@ -269,7 +325,128 @@
                     }]
                 });
 
-                // FIXME: 词云图（从链接标题中提取关键词）
+                // FIXME: 绘制仪表盘图表
+                gaugeChart.setOption({
+                    title: { 
+                        text: '链接总数仪表盘',
+                        left: 'center',
+                        top: 10
+                    },
+                    series: [{
+                        type: 'gauge',
+                        startAngle: 180,
+                        endAngle: 0,
+                        min: 0,
+                        max: data.totalLinks * 1.5,
+                        splitNumber: 5,
+                        axisLine: {
+                            lineStyle: {
+                                width: 10,
+                                color: [
+                                    [0.3, '#67e0e3'],
+                                    [0.7, '#37a2da'],
+                                    [1, '#fd666d']
+                                ]
+                            }
+                        },
+                        pointer: {
+                            itemStyle: {
+                                color: 'auto'
+                            }
+                        },
+                        axisTick: {
+                            distance: -10,
+                            length: 8,
+                            lineStyle: {
+                                color: '#fff',
+                                width: 2
+                            }
+                        },
+                        splitLine: {
+                            distance: -20,
+                            length: 12,
+                            lineStyle: {
+                                color: '#fff',
+                                width: 3
+                            }
+                        },
+                        axisLabel: {
+                            distance: 20,
+                            color: '#999',
+                            fontSize: 12
+                        },
+                        detail: {
+                            formatter: '{value}',
+                            color: 'auto',
+                            fontSize: 24
+                        },
+                        data: [{
+                            value: data.totalLinks,
+                            name: '总链接数'
+                        }]
+                    }]
+                });
+
+                // FIXME: 漏斗图
+                const funnelData = data.categories.map((category, index) => ({
+                    name: category,
+                    value: data.linkCounts[index]
+                })).sort((a, b) => b.value - a.value);
+
+                funnelChart.setOption({
+                    title: { 
+                        text: '各分类链接数量漏斗图',
+                        left: 'center',
+                        top: 10
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    legend: {
+                        data: data.categories,
+                        top: 'bottom',
+                        left: 'center',
+                        top: 470
+                    },
+                    series: [{
+                        name: '链接数量',
+                        type: 'funnel',
+                        left: '10%',
+                        top: 40,
+                        bottom: 100,
+                        width: '80%',
+                        min: 0,
+                        max: funnelData[0] ? funnelData[0].value : 100,
+                        minSize: '0%',
+                        maxSize: '100%',
+                        sort: 'descending',
+                        gap: 2,
+                        label: {
+                            show: true,
+                            position: 'inside'
+                        },
+                        labelLine: {
+                            length: 10,
+                            lineStyle: {
+                                width: 1,
+                                type: 'solid'
+                            }
+                        },
+                        itemStyle: {
+                            borderColor: '#fff',
+                            borderWidth: 1
+                        },
+                        emphasis: {
+                            label: {
+                                fontSize: 16
+                            }
+                        },
+                        data: funnelData
+                    }]
+                });
+
+                // FIXME: 绘制词云（从链接标题中提取关键词）
                 const colorPalette = [
                     '#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae',
                     '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570',
@@ -277,6 +454,7 @@
                     '#ea7e53', '#eedd78', '#73a373', '#73b9bc', '#7289ab',
                     '#91ca8c', '#f49f42'
                 ];
+                
                 const words = data.categories.map((category, index) => ({
                     name: category,
                     value: data.linkCounts[index] * 10,
@@ -284,21 +462,23 @@
                         color: colorPalette[index % colorPalette.length]
                     }
                 }));
+                
                 // 确保加载了词云扩展
                 if (typeof echarts.registerMap === 'function') {
                     wordcloudChart.setOption({
                         title: { 
                             text: '分类词云',
-                            left: 'center'
+                            left: 'center',
+                            top: 10
                         },
                         tooltip: {},
                         series: [{
                             type: 'wordCloud',
                             shape: 'circle',
                             left: 'center',
-                            top: 'center',
+                            top: 80,
                             width: '100%',
-                            height: '100%',
+                            height: 'calc(100% - 80px)',
                             sizeRange: [12, 60],
                             rotationRange: [-45, 45],
                             rotationStep: 15,
@@ -326,7 +506,6 @@
                     console.error('WordCloud extension not loaded');
                 }
             }
-            
         });
     </script>
 </body>
