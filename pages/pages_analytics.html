@@ -37,17 +37,33 @@
         </div>
 
         <div class="row">
+            <!-- ! 饼图 -->
             <div class="col-md-6">
                 <div id="source-chart" class="chart-container"></div>
             </div>
+            <!-- ! 柱状图 -->
             <div class="col-md-6">
                 <div id="category-chart" class="chart-container"></div>
             </div>
         </div>
         <div class="row">
+            <!-- ! 趋势折线图 -->
             <div class="col-md-12">
+                <div id="trend-chart" class="chart-container"></div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- ! 词云图 -->
+            <div class="col-md-6">
                 <div id="wordcloud-chart" class="chart-container"></div>
             </div>
+            <!-- ! 雷达图 -->
+            <div class="col-md-6">
+                <div id="radar-chart" class="chart-container"></div>
+            </div>
+        </div>
+        <div class="row">
+            
         </div>
     </div>
 
@@ -61,12 +77,16 @@
                 const sourceChart = echarts.init(document.getElementById('source-chart'));
                 const categoryChart = echarts.init(document.getElementById('category-chart'));
                 const wordcloudChart = echarts.init(document.getElementById('wordcloud-chart'));
+                const trendChart = echarts.init(document.getElementById('trend-chart'));
+                const radarChart = echarts.init(document.getElementById('radar-chart'));
 
                 // 窗口大小变化时重绘图表
                 window.addEventListener('resize', function() {
                     sourceChart.resize();
                     categoryChart.resize();
                     wordcloudChart.resize();
+                    trendChart.resize();
+                    radarChart.resize();
                 });
 
             // 获取数据函数
@@ -82,13 +102,22 @@
                     const categories = rawData.map(section => section.section);
                     const linkCounts = rawData.map(section => section.links.length);
                     
+                    // 计算趋势数据（模拟）
+                    const trendData = linkCounts.map((count, index) => ({
+                        category: categories[index],
+                        count: count,
+                        // 模拟趋势数据，实际项目中可以使用真实的时间序列数据
+                        trend: Array.from({length: 7}, () => Math.floor(Math.random() * count * 0.5) + count * 0.75)
+                    }));
+
                     const chartData = {
                         categories: categories,
                         linkCounts: linkCounts,
                         sections: rawData.map(section => ({
                             name: section.section,
                             value: section.links.length
-                        }))
+                        })),
+                        trendData: trendData
                     };
                     
                     callback(chartData);
@@ -113,7 +142,7 @@
                 // 更新页面时间
                 $('#update-time').text(new Date().toLocaleString());
                 
-                // 绘制分类柱状图
+                // FIXME: 柱状图
                 categoryChart.setOption({
                     title: { text: '链接分类统计' },
                     tooltip: { trigger: 'axis' },
@@ -159,7 +188,7 @@
                     }]
                 });
 
-                // 绘制分类占比饼图
+                // FIXME: 饼图
                 sourceChart.setOption({
                     title: { text: '分类占比' },
                     tooltip: { trigger: 'item' },
@@ -188,8 +217,59 @@
                     }]
                 });
 
+                // FIXME: 趋势折线图
+                const days = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+                const trendSeries = data.trendData.map(item => ({
+                    name: item.category,
+                    type: 'line',
+                    data: item.trend,
+                    smooth: true
+                }));
+                trendChart.setOption({
+                    title: { text: '各分类链接数量趋势（模拟）' },
+                    tooltip: { trigger: 'axis' },
+                    legend: {
+                        data: data.categories
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: days
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: '链接数量'
+                    },
+                    series: trendSeries
+                });
 
-                // 绘制词云（从链接标题中提取关键词）
+                // FIXME: 雷达图
+                const indicator = data.categories.map(category => ({
+                    name: category,
+                    max: Math.max(...data.linkCounts) + 10
+                }));
+
+                radarChart.setOption({
+                    title: { text: '各分类链接数量雷达图' },
+                    tooltip: {},
+                    radar: {
+                        indicator: indicator
+                    },
+                    series: [{
+                        type: 'radar',
+                        data: [{
+                            value: data.linkCounts,
+                            name: '链接数量'
+                        }]
+                    }]
+                });
+
+                // FIXME: 词云图（从链接标题中提取关键词）
                 const colorPalette = [
                     '#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae',
                     '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570',
@@ -197,7 +277,6 @@
                     '#ea7e53', '#eedd78', '#73a373', '#73b9bc', '#7289ab',
                     '#91ca8c', '#f49f42'
                 ];
-                
                 const words = data.categories.map((category, index) => ({
                     name: category,
                     value: data.linkCounts[index] * 10,
@@ -205,7 +284,6 @@
                         color: colorPalette[index % colorPalette.length]
                     }
                 }));
-                
                 // 确保加载了词云扩展
                 if (typeof echarts.registerMap === 'function') {
                     wordcloudChart.setOption({
@@ -248,6 +326,7 @@
                     console.error('WordCloud extension not loaded');
                 }
             }
+            
         });
     </script>
 </body>
