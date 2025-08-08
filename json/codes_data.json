@@ -5,8 +5,13 @@
     "isSelected": true
   },
   {
-    "path": "pages_521.html",
-    "title": "pages_521.html",
+    "path": "pages_520_1.html",
+    "title": "pages_520_1.html",
+    "isSelected": false
+  },
+  {
+    "path": "pages_520_2.html",
+    "title": "pages_520_2.html",
     "isSelected": false
   },
   {
