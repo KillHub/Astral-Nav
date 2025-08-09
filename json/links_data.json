@@ -86,13 +86,13 @@
         "icon": "https://llwslc.github.io/grammar-club/cover.png"
       },
       {
-        "title": "Qwerty Learner 背单词",
+        "title": "Qwerty Learner-打字",
         "desc": "为键盘工作者设计的单词与肌肉记忆锻炼软件",
         "url": "https://qwerty.kaiyi.cool/gallery",
         "icon": "https://qwerty.kaiyi.cool/android-chrome-192x192.png"
       },
       {
-        "title": "Typing Word 背单词",
+        "title": "Typing Word-打字",
         "desc": "打字背单词",
         "url": "https://2study.top/#/practice",
         "icon": "https://2study.top/logo.jpg"
@@ -188,13 +188,13 @@
         "icon": "https://zh.wikihow.com/favicon.ico"
       },
       {
-        "title": "TypeLit.io",
+        "title": "TypeLit.io-打字",
         "desc": "通过重新输入整本经典文学阅来练习打字。",
         "url": "https://www.typelit.io/",
         "icon": "https://www.typelit.io/favicon.ico"
       },
       {
-        "title": "type.fun",
+        "title": "type.fun-打字",
         "desc": "提供打字练习工具",
         "url": "https://www.type.fun/",
         "icon": "https://www.type.fun/favicon.ico"
@@ -204,6 +204,18 @@
         "desc": "专业的在线打字练习平台",
         "url": "https://daziya.com/",
         "icon": "https://daziya.com/favicon.svg"
+      },
+      {
+        "title": "Practice-打字",
+        "desc": "按字母逐渐熟练打字速度的打字练习网站。",
+        "url": "https://www.keybr.com/",
+        "icon": "https://www.keybr.com/assets/934c99d37fc250c3.png"
+      },
+      {
+        "title": "ZType – Typing Game-打字",
+        "desc": "飞行射击🔫游戏",
+        "url": "https://zty.pe/",
+        "icon": "https://zty.pe/media/favicon.png"
       }
     ]
   },
