@@ -443,28 +443,10 @@
         "icon": "https://www.zgshige.com/favicon.ico"
       },
       {
-        "title": "熊猫搜书",
-        "desc": "熊猫搜书平台，提供免费电子书下载，mobi、epud、pdf、txt格式，kindle电子书下载",
-        "url": "https://xmsoushu.com/",
-        "icon": "https://xmsoushu.com/favicon.ico"
-      },
-      {
         "title": "金屋电子书",
         "desc": " 免费、高质量的电子书下载网站",
         "url": "https://pdfs.top/",
         "icon": "https://pdfs.top/favicon.ico"
-      },
-      {
-        "title": "搬书匠",
-        "desc": "计算机类图书",
-        "url": "http://www.banshujiang.cn/",
-        "icon": "https://api.xinac.net/icon/?url=www.banshujiang.cn"
-      },
-      {
-        "title": "鸠摩搜索",
-        "desc": "图书搜索",
-        "url": "https://www.jiumodiary.com/",
-        "icon": "https://api.xinac.net/icon/?url=www.jiumodiary.com"
       },
       {
         "title": "SaltyLeo的书架",
