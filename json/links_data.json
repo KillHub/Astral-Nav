@@ -437,22 +437,22 @@
         "icon": "https://book.douban.com/favicon.ico"
       },
       {
-        "title": "中国诗歌网",
-        "desc": "诗歌高地，诗人家园。",
-        "url": "https://www.zgshige.com/",
-        "icon": "https://www.zgshige.com/favicon.ico"
+        "title": "Z-Library官网",
+        "desc": "世界上最大的电子图书馆。自由访问知识和文化。",
+        "url": "https://zh.z-library.sk/",
+        "icon": "https://zlib.by/favicon.svg"
+      },
+      {
+        "title": "Z-Library镜像站",
+        "desc": "全球最大的数字图书馆",
+        "url": "https://zlib.by/",
+        "icon": "https://zlib.by/favicon.svg"
       },
       {
         "title": "金屋电子书",
-        "desc": " 免费、高质量的电子书下载网站",
+        "desc": "计算机类专业书，免费、高质量的电子书下载网站",
         "url": "https://pdfs.top/",
         "icon": "https://pdfs.top/favicon.ico"
-      },
-      {
-        "title": "SaltyLeo的书架",
-        "desc": "藏尽天下好书。电子书下载, EPUB电子书, AZW3电子书, MOBI电子书, KINDLE电子书, PDF电子书",
-        "url": "https://book.tstrs.me/",
-        "icon": "https://book.tstrs.me/96.png"
       },
       {
         "title": "知识库",
