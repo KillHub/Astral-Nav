@@ -928,6 +928,12 @@
         "icon": "https://tool.oschina.net/img/favicon.ico"
       },
       {
+        "title": "正则表达式-REGEX101",
+        "desc": "正则表达式测试器，带有语法高亮、解释、PHP/PCRE、Python、GO、JavaScript、Java、C#/.NET、Rust 速查表。",
+        "url": "https://regex101.com/",
+        "icon": "https://regex101.com/static/assets/icon-96.png"
+      },
+      {
         "title": "菜鸟工具箱",
         "desc": "不止于工具",
         "url": "https://www.jyshare.com/",
