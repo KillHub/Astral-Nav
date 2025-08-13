@@ -1427,16 +1427,28 @@
         "icon": "https://www.bootcdn.cn/assets/ico/favicon.ico"
       },
       {
-        "title": "字节跳动静态资源公共库",
-        "desc": "字节跳动静态资源公共库(CDN)",
-        "url": "https://cdn.bytedance.com/",
-        "icon": "https://cdn.bytedance.com/src/res/favicon.png"
+        "title": "cdnjs",
+        "desc": "全球最大开源CDN之一，资源丰富，但需确认国内访问速度。(CDN)",
+        "url": "https://cdnjs.com/",
+        "icon": "https://cdnjs.com/favicon.png"
       },
       {
         "title": "七牛云 Staticfile",
         "desc": "免费、快速、开放的 CDN 服务(CDN)",
         "url": "https://www.staticfile.org/",
         "icon": "https://www.staticfile.org/images/favicon.ico"
+      },
+      {
+        "title": "UNPKG",
+        "desc": "专注于npm包的CDN，适合前端项目，但同样需评估国内可用性。(CDN)",
+        "url": "https://unpkg.com/",
+        "icon": "https://unpkg.com/favicon.jpg"
+      },
+      {
+        "title": "（🚫废弃）字节跳动静态资源公共库",
+        "desc": "字节跳动静态资源公共库(CDN)",
+        "url": "https://cdn.bytedance.com/",
+        "icon": "https://cdn.bytedance.com/src/res/favicon.png"
       },
       {
         "title": "Python Package Index（PyPI）",
