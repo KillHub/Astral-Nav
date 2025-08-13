@@ -30,8 +30,7 @@
     <!-- ! jQuery - 官方稳定版 -->
      <script src="/js/jquery-v3.7.1.min.js"></script>
     <!-- ! Tabler Icons (SVG 图标集合) - 官方版本 (固定版本号) -->
-    <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tabler-icons/1.35.0/iconfont/tabler-icons.min.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.42.0/tabler-icons.min.css">-->
+    <link href="https://cdn.bootcdn.net/ajax/libs/tabler-icons/3.34.0/tabler-icons.min.css" rel="stylesheet">
     <!-- ! iziToast (通知插件) - 官方版本 -->
     <link rel="stylesheet" href="/css/iziToast-v1.4.0.min.css">
     <script src="/js/iziToast-v1.4.0.min.js"></script>
@@ -43,7 +42,6 @@
     <!-- ! 引入 Font Awesome 图标库 -->
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
-
     <!-- ! APlayer CSS -->
     <link href="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
     <!-- ! APlayer JS -->
@@ -83,22 +81,6 @@
             }
         });
     </script>
-
-    <!--&lt;!&ndash; Lozad.js 懒加载库 &ndash;&gt;
-    <script src="https://cdn.bootcdn.net/ajax/libs/lozad.js/1.16.0/lozad.min.js"></script>
-    &lt;!&ndash; Bootstrap 5 核心文件 &ndash;&gt;
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.5/css/bootstrap.min.css">
-    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.5/js/bootstrap.bundle.min.js"></script>
-    &lt;!&ndash; jQuery &ndash;&gt;
-
-    &lt;!&ndash; Tabler Icons（需确认 BootCDN 是否收录，若未收录可换用其他 CDN） &ndash;&gt;
-    &lt;!&ndash; 替代方案：使用 jsDelivr 国内镜像 &ndash;&gt;
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabler-icons@2.42.0/icons/style.min.css">
-    &lt;!&ndash; iziToast 通知库 &ndash;&gt;
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
-    <script src="https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
-    &lt;!&ndash; GSAP 动画库 &ndash;&gt;
-    <script src="https://cdn.bootcdn.net/ajax/libs/gsap/3.12.7/gsap.min.js"></script>-->
 
     <!-- NOTE：百度访问分析代码 -->
     <script>
@@ -224,11 +206,15 @@
                              <i class="fa fa-language" aria-hidden="true"></i> <span data-i18n="language">切换语言</span>
                         </a>
                     </li>
-
+                    <!-- NOTE: 代码孵化🐣按钮 -->
                     <li>
                         <a href="/pages/CodeViewer.html" target="_blank" id="code-viewer-btn">
                             <i class="fa fa-file-code-o" aria-hidden="true"></i> <span data-i18n="codeViewer">代码孵化</span>
                         </a>
+                    </li>
+                    <!-- NOTE：无障碍服务功能 -->
+                    <li>
+                        <div><img src="/images/services.png" height="40px" id='assist-open'></div>
                     </li>
                 </ul>
                 <!-- NOTE: 右上角天气 API -->
@@ -1167,5 +1153,7 @@
     <!-- <script src="https://api.vvhan.com/api/script/meihua"></script> -->
     <!-- NOTE: 樱花效果API接口 -->
     <!-- <script src="https://api.vvhan.com/api/script/yinghua"></script> -->
+    <!-- NOTE：无障碍服务功能 -->
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/gh/muzihuaner/assist@main/dist/assist-entry.js"></script>
 </body>
 </html>
