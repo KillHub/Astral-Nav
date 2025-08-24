@@ -363,6 +363,41 @@
     ]
   },
   {
+    "section": "投资理财",
+    "links": [
+      {
+        "title": "大盘云图-缅A股",
+        "desc": "将所有股票按所属行业进行板块划分，用红色和绿色的深浅代表涨跌幅度，实现直观的展现大盘的全景图，适合股票爱好者盯盘使用。",
+        "url": "https://52etf.site/",
+        "icon": "https://52etf.site/favicon.ico"
+      },
+      {
+        "title": "金十数据",
+        "desc": "查询全球宏观经济数据，提供外汇、期货等市场的实时新闻和数据。",
+        "url": "https://www.jin10.com/",
+        "icon": "https://cdn.jin10.com/assets/img/commons/logo_v3_s.jpg"
+      },
+      {
+        "title": "东方财富网",
+        "desc": "提供全面的财经新闻、市场数据、个股信息、基金排名等，是投资者获取信息的重要渠道。",
+        "url": "https://quote.eastmoney.com/center/",
+        "icon": "https://p1.ssl.qhmsg.com/t01f84ac1bec60cc2c7.png"
+      },
+      {
+        "title": "同花顺财经",
+        "desc": "金融AI‘问财’独树一帜，提供个股技术分析、选股策略等。",
+        "url": "https://www.10jqka.com.cn/",
+        "icon": "https://gips2.baidu.com/it/u=3814300084,689308592&fm=3074&app=3074&f=JPEG?w=640&h=610&type=normal&func="
+      },
+      {
+        "title": "财联社",
+        "desc": "提供电报形式的7×24小时财经资讯服务",
+        "url": "https://www.cls.cn/",
+        "icon": "https://img0.baidu.com/it/u=3037275253,128467964&fm=253&fmt=auto&app=138&f=JPEG?w=498&h=498"
+      }
+    ]
+  },
+  {
     "section": "剁手吃土",
     "links": [
       {
@@ -944,12 +979,6 @@
         "desc": "针对md5等哈希算法进行在线解密，可上传文件在线批量破解，最多可支持数万个密码，一般的查询是免费的",
         "url": "http://www.ttmd5.com/",
         "icon": "http://www.ttmd5.com/img/favicon.png"
-      },
-      {
-        "title": "大盘云图-缅A股",
-        "desc": "将所有股票按所属行业进行板块划分，用红色和绿色的深浅代表涨跌幅度，实现直观的展现大盘的全景图，适合股票爱好者盯盘使用。",
-        "url": "https://52etf.site/",
-        "icon": "https://52etf.site/favicon.ico"
       },
       {
         "title": "商品历史价格查询",
