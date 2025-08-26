@@ -372,6 +372,18 @@
         "icon": "https://52etf.site/favicon.ico"
       },
       {
+        "title": "百度7*24快讯",
+        "desc": "百度7*24快讯，提供最新的财经新闻和市场动态",
+        "url": "https://gushitong.baidu.com/expressnews",
+        "icon": "https://psstatic.cdn.bcebos.com/aladdin/finance_pc/Frame_2147227063%20-%2001_1747314359000.gif"
+      },
+      {
+        "title": "百度股市通",
+        "desc": "市场、自选、热力图",
+        "url": "https://gushitong.baidu.com/",
+        "icon": "https://psstatic.cdn.bcebos.com/aladdin/finance_pc/Frame_2147227063%20-%2001_1747314359000.gif"
+      },
+      {
         "title": "金十数据",
         "desc": "查询全球宏观经济数据，提供外汇、期货等市场的实时新闻和数据。",
         "url": "https://www.jin10.com/",

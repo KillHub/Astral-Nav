@@ -129,9 +129,9 @@
                 <!-- 左侧菜单-->
                 <ul id="main-menu" class="main-menu" role="menubar" aria-label="主导航菜单">
                     <li role="none"><a href="#search" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/迷你龙.svg" class="main-menu-icon"> <span class="title" data-i18n="实用搜索">实用搜索</span></a></li>
+                    <li role="none"><a href="#投资理财" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/梦幻.svg" class="main-menu-icon"> <span class="title" data-i18n="投资理财">投资理财</span></a></li>
                     <li role="none"><a href="#热搜新闻" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/小火龙.svg" class="main-menu-icon"> <span class="title" data-i18n="热搜新闻">热搜新闻</span></a></li>
                     <li role="none"><a href="#学无止境" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/皮卡丘-2.svg" class="main-menu-icon"> <span class="title" data-i18n="学无止境">学无止境</span></a></li>
-                    <li role="none"><a href="#投资理财" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/梦幻.svg" class="main-menu-icon"> <span class="title" data-i18n="投资理财">投资理财</span></a></li>
                     <li role="none"><a href="#社区资讯" class="smooth" role="menuitem" tabindex="0"><img src="/images/Pokémon GO/svg/伊布.svg" class="main-menu-icon"> <span class="title" data-i18n="社区资讯">社区资讯</span></a></li>
                     <li><a><img src="/images/Pokémon GO/svg/可达鸭.svg" class="main-menu-icon"> <span class="title" data-i18n="开发生产">开发生产</span></a>
                         <ul>
@@ -216,6 +216,12 @@
                     <!-- NOTE：无障碍服务功能 -->
                     <li>
                         <div><img src="/images/services.png" height="40px" id='assist-open'></div>
+                    </li>
+                    <!-- NOTE：百度金融智能体FinScope功能 -->
+                    <li>
+                        <a onclick="openSwalBox('https://mbd.baidu.com/ma/s/IeVikxcN','百度金融智能体FinScope')" href="javascript:void(0);">
+                             <img src="https://psstatic.cdn.bcebos.com/aladdin/finance_pc/Frame_2147227063%20-%2001_1747314359000.gif" style="margin-top: -15px;height:40px;" >
+                        </a>
                     </li>
                 </ul>
                 <!-- NOTE: 右上角天气 API -->
@@ -421,6 +427,15 @@
             </div>
             <!-- 实用搜索 end -->
 
+            <!-- 投资理财🎲 -->
+            <h6 class="tag">
+                <i class="main-content-tag" id="投资理财"></i><span data-i18n="投资理财">投资理财</span>
+            </h6>
+            <div class="row" id="section-投资理财">
+                <!-- TAG: 投资理财json -->
+            </div>
+            <!--END 投资理财🎲 -->
+
             <!-- 热搜新闻 --> 
             <h6 class="tag">
                 <i class="main-content-tag" id="热搜新闻"></i><span data-i18n="热搜新闻">热搜新闻</span>
@@ -447,15 +462,6 @@
                 <!-- TAG: 社区资讯json -->
             </div>
             <!--END 社区资讯 -->
-
-            <!-- 投资理财🎲 -->
-            <h6 class="tag">
-                <i class="main-content-tag" id="投资理财"></i><span data-i18n="投资理财">投资理财</span>
-            </h6>
-            <div class="row" id="section-投资理财">
-                <!-- TAG: 投资理财json -->
-            </div>
-            <!--END 投资理财🎲 -->
 
             <!-- 开发文档 -->
             <h6 class="tag">
@@ -1157,21 +1163,37 @@
             ]
         });
     </script>
-    <!-- NOTE: 波浪API接口 -->
+    <!-- NOTE: 波浪API接口🌊 -->
     <!-- <script src="/js/background_bolang.js"></script> -->
     <!-- <script src="https://api.vvhan.com/api/script/bolang"></script> -->
-    <!-- NOTE: 雪花API接口 -->
-    <!-- <script src="/js/background_snow.js"></script> -->
+    <!-- NOTE: 雪花API接口❄️ -->
+    <script src="/js/background_snow.js"></script>
     <!-- <script src="https://api.vvhan.com/api/script/snow"></script> -->
-    <!-- NOTE: 春节灯笼API接口 -->
+    <!-- NOTE: 春节灯笼API接口🏮 -->
     <!-- <script src="/js/background_denglong.js"></script> -->
     <!-- <script src="https://api.vvhan.com/api/script/denglong"></script> -->
-    <!-- NOTE: 梅花效果API接口 -->
+    <!-- NOTE: 梅花效果API接口♣️ -->
     <!-- <script src="/js/background_meihua.js"></script> -->
     <!-- <script src="https://api.vvhan.com/api/script/meihua"></script> -->
-    <!-- NOTE: 樱花效果API接口 -->
-    <script src="/js/background_yinghua.js"></script>
+    <!-- NOTE: 樱花效果API接口🌸 -->
+    <!-- <script src="/js/background_yinghua.js"></script> -->
     <!-- <script src="https://api.vvhan.com/api/script/yinghua"></script> -->
+    <script>
+        function openLinkInSwal(url) {
+            Swal.fire({
+                title: '即将跳转',
+                html: '即将打开外部链接<br><small>点击确认后将在当前窗口跳转</small>',
+                showCancelButton: true,
+                confirmButtonText: '继续',
+                cancelButtonText: '取消',
+                showLoaderOnConfirm: true,
+                allowOutsideClick: false,
+                preConfirm: () => {
+                    window.location.href = url;
+                }
+            });
+        }
+    </script>
     <!-- NOTE：无障碍服务功能 -->
     <script type="text/javascript" src="https://fastly.jsdelivr.net/gh/muzihuaner/assist@main/dist/assist-entry.js"></script>
 </body>
