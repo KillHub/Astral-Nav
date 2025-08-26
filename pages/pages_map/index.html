@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>地图插件</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- jquery库 必需 -->
+    <script src="jquery-v3.7.1.min.js"></script>
+    <!-- 初始化数据库，可做成ajax动态传入 -->
+    <script src="address_initdata.js"></script>
+    <!-- 地址库 1.0 -->
+    <script src="address_province.js?v=1.O"></script>
+    <script src="address_city.js?v=1.O"></script>
+    <script src="address_district.js?v=1.O"></script>
+    <!-- 高德Demo辅助工具，简化代码，可选 -->
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <!-- 高德地图主JS API，核心地图功能 + 行政区划查询、地理编码插件，必需 -->
+    <!-- 
+        plugin=AMap.DistrictSearch：加载行政区划查询插件（用于获取省份、城市边界等）。
+        plugin=AMap.Geocoder：加载地理编码/逆地理编码插件（地址与坐标互转）。
+     -->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=d95fd901833a3bf041eccd41280a9bed&plugin=AMap.DistrictSearch&plugin=AMap.Geocoder"></script>
+    <!-- 高德地图UI组件库：加载高德地图的UI组件库（AMap UI），可选。 -->
+    <script src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+    <!-- 高德官方Demo演示用的轻量级工具栏，可选 -->
+    <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+    <!-- NOTE：功能js -->
+    <script src="map.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+        <div id="localPanel" style="display:none">
+            <table style="width:100%" id="gLocationTable">
+            
+            </table>
+        </div>
+    <div class="input-card" style=" bottom: 15rem">
+        <h4>下属行政区查询</h4>
+        <div class="input-item">
+            <div class="input-item-prepend"><span class="input-item-text">省市区</span></div>
+            <select id='province' style="width:100px"></select>
+        </div>
+        <div class="input-item">
+            <div class="input-item-prepend"><span class="input-item-text">地级市</span></div>
+            <select id='city' style="width:100px"></select>
+        </div>
+        <div class="input-item">
+            <div class="input-item-prepend"><span class="input-item-text">区县</span></div>
+            <select id='district' style="width:100px"></select>
+        </div>
+        <div class="input-item" style="padding:20px">
+            <label style='color:grey'>定位到详细地址，格式参数请参考Click事件</label>
+            <input id="gotoAddress" type="button" class="btn" value="定位" style="width:100px" />
+            <input id="gotoLocation" type="button" class="btn" value="定位到当前位置" style="width:100px" />
+        </div>
+    </div>
+    <script>
+        /* 初始化地图
+         * 参数csv是传入地图的Json数组，详细格式请见initdata.js文件，具体数据可做成Ajax获取后传入
+         * 所有的省市区请用全称 比如江苏省不能写成江苏，高德无法匹配
+         * */
+        $('#container').initPage(csv);
+
+        /*注意：
+         * 省市区Select元素ID 请用province，city和district，否则会导致数据加载不全，控件无法使用
+         * 省市区的数据源 请严格使用高德的省市区，因为他们会用名称和代码判断
+         * */
+        //定位到一个详细的地址，请注意格式
+        $("#gotoAddress").click(function () {
+            $.fn.geoCode({
+                "ID": "eddac9f0-4d37-4f57-9c32-12c84b80de7b",//必填
+                "title": "昆山市人民政府",//可为空
+                "logoURL": "https://www.jq22.com/img/cs/500x500-1.png",//可为空
+                "desc": "人民有信仰，民族有希望，国家有力量",//可为空
+                "redirecttitle": "去这里",//可为空
+                "redirectURL": "https://www.jq22.com/img/cs/500x500-1.png",//可为空
+                "lat": "31.386419",//可为空
+                "lng": "120.981316",//可为空
+                "province": "江苏省",//必填
+                "city": "苏州市",//必填
+                "district": "昆山市",//必填
+                "address": "前进中路108号"//必填
+            });
+        })
+        //定位到当前位置
+        $("#gotoLocation").click(function () {
+            $.fn.gotoLocation(csv, { showList: true });
+        })
+    </script>
+</body>
+</html>
