@@ -225,29 +225,6 @@ and：连接多个依赖条件（如 after dev1 and dev2）。
 ```
 
 ## 6.支持 HTML
-| 颜色代码 | 颜色名称 | 描述 |
-|---------|---------|------|
-| <table><tr><td bgcolor="#B32222"><font color="#000000" >深红</font></td></tr></table> | **#B32222 深红** | 位于光谱起始端，呈现暗红色调。 |
-| <table><tr><td bgcolor="#D04A25"><font color="#000000" >红橙</font></td></tr></table> | **#D04A25 红橙** | 红色向橙色过渡的中间态，带有暖色调。 |
-| <table><tr><td bgcolor="#E87421"><font color="#000000" >橙红</font></td></tr></table> | **#E87421 橙红** | 橙色与红色的混合色，亮度较高。 |
-| <table><tr><td bgcolor="#FC9F4D"><font color="#000000" >亮橙</font></td></tr></table> | **#FC9F4D 亮橙** | 接近纯橙色，色彩饱和度强。 |
-| <table><tr><td bgcolor="#FFB84D"><font color="#000000" >橙黄</font></td></tr></table> | **#FFB84D 橙黄** | 橙色向黄色过渡的中间色。 |
-| <table><tr><td bgcolor="#FFD166"><font color="#000000" >浅黄</font></td></tr></table> | **#FFD166 浅黄** | 黄色调中带有白色成分，显得明亮。 |
-| <table><tr><td bgcolor="#FFEF61"><font color="#000000" >明黄</font></td></tr></table> | **#FFEF61 明黄** | 接近纯黄色，色彩非常鲜亮。 |
-| <table><tr><td bgcolor="#D4E157"><font color="#000000" >黄绿</font></td></tr></table> | **#D4E157 黄绿** | 黄色与绿色的混合色，带有自然感。 |
-| <table><tr><td bgcolor="#8FBD8F"><font color="#000000" >浅绿</font></td></tr></table> | **#8FBD8F 浅绿** | 绿色调中带有灰色成分，显得柔和。 |
-| <table><tr><td bgcolor="#4CAF50"><font color="#000000" >翠绿</font></td></tr></table> | **#4CAF50 翠绿** | 鲜艳的绿色，接近自然植被的颜色。 |
-| <table><tr><td bgcolor="#008573"><font color="#000000" >青绿</font></td></tr></table> | **#008573 青绿** | 绿色向青色过渡的中间色。 |
-| <table><tr><td bgcolor="#4DB6AC"><font color="#000000" >水绿</font></td></tr></table> | **#4DB6AC 水绿** | 带有蓝色成分的绿色，显得清澈。 |
-| <table><tr><td bgcolor="#87CFEB"><font color="#000000" >天蓝</font></td></tr></table> | **#87CFEB 天蓝** | 接近天空的蓝色，色调明亮。 |
-| <table><tr><td bgcolor="#4FC3F7"><font color="#000000" >浅蓝</font></td></tr></table> | **#4FC3F7 浅蓝** | 蓝色调中带有白色成分，显得轻盈。 |
-| <table><tr><td bgcolor="#2196F3"><font color="#000000" >亮蓝</font></td></tr></table> | **#2196F3 亮蓝** | 鲜艳的蓝色，色彩饱和度高。 |
-| <table><tr><td bgcolor="#3949AB"><font color="#000000" >靛蓝</font></td></tr></table> | **#3949AB 靛蓝** | 蓝色向紫色过渡的中间色，带有深邃感。 |
-| <table><tr><td bgcolor="#7E57C2"><font color="#000000" >蓝紫</font></td></tr></table> | **#7E57C2 蓝紫** | 蓝色与紫色的混合色，显得神秘。 |
-| <table><tr><td bgcolor="#9C64A6"><font color="#000000" >浅紫</font></td></tr></table> | **#9C64A6 浅紫** | 紫色调中带有灰色成分，显得优雅。 |
-| <table><tr><td bgcolor="#CE93D8"><font color="#000000" >粉紫</font></td></tr></table> | **#CE93D8 粉紫** | 紫色与粉色的混合色，带有柔和感。 |
-| <table><tr><td bgcolor="#B388FF"><font color="#000000" >薰衣草紫</font></td></tr></table> | **#B388FF 薰衣草紫** | 淡紫色调，接近薰衣草的颜色。 |
-
     #B32222 深红：位于光谱起始端，呈现暗红色调。
     #D04A25 红橙：红色向橙色过渡的中间态，带有暖色调。
     #E87421 橙红：橙色与红色的混合色，亮度较高。
@@ -308,10 +285,3 @@ and：连接多个依赖条件（如 after dev1 and dev2）。
 | <div style="background-color: #FF00FF; width: 60px; height: 20px; border: 1px solid #000;"></div> | `#FF00FF` Fuchsia (紫红色) |
 | <div style="background-color: #8B008B; width: 60px; height: 20px; border: 1px solid #000;"></div> | `#8B008B` DarkMagenta (暗洋红) |
 
-   #8B0000, #A52A2A, #B22222, #CD5C5C, #DC143C, 
-    #FF69B4, #FFC0CB, #FFD1DC, #FF7F50, #FF4500, 
-    #FFA500, #FFBF00, #FFD700, #FFFACD, #FFF44F, 
-    #FFFF00, #808000, #ADFF2F, #7CFC00, #32CD32, 
-    #90EE90, #98FB98, #87CEFA, #1E90FF, #0000FF, 
-    #4B0082, #8A2BE2, #9370DB, #DDA0DD, #DA70D6, 
-    #E6E6FA, #483D8B, #FF00FF, #8B008B
