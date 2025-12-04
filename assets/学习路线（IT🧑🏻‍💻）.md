@@ -750,3 +750,97 @@
   - 关联3张表查询用户订单详情（user + order + order_item + product）
   - 实现分页查询（LIMIT + 索引优化）
   ![alt text](学习路线-MySQL.png)
+
+
+# 8️⃣Spring学习路线
+## 🌱 一、前置基础（1-2周）
+- 核心前置
+  - Java基础：面向对象（封装/继承/多态）、集合、IO、反射、注解
+  - 设计模式：单例、工厂、代理（Spring核心底层）
+  - 开发工具：Maven/Gradle（依赖管理）、IDEA（快捷键/调试）
+- 环境搭建
+  - JDK版本：推荐JDK 11/17（LTS版，Spring 6+适配）
+  - 项目初始化：Spring Initializr（官网/IDEA插件）
+  - 基础配置：pom.xml依赖引入、application.yml/properties配置
+
+## 📚 二、Spring Core 核心（2-3周）
+- IoC容器（核心）
+  - 核心概念：控制反转、依赖注入（DI）、Bean生命周期
+  - 配置方式：
+    - 注解式：@Component/@Autowired/@Resource/@Value
+    - 配置类：@Configuration/@Bean
+    - XML配置（了解即可，主流注解）
+  - Bean管理：作用域（singleton/prototype）、懒加载、条件注入（@Conditional）
+- AOP面向切面
+  - 核心概念：切面/切点/通知/连接点/织入
+  - 实现方式：
+    - 注解式：@Aspect/@Before/@After/@Around
+    - 切入点表达式：execution/within/@annotation
+  - 实战场景：日志记录、事务控制、权限校验
+
+## 🚀 三、Spring Boot 核心（3-4周）
+- 核心特性
+  - 自动配置：原理（@EnableAutoConfiguration）、自定义自动配置
+  - 起步依赖：spring-boot-starter-web/-data-jpa/security等
+  - 简化配置：application.yml核心配置（端口、日志、数据源）
+- 核心功能
+  - 内置容器：Tomcat/Jetty/Undertow配置与切换
+  - 监控运维：Actuator（健康检查、指标监控）
+  - 热部署：devtools、IDEA热部署配置
+  - 配置外部化：nacos/apollo配置中心（进阶）
+- 实战开发
+  - Web开发：
+    - 控制器：@RestController/@RequestMapping/@GetMapping
+    - 请求参数：@RequestParam/@PathVariable/@RequestBody
+    - 响应处理：统一返回结果、异常全局处理（@RestControllerAdvice）
+  - 数据访问：
+    - JDBC：JdbcTemplate
+    - ORM：Spring Data JPA/MyBatis-Plus（整合配置）
+    - 事务管理：@Transactional（传播行为、隔离级别）
+
+## 🌟 四、Spring 进阶组件（4-6周）
+- Spring Security
+  - 核心：认证（Authentication）、授权（Authorization）
+  - 实战：
+    - 基于用户名密码认证、JWT令牌认证
+    - 角色/权限控制（@PreAuthorize）
+    - 第三方登录（OAuth2/SSO）
+- Spring Cloud 微服务（核心组件）
+  - 服务注册发现：Nacos/Eureka
+  - 服务调用：OpenFeign
+  - 熔断降级：Sentinel/Hystrix
+  - 网关：Spring Cloud Gateway
+  - 配置中心：Nacos/Apollo
+- Spring Cache 缓存
+  - 注解：@Cacheable/@CachePut/@CacheEvict
+  - 整合：Redis/Ehcache（缓存配置与实战）
+
+## 🎯 五、实战项目（6-8周）
+- 基础实战：
+  - 单体项目：用户管理系统（CRUD+权限+事务）
+  - 技术栈：Spring Boot + MyBatis-Plus + MySQL + Redis
+- 进阶实战：
+  - 微服务项目：电商订单系统
+  - 技术栈：Spring Cloud Alibaba（Nacos/OpenFeign/Sentinel/Gateway）+ 分布式事务
+- 核心能力：
+  - 接口文档：Swagger/SpringDoc
+  - 单元测试：JUnit5 + Mockito
+  - 日志：SLF4J + Logback
+  - 部署：Docker容器化、Jenkins CI/CD
+
+## 📊 六、阶段目标与检验
+| 阶段 | 时间 | 核心目标 | 检验标准 |
+|------|------|----------|----------|
+| 前置基础 | 1-2周 | 夯实Java基础 | 能独立编写面向对象程序、使用Maven管理依赖 |
+| Spring Core | 2-3周 | 掌握IoC/AOP | 能手写注解式Bean配置、实现AOP日志切面 |
+| Spring Boot | 3-4周 | 独立开发Web接口 | 完成CRUD接口开发、整合数据库与事务 |
+| 进阶组件 | 4-6周 | 掌握安全/微服务 | 实现JWT认证、搭建微服务基础架构 |
+| 实战项目 | 6-8周 | 项目落地能力 | 完成单体/微服务项目开发、部署上线 |
+
+## 🔧 学习资源
+- 官方文档：Spring官网（docs.spring.io）、Spring Boot官方指南
+- 视频教程：B站尚硅谷/Spring官方教程
+- 书籍：《Spring实战（第6版）》《Spring Boot实战》
+- 刷题：LeetCode Java基础题、Spring面试高频题
+![alt text](学习路线-Spring.png)
+
