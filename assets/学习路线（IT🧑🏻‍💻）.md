@@ -1,3 +1,5 @@
+[TOC]
+
 # 1️⃣Java学习路线
 ## 🌱 一、基础入门（1.5-2个月）
 - 环境搭建
@@ -99,7 +101,7 @@
   - 设计模式（单例/工厂/代理等）
   - 分布式理论（CAP/BASE）
   - 高可用设计
-![alt text](Java学习路线.png)
+![alt text](学习路线-Java.png)
 
 
 # 2️⃣JavaScript学习路线
@@ -207,7 +209,7 @@
   - 前端高频算法（数组去重/防抖节流/深拷贝）
   - LeetCode前端题库（字符串/数组/树）
   - 手写代码（Promise/数组方法/防抖节流）
-  ![alt text](JavaScript学习路线.png)
+  ![alt text](学习路线-JavaScript.png)
 
 
 # 3️⃣Python学习路线
@@ -320,7 +322,7 @@
   - LeetCode Python题库（数组/字符串/树/动态规划）
   - 前端高频算法（排序/查找/去重）
   - 手写代码：装饰器、深拷贝、LRU缓存
-  ![alt text](Python学习路线.png)
+  ![alt text](学习路线-Python.png)
 
 
 # 4️⃣Vue3学习路线
@@ -413,7 +415,7 @@
   - 自定义组合式API（如useRequest/useStorage）
   - 简易Vue Router（路由跳转与匹配）
   - 表单验证指令（自定义v-validate）
-  ![alt text](Vue3学习路线.png)
+  ![alt text](学习路线-Vue3.png)
 
 
 # 5️⃣SpringBoot学习路线
@@ -510,7 +512,7 @@
   - 自定义Starter（如自定义日志Starter）
   - 简易自动配置类（模拟@EnableAutoConfiguration）
   - 自定义缓存注解（类似@Cacheable）
-  ![alt text](SpringBoot学习路线.png)
+  ![alt text](学习路线-SpringBoot.png)
 
 
 # 6️⃣Git学习路线
@@ -621,7 +623,7 @@
   - 合并feature分支到dev分支，解决冲突后推送远程
   - 给当前版本打标签并推送远程
   - 回滚远程仓库到上一稳定版本
-  ![alt text](Git学习路线.png)
+  ![alt text](学习路线-Git.png)
 
 
 # 7️⃣MySQL学习路线
@@ -747,4 +749,4 @@
   - 找出连续3天登录的用户（窗口函数ROW_NUMBER()）
   - 关联3张表查询用户订单详情（user + order + order_item + product）
   - 实现分页查询（LIMIT + 索引优化）
-  ![alt text](MySQL学习路线.png)
+  ![alt text](学习路线-MySQL.png)
