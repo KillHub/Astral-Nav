@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同花顺100名ETF排名榜工具 v1.0.20250821</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chinese-decoration decoration-corner-tl"></div>
+    <div class="chinese-decoration decoration-corner-br"></div>
+    <div class="container">
+        <!-- 标题栏 -->
+        <div class="header-row">
+            <h1 class="title chinese-title">同花顺100名ETF排名榜工具</h1>
+        </div>
+
+        <!-- 搜索区域 -->
+        <div class="search-area">
+            <input type="text" id="searchInput" class="search-input" placeholder="搜索内容">
+            <select id="searchType" class="search-select">
+                <option value="code">ETF代码</option>
+                <option value="name">ETF名称</option>
+            </select>
+            <button id="searchBtn" class="btn btn-search">🔍 搜索</button>
+            <span id="infoText" class="info-text">信息：</span>
+        </div>
+
+        <!-- 操作区域 -->
+        <div class="action-area">
+            <label class="checkbox-container">
+                <input type="checkbox" id="checkAll" checked>
+                <span>数据勾选</span>
+            </label>
+            
+            <!-- 控制面板 -->
+            <div class="control-panel">
+                <div class="control-group">
+                    <span class="control-label">勾选范围:</span>
+                    <input type="number" id="rangeLeft" class="control-input-medium" value="1" min="1">
+                    <span class="control-sep">~</span>
+                    <input type="number" id="rangeRight" class="control-input-medium" value="20" min="1">
+                    <button id="rangeBtn" class="btn-control-mini">✓</button>
+                </div>
+                <div class="control-group">
+                    <span class="control-label">刷新:</span>
+                    <input type="number" id="refreshInterval" class="control-input-small" value="5" min="1" max="60">
+                    <span class="control-unit">秒</span>
+                    <button id="refreshBtn" class="btn-control-mini">🔄</button>
+                </div>
+            </div>
+            
+            <button id="copyBtn" class="btn btn-success">📋 复制代码+名称</button>
+            <select id="saveLocation" class="save-select">
+                <option value="download">保存到下载文件夹</option>
+                <option value="copy">复制到剪贴板</option>
+            </select>
+            <button id="saveBtn" class="btn btn-primary">💾 保存到txt文本</button>
+            <button id="clearHighlightBtn" class="btn btn-secondary btn-hidden">清除高亮</button>
+        </div>
+
+        <!-- 表格区域 -->
+        <div class="table-container">
+            <table id="etfTable">
+                <thead>
+                    <tr>
+                        <th class="col-check">
+                            <input type="checkbox" id="headerCheck" checked>
+                        </th>
+                        <th class="col-index">序号</th>
+                        <th class="col-code sortable" data-sort="code">ETF代码 <span class="sort-icon"></span></th>
+                        <th class="col-name sortable" data-sort="name">ETF名称 <span class="sort-icon"></span></th>
+                        <th class="col-price sortable" data-sort="price">最新价 <span class="sort-icon"></span></th>
+                        <th class="col-change sortable" data-sort="change">涨跌值 <span class="sort-icon"></span></th>
+                        <th class="col-percent sortable" data-sort="percent">涨跌幅% <span class="sort-icon"></span></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="7" class="loading">正在加载数据...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
