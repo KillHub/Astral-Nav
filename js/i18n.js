@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 导航菜单
             "language": "切换语言",
             "codeViewer": "代码孵化",
+            "ETF Rank": "ETF排行榜",
             "实用搜索": "实用搜索",
             "热搜新闻": "热搜新闻",
             "学无止境": "学无止境",
