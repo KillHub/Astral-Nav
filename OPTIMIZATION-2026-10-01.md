@@ -25,8 +25,10 @@
 **性能优化**
 - 所有非关键 JS（jQuery、Bootstrap、GSAP、iziToast、SweetAlert2、APlayer、Live2D、lozad、i18next 及本站脚本）统一添加 `defer`，不再阻塞首屏渲染
 - 和风天气图标改为引用本地 `css/qweather-icons.css`（原 CDN 链接与本地文件重复，已移除）
+  - **后续补充（2026-10-01）**：补全本地字体文件 `css/fonts/qweather-icons.{woff2,woff,ttf}`，修复切到本地 CSS 后图标字体 404 的问题
 - Live2D 模型从 `raw.githubusercontent.com`（境外、慢且不稳定）迁移到本地 `live2d_models/` 目录
   - ⚠️ 注意：本地 seifuku 模型缺少贴图/动作文件，改用本地完整的 **shizuku** 模型，看板娘外观会变化；如需换回 seifuku，下载完整模型文件后修改 `js/live2d_init.js` 中的 `jsonPath` 即可
+  - **后续补充（2026-10-01）**：L2Dwidget 库文件也已本地化（`js/L2Dwidget.min.js` + 其动态分包 `js/L2Dwidget.0.min.js`，两者必须同目录），彻底消除境外 CDN 依赖——此前用户反馈看板娘时隐时现，根因即 l2dwidget.js.org 在国内访问不稳定
 - 6 段内联脚本（Live2D 配置、window.open 拦截、角标统计、悬浮搜索、APlayer、openLinkInSwal）全部抽取到 `js/` 目录独立文件
 
 **Bug 修复**
