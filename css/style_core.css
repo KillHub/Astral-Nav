@@ -826,6 +826,15 @@ footer.main-footer.fixed {
 .tag i {
   margin-right: 7px;
 }
+/* 天气组件容器：绝对定位于导航栏右上角
+   修复：原 float:right 方案失效——Bootstrap 5 的 .navbar 是 flex 容器，
+   flex item 上 float 无效，按钮增多后天气被 flex-wrap 挤到第二行左侧错位 */
+#weather-container {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  z-index: 10; /* 避免被导航栏其他元素遮挡 */
+}
 .weather,
 .myinfo p {
   text-align: center;
