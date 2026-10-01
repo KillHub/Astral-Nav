@@ -1,55 +1,67 @@
-// 搜索联想功能实现
+/**
+ * ============================================================
+ * 搜索联想（搜索建议）功能实现
+ * ============================================================
+ * 数据源：百度搜索建议 API（JSONP）
+ * 交互：↑/↓ 选择联想词，Enter 搜索，ESC 关闭，点击空白处关闭
+ *
+ * 说明：表单提交（拼接 URL 跳转）由 js/script_function.js 统一处理，
+ *       本文件只负责联想词的获取、展示与选择。
+ * ============================================================
+ */
 $(document).ready(function() {
     const searchInput = $('#search-text');
     const suggestionBox = $('<div id="search-suggestions" class="suggestion-box"></div>');
     let suggestionIndex = -1;
     let suggestions = [];
-    
+    let debounceTimer = null; // 防抖定时器
+
     // 将建议框添加到搜索框下方
     searchInput.parent().append(suggestionBox);
-    
-    // 监听输入事件
+
+    // 监听输入事件（300ms 防抖，避免每次击键都请求联想 API）
     searchInput.on('input', function() {
         const query = $(this).val().trim();
-        
+        clearTimeout(debounceTimer);
+
         if (query.length > 0) {
-            // 获取搜索建议
-            getSuggestions(query);
+            debounceTimer = setTimeout(function() {
+                getSuggestions(query);
+            }, 300);
         } else {
             // 隐藏建议框
             hideSuggestions();
         }
     });
-    
-    // 监听键盘事件
+
+    // 监听键盘事件（使用 e.key，原 e.keyCode 已被标准废弃）
     searchInput.on('keydown', function(e) {
         const suggestionItems = suggestionBox.find('.suggestion-item');
-        
-        switch(e.keyCode) {
-            case 38: // 上箭头
+
+        switch(e.key) {
+            case 'ArrowUp': // 上箭头
                 e.preventDefault();
                 suggestionIndex = suggestionIndex <= 0 ? suggestionItems.length - 1 : suggestionIndex - 1;
                 updateSuggestionSelection();
                 break;
-                
-            case 40: // 下箭头
+
+            case 'ArrowDown': // 下箭头
                 e.preventDefault();
                 suggestionIndex = suggestionIndex >= suggestionItems.length - 1 ? 0 : suggestionIndex + 1;
                 updateSuggestionSelection();
                 break;
-                
-            case 13: // 回车
+
+            case 'Enter': // 回车
                 e.preventDefault();
                 if (suggestionIndex >= 0 && suggestionIndex < suggestions.length) {
                     searchInput.val(suggestions[suggestionIndex]);
                     hideSuggestions();
-                    $('#super-search-fm').submit();
-                } else {
-                    $('#super-search-fm').submit();
                 }
+                // 提交逻辑统一由 script_function.js 的 submit 处理器完成
+                $('#super-search-fm').submit();
                 break;
-                
-            case 27: // ESC
+
+            case 'Escape': // ESC
                 hideSuggestions();
                 break;
         }
@@ -70,60 +82,9 @@ $(document).ready(function() {
         }
     });
     
-    // 监听表单提交事件，确保使用正确的搜索词
-    $('#super-search-fm').on('submit', function(e) {
-        // 如果有选中的建议项，使用建议项的值作为搜索词
-        if (suggestionIndex >= 0 && suggestionIndex < suggestions.length) {
-            searchInput.val(suggestions[suggestionIndex]);
-        }
-        
-        // 获取当前选中的搜索类型
-        const selectedType = $('.search-type input:checked').val();
-        const searchQuery = searchInput.val();
-        
-        // 修改表单的action
-        $(this).attr('action', selectedType);
-        
-        // 根据不同的搜索类型添加正确的参数名
-        if (selectedType) {
-            // 清除所有可能的参数
-            $(this).find('input[type="hidden"]').remove();
-            
-            if (selectedType.includes('baidu.com')) {
-                $(this).append('<input type="hidden" name="wd" value="' + searchQuery + '">');
-            } 
-            else if (selectedType.includes('google.com')) {
-                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
-            }
-            else if (selectedType.includes('github.com')) {
-                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
-            }
-            else if (selectedType.includes('bilibili.com')) {
-                $(this).append('<input type="hidden" name="keyword" value="' + searchQuery + '">');
-            }
-            else if (selectedType.includes('taobao.com')) {
-                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
-            }
-            else if (selectedType.includes('jd.com')) {
-                $(this).append('<input type="hidden" name="keyword" value="' + searchQuery + '">');
-            }
-            else if (selectedType.includes('zhihu.com')) {
-                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
-            }
-            else if (selectedType.includes('douban.com')) {
-                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
-            }
-            else if (selectedType.includes('zhaopin.com') || selectedType.includes('51job.com') || 
-                     selectedType.includes('lagou.com') || selectedType.includes('liepin.com') ||
-                     selectedType.includes('zhipin.com')) {
-                $(this).append('<input type="hidden" name="keyword" value="' + searchQuery + '">');
-            }
-            else {
-                // 默认使用q参数
-                $(this).append('<input type="hidden" name="q" value="' + searchQuery + '">');
-            }
-        }
-    });
+    // NOTE: 原表单 submit 处理器（按站点拼接 hidden 参数）已移除——
+    //       与 script_function.js 的提交逻辑职责重复，且实际跳转由后者完成，
+    //       此处注入的 hidden 参数从未生效。联想词选中时已写回输入框，无需重复处理。
     
     // 获取搜索建议
     function getSuggestions(query) {

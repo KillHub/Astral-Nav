@@ -1,37 +1,156 @@
-//搜索框
-eval(function (e, t, a, c, i, n) {
-    if (i = function (e) {
-        return (e < t ? "" : i(parseInt(e / t))) + (35 < (e %= t) ? String.fromCharCode(e + 29) : e.toString(
-            36))
-        }, !"".replace(/^/, String)) {
-        for (; a--;) n[i(a)] = c[a] || i(a);
-        c = [function (e) {
-        return n[e]
-        }], i = function () {
-        return "\\w+"
-        }, a = 1
-    }
-    for (; a--;) c[a] && (e = e.replace(new RegExp("\\b" + i(a) + "\\b", "g"), c[a]));
-    return e
-    }('!2(){2 g(){h(),i(),j(),k()}2 h(){d.9=s()}2 i(){z a=4.8(\'A[B="7"][5="\'+p()+\'"]\');a&&(a.9=!0,l(a))}2 j(){v(u())}2 k(){w(t())}2 l(a){P(z b=0;b<e.O;b++)e[b].I.1c("s-M");a.F.F.F.I.V("s-M")}2 m(a,b){E.H.S("L"+a,b)}2 n(a){6 E.H.Y("L"+a)}2 o(a){f=a.3,v(u()),w(a.3.5),m("7",a.3.5),c.K(),l(a.3)}2 p(){z b=n("7");6 b||a[0].5}2 q(a){m("J",a.3.9?1:-1),x(a.3.9)}2 r(a){6 a.11(),""==c.5?(c.K(),!1):(w(t()+c.5),x(s()),s()?E.U(b.G,+T X):13.Z=b.G,10 0)}2 s(){z a=n("J");6 a?1==a:!0}2 t(){6 4.8(\'A[B="7"]:9\').5}2 u(){6 4.8(\'A[B="7"]:9\').W("14-N")}2 v(a){c.1e("N",a)}2 w(a){b.G=a}2 x(a){a?b.3="1a":b.16("3")}z y,a=4.R(\'A[B="7"]\'),b=4.8("#18-C-19"),c=4.8("#C-12"),d=4.8("#17-C-15"),e=4.R(".C-1b"),f=a[0];P(g(),y=0;y<a.O;y++)a[y].D("Q",o);d.D("Q",q),b.D("1d",r)}();',
-    62, 77,
-    "||function|target|document|value|return|type|querySelector|checked||||||||||||||||||||||||||var|input|name|search|addEventListener|window|parentNode|action|localStorage|classList|newWindow|focus|superSearch|current|placeholder|length|for|change|querySelectorAll|setItem|new|open|add|getAttribute|Date|getItem|href|void|preventDefault|text|location|data|blank|removeAttribute|set|super|fm|_blank|group|remove|submit|setAttribute"
-    .split("|"), 0, {})
-);
+/**
+ * ============================================================
+ * 搜索框核心逻辑（原 eval 混淆代码还原重写，功能不变）
+ * ============================================================
+ * 功能：
+ *   1. 记住用户选择的搜索引擎（localStorage 持久化）
+ *   2. 记住「新窗口打开」开关状态
+ *   3. 切换引擎时同步搜索框 placeholder 和当前分组高亮
+ *   4. 提交时拼接搜索 URL 并跳转（新窗口或当前窗口）
+ *
+ * 说明：搜索建议（联想词）逻辑在 js/search_suggestion.js 中，
+ *       联想词选中后会直接填入输入框，此处提交时直接读取即可。
+ * ============================================================
+ */
+(function () {
+    "use strict";
 
-//回到顶部
-$(window).scroll(function () {
-    if ($(this).scrollTop() >= 50) {
-        $('#topup').fadeIn(200);
-        $('.sidebar-menu').addClass('bgchange');
-    } else {
-        $('#topup').fadeOut(200);
-        $('.sidebar-menu').removeClass('bgchange');
+    // ===== DOM 元素 =====
+    var typeInputs    = document.querySelectorAll('input[name="type"]'); // 所有搜索引擎单选框
+    var searchForm    = document.querySelector('#super-search-fm');      // 搜索表单
+    var searchInput   = document.querySelector('#search-text');          // 关键词输入框
+    var blankCheckbox = document.querySelector('#set-search-blank');     // 「新窗口打开」开关
+    var searchGroups  = document.querySelectorAll('.search-group');      // 搜索引擎分组（用于高亮）
+
+    // ===== localStorage 读写工具（键名带 superSearch 前缀） =====
+    function saveSetting(key, value) {
+        localStorage.setItem('superSearch' + key, value);
     }
+    function readSetting(key) {
+        return localStorage.getItem('superSearch' + key);
+    }
+
+    // ===== 状态读取 =====
+    /** 当前选中的搜索引擎 input */
+    function getCheckedInput() {
+        return document.querySelector('input[name="type"]:checked');
+    }
+    /** 当前选中引擎的搜索 URL 前缀 */
+    function getSearchUrl() {
+        return getCheckedInput().value;
+    }
+    /** 当前选中引擎的提示语 */
+    function getPlaceholder() {
+        return getCheckedInput().getAttribute('data-placeholder');
+    }
+    /** 是否新窗口打开（默认 true） */
+    function isNewWindow() {
+        var stored = readSetting('NewWindow');
+        return stored ? stored === '1' : true;
+    }
+    /** 记住的引擎 value（无记录时取第一个引擎） */
+    function getSavedType() {
+        var saved = readSetting('Type');
+        return saved || typeInputs[0].value;
+    }
+
+    // ===== 视图更新 =====
+    /** 更新表单 target（新窗口/当前窗口） */
+    function updateFormTarget(newWindow) {
+        if (newWindow) {
+            searchForm.target = '_blank';
+        } else {
+            searchForm.removeAttribute('target');
+        }
+    }
+    /** 高亮当前选中引擎所在的分组 */
+    function highlightGroup(input) {
+        for (var i = 0; i < searchGroups.length; i++) {
+            searchGroups[i].classList.remove('s-current');
+        }
+        input.parentNode.parentNode.parentNode.classList.add('s-current');
+    }
+
+    // ===== 事件处理 =====
+    /** 切换搜索引擎 */
+    function onTypeChange(e) {
+        var input = e.target;
+        searchInput.setAttribute('placeholder', getPlaceholder());
+        searchForm.action = input.value;
+        saveSetting('Type', input.value);
+        searchInput.focus();
+        highlightGroup(input);
+    }
+
+    /** 切换「新窗口打开」开关 */
+    function onBlankChange(e) {
+        saveSetting('NewWindow', e.target.checked ? 1 : -1);
+        updateFormTarget(e.target.checked);
+    }
+
+    /** 提交搜索：拼接 URL 并跳转 */
+    function onSubmit(e) {
+        e.preventDefault();
+        var query = searchInput.value;
+        if (query === '') {
+            searchInput.focus();
+            return false;
+        }
+        var url = getSearchUrl() + query;
+        searchForm.action = url;
+        updateFormTarget(isNewWindow());
+        if (isNewWindow()) {
+            // 第二个参数使用时间戳，避免同名窗口被复用
+            window.open(url, +new Date());
+        } else {
+            window.location.href = url;
+        }
+    }
+
+    // ===== 初始化 =====
+    function init() {
+        // 恢复「新窗口打开」开关状态
+        blankCheckbox.checked = isNewWindow();
+        // 恢复上次选择的搜索引擎
+        var savedInput = document.querySelector('input[name="type"][value="' + getSavedType() + '"]');
+        if (savedInput) {
+            savedInput.checked = true;
+            highlightGroup(savedInput);
+        }
+        // 恢复 placeholder 与表单 action
+        searchInput.setAttribute('placeholder', getPlaceholder());
+        searchForm.action = getSearchUrl();
+    }
+
+    // ===== 绑定事件 =====
+    init();
+    for (var i = 0; i < typeInputs.length; i++) {
+        typeInputs[i].addEventListener('change', onTypeChange);
+    }
+    blankCheckbox.addEventListener('change', onBlankChange);
+    searchForm.addEventListener('submit', onSubmit);
+})();
+
+
+//回到顶部（使用 requestAnimationFrame 节流，避免 scroll 事件高频触发造成性能损耗）
+var scrollTicking = false;
+$(window).scroll(function () {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(function () {
+        if ($(window).scrollTop() >= 50) {
+            $('#topup').fadeIn(200);
+            $('.sidebar-menu').addClass('bgchange');
+        } else {
+            $('#topup').fadeOut(200);
+            $('.sidebar-menu').removeClass('bgchange');
+        }
+        scrollTicking = false;
+    });
 });
 $('a[rel="go-top"]').click(function () {
-    window.scrollTo(0,0)
-}); 
+    window.scrollTo(0, 0);
+});
 
 //鼠标样式
 const body = document.querySelector("body");
@@ -136,7 +255,8 @@ function stars() {
     let height = window.innerHeight; // 当前窗口高度
     let stars = []; // 存放所有星星对象
     let initialBurst = true; // 初始阶段，是否让流星出现更多
-    const STAR_COUNT = Math.floor(0.3 * width); // 根据屏幕宽度决定星星数量
+    // 根据屏幕宽度决定星星数量，并设置上限 400，避免宽屏设备粒子过多造成掉帧
+    const STAR_COUNT = Math.min(Math.floor(0.3 * width), 400);
   
     // 定义星星、巨星、流星的颜色（RGB）
     const COLORS = {
@@ -262,8 +382,12 @@ function stars() {
       setTimeout(() => initialBurst = false, 50); // 50ms后关闭初始爆发
     }
   
-    // 监听窗口尺寸变化，重新调整画布大小
-    window.addEventListener("resize", resizeCanvas);
+    // 监听窗口尺寸变化，重新调整画布大小（防抖 200ms，避免拖拽窗口时频繁重排）
+    let resizeTimer = null;
+    window.addEventListener("resize", function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(resizeCanvas, 200);
+    });
   
     // 执行初始化
     init();
@@ -518,10 +642,14 @@ $(document).ready(function() {
     });
 });
 
-function imgerrorfun(){  
-    const img = event.srcElement; // 获取触发错误的图片元素
+/**
+ * 图片加载失败时的兜底处理
+ * @param {HTMLImageElement} img 触发错误的图片元素（通过 onerror="imgerrorfun(this)" 传入）
+ * 修复：原代码依赖全局 event 对象（event.srcElement），Firefox 下不兼容会报错
+ */
+function imgerrorfun(img) {
     img.src = '/images/browser.svg'; // 替换为默认占位图
-    img.onerror = null; // 避免无限循环
+    img.onerror = null; // 置空回调，避免占位图也加载失败时无限循环
 } 
 
 // 获取所有带有 data-bs-toggle="tooltip" 的元素，转换为数组
@@ -612,53 +740,14 @@ jQuery(window).on('resize orientationchange', trigger_resizable);
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(times, 1000);        // 获取当前时间并显示
-    //fetchWeatherData();             // 通过 IP 获取城市信息和天气数据，现在用 qweather.js 获取
     fetchDongManData();             // 获取动漫经典语录数据
     fetchEnglishData();             // 获取励志英语数据
 });
 
 
-// NOTE: 通过 IP 获取城市信息和天气数据
-function fetchWeatherData() {
-    fetch('http://ipwho.is/?output=json&lang=zh-CN')
-    //fetch('https://api.vvhan.com/api/ipInfo')     //备用API-获取IP信息
-        .then(response => response.json())
-        .then(ipData => {
-            // const data = JSON.parse(JSON.stringify(ipData));
-            // const city = data.city;
-            // if(city!=undefined && city!=null && city!=''){
-            //     city += '市';
-            // }
-            // console.log('定位城市:', city);
-            const IP = ipData.ip;
-            // 2. 调用天气 API
-            return fetch(`https://api.vvhan.com/api/weather?ip=${encodeURIComponent(IP)}`)
-            //return fetch(`https://api.dwo.cc/api/tianqi?districtId=${encodeURIComponent(city)}`)   //备用API-获取天气信息
-                        .then(weatherResponse => weatherResponse.json())
-                        .then(weatherData => {
-                            // 动态创建天气HTML结构
-                            const container = document.getElementById('weather-container');
-                            container.innerHTML = `
-                                <span id="text_city"></span>&nbsp;
-                                <span id="text_weather"></span>&nbsp;
-                                <span id="text_low"></span>~
-                                <span id="text_high"></span>&nbsp;
-                                <span id="text_wind"></span>&nbsp;
-                                <span id="text_rh"></span>
-                            `;
-                            // 3. 更新页面天气信息
-                            $('#text_city').text(weatherData.city || '未知城市');//城市
-                            $('#text_weather').text(weatherData.data?.type || '');//天气
-                            $('#text_low').text(weatherData.data?.low || '');//最低气温
-                            $('#text_high').text(weatherData.data?.high || '');//最高气温
-                            $('#text_wind').text(weatherData.data?.fengxiang || '');//风向
-                            $('#text_rh').text(weatherData.data?.fengli || '');//风力
-                        });
-        })
-        .catch(error => {
-            $('#weather-container').html('<span class="error">定位 或 天气数据加载失败</span>');
-        });
-}
+// NOTE: 原 fetchWeatherData()（通过 IP 获取天气的旧实现）已删除——
+//       功能已被 js/qweather.js（和风天气 API）完全取代，
+//       且其依赖的 http://ipwho.is 在 HTTPS 页面下会被浏览器拦截（混合内容问题）。
 
 // NOTE: 获取动漫经典语录数据
 function fetchDongManData() {
@@ -673,8 +762,6 @@ function fetchDongManData() {
             }
         })
         .then(data => {
-            console.log("dongman_content:", data.data.content);
-            console.log("dongman_from:", data.data.form);
             var anime_text = data.data.content + " ——《 " + data.data.form + " 》";
             // 显示到 <p id="anime_text"></p> 并美化样式
             var textP = document.getElementById('anime_text');
@@ -688,7 +775,9 @@ function fetchDongManData() {
                 textP.style.fontFamily = 'LXGW WenKai, "微软雅黑", "Arial", sans-serif';
                 textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
             }
-        });
+        })
+        // API 故障时静默降级，避免产生未捕获的 Promise 报错
+        .catch(error => console.warn('动漫语录加载失败:', error));
 }
 
 // NOTE: 获取励志英语数据
@@ -696,10 +785,7 @@ function fetchEnglishData() {
     fetch('https://api.vvhan.com/api/dailyEnglish?type=sj')
         .then(response => response.json())
         .then(data => {
-            console.log("english_zh:", data.data.zh);
-            console.log("english_en:", data.data.en);
             var english_text = data.data.en + " ——" + data.data.zh;
-            console.log("english_text:", english_text);
             var textP = document.getElementById('english_text');
             if (textP) {
                 textP.innerHTML = english_text;
@@ -711,14 +797,15 @@ function fetchEnglishData() {
                 textP.style.fontFamily = 'LXGW ZhenKai, "微软雅黑", "Arial", sans-serif';
                 textP.style.textShadow = '0 2px 8px rgba(33,150,243,0.15)';
             }
-        });
+        })
+        // API 故障时静默降级，避免产生未捕获的 Promise 报错
+        .catch(error => console.warn('励志英语加载失败:', error));
 }
 
-// NOTE: 获取当前时间并显示
+// NOTE: 获取当前时间并显示（每秒递归调用自身刷新）
 function times() {
-    let t = null;
-    clearTimeout(t);
-    dt = new Date();
+    // 修复：原代码 dt 未声明导致隐式全局变量，且存在无效的 clearTimeout(null)
+    const dt = new Date();
     let y = dt.getYear() + 1900;
     let mm = dt.getMonth() + 1;
     let d = dt.getDate();
@@ -737,7 +824,7 @@ function times() {
         s = "0" + s;
     }
     $("#times").html(y + "." + mm + "." + d + "&nbsp;" + "<span class='weekday'>" + weekday[day] + "</span><br>" + "<span class='time-text'>" + h + ":" + m + ":" + s + "</span>");
-    t = setTimeout(times, 1000);
+    setTimeout(times, 1000);
 }
 
 
@@ -799,7 +886,7 @@ fetch('/json/links_data.json')
                         <div class="w-comment-entry">
                             <a>
                                 <img data-src="${link.icon}" 
-                                class="lozad img-circle" onerror="imgerrorfun();">
+                                class="lozad img-circle" onerror="imgerrorfun(this)">
                             </a>
                             <div class="w-comment">
                                 <a class="overflowClip_1"><strong>${link.title}</strong></a>
@@ -820,27 +907,17 @@ fetch('/json/links_data.json')
     });
 
 
-// NOTE: 脚注
+// NOTE: 脚注——页面加载耗时
 $(document).ready(function () {
     var t1 = performance.now();
     if (typeof t1 != "undefined") { document.getElementById("time").innerHTML = " 页面加载耗时 " + Math.round(t1) + " 毫秒 "; }
-    $.get("/cdn-cgi/trace", function (data) {
-        sip = data.match(/(ip=?)(\S*)/)[2];
-        str = data.match(/(colo=?)(\S*)/)[2];
-        loc = data.match(/(loc=?)(\S*)/)[2];
-        sts = data.match(/(http==?)(\S*)/)[2];
-        tls = data.match(/(tls==?)(\S*)/)[2];
-        $("#result").append("节点:" + str);
-        $("#result").append("\n访客:" + loc);
-        $("#result").append("\n" + sts);
-        $("#result").append("\n加密:" + tls);
-        $("#result").append("\nIP:" + sip);
-    });
 });
+// NOTE: 原 $.get("/cdn-cgi/trace") 访客信息展示已删除——
+//       该接口是 Cloudflare 专有功能，本站部署在 GitHub Pages，
+//       请求返回 404 HTML，正则 match 结果为 null 会直接抛出 TypeError。
 
 
-// INFO: 控制台输出
-console.clear();
+// INFO: 控制台输出（已移除 console.clear()，避免抹掉调试有用的报错信息）
 let styleTitle1 = `
 font-size: 20px;
 font-weight: 600;

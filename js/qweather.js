@@ -8,7 +8,8 @@ class QWeather {
 
     // 获取当前位置天气信息
     getCurrentWeather(location) {
-        // 使用和风天气API获取当前天气，示例：https://devapi.qweather.com/v7/weather/now?location=101010100&key=30247c73bcce4bb39dde019fa82f69e9
+        // 使用和风天气API获取当前天气
+        // 请求格式：https://devapi.qweather.com/v7/weather/now?location={城市ID}&key={API密钥}
         const url = `${this.baseUrl}/weather/now?location=${location}&key=${this.apiKey}`;
         return fetch(url).then(response => response.json());
     }
@@ -40,7 +41,12 @@ class QWeather {
 
 // 天气显示功能
 $(document).ready(function() {
-    // 和风天气API密钥
+    /**
+     * 和风天气API密钥
+     * ⚠️ 安全提示：纯静态站点无法真正隐藏前端密钥，该 Key 已暴露在公开仓库中，
+     *    建议到和风天气控制台重置密钥，并为新 Key 配置用量上限与防盗链白名单，
+     *    防止被他人盗用产生超额费用。
+     */
     const API_KEY = '30247c73bcce4bb39dde019fa82f69e9';
     
     // 创建和风天气实例
@@ -60,15 +66,14 @@ $(document).ready(function() {
                 // ! 方式A：尝试使用API获取IP和城市信息
                 const ipResponse = await fetch('https://api.vvhan.com/api/ipInfo');
                 if (!ipResponse.ok) throw new Error('IP API请求失败');
-                
+
                 const ipData = await ipResponse.json();
-                console.log('方式A：IP定位成功:', ipData);
-                
+                // 注意：不要在控制台打印 ipData，其中包含访客 IP 等隐私信息
+
                 if (ipData.success && ipData.info.city) {
                     // 使用城市名称获取城市ID
                     const cityData = await qweather.getCityIdByName(ipData.info.city);
-                    console.log('方式A：城市信息:', cityData);
-                    
+
                     if (cityData.code === '200' && cityData.location && cityData.location.length > 0) {
                         cityId = cityData.location[0].id;
                         cityName = cityData.location[0].name;
@@ -80,20 +85,21 @@ $(document).ready(function() {
                 // ! 方式B：通过经纬度获取城市信息
                 try {
                     // 获取访问者IP和地理位置经纬度
-                    const response = await fetch('http://ip-api.com/json/');
+                    // 修复：原接口 http://ip-api.com/json/ 为明文 HTTP，
+                    //       在 HTTPS 页面下会被浏览器拦截（混合内容），导致方式B永远失败。
+                    //       改用支持 HTTPS 的免费接口 ipwho.is。
+                    const response = await fetch('https://ipwho.is/');
                     const ipData = await response.json();
-                    
-                    console.log('IP定位成功:', ipData);
-                    if (ipData && ipData.lat && ipData.lon) {
+
+                    if (ipData && ipData.latitude && ipData.longitude) {
                         // 通过经纬度获取城市信息
                         const cityData = await qweather.getCityByCoordinates(
-                            ipData.lon.toFixed(2), 
-                            ipData.lat.toFixed(2)
+                            ipData.longitude.toFixed(2),
+                            ipData.latitude.toFixed(2)
                         );
                         if (cityData.code === '200' && cityData.location && cityData.location.length > 0) {
                             cityId = cityData.location[0].id;
                             cityName = cityData.location[0].name;
-                            console.log('方式B：城市信息:', cityData);
                         }
                     }
                 } catch (ipError_B) {
@@ -113,7 +119,6 @@ $(document).ready(function() {
                             if (cityData.code === '200' && cityData.location && cityData.location.length > 0) {
                                 cityId = cityData.location[0].id;
                                 cityName = cityData.location[0].name;
-                                console.log('方式C：城市信息:', cityData);
                             }
                         } catch (geoError_C) {
                             console.warn('方式C：Geolocation API获取位置失败，使用默认城市:', geoError_C);
@@ -124,8 +129,7 @@ $(document).ready(function() {
             
             // 获取当前天气信息
             const weatherData = await qweather.getCurrentWeather(cityId);
-            console.log('当前天气数据:', weatherData);
-            
+
             if (weatherData.code !== '200') {
                 $('#weather-container').html('<span class="error">天气数据加载失败</span>');
                 return;
@@ -148,6 +152,10 @@ $(document).ready(function() {
             $('#weather-container').append('<button class="retry-button" onclick="fetchWeatherInfo()">重试</button>');
         }
     }
+
+    // 修复：重试按钮通过 onclick 调用全局函数，需将内部函数暴露到 window，
+    //       否则会报 "fetchWeatherInfo is not defined"
+    window.fetchWeatherInfo = fetchWeatherInfo;
 
     // 页面加载时获取天气信息
     if ($('#weather-container').length > 0) {

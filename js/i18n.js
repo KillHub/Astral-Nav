@@ -145,7 +145,7 @@ i18next
     .use(i18nextBrowserLanguageDetector)
     .init({
         fallbackLng: 'zh',
-        debug: true,
+        debug: false, // 生产环境关闭调试日志（排查翻译问题时临时设为 true）
         resources: resources,
     }, function(err, t) {
         if (err) {
