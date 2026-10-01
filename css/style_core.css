@@ -834,6 +834,19 @@ footer.main-footer.fixed {
   right: 10px;
   top: 8px;
   z-index: 10; /* 避免被导航栏其他元素遮挡 */
+  white-space: nowrap; /* 天气信息始终单行，便于下方预留固定宽度 */
+  pointer-events: none; /* 容器不拦截下方导航按钮的点击 */
+}
+/* 加载失败时的重试按钮仍需可点击（qweather.js 动态生成） */
+#weather-container .retry-button {
+  pointer-events: auto;
+}
+/* 为绝对定位的天气组件预留右侧空间：
+   限制导航菜单最大宽度，按钮超出时提前换行而不是伸进天气区域（1200px 以下天气隐藏，无需预留） */
+@media (min-width: 1200px) {
+  .user-info-navbar .user-info-menu {
+    max-width: calc(100% - 480px); /* 480px ≈ 天气组件宽度 + 右间距 */
+  }
 }
 .weather,
 .myinfo p {

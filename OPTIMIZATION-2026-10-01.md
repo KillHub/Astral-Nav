@@ -32,6 +32,7 @@
 - 6 段内联脚本（Live2D 配置、window.open 拦截、角标统计、悬浮搜索、APlayer、openLinkInSwal）全部抽取到 `js/` 目录独立文件
 
 **Bug 修复**
+- 天气组件错位修复：原 `float:right` 方案在 Bootstrap 5 的 flex 导航栏中失效（flex item 上 float 无效），按钮增多后天气被挤到第二行左侧；改为绝对定位于导航栏右上角（`#weather-container`），导航菜单限制最大宽度预留空间，并加 `pointer-events:none` 避免拦截按钮点击（重试按钮除外）
 - `target="_black"` → `target="_blank"`（拼写错误）
 - `id="fk-span"` / `id="fk-span-right"` 在页面重复出现 4 次（HTML 非法），改为 class，CSS 选择器同步修改
 - `og:url` 从占位符 `astral-nav.example.com` 改为真实地址 `https://killhub.github.io/Astral-Nav/`
