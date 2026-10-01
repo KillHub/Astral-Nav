@@ -69,6 +69,18 @@
 ##### V1.4.7 - 2025.8.25
 - 增加：百度金融智能体FinScope功能
 
+##### V1.5.0 - 2026.10.1
+- 优化：全部非关键脚本添加 defer，不再阻塞首屏渲染
+- 优化：Live2D 看板娘模型迁移至本地，不再依赖境外 CDN
+- 优化：内联脚本抽取为独立 JS 文件，index.html 精简约 280 行
+- 优化：还原搜索框 eval 混淆代码为可读实现，补全注释
+- 优化：搜索联想增加 300ms 防抖，scroll/resize 事件增加节流防抖
+- 修复：HTTPS 下 IP 定位失败（混合内容拦截）
+- 修复：天气重试按钮失效、重复 id、target="_black" 等多处 Bug
+- 修复：移除 GitHub Pages 下必报错的 /cdn-cgi/trace 请求
+- 增加：.gitignore，清理 .idea / .DS_Store 版本跟踪
+- 详见：[OPTIMIZATION-2026-10-01.md](OPTIMIZATION-2026-10-01.md)
+
 ---
 
 ## 👋 你好，我是 Steven Zhao 

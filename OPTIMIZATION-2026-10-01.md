@@ -14,7 +14,7 @@
 | `js/aplayer_init.js` | APlayer 音乐播放器初始化（从 index.html 内联脚本抽取） |
 | `js/page_extras.js` | 页面附加功能合集：window.open 外链拦截、链接角标统计、悬浮快速搜索、`openLinkInSwal`（从 index.html 内联脚本抽取） |
 | `.gitignore` | 忽略 `.DS_Store`、`.idea/`、`*.rar` 等不应入库的文件 |
-| `OPTIMIZATION.md` | 本文档 |
+| `OPTIMIZATION-2026-10-01.md` | 本文档 |
 
 ---
 
